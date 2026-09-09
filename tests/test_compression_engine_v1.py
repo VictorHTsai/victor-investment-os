@@ -123,6 +123,19 @@ def test_provenance_is_propagated_and_output_is_deterministic():
     assert first["configuration"]["realized_volatility_annualization_factor"] == 365
 
 
+def test_weekday_gap_is_not_confirmed_missing_or_a_quality_penalty():
+    dataset = make_dataset()
+    dataset.records.pop(100)
+    dataset.metadata.actual_observation_count = len(dataset.records)
+
+    data_quality = output(dataset)["data_quality"]
+
+    assert data_quality["weekday_gap_estimate"] > 0
+    assert data_quality["confirmed_missing_sessions"] is None
+    assert data_quality["estimated_missing_observations"] is None
+    assert data_quality["quality_status"] == "VALID"
+
+
 def test_real_feature_vector_validates_against_contract():
     schema_path = Path(__file__).parents[1] / "contracts" / "v1" / "compression_engine.schema.json"
     jsonschema.validate(output(make_dataset()), json.loads(schema_path.read_text()))

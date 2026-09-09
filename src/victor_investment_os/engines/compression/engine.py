@@ -61,6 +61,8 @@ class CompressionEngineV1(CompressionEngine):
     def requirements(self, request: RequestEnvelope) -> list[DataRequirement]:
         analysis_date = _dt(request.analysis_as_of).date()
         # Phase 2 conservatively excludes the current potentially incomplete daily bar.
+        # TODO(Phase 2.1): replace this date-only rule with provider-aware bar-completion
+        # logic using asset calendar, exchange timezone/session close, and timestamp semantics.
         completed_data_end = analysis_date - timedelta(days=1)
         # Extra calendar time supplies 252-bar warm-up plus 20-bar change history.
         requested_start = _minus_years(
@@ -374,14 +376,28 @@ class CompressionEngineV1(CompressionEngine):
         volume_status = ("AVAILABLE" if volume_count == len(rows)
                          else "UNAVAILABLE" if volume_count == 0 else "PARTIAL")
         quality_status = "VALID" if volume_status == "AVAILABLE" else "PARTIAL"
+        is_continuous = calendar_type == TradingCalendarType.CONTINUOUS_24_7.value
+        weekday_gap_estimate = (
+            max(expected - available, 0)
+            if expected is not None and not is_continuous else None
+        )
         return {
             "requested_observations": None,
             "requested_feature_warmup_bars": max(self.config.feature_windows),
             "estimated_expected_observations": expected,
             "available_observations": available,
-            "estimated_missing_observations": max(expected - available, 0) if expected is not None else None,
-            "missing_observations_note": ("Estimate uses weekdays, not an exchange holiday calendar"
-                                          if calendar_type != TradingCalendarType.CONTINUOUS_24_7.value else None),
+            # Retained as a nullable compatibility field. Confirmed gaps require an
+            # exchange/session calendar; weekday gaps include normal market holidays.
+            "estimated_missing_observations": None,
+            "confirmed_missing_sessions": None,
+            "weekday_gap_estimate": weekday_gap_estimate,
+            "missing_observations_note": (
+                "confirmed_missing_sessions is unknown until exchange-calendar-aware "
+                "validation exists; weekday_gap_estimate includes normal market holidays "
+                "and is descriptive only"
+                if not is_continuous else
+                "confirmed_missing_sessions is unknown until session-aware validation exists"
+            ),
             "volume_availability": volume_status,
             "adjustment_policy": (metadata.adjustment_policy if metadata
                                   else dataset.provenance.adjustment_policy),

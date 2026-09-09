@@ -64,6 +64,28 @@ def test_alpaca_normalization_records_corporate_action_policy():
     assert dataset.records[1]["close"] == 12
 
 
+def test_configured_alpaca_route_is_primary_without_silent_fallback():
+    bars = [{"t": "2024-01-02T05:00:00Z", "o": 10, "h": 12, "l": 9, "c": 11, "v": 100},
+            {"t": "2024-01-03T05:00:00Z", "o": 11, "h": 13, "l": 10, "c": 12, "v": 120}]
+    alpaca_http = FakeHTTP({"bars": bars, "next_page_token": None})
+    yahoo_http = FakeHTTP(yahoo_payload())
+    worker = DataRetrievalWorker(router=SourceRouter([
+        AlpacaMarketDataAdapter(alpaca_http, api_key="test-key", api_secret="test-secret"),
+        YahooChartAdapter(yahoo_http),
+    ]))
+
+    dataset = worker.retrieve(planned())
+
+    assert isinstance(dataset, Dataset)
+    assert dataset.provenance.source_id == "alpaca-market-data"
+    assert dataset.metadata.adjustment_policy == "SPLIT_DIVIDEND_ADJUSTED"
+    assert dataset.metadata.actual_start_date == bars[0]["t"]
+    assert dataset.metadata.actual_end_date == bars[-1]["t"]
+    assert alpaca_http.calls
+    assert not yahoo_http.calls
+    assert not any("Fallback source used" in warning for warning in dataset.metadata.warnings)
+
+
 def test_coinbase_normalizes_and_sorts_exchange_candles():
     rows = [[1704240000, 40, 50, 42, 48, 10], [1704153600, 35, 45, 38, 42, 9]]
     dataset = CoinbaseExchangeAdapter().normalize(rows, planned("CRYPTO", "BTC-USD", "NOT_APPLICABLE"))

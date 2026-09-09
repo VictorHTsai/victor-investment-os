@@ -130,6 +130,10 @@ The first command preserves the Phase 1 mock assessment. The second performs the
 
 Daily analysis conservatively excludes the current calendar day's potentially incomplete bar. Retrieval includes two extra calendar years so the 252-bar feature has enough warm-up for five-year percentiles and twenty-bar change comparisons.
 
+This completed-bar rule is intentionally temporary and lives in `CompressionEngineV1.requirements()` in `src/victor_investment_os/engines/compression/engine.py`. A future implementation must decide daily-bar completeness from the asset type, trading calendar, exchange timezone, market/session close, and provider timestamp semantics. For example, a completed same-date US-equity bar may be usable after that exchange's close, while a 24/7 crypto daily bar follows different provider/session boundaries. Phase 2.1 documents this limitation without adding an exchange-calendar or scheduling subsystem.
+
+Data quality distinguishes confirmed gaps from a weekday-only diagnostic. `confirmed_missing_sessions` remains `null` until exchange-calendar-aware validation exists. `weekday_gap_estimate` may include normal US market holidays, is descriptive only, and never changes `quality_status`. The deprecated compatibility field `estimated_missing_observations` is now `null` rather than presenting the weekday estimate as confirmed missing data.
+
 ## Extension points
 
 - Add an adapter by implementing `SourceAdapter.supports()` and `retrieve()` and returning normalized `Dataset` plus `Provenance`.
@@ -155,7 +159,7 @@ All changes remain within `contracts/v1` and are additive or explicitly dual-sha
 - Frequency compatibility is exact string equality; no resampling is performed.
 - Normalization compatibility is exact equality; no adjustment conversion is performed.
 - Proxy strictness is `DISALLOW > ALLOW_WITH_WARNING > ALLOW`.
-- Equity expected-observation diagnostics count weekdays but do not yet use an exchange-holiday calendar; this is labeled as an estimate.
+- Equity `weekday_gap_estimate` counts weekdays but not exchange holidays; it is descriptive only. `confirmed_missing_sessions` remains unknown and normal market holidays do not reduce data quality.
 - Realized volatility uses annualization factor 252 for US equity sessions and 365 for continuous crypto.
 - Historical context sufficiency requires timestamp coverage and configurable 80% observation density; this is a data-quality rule, not an investment threshold.
 - Setup's score/state are fixed mock values, not a scoring model.
