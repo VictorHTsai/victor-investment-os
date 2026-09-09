@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Planned Data Request v1",
+  "type": "object",
+  "required": ["request_key", "asset", "dataset_type", "frequency", "lookback_days", "minimum_observations", "required_fields", "max_age_seconds", "proxy_policy", "normalization", "consumers"],
+  "properties": {
+    "request_key": {"type": "string"}, "asset": {"type": "object"},
+    "dataset_type": {"type": "string"}, "frequency": {"type": "string"},
+    "lookback_days": {"type": "integer", "minimum": 1}, "minimum_observations": {"type": "integer", "minimum": 1},
+    "required_fields": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "max_age_seconds": {"type": "integer", "minimum": 0},
+    "proxy_policy": {"enum": ["ALLOW", "ALLOW_WITH_WARNING", "DISALLOW"]},
+    "normalization": {"type": "string"}, "consumers": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+  }
+}
+

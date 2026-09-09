@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Normalized Dataset v1",
+  "type": "object",
+  "required": ["request_key", "records", "provenance", "is_mock"],
+  "properties": {
+    "request_key": {"type": "string"}, "records": {"type": "array", "items": {"type": "object"}},
+    "provenance": {"type": "object"}, "is_mock": {"type": "boolean"}
+  }
+}
+

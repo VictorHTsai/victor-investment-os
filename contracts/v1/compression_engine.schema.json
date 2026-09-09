@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Compression Engine Output v1",
+  "type": "object",
+  "required": ["overall_score", "classification", "component_scores", "historical_percentiles", "score_trend", "primary_drivers", "confidence", "provenance"],
+  "properties": {
+    "is_mock": {"type": "boolean"}, "overall_score": {"type": "number", "minimum": 0, "maximum": 100},
+    "classification": {"type": "string"}, "component_scores": {"type": "object", "additionalProperties": {"type": "number"}},
+    "historical_percentiles": {"type": "object", "additionalProperties": {"type": "number"}},
+    "score_trend": {"type": "string"}, "primary_drivers": {"type": "array", "items": {"type": "string"}},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1}, "provenance": {"type": "array", "items": {"type": "object"}}
+  }
+}
+

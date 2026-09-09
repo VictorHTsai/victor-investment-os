@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Setup Engine Output v1",
+  "type": "object",
+  "required": ["opportunity_score", "setup_state", "engine_snapshot", "missing_engines", "confidence"],
+  "properties": {
+    "is_mock": {"type": "boolean"}, "mock_logic_id": {"type": "string"},
+    "opportunity_score": {"type": "number", "minimum": 0, "maximum": 100},
+    "setup_state": {"enum": ["IGNORE", "WATCH", "SETUP", "TRIGGERED"]},
+    "trigger": {"type": ["string", "null"]}, "invalidation": {"type": ["string", "null"]},
+    "engine_snapshot": {"type": "object"}, "missing_engines": {"type": "array", "items": {"type": "string"}},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+  }
+}
+

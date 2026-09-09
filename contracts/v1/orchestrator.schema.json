@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Orchestrator Result v1",
+  "type": "object",
+  "required": ["contract_version", "request_id", "execution", "assessment", "failures", "is_mock"],
+  "properties": {
+    "contract_version": {"const": "1.0"}, "request_id": {"type": "string"},
+    "analysis_as_of": {"type": "string"}, "asset": {"type": "object"}, "mode": {"type": "string"},
+    "is_mock": {"type": "boolean"}, "execution": {"type": "object"},
+    "assessment": {"type": ["object", "null"]}, "failures": {"type": "array"}
+  }
+}
+

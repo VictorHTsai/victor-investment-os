@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Specialized Investment Agent Assessment v1",
+  "type": "object",
+  "required": ["assessment_state", "opportunity_score", "action_triggered", "confidence", "one_line_thesis", "supporting_evidence", "contradicting_evidence", "bull_case", "bear_case", "trigger", "invalidation", "missing_intelligence", "conflicts", "current_action", "next_research_step"],
+  "properties": {
+    "is_mock": {"type": "boolean"}, "assessment_state": {"enum": ["IGNORE", "WATCH", "SETUP", "TRIGGERED"]},
+    "opportunity_score": {"type": "number", "minimum": 0, "maximum": 100}, "action_triggered": {"type": "boolean"},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1}, "one_line_thesis": {"type": "string"},
+    "supporting_evidence": {"type": "array", "items": {"type": "string"}},
+    "contradicting_evidence": {"type": "array", "items": {"type": "string"}},
+    "bull_case": {}, "bear_case": {}, "trigger": {"type": ["string", "null"]},
+    "invalidation": {"type": ["string", "null"]}, "missing_intelligence": {"type": "array"},
+    "conflicts": {"type": "array"}, "current_action": {"type": "string"}, "next_research_step": {"type": "string"}
+  },
+  "allOf": [{"if": {"properties": {"action_triggered": {"const": true}}}, "then": {"properties": {"assessment_state": {"const": "TRIGGERED"}}}}]
+}
+

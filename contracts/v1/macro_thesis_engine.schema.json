@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Macro Thesis Engine Output v1",
+  "type": "object",
+  "required": ["status", "structural_drivers", "cycle_context", "bull_case", "base_case", "bear_case", "invalidation_conditions", "confidence", "provenance"],
+  "properties": {
+    "is_mock": {"type": "boolean"}, "status": {"type": "string"},
+    "structural_drivers": {"type": "array"}, "cycle_context": {}, "bull_case": {}, "base_case": {}, "bear_case": {},
+    "invalidation_conditions": {"type": "array"}, "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "provenance": {"type": "array"}
+  }
+}
+

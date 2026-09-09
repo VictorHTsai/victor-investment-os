@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://victor-investment-os.local/contracts/v1/common.schema.json",
+  "title": "Victor Investment OS Common Contract v1",
+  "$defs": {
+    "asset": {
+      "type": "object",
+      "required": ["symbol", "asset_type", "exchange", "currency"],
+      "properties": {
+        "symbol": {"type": "string", "minLength": 1},
+        "asset_type": {"type": "string"},
+        "exchange": {"type": "string"},
+        "currency": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "request_envelope": {
+      "type": "object",
+      "required": ["contract_version", "request_id", "analysis_as_of", "asset", "mode"],
+      "properties": {
+        "contract_version": {"const": "1.0"},
+        "request_id": {"type": "string", "minLength": 1},
+        "analysis_as_of": {"type": "string", "format": "date-time"},
+        "asset": {"$ref": "#/$defs/asset"},
+        "mode": {"enum": ["live", "backtest", "replay", "simulation"]}
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["source_id", "source_name", "source_tier", "retrieved_at", "source_timestamp", "data_type", "transformations", "confidence"],
+      "properties": {
+        "source_id": {"type": "string"}, "source_name": {"type": "string"},
+        "source_tier": {"type": "string"}, "retrieved_at": {"type": "string", "format": "date-time"},
+        "source_timestamp": {"type": "string", "format": "date-time"},
+        "data_type": {"enum": ["DIRECT", "RECONSTRUCTED", "PROXY", "INFERRED", "UNAVAILABLE"]},
+        "transformations": {"type": "array", "items": {"type": "string"}},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "failure": {
+      "type": "object",
+      "required": ["component", "code", "message", "recoverable"],
+      "properties": {
+        "component": {"type": "string"},
+        "code": {"enum": ["INSUFFICIENT_DATA", "DATA_UNAVAILABLE", "SOURCE_FAILURE", "VALIDATION_FAILED", "DEPENDENCY_FAILED", "CIRCULAR_DEPENDENCY", "ENGINE_FAILED", "AGENT_FAILED"]},
+        "message": {"type": "string"}, "recoverable": {"type": "boolean"},
+        "details": {"type": "object"}
+      }
+    }
+  },
+  "$ref": "#/$defs/request_envelope"
+}
+

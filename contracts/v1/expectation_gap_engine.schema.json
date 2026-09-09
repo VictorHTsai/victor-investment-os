@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Expectation Gap Engine Output v1",
+  "type": "object",
+  "required": ["status", "market_expectation", "thesis_expectation", "gap_direction", "confidence", "missing_inputs", "provenance"],
+  "properties": {
+    "is_mock": {"type": "boolean"}, "status": {"type": "string"},
+    "market_expectation": {}, "thesis_expectation": {}, "gap_direction": {"type": "string"},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "missing_inputs": {"type": "array", "items": {"type": "string"}}, "provenance": {"type": "array"}
+  }
+}
+

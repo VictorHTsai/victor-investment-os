@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Technical Engine Output v1",
+  "type": "object",
+  "required": ["overall_score", "trend", "structure", "support", "resistance", "breakout_state", "trigger", "invalidation", "momentum", "confidence", "provenance"],
+  "properties": {
+    "is_mock": {"type": "boolean"}, "overall_score": {"type": "number", "minimum": 0, "maximum": 100},
+    "trend": {"type": "string"}, "structure": {"type": "string"},
+    "support": {"type": "array", "items": {"type": "number"}}, "resistance": {"type": "array", "items": {"type": "number"}},
+    "breakout_state": {"type": "string"}, "trigger": {"type": ["string", "null"]},
+    "invalidation": {"type": ["string", "null"]}, "momentum": {"type": "string"},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1}, "provenance": {"type": "array", "items": {"type": "object"}}
+  }
+}
+
