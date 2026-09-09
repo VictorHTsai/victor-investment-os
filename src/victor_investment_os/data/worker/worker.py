@@ -4,6 +4,8 @@ import time
 
 from ...interfaces import DataWorker, SourceAdapter
 from ...models import ComponentFailure, Dataset, FailureCode, PlannedDataRequest
+from ..router import SourceRouter
+from ..validation import validate_ohlcv
 
 
 class MemoryTTLCache:
@@ -22,8 +24,9 @@ class MemoryTTLCache:
 
 
 class DataRetrievalWorker(DataWorker):
-    def __init__(self, adapters: list[SourceAdapter], cache: MemoryTTLCache | None = None):
-        self.adapters = sorted(adapters, key=lambda a: a.priority)
+    def __init__(self, adapters: list[SourceAdapter] | None = None,
+                 cache: MemoryTTLCache | None = None, router: SourceRouter | None = None):
+        self.router = router or SourceRouter(adapters or [])
         self.cache = cache or MemoryTTLCache()
 
     def retrieve(self, request: PlannedDataRequest) -> Dataset | ComponentFailure:
@@ -31,15 +34,19 @@ class DataRetrievalWorker(DataWorker):
         if cached:
             return cached
         failures = []
-        for adapter in self.adapters:
-            if not adapter.supports(request):
-                continue
+        for adapter in self.router.route(request):
             try:
                 dataset = adapter.retrieve(request)
                 validation = self._validate(request, dataset)
-                if validation:
-                    failures.append(f"{adapter.adapter_id}: {validation}")
+                if not validation.valid:
+                    failures.append(f"{adapter.adapter_id}: {'; '.join(validation.errors)}")
                     continue
+                if dataset.metadata:
+                    dataset.metadata.warnings.extend(validation.warnings)
+                    if failures:
+                        dataset.metadata.warnings.append(
+                            "Fallback source used after: " + "; ".join(failures)
+                        )
                 self.cache.put(request.request_key, dataset, request.max_age_seconds)
                 return dataset
             except Exception as exc:
@@ -48,11 +55,18 @@ class DataRetrievalWorker(DataWorker):
         return ComponentFailure("data_worker", code.value, "; ".join(failures) or "No adapter supports request", recoverable=True)
 
     @staticmethod
-    def _validate(request: PlannedDataRequest, dataset: Dataset) -> str | None:
+    def _validate(request: PlannedDataRequest, dataset: Dataset):
+        if (request.dataset_type == "OHLCV"
+                and {"open", "high", "low", "close"} <= request.required_fields):
+            return validate_ohlcv(dataset.records, request)
+        missing_errors = []
         if len(dataset.records) < request.minimum_observations:
-            return f"requires {request.minimum_observations} observations; got {len(dataset.records)}"
+            missing_errors.append(
+                f"requires {request.minimum_observations} observations; got {len(dataset.records)}"
+            )
         for index, row in enumerate(dataset.records):
             missing = request.required_fields - row.keys()
             if missing:
-                return f"record {index} missing fields: {sorted(missing)}"
-        return None
+                missing_errors.append(f"record {index} missing fields: {sorted(missing)}")
+        from ..validation import OHLCVValidationReport
+        return OHLCVValidationReport(not missing_errors, missing_errors)

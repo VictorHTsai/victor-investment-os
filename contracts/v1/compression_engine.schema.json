@@ -1,14 +1,93 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://victor-investment-os.local/contracts/v1/compression_engine.schema.json",
   "title": "Compression Engine Output v1",
-  "type": "object",
-  "required": ["overall_score", "classification", "component_scores", "historical_percentiles", "score_trend", "primary_drivers", "confidence", "provenance"],
-  "properties": {
-    "is_mock": {"type": "boolean"}, "overall_score": {"type": "number", "minimum": 0, "maximum": 100},
-    "classification": {"type": "string"}, "component_scores": {"type": "object", "additionalProperties": {"type": "number"}},
-    "historical_percentiles": {"type": "object", "additionalProperties": {"type": "number"}},
-    "score_trend": {"type": "string"}, "primary_drivers": {"type": "array", "items": {"type": "string"}},
-    "confidence": {"type": "number", "minimum": 0, "maximum": 1}, "provenance": {"type": "array", "items": {"type": "object"}}
-  }
+  "$defs": {
+    "legacy_phase1_mock": {
+      "type": "object",
+      "required": ["overall_score", "classification", "component_scores", "historical_percentiles", "score_trend", "primary_drivers", "confidence", "provenance"]
+    },
+    "historical_context": {
+      "type": "object",
+      "required": ["years", "role", "status", "context_start_date", "context_end_date", "observation_count", "observation_density", "raw_percentile", "compression_percentile", "compression_inversion_applied", "compression_percentile_5_bars_ago", "compression_percentile_change_5_bars", "compression_percentile_20_bars_ago", "compression_percentile_change_20_bars"],
+      "properties": {
+        "years": {"type": "integer", "minimum": 1},
+        "role": {"enum": ["PRIMARY", "SECONDARY"]},
+        "status": {"enum": ["AVAILABLE", "INSUFFICIENT_DATA", "UNAVAILABLE", "INVALID"]},
+        "context_start_date": {"type": ["string", "null"], "format": "date"},
+        "context_end_date": {"type": ["string", "null"], "format": "date"},
+        "observation_count": {"type": "integer", "minimum": 0},
+        "observation_density": {"type": "number", "minimum": 0},
+        "raw_percentile": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "compression_percentile": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "compression_inversion_applied": {"type": "boolean"},
+        "compression_percentile_5_bars_ago": {"type": ["number", "null"]},
+        "compression_percentile_change_5_bars": {"type": ["number", "null"]},
+        "raw_percentile_5_bars_ago": {"type": ["number", "null"]},
+        "compression_percentile_20_bars_ago": {"type": ["number", "null"]},
+        "compression_percentile_change_20_bars": {"type": ["number", "null"]},
+        "raw_percentile_20_bars_ago": {"type": ["number", "null"]}
+      }
+    },
+    "feature": {
+      "type": "object",
+      "required": ["feature_name", "window_bars", "status", "current_raw_value", "historical_contexts", "absolute_3y_5y_compression_percentile_difference"],
+      "properties": {
+        "feature_name": {"type": "string"},
+        "window_bars": {"type": "integer", "minimum": 1},
+        "parameters": {"type": "object"},
+        "status": {"enum": ["AVAILABLE", "INSUFFICIENT_DATA", "UNAVAILABLE", "INVALID"]},
+        "current_raw_value": {"type": ["number", "null"]},
+        "raw_value_5_bars_ago": {"type": ["number", "null"]},
+        "raw_value_20_bars_ago": {"type": ["number", "null"]},
+        "raw_change_5_bars": {"type": ["number", "null"]},
+        "raw_change_20_bars": {"type": ["number", "null"]},
+        "historical_contexts": {
+          "type": "object",
+          "required": ["3y", "5y"],
+          "properties": {"3y": {"$ref": "#/$defs/historical_context"}, "5y": {"$ref": "#/$defs/historical_context"}}
+        },
+        "absolute_3y_5y_compression_percentile_difference": {"type": ["number", "null"], "minimum": 0, "maximum": 1}
+      }
+    },
+    "v1_feature_vector": {
+      "type": "object",
+      "required": ["contract_version", "request_id", "engine", "engine_version", "asset", "analysis_as_of", "status", "is_mock", "configuration", "features", "data_quality", "warnings", "provenance"],
+      "properties": {
+        "contract_version": {"const": "1.0"},
+        "request_id": {"type": "string"},
+        "engine": {"const": "compression"},
+        "engine_version": {"type": "string"},
+        "asset": {"type": "object"},
+        "analysis_as_of": {"type": "string", "format": "date-time"},
+        "status": {"enum": ["AVAILABLE", "PARTIAL", "UNAVAILABLE", "INVALID"]},
+        "is_mock": {"const": false},
+        "configuration": {
+          "type": "object",
+          "required": ["frequency", "feature_windows_bars", "primary_historical_context", "secondary_historical_context", "percentile_convention"]
+        },
+        "features": {
+          "type": "object",
+          "required": ["realized_volatility", "normalized_atr", "bollinger_band_width", "rolling_price_range", "volume_activity"],
+          "properties": {
+            "realized_volatility": {"type": "array", "items": {"$ref": "#/$defs/feature"}},
+            "normalized_atr": {"type": "array", "items": {"$ref": "#/$defs/feature"}},
+            "bollinger_band_width": {"type": "array", "items": {"$ref": "#/$defs/feature"}},
+            "rolling_price_range": {"type": "array", "items": {"$ref": "#/$defs/feature"}},
+            "volume_activity": {"type": "array", "items": {"$ref": "#/$defs/feature"}}
+          }
+        },
+        "data_quality": {
+          "type": "object",
+          "required": ["available_observations", "volume_availability", "adjustment_policy", "trading_calendar_type", "requested_historical_start_date", "requested_historical_end_date", "actual_historical_start_date", "actual_historical_end_date", "actual_observation_count", "quality_status", "warnings"]
+        },
+        "warnings": {"type": "array", "items": {"type": "string"}},
+        "provenance": {"type": "array", "items": {"type": "object"}, "minItems": 1}
+      }
+    }
+  },
+  "anyOf": [
+    {"$ref": "#/$defs/legacy_phase1_mock"},
+    {"$ref": "#/$defs/v1_feature_vector"}
+  ]
 }
-

@@ -10,7 +10,12 @@
     "required_fields": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
     "max_age_seconds": {"type": "integer", "minimum": 0},
     "proxy_policy": {"enum": ["ALLOW", "ALLOW_WITH_WARNING", "DISALLOW"]},
-    "normalization": {"type": "string"}, "consumers": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+    "normalization": {"type": "string"}, "consumers": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "lookback_bars": {"type": ["integer", "null"], "minimum": 1},
+    "requested_start_date": {"type": ["string", "null"], "format": "date"},
+    "requested_end_date": {"type": ["string", "null"], "format": "date"},
+    "optional_fields": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "historical_context_years": {"type": ["integer", "null"], "minimum": 1},
+    "trading_calendar_type": {"enum": ["US_EQUITY_SESSIONS", "CONTINUOUS_24_7", "UNKNOWN", null]}
   }
 }
-

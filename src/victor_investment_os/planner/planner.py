@@ -17,7 +17,9 @@ class DataRequestPlanner:
     @staticmethod
     def _group_key(r: DataRequirement) -> tuple:
         a = r.asset
-        return (a.symbol, a.asset_type, a.exchange, a.currency, r.dataset_type, r.frequency, r.normalization)
+        return (a.symbol, a.asset_type, a.exchange, a.currency, r.dataset_type,
+                r.frequency, r.normalization, r.requested_end_date,
+                r.trading_calendar_type)
 
     def plan(self, requirements: list[DataRequirement]) -> list[PlannedDataRequest]:
         groups: dict[tuple, list[DataRequirement]] = {}
@@ -30,9 +32,16 @@ class DataRequestPlanner:
         for key, group in groups.items():
             first = group[0]
             fields = frozenset().union(*(r.required_fields for r in group))
+            optional_fields = frozenset().union(*(r.optional_fields for r in group)) - fields
             consumers = tuple(sorted({r.requester for r in group}))
             proxy = max(group, key=lambda r: self._PROXY_STRICTNESS[r.proxy_policy]).proxy_policy
-            digest = hashlib.sha256(repr((key, sorted(fields))).encode()).hexdigest()[:16]
+            start_dates = [r.requested_start_date for r in group if r.requested_start_date]
+            requested_start = min(start_dates) if start_dates else None
+            lookback_bars = max((r.lookback_bars or 0 for r in group), default=0) or None
+            context_years = max((r.historical_context_years or 0 for r in group), default=0) or None
+            identity = (key, sorted(fields), sorted(optional_fields), requested_start,
+                        lookback_bars, context_years)
+            digest = hashlib.sha256(repr(identity).encode()).hexdigest()[:16]
             planned.append(PlannedDataRequest(
                 request_key=f"data-{digest}", asset=first.asset,
                 dataset_type=first.dataset_type, frequency=first.frequency,
@@ -42,6 +51,11 @@ class DataRequestPlanner:
                 max_age_seconds=min(r.max_age_seconds for r in group),
                 proxy_policy=proxy, normalization=first.normalization,
                 consumers=consumers,
+                lookback_bars=lookback_bars,
+                requested_start_date=requested_start,
+                requested_end_date=first.requested_end_date,
+                optional_fields=optional_fields,
+                historical_context_years=context_years,
+                trading_calendar_type=first.trading_calendar_type,
             ))
         return sorted(planned, key=lambda x: x.request_key)
-

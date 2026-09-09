@@ -22,6 +22,29 @@ class DataClassification(StrEnum):
     UNAVAILABLE = "UNAVAILABLE"
 
 
+class SourceTier(StrEnum):
+    TIER_1 = "TIER_1"
+    TIER_2 = "TIER_2"
+    TIER_3 = "TIER_3"
+    TIER_4 = "TIER_4"
+    TIER_5 = "TIER_5"
+
+
+class AdjustmentPolicy(StrEnum):
+    RAW = "RAW"
+    SPLIT_ADJUSTED = "SPLIT_ADJUSTED"
+    SPLIT_DIVIDEND_ADJUSTED = "SPLIT_DIVIDEND_ADJUSTED"
+    PROVIDER_ADJUSTED = "PROVIDER_ADJUSTED"
+    NOT_APPLICABLE = "NOT_APPLICABLE"
+    UNKNOWN = "UNKNOWN"
+
+
+class TradingCalendarType(StrEnum):
+    US_EQUITY_SESSIONS = "US_EQUITY_SESSIONS"
+    CONTINUOUS_24_7 = "CONTINUOUS_24_7"
+    UNKNOWN = "UNKNOWN"
+
+
 class FailureCode(StrEnum):
     INSUFFICIENT_DATA = "INSUFFICIENT_DATA"
     DATA_UNAVAILABLE = "DATA_UNAVAILABLE"
@@ -69,6 +92,13 @@ class DataRequirement:
     max_age_seconds: int
     proxy_policy: str = "DISALLOW"
     normalization: str = "RAW"
+    # Phase 2 additions. lookback_days remains as a deprecated compatibility field.
+    lookback_bars: int | None = None
+    requested_start_date: str | None = None
+    requested_end_date: str | None = None
+    optional_fields: frozenset[str] = frozenset()
+    historical_context_years: int | None = None
+    trading_calendar_type: str | None = None
 
 
 @dataclass(frozen=True)
@@ -84,6 +114,12 @@ class PlannedDataRequest:
     proxy_policy: str
     normalization: str
     consumers: tuple[str, ...]
+    lookback_bars: int | None = None
+    requested_start_date: str | None = None
+    requested_end_date: str | None = None
+    optional_fields: frozenset[str] = frozenset()
+    historical_context_years: int | None = None
+    trading_calendar_type: str | None = None
 
 
 @dataclass
@@ -95,7 +131,25 @@ class Provenance:
     source_timestamp: str
     data_type: str
     transformations: list[str] = field(default_factory=list)
-    confidence: float = 1.0
+    confidence: float | None = None
+    adjustment_policy: str = AdjustmentPolicy.UNKNOWN.value
+
+
+@dataclass
+class DatasetMetadata:
+    symbol: str
+    asset_type: str
+    currency: str
+    frequency: str
+    trading_calendar_type: str
+    adjustment_policy: str
+    requested_start_date: str | None = None
+    requested_end_date: str | None = None
+    actual_start_date: str | None = None
+    actual_end_date: str | None = None
+    actual_observation_count: int = 0
+    requested_lookback_bars: int | None = None
+    warnings: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -104,6 +158,7 @@ class Dataset:
     records: list[dict[str, Any]]
     provenance: Provenance
     is_mock: bool = False
+    metadata: DatasetMetadata | None = None
 
 
 @dataclass
@@ -137,11 +192,12 @@ def to_dict(value: Any) -> Any:
         return {k: to_dict(v) for k, v in asdict(value).items()}
     if isinstance(value, Enum):
         return value.value
-    if isinstance(value, (set, frozenset, tuple)):
+    if isinstance(value, (set, frozenset)):
+        return [to_dict(v) for v in sorted(value)]
+    if isinstance(value, tuple):
         return [to_dict(v) for v in value]
     if isinstance(value, dict):
         return {k: to_dict(v) for k, v in value.items()}
     if isinstance(value, list):
         return [to_dict(v) for v in value]
     return value
-

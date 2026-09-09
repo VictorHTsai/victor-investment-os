@@ -41,3 +41,17 @@ def test_incompatible_frequency_or_normalization_do_not_merge():
              requirement("three", 100, 50, {"close"}, normalization="RAW")]
     assert len(DataRequestPlanner().plan(items)) == 3
 
+
+def test_phase2_bar_and_calendar_requirements_merge_without_conflation():
+    first = requirement("one", 2196, 253, {"open", "high", "low", "close"},
+                        lookback_bars=252, requested_start_date="2020-01-01",
+                        requested_end_date="2026-01-01", historical_context_years=5,
+                        optional_fields=frozenset({"volume"}), trading_calendar_type="US_EQUITY_SESSIONS")
+    second = requirement("two", 1500, 100, {"close"}, lookback_bars=126,
+                         requested_start_date="2021-01-01", requested_end_date="2026-01-01",
+                         historical_context_years=3, trading_calendar_type="US_EQUITY_SESSIONS")
+    result = DataRequestPlanner().plan([first, second])[0]
+    assert result.lookback_bars == 252
+    assert result.historical_context_years == 5
+    assert result.requested_start_date == "2020-01-01"
+    assert result.optional_fields == {"volume"}

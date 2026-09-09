@@ -42,6 +42,10 @@ class SourceAdapter(ABC):
     adapter_id: str
     priority: int = 100
 
+    def routing_priority(self, request: PlannedDataRequest) -> int:
+        """Lower is preferred after capability filtering."""
+        return self.priority
+
     @abstractmethod
     def supports(self, request: PlannedDataRequest) -> bool: ...
 

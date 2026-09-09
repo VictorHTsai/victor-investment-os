@@ -5,7 +5,18 @@
   "required": ["request_key", "records", "provenance", "is_mock"],
   "properties": {
     "request_key": {"type": "string"}, "records": {"type": "array", "items": {"type": "object"}},
-    "provenance": {"type": "object"}, "is_mock": {"type": "boolean"}
+    "provenance": {"type": "object"}, "is_mock": {"type": "boolean"},
+    "metadata": {
+      "type": ["object", "null"],
+      "properties": {
+        "symbol": {"type": "string"}, "asset_type": {"type": "string"},
+        "currency": {"type": "string"}, "frequency": {"type": "string"},
+        "trading_calendar_type": {"enum": ["US_EQUITY_SESSIONS", "CONTINUOUS_24_7", "UNKNOWN"]},
+        "adjustment_policy": {"enum": ["RAW", "SPLIT_ADJUSTED", "SPLIT_DIVIDEND_ADJUSTED", "PROVIDER_ADJUSTED", "NOT_APPLICABLE", "UNKNOWN"]},
+        "requested_start_date": {"type": ["string", "null"]}, "requested_end_date": {"type": ["string", "null"]},
+        "actual_start_date": {"type": ["string", "null"]}, "actual_end_date": {"type": ["string", "null"]},
+        "actual_observation_count": {"type": "integer", "minimum": 0}
+      }
+    }
   }
 }
-

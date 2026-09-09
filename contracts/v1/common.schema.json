@@ -30,11 +30,12 @@
       "required": ["source_id", "source_name", "source_tier", "retrieved_at", "source_timestamp", "data_type", "transformations", "confidence"],
       "properties": {
         "source_id": {"type": "string"}, "source_name": {"type": "string"},
-        "source_tier": {"type": "string"}, "retrieved_at": {"type": "string", "format": "date-time"},
+        "source_tier": {"enum": ["TIER_1", "TIER_2", "TIER_3", "TIER_4", "TIER_5", "MOCK"]}, "retrieved_at": {"type": "string", "format": "date-time"},
         "source_timestamp": {"type": "string", "format": "date-time"},
         "data_type": {"enum": ["DIRECT", "RECONSTRUCTED", "PROXY", "INFERRED", "UNAVAILABLE"]},
         "transformations": {"type": "array", "items": {"type": "string"}},
-        "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+        "confidence": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "adjustment_policy": {"enum": ["RAW", "SPLIT_ADJUSTED", "SPLIT_DIVIDEND_ADJUSTED", "PROVIDER_ADJUSTED", "NOT_APPLICABLE", "UNKNOWN"]}
       }
     },
     "failure": {
@@ -50,4 +51,3 @@
   },
   "$ref": "#/$defs/request_envelope"
 }
-

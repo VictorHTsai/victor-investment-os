@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "victor-investment-os"
-version = "0.1.0"
-description = "Phase 1 architecture and mock pipeline for Victor Investment OS"
+version = "0.2.0"
+description = "Just-in-time market data and deterministic compression intelligence"
 requires-python = ">=3.11"
 dependencies = []
 
@@ -14,6 +14,7 @@ dev = ["pytest>=8", "jsonschema>=4"]
 
 [project.scripts]
 victor-analyze-slv = "victor_investment_os.example:main"
+victor-compression-slv = "victor_investment_os.real_example:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -21,4 +22,3 @@ where = ["src"]
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["tests"]
-
