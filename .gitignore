@@ -6,4 +6,7 @@ dist/
 build/
 *.egg-info/
 .env
-
+.env.*
+!.env.example
+secrets/
+credentials.json

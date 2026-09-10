@@ -1,0 +1,1133 @@
+{
+  "analysis_as_of": "2026-09-10T00:00:00+00:00",
+  "assets": {
+    "AAPL": {
+      "compression_outputs": [
+        {
+          "compression_percentile": 0.6650717703349283,
+          "context": "5y",
+          "current_raw_value": 0.20521300347942126,
+          "feature": "realized_volatility",
+          "raw_percentile": 0.3349282296650718,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 20
+        },
+        {
+          "compression_percentile": 0.5938748335552597,
+          "context": "3y",
+          "current_raw_value": 0.20521300347942126,
+          "feature": "realized_volatility",
+          "raw_percentile": 0.40612516644474034,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 20
+        },
+        {
+          "compression_percentile": 0.19377990430622005,
+          "context": "5y",
+          "current_raw_value": 0.3172628386157397,
+          "feature": "realized_volatility",
+          "raw_percentile": 0.80622009569378,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": 0.11717709720372838,
+          "context": "3y",
+          "current_raw_value": 0.3172628386157397,
+          "feature": "realized_volatility",
+          "raw_percentile": 0.8828229027962716,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": 0.3341307814992025,
+          "context": "5y",
+          "current_raw_value": 0.274921137638936,
+          "feature": "realized_volatility",
+          "raw_percentile": 0.6658692185007975,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 126
+        },
+        {
+          "compression_percentile": 0.19307589880159792,
+          "context": "3y",
+          "current_raw_value": 0.274921137638936,
+          "feature": "realized_volatility",
+          "raw_percentile": 0.8069241011984021,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 126
+        },
+        {
+          "compression_percentile": 0.5566188197767146,
+          "context": "5y",
+          "current_raw_value": 0.2509164773885859,
+          "feature": "realized_volatility",
+          "raw_percentile": 0.4433811802232855,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 252
+        },
+        {
+          "compression_percentile": 0.40346205059920104,
+          "context": "3y",
+          "current_raw_value": 0.2509164773885859,
+          "feature": "realized_volatility",
+          "raw_percentile": 0.596537949400799,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 252
+        },
+        {
+          "compression_percentile": 0.5223285486443381,
+          "context": "5y",
+          "current_raw_value": 0.02118303723729352,
+          "feature": "normalized_atr",
+          "raw_percentile": 0.47767145135566186,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 20
+        },
+        {
+          "compression_percentile": 0.44340878828229024,
+          "context": "3y",
+          "current_raw_value": 0.02118303723729352,
+          "feature": "normalized_atr",
+          "raw_percentile": 0.5565912117177098,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 20
+        },
+        {
+          "compression_percentile": 0.27990430622009566,
+          "context": "5y",
+          "current_raw_value": 0.025456238489784115,
+          "feature": "normalized_atr",
+          "raw_percentile": 0.7200956937799043,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": 0.1411451398135819,
+          "context": "3y",
+          "current_raw_value": 0.025456238489784115,
+          "feature": "normalized_atr",
+          "raw_percentile": 0.8588548601864181,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": 0.3604465709728868,
+          "context": "5y",
+          "current_raw_value": 0.022424421974579386,
+          "feature": "normalized_atr",
+          "raw_percentile": 0.6395534290271132,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 126
+        },
+        {
+          "compression_percentile": 0.20239680426098539,
+          "context": "3y",
+          "current_raw_value": 0.022424421974579386,
+          "feature": "normalized_atr",
+          "raw_percentile": 0.7976031957390146,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 126
+        },
+        {
+          "compression_percentile": 0.5598086124401913,
+          "context": "5y",
+          "current_raw_value": 0.01975220907267355,
+          "feature": "normalized_atr",
+          "raw_percentile": 0.44019138755980863,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 252
+        },
+        {
+          "compression_percentile": 0.4247669773635153,
+          "context": "3y",
+          "current_raw_value": 0.01975220907267355,
+          "feature": "normalized_atr",
+          "raw_percentile": 0.5752330226364847,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 252
+        },
+        {
+          "compression_percentile": 0.638755980861244,
+          "context": "5y",
+          "current_raw_value": 0.09196527552869878,
+          "feature": "bollinger_band_width",
+          "raw_percentile": 0.361244019138756,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 20
+        },
+        {
+          "compression_percentile": 0.5952063914780292,
+          "context": "3y",
+          "current_raw_value": 0.09196527552869878,
+          "feature": "bollinger_band_width",
+          "raw_percentile": 0.4047936085219707,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 20
+        },
+        {
+          "compression_percentile": 0.4832535885167464,
+          "context": "5y",
+          "current_raw_value": 0.1834400084675288,
+          "feature": "bollinger_band_width",
+          "raw_percentile": 0.5167464114832536,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": 0.4167776298268975,
+          "context": "3y",
+          "current_raw_value": 0.1834400084675288,
+          "feature": "bollinger_band_width",
+          "raw_percentile": 0.5832223701731025,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": 0.18580542264752786,
+          "context": "5y",
+          "current_raw_value": 0.34944095176448897,
+          "feature": "bollinger_band_width",
+          "raw_percentile": 0.8141945773524721,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 126
+        },
+        {
+          "compression_percentile": 0.23568575233022637,
+          "context": "3y",
+          "current_raw_value": 0.34944095176448897,
+          "feature": "bollinger_band_width",
+          "raw_percentile": 0.7643142476697736,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 126
+        },
+        {
+          "compression_percentile": 0.5039872408293461,
+          "context": "5y",
+          "current_raw_value": 0.36451502017807597,
+          "feature": "bollinger_band_width",
+          "raw_percentile": 0.4960127591706539,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 252
+        },
+        {
+          "compression_percentile": 0.6178428761651131,
+          "context": "3y",
+          "current_raw_value": 0.36451502017807597,
+          "feature": "bollinger_band_width",
+          "raw_percentile": 0.3821571238348868,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 252
+        },
+        {
+          "compression_percentile": 0.6395534290271132,
+          "context": "5y",
+          "current_raw_value": 0.09562959369312395,
+          "feature": "rolling_price_range",
+          "raw_percentile": 0.36044657097288674,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 20
+        },
+        {
+          "compression_percentile": 0.5912117177097204,
+          "context": "3y",
+          "current_raw_value": 0.09562959369312395,
+          "feature": "rolling_price_range",
+          "raw_percentile": 0.40878828229027964,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 20
+        },
+        {
+          "compression_percentile": 0.2934609250398724,
+          "context": "5y",
+          "current_raw_value": 0.22376504294048358,
+          "feature": "rolling_price_range",
+          "raw_percentile": 0.7065390749601276,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": 0.23435419440745675,
+          "context": "3y",
+          "current_raw_value": 0.22376504294048358,
+          "feature": "rolling_price_range",
+          "raw_percentile": 0.7656458055925432,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": 0.35725677830940994,
+          "context": "5y",
+          "current_raw_value": 0.31370708263891345,
+          "feature": "rolling_price_range",
+          "raw_percentile": 0.6427432216905901,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 126
+        },
+        {
+          "compression_percentile": 0.3328894806924101,
+          "context": "3y",
+          "current_raw_value": 0.31370708263891345,
+          "feature": "rolling_price_range",
+          "raw_percentile": 0.6671105193075899,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 126
+        },
+        {
+          "compression_percentile": 0.5039872408293461,
+          "context": "5y",
+          "current_raw_value": 0.3768094350400672,
+          "feature": "rolling_price_range",
+          "raw_percentile": 0.4960127591706539,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 252
+        },
+        {
+          "compression_percentile": 0.5898801597869507,
+          "context": "3y",
+          "current_raw_value": 0.3768094350400672,
+          "feature": "rolling_price_range",
+          "raw_percentile": 0.41011984021304926,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 252
+        },
+        {
+          "compression_percentile": null,
+          "context": "5y",
+          "current_raw_value": 0.7339076076600498,
+          "feature": "volume_activity",
+          "raw_percentile": 0.004784688995215311,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": null,
+          "context": "3y",
+          "current_raw_value": 0.7339076076600498,
+          "feature": "volume_activity",
+          "raw_percentile": 0.007989347536617843,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        }
+      ],
+      "compression_spreads": [],
+      "data_comparison": [
+        {
+          "actual_end_date": "2026-09-08",
+          "actual_start_date": "2021-09-09",
+          "adjustment_policy": "PROVIDER_ADJUSTED",
+          "bars": 1254,
+          "dates_missing_relative_to_other_sources": null,
+          "duplicate_dates": 0,
+          "source": "yahoo",
+          "source_only_dates": null,
+          "volume_availability": "AVAILABLE"
+        }
+      ],
+      "ohlcv_pairwise_differences": []
+    },
+    "QQQ": {
+      "compression_outputs": [
+        {
+          "compression_percentile": 0.8771929824561404,
+          "context": "5y",
+          "current_raw_value": 0.12504030922679282,
+          "feature": "realized_volatility",
+          "raw_percentile": 0.12280701754385964,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 20
+        },
+        {
+          "compression_percentile": 0.8375499334221038,
+          "context": "3y",
+          "current_raw_value": 0.12504030922679282,
+          "feature": "realized_volatility",
+          "raw_percentile": 0.16245006657789615,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 20
+        },
+        {
+          "compression_percentile": 0.3508771929824561,
+          "context": "5y",
+          "current_raw_value": 0.2257487662903091,
+          "feature": "realized_volatility",
+          "raw_percentile": 0.6491228070175439,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": 0.20106524633821576,
+          "context": "3y",
+          "current_raw_value": 0.2257487662903091,
+          "feature": "realized_volatility",
+          "raw_percentile": 0.7989347536617842,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": 0.36762360446570974,
+          "context": "5y",
+          "current_raw_value": 0.22342733099924866,
+          "feature": "realized_volatility",
+          "raw_percentile": 0.6323763955342903,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 126
+        },
+        {
+          "compression_percentile": 0.20772303595206387,
+          "context": "3y",
+          "current_raw_value": 0.22342733099924866,
+          "feature": "realized_volatility",
+          "raw_percentile": 0.7922769640479361,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 126
+        },
+        {
+          "compression_percentile": 0.5717703349282297,
+          "context": "5y",
+          "current_raw_value": 0.1954560636135598,
+          "feature": "realized_volatility",
+          "raw_percentile": 0.42822966507177035,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 252
+        },
+        {
+          "compression_percentile": 0.42077230359520634,
+          "context": "3y",
+          "current_raw_value": 0.1954560636135598,
+          "feature": "realized_volatility",
+          "raw_percentile": 0.5792276964047937,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 252
+        },
+        {
+          "compression_percentile": 0.9122807017543859,
+          "context": "5y",
+          "current_raw_value": 0.011151095915667554,
+          "feature": "normalized_atr",
+          "raw_percentile": 0.08771929824561403,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 20
+        },
+        {
+          "compression_percentile": 0.8761651131824234,
+          "context": "3y",
+          "current_raw_value": 0.011151095915667554,
+          "feature": "normalized_atr",
+          "raw_percentile": 0.12383488681757657,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 20
+        },
+        {
+          "compression_percentile": 0.39473684210526316,
+          "context": "5y",
+          "current_raw_value": 0.017724098797189978,
+          "feature": "normalized_atr",
+          "raw_percentile": 0.6052631578947368,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": 0.2316910785619174,
+          "context": "3y",
+          "current_raw_value": 0.017724098797189978,
+          "feature": "normalized_atr",
+          "raw_percentile": 0.7683089214380826,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": 0.38197767145135564,
+          "context": "5y",
+          "current_raw_value": 0.016921477029651487,
+          "feature": "normalized_atr",
+          "raw_percentile": 0.6180223285486444,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 126
+        },
+        {
+          "compression_percentile": 0.1984021304926764,
+          "context": "3y",
+          "current_raw_value": 0.016921477029651487,
+          "feature": "normalized_atr",
+          "raw_percentile": 0.8015978695073236,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 126
+        },
+        {
+          "compression_percentile": 0.532695374800638,
+          "context": "5y",
+          "current_raw_value": 0.014773500681923544,
+          "feature": "normalized_atr",
+          "raw_percentile": 0.46730462519936206,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 252
+        },
+        {
+          "compression_percentile": 0.34087882822902793,
+          "context": "3y",
+          "current_raw_value": 0.014773500681923544,
+          "feature": "normalized_atr",
+          "raw_percentile": 0.6591211717709721,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 252
+        },
+        {
+          "compression_percentile": 0.919457735247209,
+          "context": "5y",
+          "current_raw_value": 0.04024249097820216,
+          "feature": "bollinger_band_width",
+          "raw_percentile": 0.08054226475279107,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 20
+        },
+        {
+          "compression_percentile": 0.8801597869507324,
+          "context": "3y",
+          "current_raw_value": 0.04024249097820216,
+          "feature": "bollinger_band_width",
+          "raw_percentile": 0.11984021304926765,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 20
+        },
+        {
+          "compression_percentile": 0.835725677830941,
+          "context": "5y",
+          "current_raw_value": 0.08663006218096857,
+          "feature": "bollinger_band_width",
+          "raw_percentile": 0.16427432216905902,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": 0.7776298268974701,
+          "context": "3y",
+          "current_raw_value": 0.08663006218096857,
+          "feature": "bollinger_band_width",
+          "raw_percentile": 0.22237017310252996,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": 0.2256778309409888,
+          "context": "5y",
+          "current_raw_value": 0.2998000239534227,
+          "feature": "bollinger_band_width",
+          "raw_percentile": 0.7743221690590112,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 126
+        },
+        {
+          "compression_percentile": 0.1637816245006658,
+          "context": "3y",
+          "current_raw_value": 0.2998000239534227,
+          "feature": "bollinger_band_width",
+          "raw_percentile": 0.8362183754993342,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 126
+        },
+        {
+          "compression_percentile": 0.5781499202551834,
+          "context": "5y",
+          "current_raw_value": 0.32627022504776687,
+          "feature": "bollinger_band_width",
+          "raw_percentile": 0.4218500797448166,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 252
+        },
+        {
+          "compression_percentile": 0.59254327563249,
+          "context": "3y",
+          "current_raw_value": 0.32627022504776687,
+          "feature": "bollinger_band_width",
+          "raw_percentile": 0.40745672436750996,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 252
+        },
+        {
+          "compression_percentile": 0.9298245614035088,
+          "context": "5y",
+          "current_raw_value": 0.044378870667762145,
+          "feature": "rolling_price_range",
+          "raw_percentile": 0.07017543859649122,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 20
+        },
+        {
+          "compression_percentile": 0.8961384820239681,
+          "context": "3y",
+          "current_raw_value": 0.044378870667762145,
+          "feature": "rolling_price_range",
+          "raw_percentile": 0.10386151797603196,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 20
+        },
+        {
+          "compression_percentile": 0.726475279106858,
+          "context": "5y",
+          "current_raw_value": 0.1173645515866711,
+          "feature": "rolling_price_range",
+          "raw_percentile": 0.27352472089314195,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": 0.6231691078561917,
+          "context": "3y",
+          "current_raw_value": 0.1173645515866711,
+          "feature": "rolling_price_range",
+          "raw_percentile": 0.37683089214380827,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": 0.33732057416267947,
+          "context": "5y",
+          "current_raw_value": 0.26844219493294563,
+          "feature": "rolling_price_range",
+          "raw_percentile": 0.6626794258373205,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 126
+        },
+        {
+          "compression_percentile": 0.20106524633821576,
+          "context": "3y",
+          "current_raw_value": 0.26844219493294563,
+          "feature": "rolling_price_range",
+          "raw_percentile": 0.7989347536617842,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 126
+        },
+        {
+          "compression_percentile": 0.8923444976076556,
+          "context": "5y",
+          "current_raw_value": 0.26844219493294563,
+          "feature": "rolling_price_range",
+          "raw_percentile": 0.1076555023923445,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 252
+        },
+        {
+          "compression_percentile": 0.8655126498002663,
+          "context": "3y",
+          "current_raw_value": 0.26844219493294563,
+          "feature": "rolling_price_range",
+          "raw_percentile": 0.13448735019973368,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 252
+        },
+        {
+          "compression_percentile": null,
+          "context": "5y",
+          "current_raw_value": 0.7991628951063795,
+          "feature": "volume_activity",
+          "raw_percentile": 0.05741626794258373,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": null,
+          "context": "3y",
+          "current_raw_value": 0.7991628951063795,
+          "feature": "volume_activity",
+          "raw_percentile": 0.08921438082556592,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        }
+      ],
+      "compression_spreads": [],
+      "data_comparison": [
+        {
+          "actual_end_date": "2026-09-08",
+          "actual_start_date": "2021-09-09",
+          "adjustment_policy": "PROVIDER_ADJUSTED",
+          "bars": 1254,
+          "dates_missing_relative_to_other_sources": null,
+          "duplicate_dates": 0,
+          "source": "yahoo",
+          "source_only_dates": null,
+          "volume_availability": "AVAILABLE"
+        }
+      ],
+      "ohlcv_pairwise_differences": []
+    },
+    "SLV": {
+      "compression_outputs": [
+        {
+          "compression_percentile": 0.22488038277511957,
+          "context": "5y",
+          "current_raw_value": 0.3611278801707569,
+          "feature": "realized_volatility",
+          "raw_percentile": 0.7751196172248804,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 20
+        },
+        {
+          "compression_percentile": 0.3382157123834887,
+          "context": "3y",
+          "current_raw_value": 0.3611278801707569,
+          "feature": "realized_volatility",
+          "raw_percentile": 0.6617842876165113,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 20
+        },
+        {
+          "compression_percentile": 0.13875598086124397,
+          "context": "5y",
+          "current_raw_value": 0.40798806756730244,
+          "feature": "realized_volatility",
+          "raw_percentile": 0.861244019138756,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": 0.2316910785619174,
+          "context": "3y",
+          "current_raw_value": 0.40798806756730244,
+          "feature": "realized_volatility",
+          "raw_percentile": 0.7683089214380826,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": 0.12041467304625197,
+          "context": "5y",
+          "current_raw_value": 0.4855968252351154,
+          "feature": "realized_volatility",
+          "raw_percentile": 0.879585326953748,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 126
+        },
+        {
+          "compression_percentile": 0.20106524633821576,
+          "context": "3y",
+          "current_raw_value": 0.4855968252351154,
+          "feature": "realized_volatility",
+          "raw_percentile": 0.7989347536617842,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 126
+        },
+        {
+          "compression_percentile": 0.0,
+          "context": "5y",
+          "current_raw_value": 0.6501605146742029,
+          "feature": "realized_volatility",
+          "raw_percentile": 1.0,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 252
+        },
+        {
+          "compression_percentile": 0.0,
+          "context": "3y",
+          "current_raw_value": 0.6501605146742029,
+          "feature": "realized_volatility",
+          "raw_percentile": 1.0,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 252
+        },
+        {
+          "compression_percentile": 0.18740031897926634,
+          "context": "5y",
+          "current_raw_value": 0.029274052881073133,
+          "feature": "normalized_atr",
+          "raw_percentile": 0.8125996810207337,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 20
+        },
+        {
+          "compression_percentile": 0.29027962716378164,
+          "context": "3y",
+          "current_raw_value": 0.029274052881073133,
+          "feature": "normalized_atr",
+          "raw_percentile": 0.7097203728362184,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 20
+        },
+        {
+          "compression_percentile": 0.12041467304625197,
+          "context": "5y",
+          "current_raw_value": 0.032870140279385084,
+          "feature": "normalized_atr",
+          "raw_percentile": 0.879585326953748,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": 0.20106524633821576,
+          "context": "3y",
+          "current_raw_value": 0.032870140279385084,
+          "feature": "normalized_atr",
+          "raw_percentile": 0.7989347536617842,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": 0.10287081339712922,
+          "context": "5y",
+          "current_raw_value": 0.0413949688824365,
+          "feature": "normalized_atr",
+          "raw_percentile": 0.8971291866028708,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 126
+        },
+        {
+          "compression_percentile": 0.17177097203728364,
+          "context": "3y",
+          "current_raw_value": 0.0413949688824365,
+          "feature": "normalized_atr",
+          "raw_percentile": 0.8282290279627164,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 126
+        },
+        {
+          "compression_percentile": 0.02551834130781494,
+          "context": "5y",
+          "current_raw_value": 0.04816713110276013,
+          "feature": "normalized_atr",
+          "raw_percentile": 0.9744816586921851,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 252
+        },
+        {
+          "compression_percentile": 0.04260985352862845,
+          "context": "3y",
+          "current_raw_value": 0.04816713110276013,
+          "feature": "normalized_atr",
+          "raw_percentile": 0.9573901464713716,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 252
+        },
+        {
+          "compression_percentile": 0.6515151515151515,
+          "context": "5y",
+          "current_raw_value": 0.1072043918782402,
+          "feature": "bollinger_band_width",
+          "raw_percentile": 0.3484848484848485,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 20
+        },
+        {
+          "compression_percentile": 0.6657789613848202,
+          "context": "3y",
+          "current_raw_value": 0.1072043918782402,
+          "feature": "bollinger_band_width",
+          "raw_percentile": 0.33422103861517977,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 20
+        },
+        {
+          "compression_percentile": 0.25917065390749605,
+          "context": "5y",
+          "current_raw_value": 0.2732501520343883,
+          "feature": "bollinger_band_width",
+          "raw_percentile": 0.740829346092504,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": 0.3501997336884154,
+          "context": "3y",
+          "current_raw_value": 0.2732501520343883,
+          "feature": "bollinger_band_width",
+          "raw_percentile": 0.6498002663115846,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": 0.1802232854864434,
+          "context": "5y",
+          "current_raw_value": 0.4723132483052076,
+          "feature": "bollinger_band_width",
+          "raw_percentile": 0.8197767145135566,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 126
+        },
+        {
+          "compression_percentile": 0.3009320905459387,
+          "context": "3y",
+          "current_raw_value": 0.4723132483052076,
+          "feature": "bollinger_band_width",
+          "raw_percentile": 0.6990679094540613,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 126
+        },
+        {
+          "compression_percentile": 0.14274322169059006,
+          "context": "5y",
+          "current_raw_value": 0.8775610131705988,
+          "feature": "bollinger_band_width",
+          "raw_percentile": 0.8572567783094099,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 252
+        },
+        {
+          "compression_percentile": 0.23834886817576562,
+          "context": "3y",
+          "current_raw_value": 0.8775610131705988,
+          "feature": "bollinger_band_width",
+          "raw_percentile": 0.7616511318242344,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 252
+        },
+        {
+          "compression_percentile": 0.5677830940988835,
+          "context": "5y",
+          "current_raw_value": 0.11925211628318046,
+          "feature": "rolling_price_range",
+          "raw_percentile": 0.43221690590111644,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 20
+        },
+        {
+          "compression_percentile": 0.6191744340878829,
+          "context": "3y",
+          "current_raw_value": 0.11925211628318046,
+          "feature": "rolling_price_range",
+          "raw_percentile": 0.3808255659121172,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 20
+        },
+        {
+          "compression_percentile": 0.28548644338118023,
+          "context": "5y",
+          "current_raw_value": 0.2540003722815623,
+          "feature": "rolling_price_range",
+          "raw_percentile": 0.7145135566188198,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": 0.3675099866844208,
+          "context": "3y",
+          "current_raw_value": 0.2540003722815623,
+          "feature": "rolling_price_range",
+          "raw_percentile": 0.6324900133155792,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": 0.13636363636363635,
+          "context": "5y",
+          "current_raw_value": 0.5334343732308353,
+          "feature": "rolling_price_range",
+          "raw_percentile": 0.8636363636363636,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 126
+        },
+        {
+          "compression_percentile": 0.22769640479360853,
+          "context": "3y",
+          "current_raw_value": 0.5334343732308353,
+          "feature": "rolling_price_range",
+          "raw_percentile": 0.7723035952063915,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 126
+        },
+        {
+          "compression_percentile": 0.0574162679425837,
+          "context": "5y",
+          "current_raw_value": 1.2265454744755497,
+          "feature": "rolling_price_range",
+          "raw_percentile": 0.9425837320574163,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 252
+        },
+        {
+          "compression_percentile": 0.0958721704394141,
+          "context": "3y",
+          "current_raw_value": 1.2265454744755497,
+          "feature": "rolling_price_range",
+          "raw_percentile": 0.9041278295605859,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 252
+        },
+        {
+          "compression_percentile": null,
+          "context": "5y",
+          "current_raw_value": 0.9463384578847787,
+          "feature": "volume_activity",
+          "raw_percentile": 0.43301435406698563,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        },
+        {
+          "compression_percentile": null,
+          "context": "3y",
+          "current_raw_value": 0.9463384578847787,
+          "feature": "volume_activity",
+          "raw_percentile": 0.43009320905459386,
+          "source": "yahoo",
+          "status": "AVAILABLE",
+          "window_bars": 60
+        }
+      ],
+      "compression_spreads": [],
+      "data_comparison": [
+        {
+          "actual_end_date": "2026-09-08",
+          "actual_start_date": "2021-09-09",
+          "adjustment_policy": "PROVIDER_ADJUSTED",
+          "bars": 1254,
+          "dates_missing_relative_to_other_sources": null,
+          "duplicate_dates": 0,
+          "source": "yahoo",
+          "source_only_dates": null,
+          "volume_availability": "AVAILABLE"
+        }
+      ],
+      "ohlcv_pairwise_differences": []
+    }
+  },
+  "benchmark": "Victor Investment OS data-source benchmark",
+  "comparison_period": {
+    "end": "2026-09-09",
+    "start": "2021-09-09"
+  },
+  "compression_methodology_modified": false,
+  "conclusion": {
+    "cross_source_answer": "INCONCLUSIVE_FEWER_THAN_TWO_SOURCES_TESTED",
+    "recommendation_basis": "retain the current route pending an authenticated rerun; this run does not support adding Tiingo",
+    "recommended_order": "Alpaca -> Yahoo"
+  },
+  "corporate_action_spot_check": {
+    "AAPL": "AAPL's August 2020 four-for-one split predates the five-year comparison window. Cash dividends remain relevant, so provider dividend-adjustment methodology can still affect return and range continuity. Cross-provider behavior was not testable without authenticated Alpaca and Tiingo results.",
+    "SLV_and_QQQ": "ETF distributions make dividend-adjustment semantics relevant. Only Yahoo completed, so no provider-induced discontinuity comparison was possible."
+  },
+  "errors": [],
+  "generated_at": "2026-09-10T00:56:39.839079+00:00",
+  "maximum_compression_spread": null,
+  "price_semantics": {
+    "alpaca": "adjustment=all; production adapter explicitly requests IEX and labels split/dividend adjusted",
+    "tiingo": "adjOpen/adjHigh/adjLow/adjClose/adjVolume; CRSP-style split and dividend adjustment",
+    "yahoo": "OHLC reconstructed with adjclose/close ratio; provider adjusted close covers splits/dividends; volume preserved as supplied"
+  },
+  "production_routing_modified": false,
+  "source_availability": {
+    "alpaca": {
+      "asset_statuses": {},
+      "credentials": false,
+      "feed": "IEX (production adapter request)",
+      "status": "NOT_TESTED_CREDENTIALS_UNAVAILABLE",
+      "tested": false
+    },
+    "tiingo": {
+      "asset_statuses": {},
+      "credentials": false,
+      "feed": "EOD composite",
+      "status": "NOT_TESTED_CREDENTIALS_UNAVAILABLE",
+      "tested": false
+    },
+    "yahoo": {
+      "asset_statuses": {
+        "AAPL": "AVAILABLE",
+        "QQQ": "AVAILABLE",
+        "SLV": "AVAILABLE"
+      },
+      "credentials": false,
+      "feed": "structured chart JSON",
+      "status": "AVAILABLE",
+      "tested": true
+    }
+  }
+}
