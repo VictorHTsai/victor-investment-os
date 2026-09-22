@@ -1,4 +1,5 @@
 name: Deploy DGE Dashboard to Pages
+
 on:
   workflow_dispatch:
   push:
@@ -7,13 +8,16 @@ on:
       - "apps/dge-dashboard/**"
       - "scripts/publish_btc_cycle_snapshot.py"
       - ".github/workflows/dge-pages.yml"
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 concurrency:
   group: pages
   cancel-in-progress: true
+
 jobs:
   deploy:
     environment:
@@ -22,10 +26,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5\n        with:\n          python-version: "3.11"\n      - name: Generate BTC cycle snapshot\n        run: python scripts/publish_btc_cycle_snapshot.py\n      - uses: actions/configure-pages@v5
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Generate BTC cycle snapshot
+        run: python scripts/publish_btc_cycle_snapshot.py
+
+      - uses: actions/configure-pages@v5
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: apps/dge-dashboard
+
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
