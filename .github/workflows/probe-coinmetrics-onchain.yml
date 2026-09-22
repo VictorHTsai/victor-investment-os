@@ -1,6 +1,11 @@
 name: Probe Coin Metrics On-chain
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - probe/coinmetrics-onchain
+    paths:
+      - .github/workflows/probe-coinmetrics-onchain.yml
 permissions:
   contents: read
 jobs:
