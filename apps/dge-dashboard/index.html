@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Victor Investment OS — Dynamic Game Monitor</title><link rel="stylesheet" href="styles.css"></head>
+<body><header><div><b>VICTOR INVESTMENT OS</b><span>Dynamic Game Monitor · DGE V1</span></div><div class="live"><i></i> MONITOR</div></header>
+<main>
+<section class="hero"><div><p class="eyebrow">BTC · DYNAMIC GAME STATE</p><h1 id="state">MARKUP</h1><p id="confidence">Model confidence 48%</p></div><div class="price"><span>BTC / USD</span><strong id="price">—</strong><small id="updated">Awaiting live feed</small></div></section>
+<div class="notice" id="mode">RESEARCH MODE · Dashboard is wired to DGE JSON. Sample snapshot is shown until a live pipeline publishes data.</div>
+<section class="grid two"><article><h2>State Probability</h2><div id="states"></div></article><article><h2>Scenario Tree</h2><div class="tree"><div class="now">BTC NOW</div><div class="branches"><div><b>BASE</b><strong id="base">—</strong><span>highest-probability path</span></div><div><b>ALT</b><strong id="alt">—</strong><span>competing state</span></div><div><b>FAILURE</b><strong id="failure">—</strong><span>neutral / regime reset</span></div></div></div></article></section>
+<section><h2>R · L · F · C · P · V · D · E · T</h2><div class="factors" id="factors"></div></section>
+<section class="grid two"><article><h2>Expected Next Observation</h2><ul id="next"></ul></article><article class="danger"><h2>Invalidators</h2><ul id="invalid"></ul></article></section>
+<section class="grid two"><article><h2>Decision Log</h2><p class="muted">Model output and human trading decisions are intentionally separated.</p><div class="log"><span>MODEL</span><b id="modelLog">Awaiting snapshot</b></div><div class="log"><span>HUMAN</span><b>No decision recorded</b></div></article><article><h2>Walk-Forward Audit</h2><div class="metrics"><div><span>7D</span><b>Pending</b></div><div><span>14D</span><b>Pending</b></div><div><span>30D</span><b>Pending</b></div></div><p class="muted">Future: MFE · MAE · Brier · baseline vs Compression V1.</p></article></section>
+<footer>DGE estimates latent market states from observable proxies. It does not claim knowledge of a specific dealer's private inventory or intent.</footer>
+</main><script src="app.js"></script></body></html>
