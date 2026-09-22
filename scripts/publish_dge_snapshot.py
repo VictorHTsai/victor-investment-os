@@ -105,7 +105,7 @@ def main():
     market_shock,shock_detail=realized_shock(rows)
     scheduled_risk,scheduled_detail=scheduled_macro_risk(now)
     E=max(market_shock,scheduled_risk)
-    # Live market factors plus Market Intelligence F/D. Missing C/E stay neutral (50), never fabricated.
+    # Live market factors plus Market Intelligence F/D and Event Shock E. Missing C stays neutral (50), never fabricated.
     factors=FactorVector(
         R=clip(50+50*er*(1 if mom14>=0 else -1)),
         L=clip(35+45*volume_rank),
