@@ -150,3 +150,19 @@ header nav a:hover,.button:hover{color:#07111f!important;background:var(--cyan)}
  .mi-guide .guide-grid{grid-template-columns:1fr}
  .mi-guide .guide-wide{grid-column:auto}
 }
+
+/* Bitcoin Overview lower-card responsive pairing */
+.overview-lower-grid{align-items:stretch;margin-top:22px}
+.overview-lower-grid>.confluence{margin-top:0;min-width:0;height:100%}
+@media(min-width:761px){
+ .overview-lower-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+ .overview-lower-grid .decision-row{display:grid!important;grid-template-columns:minmax(125px,.34fr) minmax(0,1fr)!important;column-gap:22px!important;align-items:center!important}
+ .overview-lower-grid .decision-row .block-label{margin:0!important;width:auto!important}
+ .overview-lower-grid .decision-row .block-value{width:auto!important;white-space:nowrap!important;overflow-wrap:normal!important;word-break:normal!important}
+}
+@media(max-width:760px){
+ .overview-lower-grid{grid-template-columns:1fr}
+ .overview-lower-grid>.confluence{margin-top:0}
+ .overview-lower-grid .decision-row{display:block!important}
+ .overview-lower-grid .decision-row .block-value{white-space:normal!important;overflow-wrap:anywhere!important}
+}
