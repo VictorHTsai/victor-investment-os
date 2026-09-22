@@ -87,3 +87,17 @@ header nav a:hover,.button:hover{color:#07111f!important;background:var(--cyan)}
 .decision-row .block-value{font-size:12px!important;font-weight:400!important;line-height:1.4!important}
 .decision-row .block-label{font-size:11px!important;font-weight:700!important}
 @media(max-width:760px){.intel-card>.eyebrow,.confluence>.eyebrow{font-size:13px!important;font-weight:800!important}.decision-row .block-value{font-size:12px!important;font-weight:400!important}}
+
+/* Market Intelligence: match Bitcoin Overview visual hierarchy */
+.mi-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin:18px 0}
+.mi-card{display:block!important;padding:28px!important;border-radius:10px!important;min-width:0}
+.mi-card>.eyebrow{font-size:13px!important;font-weight:800!important;letter-spacing:.13em!important;margin:0 0 14px!important}
+.mi-status{font-size:24px;font-weight:800;line-height:1.2;color:var(--cyan);margin:0 0 8px;overflow-wrap:anywhere}
+.mi-desc{color:var(--muted);font-size:13px;line-height:1.5;margin:0 0 18px}
+.mi-metrics{display:block;border-top:1px solid var(--line)}
+.mi-metric{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--line)}
+.mi-metric span{font-size:11px;color:var(--muted);letter-spacing:.07em}.mi-metric b{font-size:15px;font-variant-numeric:tabular-nums;text-align:right}
+.mi-empty{padding:15px 0;border-bottom:1px solid var(--line);font-size:11px;color:var(--muted);letter-spacing:.07em}
+.mi-note,.mi-source{font-size:11px;line-height:1.5;color:var(--muted);margin:14px 0 0}.mi-source{color:#6f87a3}
+.mi-pending .mi-status{color:var(--gold)}
+@media(max-width:760px){.mi-grid{grid-template-columns:1fr;gap:18px}.mi-card{padding:24px 20px!important}.mi-status{font-size:21px}.mi-metric{padding:12px 0}.mi-metric span{font-size:10px}.mi-metric b{font-size:14px}}
