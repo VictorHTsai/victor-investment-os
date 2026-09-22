@@ -18,7 +18,7 @@ const pretty={funding_7d_avg_pct:"FUNDING · 7D AVG",funding_30d_avg_pct:"FUNDIN
 const value=(k,v)=>k.includes("pct")?(Number(v).toLocaleString(undefined,{maximumFractionDigits:2})+"%"):v;
 fetch("data/market-intelligence.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
  cards.innerHTML=Object.entries(specs).map(([k,s])=>{const m=d.modules[k]||{status:"DATA PENDING"};
- const rows=Object.entries(m).filter(([x])=>!["status","source","note","error"].includes(x)).map(([x,v])=>'<div class="mi-metric"><span>'+ (pretty[x]||x.replaceAll("_"," ").toUpperCase()) +'</span><b>'+value(x,v)+'</b></div>').join("");
+ const rows=Object.entries(m).filter(([x])=>!["status","source","note","error","audit"].includes(x)).map(([x,v])=>'<div class="mi-metric"><span>'+ (pretty[x]||x.replaceAll("_"," ").toUpperCase()) +'</span><b>'+value(x,v)+'</b></div>').join("");
  const pending=m.status==="DATA PENDING";
  return '<article class="intel-card mi-card '+(pending?"mi-pending":"")+'"><p class="eyebrow">'+s.title+'</p><div class="mi-status">'+m.status+'</div><p class="mi-desc">'+s.desc+'</p><div class="mi-metrics">'+(rows||'<div class="mi-empty">AWAITING VALIDATED DATA SOURCE</div>')+'</div>'+(m.note?'<p class="mi-note">'+m.note+'</p>':'')+(m.source?'<p class="mi-source">SOURCE · '+m.source+'</p>':'')+'</article>'
  }).join("")
