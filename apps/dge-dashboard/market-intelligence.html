@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BTC Market Intelligence — Victor Investment OS</title><link rel="stylesheet" href="styles.css?v=20260923-mi3"></head>
+<title>BTC Market Intelligence — Victor Investment OS</title><link rel="stylesheet" href="styles.css?v=20260923-mi4"></head>
 <body><header><div class="brand"><b>VICTOR INVESTMENT OS</b><span>Markets / Bitcoin / Intelligence</span></div>
 <nav><a href="index.html">OVERVIEW</a><a href="market-state.html" target="_blank" rel="noopener">MARKET STATE ↗</a><a class="active" href="market-intelligence.html">INTELLIGENCE</a><a href="https://bitcoin-cycle-intelligence.hsuantsai.chatgpt.site" target="_blank" rel="noopener">CYCLE ↗</a></nav></header>
 <main><div class="module"><span>EVIDENCE LAYER</span><h1>BTC Market Intelligence</h1><p>Current status → key evidence → time-series context.</p></div>
@@ -14,7 +14,7 @@ const specs={
  stress:{title:"MARKET STRESS",desc:"Volatility, volume and drawdown pressure."},
  supply:{title:"SUPPLY / ON-CHAIN",desc:"Exchange and holder supply behavior."}
 };
-const pretty={funding_avg_pct:"AVG FUNDING",open_interest_7d_change_pct:"OPEN INTEREST · 7D",realized_vol_7d_pct:"REALIZED VOL · 7D",realized_vol_30d_pct:"REALIZED VOL · 30D",volume_ratio:"VOLUME · 7D / 30D",drawdown_30d_pct:"DRAWDOWN · 30D"};
+const pretty={funding_7d_avg_pct:"FUNDING · 7D AVG",funding_30d_avg_pct:"FUNDING · 30D AVG",funding_30d_percentile:"FUNDING · 30D PERCENTILE",open_interest_7d_change_pct:"OPEN INTEREST · 7D",open_interest_30d_percentile:"OI · 30D PERCENTILE",btc_price_7d_change_pct:"BTC PRICE · 7D",realized_vol_7d_pct:"REALIZED VOL · 7D",realized_vol_30d_pct:"REALIZED VOL · 30D",volume_ratio:"VOLUME · 7D / 30D",drawdown_30d_pct:"DRAWDOWN · 30D"};
 const value=(k,v)=>k.includes("pct")?(Number(v).toLocaleString(undefined,{maximumFractionDigits:2})+"%"):v;
 fetch("data/market-intelligence.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
  cards.innerHTML=Object.entries(specs).map(([k,s])=>{const m=d.modules[k]||{status:"DATA PENDING"};
