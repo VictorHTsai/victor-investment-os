@@ -5,6 +5,7 @@ on:
     branches: ["master"]
     paths:
       - "apps/dge-dashboard/**"
+      - "scripts/publish_btc_cycle_snapshot.py"
       - ".github/workflows/dge-pages.yml"
 permissions:
   contents: read
