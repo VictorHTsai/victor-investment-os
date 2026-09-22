@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BTC Market Intelligence — Victor Investment OS</title><link rel="stylesheet" href="styles.css?v=20260923-mi1"></head>
+<body><header><div class="brand"><b>VICTOR INVESTMENT OS</b><span>Markets / Bitcoin / Intelligence</span></div>
+<nav><a href="index.html">OVERVIEW</a><a href="market-state.html" target="_blank" rel="noopener">MARKET STATE ↗</a><a class="active" href="market-intelligence.html">INTELLIGENCE</a><a href="https://bitcoin-cycle-intelligence.hsuantsai.chatgpt.site" target="_blank" rel="noopener">CYCLE ↗</a></nav></header>
+<main><div class="module"><span>EVIDENCE LAYER</span><h1>BTC Market Intelligence</h1><p>Current status → key evidence → time-series context.</p></div>
+<section class="grid two" id="cards"></section>
+<footer>DATA PENDING means the source is not yet reliable enough for production use. No placeholder score is substituted.</footer></main>
+<script>
+const names={capital_flow:"CAPITAL FLOW",liquidity:"LIQUIDITY",derivatives:"DERIVATIVES",stress:"MARKET STRESS",supply:"SUPPLY / ON-CHAIN"};
+fetch("data/market-intelligence.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
+cards.innerHTML=Object.entries(names).map(([k,n])=>{const m=d.modules[k]||{status:"DATA PENDING"};
+const vals=Object.entries(m).filter(([x])=>!["status","source","note","error"].includes(x)).map(([x,v])=>'<div class="mi-row"><span>'+x.replaceAll("_"," ").toUpperCase()+'</span><b>'+v+'</b></div>').join("");
+return '<article class="intel-card"><p class="eyebrow">'+n+'</p><h3 class="mi-status">'+m.status+'</h3>'+vals+(m.note?'<p class="hint">'+m.note+'</p>':'')+(m.source?'<p class="hint">SOURCE · '+m.source+'</p>':'')+'</article>'}).join("")
+}).catch(()=>{cards.innerHTML='<article class="intel-card"><h3>DATA PENDING</h3></article>'});
+</script></body></html>
