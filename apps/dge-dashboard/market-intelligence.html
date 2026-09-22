@@ -1,16 +1,26 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BTC Market Intelligence — Victor Investment OS</title><link rel="stylesheet" href="styles.css?v=20260923-mi1"></head>
+<title>BTC Market Intelligence — Victor Investment OS</title><link rel="stylesheet" href="styles.css?v=20260923-mi2"></head>
 <body><header><div class="brand"><b>VICTOR INVESTMENT OS</b><span>Markets / Bitcoin / Intelligence</span></div>
 <nav><a href="index.html">OVERVIEW</a><a href="market-state.html" target="_blank" rel="noopener">MARKET STATE ↗</a><a class="active" href="market-intelligence.html">INTELLIGENCE</a><a href="https://bitcoin-cycle-intelligence.hsuantsai.chatgpt.site" target="_blank" rel="noopener">CYCLE ↗</a></nav></header>
 <main><div class="module"><span>EVIDENCE LAYER</span><h1>BTC Market Intelligence</h1><p>Current status → key evidence → time-series context.</p></div>
-<section class="grid two" id="cards"></section>
+<section class="mi-grid" id="cards"></section>
 <footer>DATA PENDING means the source is not yet reliable enough for production use. No placeholder score is substituted.</footer></main>
 <script>
-const names={capital_flow:"CAPITAL FLOW",liquidity:"LIQUIDITY",derivatives:"DERIVATIVES",stress:"MARKET STRESS",supply:"SUPPLY / ON-CHAIN"};
+const specs={
+ capital_flow:{title:"CAPITAL FLOW",desc:"Institutional demand via Bitcoin ETF flows."},
+ liquidity:{title:"LIQUIDITY",desc:"Crypto purchasing power and stablecoin liquidity."},
+ derivatives:{title:"DERIVATIVES",desc:"Funding and open-interest positioning."},
+ stress:{title:"MARKET STRESS",desc:"Volatility, volume and drawdown pressure."},
+ supply:{title:"SUPPLY / ON-CHAIN",desc:"Exchange and holder supply behavior."}
+};
+const pretty={funding_avg_pct:"AVG FUNDING",open_interest_7d_change_pct:"OPEN INTEREST · 7D",realized_vol_7d_pct:"REALIZED VOL · 7D",realized_vol_30d_pct:"REALIZED VOL · 30D",volume_ratio:"VOLUME · 7D / 30D",drawdown_30d_pct:"DRAWDOWN · 30D"};
+const value=(k,v)=>k.includes("pct")?(Number(v).toLocaleString(undefined,{maximumFractionDigits:2})+"%"):v;
 fetch("data/market-intelligence.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
-cards.innerHTML=Object.entries(names).map(([k,n])=>{const m=d.modules[k]||{status:"DATA PENDING"};
-const vals=Object.entries(m).filter(([x])=>!["status","source","note","error"].includes(x)).map(([x,v])=>'<div class="mi-row"><span>'+x.replaceAll("_"," ").toUpperCase()+'</span><b>'+v+'</b></div>').join("");
-return '<article class="intel-card"><p class="eyebrow">'+n+'</p><h3 class="mi-status">'+m.status+'</h3>'+vals+(m.note?'<p class="hint">'+m.note+'</p>':'')+(m.source?'<p class="hint">SOURCE · '+m.source+'</p>':'')+'</article>'}).join("")
-}).catch(()=>{cards.innerHTML='<article class="intel-card"><h3>DATA PENDING</h3></article>'});
+ cards.innerHTML=Object.entries(specs).map(([k,s])=>{const m=d.modules[k]||{status:"DATA PENDING"};
+ const rows=Object.entries(m).filter(([x])=>!["status","source","note","error"].includes(x)).map(([x,v])=>'<div class="mi-metric"><span>'+ (pretty[x]||x.replaceAll("_"," ").toUpperCase()) +'</span><b>'+value(x,v)+'</b></div>').join("");
+ const pending=m.status==="DATA PENDING";
+ return '<article class="intel-card mi-card '+(pending?"mi-pending":"")+'"><p class="eyebrow">'+s.title+'</p><div class="mi-status">'+m.status+'</div><p class="mi-desc">'+s.desc+'</p><div class="mi-metrics">'+(rows||'<div class="mi-empty">AWAITING VALIDATED DATA SOURCE</div>')+'</div>'+(m.note?'<p class="mi-note">'+m.note+'</p>':'')+(m.source?'<p class="mi-source">SOURCE · '+m.source+'</p>':'')+'</article>'
+ }).join("")
+}).catch(()=>{cards.innerHTML='<article class="intel-card mi-card"><p class="eyebrow">MARKET INTELLIGENCE</p><div class="mi-status">DATA PENDING</div></article>'});
 </script></body></html>
