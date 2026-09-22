@@ -1,28 +1,28 @@
 {
   "schema_version": "dge.v1",
   "symbol": "BTC-USD",
-  "as_of": "2026-09-22T20:07:18.339619+00:00",
+  "as_of": "2026-09-22T20:16:18.711874+00:00",
   "factors": {
-    "R": 70.86300624877742,
-    "L": 68.5,
+    "R": 71.03761844990223,
+    "L": 69.0,
     "F": 90.20400000000001,
     "C": 50.0,
-    "P": 96.51913535565629,
-    "V": 74.7445699401801,
+    "P": 96.93454681189418,
+    "V": 74.89033694166682,
     "D": 79.22999999999999,
-    "E": 50.0,
-    "T": 50.51086011963981
+    "E": 0.0,
+    "T": 50.21932611666637
   },
   "states": {
-    "accumulation": 0.15409006979433554,
-    "test": 0.1483412516529723,
-    "shakeout": 0.209338777030321,
-    "markup": 0.1975583511916391,
-    "distribution": 0.16601321693206827,
-    "neutral": 0.12465833339866376
+    "accumulation": 0.15482233629098557,
+    "test": 0.1481909526037213,
+    "shakeout": 0.20981822757806126,
+    "markup": 0.1980112319287497,
+    "distribution": 0.16533811957258893,
+    "neutral": 0.12381913202589334
   },
   "dominant_state": "shakeout",
-  "confidence": 0.209338777030321,
+  "confidence": 0.20981822757806126,
   "expected_next_observations": [
     "next comparable shock has lower marginal sell response"
   ],
@@ -33,10 +33,11 @@
     "OHLCV": "Coinbase Exchange",
     "F": "Market Intelligence / Farside ETF flows",
     "D": "Market Intelligence / derivatives router",
-    "C/E": "UNAVAILABLE_NEUTRAL_50"
+    "E": "Event Shock V1 / FOMC + realized BTC shock",
+    "C": "UNAVAILABLE_NEUTRAL_50"
   },
   "methodology": "DGE_V1_RULE_BASED_BASELINE",
-  "price": 86211.67,
+  "price": 86257.41,
   "data_mode": "PARTIAL_LIVE",
   "live_factors": [
     "R",
@@ -45,16 +46,29 @@
     "P",
     "V",
     "D",
+    "E",
     "T"
   ],
   "neutral_placeholders": [
-    "C",
-    "E"
+    "C"
   ],
   "factor_status": {
     "F": "POSITIVE",
     "D": "ACTIVE",
     "C": "DATA PENDING",
-    "E": "DATA PENDING"
+    "E": "LIVE"
+  },
+  "event_shock": {
+    "score": 0.0,
+    "scheduled_macro": {
+      "source": "Federal Reserve FOMC calendar",
+      "next_event": null
+    },
+    "realized_market": {
+      "daily_abs_return_pct": 0.39,
+      "return_abs_percentile": 24.7,
+      "volume_7d_vs_30d": 1.15
+    },
+    "rule": "max(scheduled_macro_risk, realized_market_shock)"
   }
 }
