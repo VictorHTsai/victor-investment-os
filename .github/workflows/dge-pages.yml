@@ -6,7 +6,7 @@ on:
     branches: ["master"]
     paths:
       - "apps/dge-dashboard/**"
-      - "scripts/publish_btc_cycle_snapshot.py"
+      - "scripts/publish_btc_cycle_snapshot.py"\n      - "scripts/publish_btc_market_intelligence.py"
       - ".github/workflows/dge-pages.yml"
 
 permissions:
@@ -34,7 +34,7 @@ jobs:
       - name: Generate BTC cycle snapshot
         run: python scripts/publish_btc_cycle_snapshot.py
 
-      - uses: actions/configure-pages@v5
+      - name: Generate BTC market intelligence snapshot\n        run: python scripts/publish_btc_market_intelligence.py\n\n      - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
         with:
