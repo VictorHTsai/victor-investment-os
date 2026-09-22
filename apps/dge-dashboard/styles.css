@@ -114,3 +114,25 @@ header nav a:hover,.button:hover{color:#07111f!important;background:var(--cyan)}
  .mi-metric b{min-width:0!important;font-size:14px!important;line-height:1.35!important}
  .mi-source{padding-top:2px!important}
 }
+
+/* Market Intelligence interpretation guide */
+.mi-guide{padding:28px!important}
+.guide-intro{max-width:72ch;color:var(--muted);font-size:13px;line-height:1.65;margin:10px 0 22px}
+.guide-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.guide-item{border:1px solid var(--line);border-radius:8px;padding:18px;background:rgba(7,17,31,.28);min-width:0}
+.guide-item .block-label{margin-bottom:10px!important}
+.guide-item b{display:block;color:var(--text);font-size:13px;line-height:1.45;letter-spacing:.02em}
+.guide-item p{color:var(--muted);font-size:12px;line-height:1.65;margin:9px 0 0}
+.guide-wide{grid-column:1/-1}
+.guide-rule{border-top:1px solid var(--line);margin-top:20px;padding-top:18px}
+.guide-rule b{display:block;color:var(--cyan);font-size:10px;letter-spacing:.12em}
+.guide-rule p{color:var(--muted);font-size:12px;line-height:1.65;margin:8px 0 0}
+@media(max-width:760px){
+ header nav{grid-template-columns:repeat(4,1fr)}
+ .mi-guide{padding:22px 18px!important}
+ .guide-grid{grid-template-columns:1fr;gap:10px}
+ .guide-wide{grid-column:auto}
+ .guide-item{padding:16px}
+ .guide-item b{font-size:12px}
+ .guide-item p{font-size:12px;line-height:1.6}
+}
