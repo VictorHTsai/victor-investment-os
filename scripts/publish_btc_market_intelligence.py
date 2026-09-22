@@ -19,6 +19,14 @@ def pct(a, b):
 def percentile(values, value):
     return round(100 * sum(v <= value for v in values) / len(values), 1) if values else None
 
+def okx_derivatives():
+    funding = get_json("https://www.okx.com/api/v5/public/funding-rate-history?instId=BTC-USDT-SWAP&limit=90")["data"]
+    oi_now = get_json("https://www.okx.com/api/v5/public/open-interest?instType=SWAP&instId=BTC-USDT-SWAP")["data"]
+    funding = sorted(funding, key=lambda x: int(x["fundingTime"]))
+    rates = [float(x.get("realizedRate") or x["fundingRate"]) * 100 for x in funding]
+    current_oi = float(oi_now[0]["oiUsd"])
+    return rates, [current_oi], "OKX Public API"
+
 def bybit_derivatives():
     funding = get_json("https://api.bybit.com/v5/market/funding/history?category=linear&symbol=BTCUSDT&limit=90")["result"]["list"]
     oi = get_json("https://api.bybit.com/v5/market/open-interest?category=linear&symbol=BTCUSDT&intervalTime=1d&limit=30")["result"]["list"]
@@ -38,17 +46,17 @@ def binance_derivatives():
 def main():
     out = {"schema_version": "btc-market-intelligence-v2", "as_of": datetime.now(timezone.utc).isoformat(), "modules": {}, "history": {}}
     errors = []
-    for provider in (bybit_derivatives, binance_derivatives):
+    for provider in (okx_derivatives, bybit_derivatives, binance_derivatives):
         try:
             rates, open_interest, source = provider()
-            oi7 = pct(open_interest[-1], open_interest[-8])
+            oi7 = pct(open_interest[-1], open_interest[-8]) if len(open_interest) >= 8 else None
             f7 = sum(rates[-21:]) / min(21, len(rates))
             f30 = sum(rates) / len(rates)
             funding_percentile = percentile(rates, rates[-1])
-            oi_percentile = percentile(open_interest, open_interest[-1])
-            status = "DELEVERAGING" if oi7 <= -5 else "CROWDED" if oi7 >= 10 and f7 > 0.02 else "NEUTRAL" if abs(oi7) < 5 and abs(f7) < 0.02 else "ACTIVE"
+            oi_percentile = percentile(open_interest, open_interest[-1]) if len(open_interest) >= 8 else None
+            status = "FUNDING ONLY" if oi7 is None else "DELEVERAGING" if oi7 <= -5 else "CROWDED" if oi7 >= 10 and f7 > 0.02 else "NEUTRAL" if abs(oi7) < 5 and abs(f7) < 0.02 else "ACTIVE"
             print("DERIVATIVES_PROVIDER_OK", source, "funding_records=", len(rates), "oi_records=", len(open_interest), flush=True)
-            out["modules"]["derivatives"] = {"status": status, "funding_7d_avg_pct": round(f7, 4), "funding_30d_avg_pct": round(f30, 4), "funding_30d_percentile": funding_percentile, "open_interest_7d_change_pct": round(oi7, 2), "open_interest_30d_percentile": oi_percentile, "source": source}
+            out["modules"]["derivatives"] = {"status": status, "funding_7d_avg_pct": round(f7, 4), "funding_30d_avg_pct": round(f30, 4), "funding_30d_percentile": funding_percentile, "open_interest_7d_change_pct": round(oi7, 2) if oi7 is not None else None, "open_interest_30d_percentile": oi_percentile, "source": source}
             break
         except Exception as exc:
             message = provider.__name__ + ": " + type(exc).__name__ + ": " + str(exc)[:300]
@@ -56,7 +64,7 @@ def main():
             print("DERIVATIVES_PROVIDER_FAIL", message, flush=True)
     else:
         print("DERIVATIVES_ALL_PROVIDERS_FAILED", " | ".join(errors), flush=True)
-        out["modules"]["derivatives"] = {"status": "DATA PENDING", "error": " | ".join(errors), "providers_attempted": ["Bybit Public API", "Binance Public API"]}
+        out["modules"]["derivatives"] = {"status": "DATA PENDING", "error": " | ".join(errors), "providers_attempted": ["OKX Public API", "Bybit Public API", "Binance Public API"]}
 
     try:
         candles = sorted(get_json("https://api.exchange.coinbase.com/products/BTC-USD/candles?granularity=86400"), key=lambda x: x[0])[-90:]
