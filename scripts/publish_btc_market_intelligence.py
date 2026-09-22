@@ -96,8 +96,49 @@ def defillama_stablecoin_liquidity():
     acceleration = change30 - prior30
     return current, change7, change30, change90, acceleration, len(values)
 
+def coinmetrics_onchain_activity():
+    metrics = "AdrActCnt,TxCnt,HashRate"
+    data = get_json(
+        "https://community-api.coinmetrics.io/v4/timeseries/asset-metrics"
+        "?assets=btc&metrics=" + metrics + "&frequency=1d&page_size=100&paging_from=end"
+    )["data"]
+    rows = sorted(data, key=lambda x: x["time"])[-90:]
+    if len(rows) < 31:
+        raise ValueError("Coin Metrics returned fewer than 31 daily observations")
+    series = {m: [float(row[m]) for row in rows if row.get(m) not in (None, "")] for m in metrics.split(",")}
+    if any(len(values) < 31 for values in series.values()):
+        raise ValueError("Coin Metrics returned incomplete on-chain observations")
+    active7 = sum(series["AdrActCnt"][-7:]) / 7
+    active30 = sum(series["AdrActCnt"][-30:]) / 30
+    tx7 = sum(series["TxCnt"][-7:]) / 7
+    tx30 = sum(series["TxCnt"][-30:]) / 30
+    hash30 = pct(series["HashRate"][-1], series["HashRate"][-31])
+    active_trend = pct(active7, active30)
+    tx_trend = pct(tx7, tx30)
+    trends = [active_trend, tx_trend, hash30]
+    expanding = sum(x >= 5 for x in trends)
+    contracting = sum(x <= -5 for x in trends)
+    status = "EXPANDING" if expanding >= 2 else "CONTRACTING" if contracting >= 2 else "STABLE"
+    interpretation = {
+        "EXPANDING": "Network activity is strengthening relative to its recent baseline.",
+        "CONTRACTING": "Network activity is weakening relative to its recent baseline.",
+        "STABLE": "Network activity is mixed or near its recent baseline.",
+    }[status]
+    return {
+        "status": status,
+        "active_addresses_7d_avg": round(active7),
+        "active_addresses_7d_vs_30d_pct": round(active_trend, 2),
+        "transactions_7d_avg": round(tx7),
+        "transactions_7d_vs_30d_pct": round(tx_trend, 2),
+        "hash_rate_30d_change_pct": round(hash30, 2),
+        "latest_observation": rows[-1]["time"][:10],
+        "interpretation": interpretation,
+        "source": "Coin Metrics Community API",
+        "audit": {"observations": len(rows), "rule": "EXPANDING/CONTRACTING when at least 2 of 3 trends cross +/-5%; otherwise STABLE"},
+    }
+
 def main():
-    out = {"schema_version": "btc-market-intelligence-v2", "as_of": datetime.now(timezone.utc).isoformat(), "modules": {}, "history": {}}
+    out = {"schema_version": "btc-market-intelligence-v3", "as_of": datetime.now(timezone.utc).isoformat(), "modules": {}, "history": {}}
     errors = []
     for provider in (okx_derivatives, bybit_derivatives, binance_derivatives):
         try:
@@ -154,7 +195,13 @@ def main():
     except Exception as exc:
         print("LIQUIDITY_PROVIDER_FAIL", type(exc).__name__ + ": " + str(exc)[:300], flush=True)
         out["modules"]["liquidity"] = {"status": "DATA PENDING", "error": str(exc)[:300], "source_attempted": "DefiLlama Stablecoins API"}
-    out["modules"]["supply"] = {"status": "DATA PENDING", "note": "Reliable on-chain cohort source not yet integrated"}
+    try:
+        onchain = coinmetrics_onchain_activity()
+        out["modules"]["onchain"] = onchain
+        print("ONCHAIN_PROVIDER_OK", onchain["source"], "latest=", onchain["latest_observation"], flush=True)
+    except Exception as exc:
+        print("ONCHAIN_PROVIDER_FAIL", type(exc).__name__ + ": " + str(exc)[:300], flush=True)
+        out["modules"]["onchain"] = {"status": "DATA PENDING", "error": str(exc)[:300], "source_attempted": "Coin Metrics Community API"}
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(out, indent=2))
 
