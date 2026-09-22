@@ -46,6 +46,37 @@ def binance_derivatives():
     open_interest = [float(x["sumOpenInterest"]) for x in oi]
     return rates, open_interest, "Binance Public API"
 
+def farside_etf_flows():
+    from html.parser import HTMLParser
+    class TableText(HTMLParser):
+        def __init__(self):
+            super().__init__(); self.rows=[]; self.row=[]; self.cell=[]; self.in_row=False; self.in_cell=False
+        def handle_starttag(self, tag, attrs):
+            if tag == "tr": self.in_row=True; self.row=[]
+            if tag in ("td", "th") and self.in_row: self.in_cell=True; self.cell=[]
+        def handle_data(self, data):
+            if self.in_cell: self.cell.append(data)
+        def handle_endtag(self, tag):
+            if tag in ("td", "th") and self.in_cell: self.row.append("".join(self.cell).strip()); self.in_cell=False
+            if tag == "tr" and self.in_row: self.rows.append(self.row); self.in_row=False
+    req = Request("https://farside.co.uk/btc/", headers={"User-Agent": "Mozilla/5.0 Victor-Investment-OS"})
+    with urlopen(req, timeout=20) as response: html = response.read().decode("utf-8", errors="ignore")
+    parser=TableText(); parser.feed(html); flows=[]
+    for row in parser.rows:
+        if len(row) < 2: continue
+        try:
+            datetime.strptime(row[0].strip(), "%d %b %Y")
+        except ValueError: continue
+        raw=row[-1].strip().replace(",", "")
+        if raw in ("", "-"): continue
+        negative=raw.startswith("(") and raw.endswith(")")
+        raw=raw.strip("()")
+        try: value=float(raw)
+        except ValueError: continue
+        flows.append((-value if negative else value))
+    if len(flows) < 7: raise ValueError("Farside returned fewer than 7 daily ETF flow observations")
+    return flows[-30:]
+
 def main():
     out = {"schema_version": "btc-market-intelligence-v2", "as_of": datetime.now(timezone.utc).isoformat(), "modules": {}, "history": {}}
     errors = []
@@ -85,7 +116,17 @@ def main():
     except Exception as exc:
         out["modules"]["stress"] = {"status": "DATA PENDING", "error": str(exc)[:100]}
 
-    out["modules"]["capital_flow"] = {"status": "DATA PENDING", "note": "ETF flow source validation pending"}
+    try:
+        etf = farside_etf_flows()
+        flow7 = sum(etf[-7:])
+        flow30 = sum(etf)
+        positive_days = sum(x > 0 for x in etf[-7:])
+        status = "POSITIVE" if flow7 > 250 and positive_days >= 4 else "NEGATIVE" if flow7 < -250 and positive_days <= 3 else "NEUTRAL"
+        out["modules"]["capital_flow"] = {"status": status, "etf_flow_7d_usd_m": round(flow7, 1), "etf_flow_30d_usd_m": round(flow30, 1), "positive_days_7d": positive_days, "observations": len(etf), "source": "Farside Investors"}
+        print("CAPITAL_FLOW_PROVIDER_OK", "Farside Investors", "records=", len(etf), flush=True)
+    except Exception as exc:
+        print("CAPITAL_FLOW_PROVIDER_FAIL", type(exc).__name__ + ": " + str(exc)[:300], flush=True)
+        out["modules"]["capital_flow"] = {"status": "DATA PENDING", "error": str(exc)[:300], "source_attempted": "Farside Investors"}
     out["modules"]["liquidity"] = {"status": "DATA PENDING", "note": "Stablecoin time-series source validation pending"}
     out["modules"]["supply"] = {"status": "DATA PENDING", "note": "Reliable on-chain cohort source not yet integrated"}
     OUT.parent.mkdir(parents=True, exist_ok=True)
