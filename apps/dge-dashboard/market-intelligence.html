@@ -14,8 +14,8 @@ const specs={
  stress:{title:"MARKET STRESS",desc:"Volatility, volume and drawdown pressure."},
  supply:{title:"SUPPLY / ON-CHAIN",desc:"Exchange and holder supply behavior."}
 };
-const pretty={funding_7d_avg_pct:"FUNDING · 7D AVG",funding_30d_avg_pct:"FUNDING · 30D AVG",funding_30d_percentile:"FUNDING · 30D PERCENTILE",open_interest_7d_change_pct:"OPEN INTEREST · 7D",open_interest_30d_percentile:"OI · 30D PERCENTILE",btc_price_7d_change_pct:"BTC PRICE · 7D",realized_vol_7d_pct:"REALIZED VOL · 7D",realized_vol_30d_pct:"REALIZED VOL · 30D",volume_ratio:"VOLUME · 7D / 30D",drawdown_30d_pct:"DRAWDOWN · 30D"};
-const value=(k,v)=>k.includes("pct")?(Number(v).toLocaleString(undefined,{maximumFractionDigits:2})+"%"):v;
+const pretty={stablecoin_supply_usd_b:"STABLECOIN SUPPLY",stablecoin_supply_7d_change_pct:"SUPPLY · 7D",stablecoin_supply_30d_change_pct:"SUPPLY · 30D",stablecoin_supply_90d_change_pct:"SUPPLY · 90D",stablecoin_30d_acceleration_pp:"30D ACCELERATION",funding_7d_avg_pct:"FUNDING · 7D AVG",funding_30d_avg_pct:"FUNDING · 30D AVG",funding_30d_percentile:"FUNDING · 30D PERCENTILE",open_interest_7d_change_pct:"OPEN INTEREST · 7D",open_interest_30d_percentile:"OI · 30D PERCENTILE",btc_price_7d_change_pct:"BTC PRICE · 7D",realized_vol_7d_pct:"REALIZED VOL · 7D",realized_vol_30d_pct:"REALIZED VOL · 30D",volume_ratio:"VOLUME · 7D / 30D",drawdown_30d_pct:"DRAWDOWN · 30D"};
+const value=(k,v)=>v===null||v===undefined?"—":k==="stablecoin_supply_usd_b"?("$"+Number(v).toLocaleString(undefined,{maximumFractionDigits:2})+"B"):k.endsWith("_pp")?(Number(v).toLocaleString(undefined,{maximumFractionDigits:2})+" pp"):k.includes("pct")?(Number(v).toLocaleString(undefined,{maximumFractionDigits:2})+"%"):v;
 fetch("data/market-intelligence.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
  cards.innerHTML=Object.entries(specs).map(([k,s])=>{const m=d.modules[k]||{status:"DATA PENDING"};
  const rows=Object.entries(m).filter(([x])=>!["status","source","note","error","audit"].includes(x)).map(([x,v])=>'<div class="mi-metric"><span>'+ (pretty[x]||x.replaceAll("_"," ").toUpperCase()) +'</span><b>'+value(x,v)+'</b></div>').join("");

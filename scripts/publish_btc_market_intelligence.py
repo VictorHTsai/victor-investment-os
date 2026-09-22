@@ -77,6 +77,25 @@ def farside_etf_flows():
     if len(flows) < 7: raise ValueError("Farside returned fewer than 7 daily ETF flow observations")
     return flows[-30:]
 
+def defillama_stablecoin_liquidity():
+    data = get_json("https://stablecoins.llama.fi/stablecoincharts/all")
+    points = []
+    for row in data:
+        ts = int(row["date"])
+        total = row.get("totalCirculatingUSD", {})
+        value = total.get("peggedUSD") if isinstance(total, dict) else None
+        if value is not None: points.append((ts, float(value)))
+    points = sorted(points, key=lambda x: x[0])
+    if len(points) < 91: raise ValueError("DefiLlama returned fewer than 91 stablecoin observations")
+    values = [x[1] for x in points]
+    current = values[-1]
+    change7 = pct(current, values[-8])
+    change30 = pct(current, values[-31])
+    change90 = pct(current, values[-91])
+    prior30 = pct(values[-31], values[-61])
+    acceleration = change30 - prior30
+    return current, change7, change30, change90, acceleration, len(values)
+
 def main():
     out = {"schema_version": "btc-market-intelligence-v2", "as_of": datetime.now(timezone.utc).isoformat(), "modules": {}, "history": {}}
     errors = []
@@ -127,7 +146,14 @@ def main():
     except Exception as exc:
         print("CAPITAL_FLOW_PROVIDER_FAIL", type(exc).__name__ + ": " + str(exc)[:300], flush=True)
         out["modules"]["capital_flow"] = {"status": "DATA PENDING", "error": str(exc)[:300], "source_attempted": "Farside Investors"}
-    out["modules"]["liquidity"] = {"status": "DATA PENDING", "note": "Stablecoin time-series source validation pending"}
+    try:
+        stable_supply, stable7, stable30, stable90, stable_accel, stable_records = defillama_stablecoin_liquidity()
+        liquidity_status = "EXPANDING" if stable30 >= 2 and stable7 >= 0 else "CONTRACTING" if stable30 <= -2 else "STABLE"
+        out["modules"]["liquidity"] = {"status": liquidity_status, "stablecoin_supply_usd_b": round(stable_supply / 1_000_000_000, 2), "stablecoin_supply_7d_change_pct": round(stable7, 2), "stablecoin_supply_30d_change_pct": round(stable30, 2), "stablecoin_supply_90d_change_pct": round(stable90, 2), "stablecoin_30d_acceleration_pp": round(stable_accel, 2), "source": "DefiLlama Stablecoins API"}
+        print("LIQUIDITY_PROVIDER_OK", "DefiLlama Stablecoins API", "records=", stable_records, flush=True)
+    except Exception as exc:
+        print("LIQUIDITY_PROVIDER_FAIL", type(exc).__name__ + ": " + str(exc)[:300], flush=True)
+        out["modules"]["liquidity"] = {"status": "DATA PENDING", "error": str(exc)[:300], "source_attempted": "DefiLlama Stablecoins API"}
     out["modules"]["supply"] = {"status": "DATA PENDING", "note": "Reliable on-chain cohort source not yet integrated"}
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(out, indent=2))
