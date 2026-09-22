@@ -21,11 +21,14 @@ def percentile(values, value):
 
 def okx_derivatives():
     funding = get_json("https://www.okx.com/api/v5/public/funding-rate-history?instId=BTC-USDT-SWAP&limit=90")["data"]
-    oi_now = get_json("https://www.okx.com/api/v5/public/open-interest?instType=SWAP&instId=BTC-USDT-SWAP")["data"]
+    oi_history = get_json("https://www.okx.com/api/v5/rubik/stat/contracts/open-interest-volume?ccy=BTC&period=1D")["data"]
     funding = sorted(funding, key=lambda x: int(x["fundingTime"]))
+    oi_history = sorted(oi_history, key=lambda x: int(x[0]))[-30:]
     rates = [float(x.get("realizedRate") or x["fundingRate"]) * 100 for x in funding]
-    current_oi = float(oi_now[0]["oiUsd"])
-    return rates, [current_oi], "OKX Public API"
+    open_interest = [float(x[1]) for x in oi_history]
+    if len(open_interest) < 8:
+        raise ValueError("OKX historical OI returned fewer than 8 daily observations")
+    return rates, open_interest, "OKX Public API"
 
 def bybit_derivatives():
     funding = get_json("https://api.bybit.com/v5/market/funding/history?category=linear&symbol=BTCUSDT&limit=90")["result"]["list"]
@@ -54,9 +57,9 @@ def main():
             f30 = sum(rates) / len(rates)
             funding_percentile = percentile(rates, rates[-1])
             oi_percentile = percentile(open_interest, open_interest[-1]) if len(open_interest) >= 8 else None
-            status = "FUNDING ONLY" if oi7 is None else "DELEVERAGING" if oi7 <= -5 else "CROWDED" if oi7 >= 10 and f7 > 0.02 else "NEUTRAL" if abs(oi7) < 5 and abs(f7) < 0.02 else "ACTIVE"
+            status = "DELEVERAGING" if oi7 <= -5 else "CROWDED" if oi7 >= 10 and f7 > 0.02 else "NEUTRAL" if abs(oi7) < 5 and abs(f7) < 0.02 else "ACTIVE"
             print("DERIVATIVES_PROVIDER_OK", source, "funding_records=", len(rates), "oi_records=", len(open_interest), flush=True)
-            out["modules"]["derivatives"] = {"status": status, "funding_7d_avg_pct": round(f7, 4), "funding_30d_avg_pct": round(f30, 4), "funding_30d_percentile": funding_percentile, "open_interest_7d_change_pct": round(oi7, 2) if oi7 is not None else None, "open_interest_30d_percentile": oi_percentile, "source": source}
+            out["modules"]["derivatives"] = {"status": status, "funding_7d_avg_pct": round(f7, 4), "funding_30d_avg_pct": round(f30, 4), "funding_30d_percentile": funding_percentile, "open_interest_7d_change_pct": round(oi7, 2), "open_interest_30d_percentile": oi_percentile, "source": source}
             break
         except Exception as exc:
             message = provider.__name__ + ": " + type(exc).__name__ + ": " + str(exc)[:300]
