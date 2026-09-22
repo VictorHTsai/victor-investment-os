@@ -1,1 +1,52 @@
-{"schema_version":"dge.v1","symbol":"BTC-USD","as_of":"DEMO SNAPSHOT — replace via DGE pipeline","price":null,"dominant_state":"markup","confidence":0.48,"factors":{"R":70,"L":75,"F":90,"C":55,"P":65,"V":65,"D":30,"E":20,"T":55},"states":{"accumulation":0.18,"test":0.12,"shakeout":0.07,"markup":0.48,"distribution":0.05,"neutral":0.10},"expected_next_observations":["Spot CVD confirms breakout","External capital remains positive"],"invalidators":["Breakout loses equilibrium","Leverage overheats without spot confirmation"]}
+{
+  "schema_version": "dge.v1",
+  "symbol": "BTC-USD",
+  "as_of": "2026-09-22T15:13:56.512048+00:00",
+  "factors": {
+    "R": 71.06292327747927,
+    "L": 49.5,
+    "F": 50.0,
+    "C": 50.0,
+    "P": 96.99457894407023,
+    "V": 74.91140208989218,
+    "D": 50.0,
+    "E": 50.0,
+    "T": 50.177195820215644
+  },
+  "states": {
+    "accumulation": 0.19290977550800362,
+    "test": 0.1690911525730937,
+    "shakeout": 0.23952431556937123,
+    "markup": 0.13246803880959904,
+    "distribution": 0.10021305704269431,
+    "neutral": 0.16579366049723804
+  },
+  "dominant_state": "shakeout",
+  "confidence": 0.23952431556937123,
+  "expected_next_observations": [
+    "next comparable shock has lower marginal sell response"
+  ],
+  "invalidators": [
+    "marginal sell response re-accelerates"
+  ],
+  "provenance": {
+    "OHLCV": "Coinbase Exchange",
+    "F/C/D/E": "UNAVAILABLE_NEUTRAL_50"
+  },
+  "methodology": "DGE_V1_RULE_BASED_BASELINE",
+  "price": 86264.02,
+  "data_mode": "PARTIAL_LIVE",
+  "live_factors": [
+    "R",
+    "L",
+    "P",
+    "V",
+    "T"
+  ],
+  "neutral_placeholders": [
+    "F",
+    "C",
+    "D",
+    "E"
+  ]
+}
