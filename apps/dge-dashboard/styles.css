@@ -166,3 +166,11 @@ header nav a:hover,.button:hover{color:#07111f!important;background:var(--cyan)}
  .overview-lower-grid .decision-row{display:block!important}
  .overview-lower-grid .decision-row .block-value{white-space:normal!important;overflow-wrap:anywhere!important}
 }
+
+
+/* Mobile Decision Context: use available width before wrapping values */
+@media(max-width:760px){
+ .overview-lower-grid .decision-row{display:grid!important;grid-template-columns:minmax(92px,.34fr) minmax(0,1fr)!important;column-gap:14px!important;align-items:center!important}
+ .overview-lower-grid .decision-row .block-label{margin:0!important;width:auto!important}
+ .overview-lower-grid .decision-row .block-value{width:auto!important;min-width:0!important;white-space:nowrap!important;overflow-wrap:normal!important;word-break:normal!important;font-size:clamp(11px,3.15vw,14px)!important}
+}
