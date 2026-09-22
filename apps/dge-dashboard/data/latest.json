@@ -1,28 +1,28 @@
 {
   "schema_version": "dge.v1",
   "symbol": "BTC-USD",
-  "as_of": "2026-09-22T15:23:29.237525+00:00",
+  "as_of": "2026-09-22T18:56:54.039307+00:00",
   "factors": {
-    "R": 71.07096640668664,
-    "L": 52.0,
+    "R": 72.09460623108653,
+    "L": 65.5,
     "F": 50.0,
     "C": 50.0,
-    "P": 97.01365117970853,
-    "V": 74.91809449704391,
+    "P": 99.40621773045841,
+    "V": 75.75764103993123,
     "D": 50.0,
     "E": 50.0,
-    "T": 50.16381100591219
+    "T": 48.484717920137555
   },
   "states": {
-    "accumulation": 0.19469630630509974,
-    "test": 0.16809508625566352,
-    "shakeout": 0.23814944244100716,
-    "markup": 0.13467688243393397,
-    "distribution": 0.09960873130674675,
-    "neutral": 0.16477355125754883
+    "accumulation": 0.2075224233060128,
+    "test": 0.16262758164960875,
+    "shakeout": 0.2348262427308858,
+    "markup": 0.14612930829359083,
+    "distribution": 0.09468469293858844,
+    "neutral": 0.15420975108131338
   },
   "dominant_state": "shakeout",
-  "confidence": 0.23814944244100716,
+  "confidence": 0.2348262427308858,
   "expected_next_observations": [
     "next comparable shock has lower marginal sell response"
   ],
@@ -34,7 +34,7 @@
     "F/C/D/E": "UNAVAILABLE_NEUTRAL_50"
   },
   "methodology": "DGE_V1_RULE_BASED_BASELINE",
-  "price": 86266.12,
+  "price": 86529.56,
   "data_mode": "PARTIAL_LIVE",
   "live_factors": [
     "R",
