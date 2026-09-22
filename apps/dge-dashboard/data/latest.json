@@ -1,33 +1,35 @@
 {
   "schema_version": "dge.v1",
   "symbol": "BTC-USD",
-  "as_of": "2026-09-22T20:16:18.711874+00:00",
+  "as_of": "2026-09-22T22:12:41.257378+00:00",
   "factors": {
-    "R": 71.03761844990223,
-    "L": 69.0,
-    "F": 90.20400000000001,
+    "R": 70.18811041673212,
+    "L": 70.0,
+    "F": 94.16399999999999,
     "C": 50.0,
-    "P": 96.93454681189418,
-    "V": 74.89033694166682,
+    "P": 94.89409005909671,
+    "V": 74.17434498224347,
     "D": 79.22999999999999,
     "E": 0.0,
-    "T": 50.21932611666637
+    "T": 51.65131003551306
   },
   "states": {
-    "accumulation": 0.15482233629098557,
-    "test": 0.1481909526037213,
-    "shakeout": 0.20981822757806126,
-    "markup": 0.1980112319287497,
-    "distribution": 0.16533811957258893,
-    "neutral": 0.12381913202589334
+    "accumulation": 0.15084745585091922,
+    "test": 0.14547773979964168,
+    "shakeout": 0.20266347796006579,
+    "markup": 0.20855338272809487,
+    "distribution": 0.1694011954590692,
+    "neutral": 0.12305674820220913
   },
-  "dominant_state": "shakeout",
-  "confidence": 0.20981822757806126,
+  "dominant_state": "markup",
+  "confidence": 0.20855338272809487,
   "expected_next_observations": [
-    "next comparable shock has lower marginal sell response"
+    "spot CVD confirms breakout",
+    "external capital remains positive"
   ],
   "invalidators": [
-    "marginal sell response re-accelerates"
+    "breakout loses equilibrium",
+    "leverage overheats without spot confirmation"
   ],
   "provenance": {
     "OHLCV": "Coinbase Exchange",
@@ -37,7 +39,7 @@
     "C": "UNAVAILABLE_NEUTRAL_50"
   },
   "methodology": "DGE_V1_RULE_BASED_BASELINE",
-  "price": 86257.41,
+  "price": 86032.74,
   "data_mode": "PARTIAL_LIVE",
   "live_factors": [
     "R",
@@ -65,9 +67,9 @@
       "next_event": null
     },
     "realized_market": {
-      "daily_abs_return_pct": 0.39,
-      "return_abs_percentile": 24.7,
-      "volume_7d_vs_30d": 1.15
+      "daily_abs_return_pct": 0.65,
+      "return_abs_percentile": 38.2,
+      "volume_7d_vs_30d": 1.16
     },
     "rule": "max(scheduled_macro_risk, realized_market_shock)"
   }
