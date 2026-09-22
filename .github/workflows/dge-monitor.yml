@@ -34,11 +34,14 @@ jobs:
       - name: Generate live DGE snapshot
         run: python scripts/publish_dge_snapshot.py
 
+      - name: Generate BTC cycle strategic snapshot
+        run: python scripts/publish_btc_cycle_snapshot.py
+
       - name: Commit snapshot when changed
         run: |
           git config user.name "victor-investment-os-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add apps/dge-dashboard/data/latest.json
+          git add apps/dge-dashboard/data/latest.json apps/dge-dashboard/data/cycle-latest.json
           if ! git diff --cached --quiet; then
             git commit -m "data: refresh DGE BTC snapshot"
             git push
