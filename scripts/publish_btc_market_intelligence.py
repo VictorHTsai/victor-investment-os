@@ -49,6 +49,4 @@ def main():
     out["modules"]["capital_flow"]={"status":"DATA PENDING","note":"ETF flow source validation pending"}
     out["modules"]["liquidity"]={"status":"DATA PENDING","note":"Stablecoin time-series source validation pending"}
     out["modules"]["supply"]={"status":"DATA PENDING","note":"Reliable on-chain cohort source not yet integrated"}
-    OUT.parent.mkdir(parents=True,exist_ok=True);OUT.write_text(json.dumps(out,indent=2)+"
-")
-if __name__=="__main__":main()
+    OUT.parent.mkdir(parents=True, exist_ok=True)\n    OUT.write_text(json.dumps(out, indent=2))\nif __name__=="__main__":main()
