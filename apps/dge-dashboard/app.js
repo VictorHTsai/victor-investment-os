@@ -1,0 +1,9 @@
+const sample={schema_version:"dge.v1",symbol:"BTC-USD",as_of:"DEMO SNAPSHOT",price:null,dominant_state:"markup",confidence:.48,factors:{R:70,L:75,F:90,C:55,P:65,V:65,D:30,E:20,T:55},states:{accumulation:.18,test:.12,shakeout:.07,markup:.48,distribution:.05,neutral:.10},expected_next_observations:["Spot CVD confirms breakout","External capital remains positive"],invalidators:["Breakout loses equilibrium","Leverage overheats without spot confirmation"]};
+const labels={R:"Regime",L:"Liquidity",F:"External Capital",C:"Control Proxy",P:"Positioning",V:"Test Response",D:"Derivatives",E:"Event Pressure",T:"Cycle Prior"};
+async function load(){let d=sample;try{const r=await fetch("data/latest.json",{cache:"no-store"});if(r.ok){d=await r.json();document.querySelector("#mode").textContent="LIVE PIPELINE SNAPSHOT · "+d.as_of}}catch(e){}render(d)}
+function render(d){state.textContent=d.dominant_state.toUpperCase();confidence.textContent="Model confidence "+Math.round(d.confidence*100)+"%";price.textContent=d.price?("$"+Number(d.price).toLocaleString()):"—";updated.textContent=d.as_of;modelLog.textContent=d.dominant_state.toUpperCase()+" · "+Math.round(d.confidence*100)+"% confidence";
+states.innerHTML=Object.entries(d.states).map(([k,v])=>`<div class="row ${k===d.dominant_state?"active":""}"><b>${k}</b><div class="bar"><i style="width:${v*100}%"></i></div><span>${Math.round(v*100)}%</span></div>`).join("");
+factors.innerHTML=Object.entries(d.factors).map(([k,v])=>`<div class="factor"><b>${k}</b><strong>${Math.round(v)}</strong><span>${labels[k]||""}</span></div>`).join("");
+next.innerHTML=d.expected_next_observations.map(x=>"<li>"+x+"</li>").join("");invalid.innerHTML=d.invalidators.map(x=>"<li>"+x+"</li>").join("");
+const ranked=Object.entries(d.states).sort((a,b)=>b[1]-a[1]);base.textContent=Math.round(ranked[0][1]*100)+"%";alt.textContent=Math.round(ranked[1][1]*100)+"%";failure.textContent=Math.round((d.states.neutral||0)*100)+"%"}
+load();
