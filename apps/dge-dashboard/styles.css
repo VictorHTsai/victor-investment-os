@@ -101,3 +101,16 @@ header nav a:hover,.button:hover{color:#07111f!important;background:var(--cyan)}
 .mi-note,.mi-source{font-size:11px;line-height:1.5;color:var(--muted);margin:14px 0 0}.mi-source{color:#6f87a3}
 .mi-pending .mi-status{color:var(--gold)}
 @media(max-width:760px){.mi-grid{grid-template-columns:1fr;gap:18px}.mi-card{padding:24px 20px!important}.mi-status{font-size:21px}.mi-metric{padding:12px 0}.mi-metric span{font-size:10px}.mi-metric b{font-size:14px}}
+
+/* Market Intelligence mobile metric rows — explicit spacing like Market State */
+.mi-metrics{display:block!important;width:100%!important;margin-top:8px!important}
+.mi-metric{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;column-gap:24px!important;align-items:center!important;width:100%!important;padding:13px 0!important;border-bottom:1px solid var(--line)!important}
+.mi-metric span{display:block!important;min-width:0!important;font-size:12px!important;line-height:1.4!important;color:var(--muted)!important;letter-spacing:.04em!important}
+.mi-metric b{display:block!important;min-width:64px!important;text-align:right!important;font-size:15px!important;line-height:1.4!important;color:var(--text)!important;font-variant-numeric:tabular-nums!important}
+.mi-note,.mi-source{display:block!important;margin-top:16px!important;line-height:1.55!important}
+@media(max-width:760px){
+ .mi-metric{grid-template-columns:minmax(0,1fr) 82px!important;column-gap:18px!important;padding:12px 0!important}
+ .mi-metric span{font-size:11px!important;line-height:1.35!important}
+ .mi-metric b{min-width:0!important;font-size:14px!important;line-height:1.35!important}
+ .mi-source{padding-top:2px!important}
+}
