@@ -59,7 +59,7 @@ def main():
             oi_percentile = percentile(open_interest, open_interest[-1]) if len(open_interest) >= 8 else None
             status = "DELEVERAGING" if oi7 <= -5 else "CROWDED" if oi7 >= 10 and f7 > 0.02 else "NEUTRAL" if abs(oi7) < 5 and abs(f7) < 0.02 else "ACTIVE"
             print("DERIVATIVES_PROVIDER_OK", source, "funding_records=", len(rates), "oi_records=", len(open_interest), flush=True)
-            out["modules"]["derivatives"] = {"status": status, "funding_7d_avg_pct": round(f7, 4), "funding_30d_avg_pct": round(f30, 4), "funding_30d_percentile": funding_percentile, "open_interest_7d_change_pct": round(oi7, 2), "open_interest_30d_percentile": oi_percentile, "source": source}
+            out["modules"]["derivatives"] = {"status": status, "funding_7d_avg_pct": round(f7, 4), "funding_30d_avg_pct": round(f30, 4), "funding_30d_percentile": funding_percentile, "open_interest_7d_change_pct": round(oi7, 2), "open_interest_30d_percentile": oi_percentile, "source": source, "audit": {"oi_observations": len(open_interest), "oi_current": open_interest[-1], "oi_7d_ago": open_interest[-8], "oi_30d_min": min(open_interest), "oi_30d_max": max(open_interest), "current_equals_30d_max": open_interest[-1] == max(open_interest)}}
             break
         except Exception as exc:
             message = provider.__name__ + ": " + type(exc).__name__ + ": " + str(exc)[:300]
