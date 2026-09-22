@@ -26,3 +26,22 @@
  .hypotheses{grid-template-columns:1fr}.hypotheses div{text-align:left;padding:13px 4px}.hypotheses strong{font-size:17px}
  footer{line-height:1.5}
 }
+/* Decision-dashboard fixes */
+header nav a,.button{color:var(--cyan)!important}
+header nav a:hover,.button:hover{color:#07111f!important;background:var(--cyan)}
+.summary{display:grid!important}
+.summary span,.summary b{display:block!important}
+.mini-states{border-top:1px solid var(--line);padding:14px 0 4px;margin:0 0 14px}
+.mini-row{display:grid;grid-template-columns:112px 1fr 38px;gap:10px;align-items:center;margin:9px 0}
+.mini-row span{font-size:11px;color:var(--muted)}.mini-row b{font-size:12px;text-align:right}.mini-row i{height:6px;background:#172a40}.mini-row em{display:block;height:100%;background:var(--blue)}.mini-row.active span,.mini-row.active b{color:var(--cyan);font-weight:700}.mini-row.active em{background:var(--cyan)}
+.action-strip{border-top:1px solid var(--line);padding:12px 0}.action-strip span{display:block;color:var(--cyan);font-size:9px;letter-spacing:.12em;margin-bottom:5px}.action-strip b{display:block;font-size:12px;line-height:1.45}.action-strip.challenge span{color:var(--red)}
+.decision-context{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}.decision-context div{border-top:2px solid var(--cyan);padding:14px 0}.decision-context span,.decision-context b{display:block}.decision-context span{color:var(--muted);font-size:9px;letter-spacing:.12em}.decision-context b{font-size:15px;margin-top:7px}.context-message{color:var(--muted);font-size:12px;line-height:1.5;margin:8px 0 0}
+@media(max-width:760px){
+ .summary{display:grid!important;grid-template-columns:1fr!important}
+ .summary span,.summary b{display:block!important;width:100%!important}
+ .summary span{padding:12px 0 3px!important;border-bottom:0!important}
+ .summary b{padding:0 0 12px!important;border-bottom:1px solid var(--line)!important}
+ .mini-row{grid-template-columns:92px 1fr 34px}
+ .decision-context{grid-template-columns:1fr}.decision-context div{padding:12px 0}
+ header nav a{color:var(--muted)!important}header nav a.active{color:var(--cyan)!important}
+}
