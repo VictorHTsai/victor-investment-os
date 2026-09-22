@@ -174,3 +174,29 @@ header nav a:hover,.button:hover{color:#07111f!important;background:var(--cyan)}
  .overview-lower-grid .decision-row .block-label{margin:0!important;width:auto!important}
  .overview-lower-grid .decision-row .block-value{width:auto!important;min-width:0!important;white-space:nowrap!important;overflow-wrap:normal!important;word-break:normal!important;font-size:clamp(11px,3.15vw,14px)!important}
 }
+
+
+/* Mobile Decision Context v2: values own the row; labels no longer consume value width */
+@media(max-width:760px){
+ .overview-lower-grid .decision-row{
+   display:grid!important;
+   grid-template-columns:1fr!important;
+   gap:4px!important;
+   align-items:start!important;
+ }
+ .overview-lower-grid .decision-row .block-label{
+   display:block!important;
+   width:100%!important;
+   margin:0!important;
+ }
+ .overview-lower-grid .decision-row .block-value{
+   display:block!important;
+   width:100%!important;
+   max-width:none!important;
+   min-width:0!important;
+   white-space:nowrap!important;
+   overflow-wrap:normal!important;
+   word-break:normal!important;
+   font-size:clamp(12px,3.35vw,14px)!important;
+ }
+}
