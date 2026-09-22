@@ -28,10 +28,16 @@ def main():
             rates,ovs,source=provider(); oi7=pct(ovs[-1],ovs[-8]); f7=sum(rates[-21:])/min(21,len(rates)); f30=sum(rates)/len(rates)
             fp=percentile(rates,rates[-1]); op=percentile(ovs,ovs[-1])
             status="DELEVERAGING" if oi7<=-5 else "CROWDED" if oi7>=10 and f7>0.02 else "NEUTRAL" if abs(oi7)<5 and abs(f7)<0.02 else "ACTIVE"
-            print("DERIVATIVES_PROVIDER_OK", source, "funding_records=", len(rates), "oi_records=", len(ovs), flush=True)\n            out["modules"]["derivatives"]={"status":status,"funding_7d_avg_pct":round(f7,4),"funding_30d_avg_pct":round(f30,4),"funding_30d_percentile":fp,"open_interest_7d_change_pct":round(oi7,2),"open_interest_30d_percentile":op,"source":source}
+            print("DERIVATIVES_PROVIDER_OK", source, "funding_records=", len(rates), "oi_records=", len(ovs), flush=True)
+            out["modules"]["derivatives"]={"status":status,"funding_7d_avg_pct":round(f7,4),"funding_30d_avg_pct":round(f30,4),"funding_30d_percentile":fp,"open_interest_7d_change_pct":round(oi7,2),"open_interest_30d_percentile":op,"source":source}
             break
-        except Exception as e:\n            msg=provider.__name__+": "+type(e).__name__+": "+str(e)[:300]\n            errors.append(msg)\n            print("DERIVATIVES_PROVIDER_FAIL", msg, flush=True)
-    else:\n        print("DERIVATIVES_ALL_PROVIDERS_FAILED", " | ".join(errors), flush=True)\n        out["modules"]["derivatives"]={"status":"DATA PENDING","error":" | ".join(errors),"providers_attempted":["Bybit Public API","Binance Public API"]}
+        except Exception as e:
+            msg=provider.__name__+": "+type(e).__name__+": "+str(e)[:300]
+            errors.append(msg)
+            print("DERIVATIVES_PROVIDER_FAIL", msg, flush=True)
+    else:
+        print("DERIVATIVES_ALL_PROVIDERS_FAILED", " | ".join(errors), flush=True)
+        out["modules"]["derivatives"]={"status":"DATA PENDING","error":" | ".join(errors),"providers_attempted":["Bybit Public API","Binance Public API"]}
     try:
         candles=sorted(get_json("https://api.exchange.coinbase.com/products/BTC-USD/candles?granularity=86400"),key=lambda x:x[0])[-90:]
         closes=[float(x[4]) for x in candles]; vols=[float(x[5]) for x in candles]; rets=[math.log(closes[i]/closes[i-1]) for i in range(1,len(closes))]
@@ -43,5 +49,6 @@ def main():
     out["modules"]["capital_flow"]={"status":"DATA PENDING","note":"ETF flow source validation pending"}
     out["modules"]["liquidity"]={"status":"DATA PENDING","note":"Stablecoin time-series source validation pending"}
     out["modules"]["supply"]={"status":"DATA PENDING","note":"Reliable on-chain cohort source not yet integrated"}
-    OUT.parent.mkdir(parents=True,exist_ok=True);OUT.write_text(json.dumps(out,indent=2)+"\n")
+    OUT.parent.mkdir(parents=True,exist_ok=True);OUT.write_text(json.dumps(out,indent=2)+"
+")
 if __name__=="__main__":main()
