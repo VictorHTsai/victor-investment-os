@@ -1,33 +1,35 @@
 {
   "schema_version": "dge.v1",
   "symbol": "BTC-USD",
-  "as_of": "2026-09-23T11:41:53.362028+00:00",
+  "as_of": "2026-09-23T17:05:32.990828+00:00",
   "factors": {
-    "R": 68.77138267690256,
-    "L": 40.5,
+    "R": 63.48193847020394,
+    "L": 54.5,
     "F": 100.0,
     "C": 50.0,
-    "P": 89.89752760252007,
-    "V": 72.98873920309114,
-    "D": 79.17999999999999,
+    "P": 75.38764318934999,
+    "V": 67.88664168582127,
+    "D": 80.215,
     "E": 0.0,
-    "T": 54.02252159381773
+    "T": 64.22671662835747
   },
   "states": {
-    "accumulation": 0.12817886833380995,
-    "test": 0.15429785135211202,
-    "shakeout": 0.20623088970649145,
-    "markup": 0.18592748929548228,
-    "distribution": 0.19176704170011272,
-    "neutral": 0.1335978596119917
+    "accumulation": 0.1184658915066788,
+    "test": 0.14537586406337194,
+    "shakeout": 0.1731488134600224,
+    "markup": 0.20637996631566446,
+    "distribution": 0.20362561335665544,
+    "neutral": 0.153003851297607
   },
-  "dominant_state": "shakeout",
-  "confidence": 0.20623088970649145,
+  "dominant_state": "markup",
+  "confidence": 0.20637996631566446,
   "expected_next_observations": [
-    "next comparable shock has lower marginal sell response"
+    "spot CVD confirms breakout",
+    "external capital remains positive"
   ],
   "invalidators": [
-    "marginal sell response re-accelerates"
+    "breakout loses equilibrium",
+    "leverage overheats without spot confirmation"
   ],
   "provenance": {
     "OHLCV": "Coinbase Exchange",
@@ -37,7 +39,7 @@
     "C": "UNAVAILABLE_NEUTRAL_50"
   },
   "methodology": "DGE_V1_RULE_BASED_BASELINE",
-  "price": 85482.58,
+  "price": 83884.93,
   "data_mode": "PARTIAL_LIVE",
   "live_factors": [
     "R",
@@ -65,9 +67,9 @@
       "next_event": null
     },
     "realized_market": {
-      "daily_abs_return_pct": 0.83,
-      "return_abs_percentile": 48.3,
-      "volume_7d_vs_30d": 1.12
+      "daily_abs_return_pct": 2.68,
+      "return_abs_percentile": 87.6,
+      "volume_7d_vs_30d": 1.17
     },
     "rule": "max(scheduled_macro_risk, realized_market_shock)"
   }
