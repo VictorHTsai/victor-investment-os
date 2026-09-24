@@ -1,35 +1,34 @@
 {
   "schema_version": "dge.v1",
   "symbol": "BTC-USD",
-  "as_of": "2026-09-23T23:44:17.763408+00:00",
+  "as_of": "2026-09-24T04:56:06.343182+00:00",
   "factors": {
-    "R": 65.24391571355909,
-    "L": 68.0,
+    "R": 69.41487051664369,
+    "L": 35.5,
     "F": 100.0,
     "C": 50.0,
-    "P": 80.4823822493794,
-    "V": 69.6781001681315,
-    "D": 80.215,
+    "P": 75.64166720401927,
+    "V": 74.09420727743799,
+    "D": 80.015,
     "E": 0.0,
-    "T": 60.64379966373703
+    "T": 51.81158544512401
   },
   "states": {
-    "accumulation": 0.12938404420351968,
-    "test": 0.14156752624108246,
-    "shakeout": 0.17557810036544427,
-    "markup": 0.22328124857258647,
-    "distribution": 0.19097007052995774,
-    "neutral": 0.1392190100874095
+    "accumulation": 0.10682139108213562,
+    "test": 0.16654377861297007,
+    "shakeout": 0.19514650662163452,
+    "markup": 0.18849811313264342,
+    "distribution": 0.20427351520696618,
+    "neutral": 0.13871669534365022
   },
-  "dominant_state": "markup",
-  "confidence": 0.22328124857258647,
+  "dominant_state": "distribution",
+  "confidence": 0.20427351520696618,
   "expected_next_observations": [
-    "spot CVD confirms breakout",
-    "external capital remains positive"
+    "capital inflow produces less price response",
+    "supply pressure persists"
   ],
   "invalidators": [
-    "breakout loses equilibrium",
-    "leverage overheats without spot confirmation"
+    "price elasticity recovers while supply pressure falls"
   ],
   "provenance": {
     "OHLCV": "Coinbase Exchange",
@@ -39,7 +38,7 @@
     "C": "UNAVAILABLE_NEUTRAL_50"
   },
   "methodology": "DGE_V1_RULE_BASED_BASELINE",
-  "price": 84445.9,
+  "price": 83912.9,
   "data_mode": "PARTIAL_LIVE",
   "live_factors": [
     "R",
@@ -67,9 +66,9 @@
       "next_event": null
     },
     "realized_market": {
-      "daily_abs_return_pct": 2.03,
-      "return_abs_percentile": 80.9,
-      "volume_7d_vs_30d": 1.2
+      "daily_abs_return_pct": 0.55,
+      "return_abs_percentile": 30.3,
+      "volume_7d_vs_30d": 1.17
     },
     "rule": "max(scheduled_macro_risk, realized_market_shock)"
   }
