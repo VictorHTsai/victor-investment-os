@@ -1,28 +1,28 @@
 {
   "schema_version": "dge.v1",
   "symbol": "BTC-USD",
-  "as_of": "2026-09-24T04:56:06.343182+00:00",
+  "as_of": "2026-09-24T10:04:33.976992+00:00",
   "factors": {
-    "R": 69.41487051664369,
-    "L": 35.5,
+    "R": 67.32787010798805,
+    "L": 40.5,
     "F": 100.0,
     "C": 50.0,
-    "P": 75.64166720401927,
-    "V": 74.09420727743799,
-    "D": 80.015,
+    "P": 70.29372151084803,
+    "V": 72.17077984309456,
+    "D": 79.965,
     "E": 0.0,
-    "T": 51.81158544512401
+    "T": 55.658440313810864
   },
   "states": {
-    "accumulation": 0.10682139108213562,
-    "test": 0.16654377861297007,
-    "shakeout": 0.19514650662163452,
-    "markup": 0.18849811313264342,
-    "distribution": 0.20427351520696618,
-    "neutral": 0.13871669534365022
+    "accumulation": 0.10403971203535933,
+    "test": 0.16287808046095786,
+    "shakeout": 0.18293540316771142,
+    "markup": 0.19614188311212005,
+    "distribution": 0.20788718891784808,
+    "neutral": 0.1461177323060032
   },
   "dominant_state": "distribution",
-  "confidence": 0.20427351520696618,
+  "confidence": 0.20788718891784808,
   "expected_next_observations": [
     "capital inflow produces less price response",
     "supply pressure persists"
@@ -38,7 +38,7 @@
     "C": "UNAVAILABLE_NEUTRAL_50"
   },
   "methodology": "DGE_V1_RULE_BASED_BASELINE",
-  "price": 83912.9,
+  "price": 83324.05,
   "data_mode": "PARTIAL_LIVE",
   "live_factors": [
     "R",
@@ -66,9 +66,9 @@
       "next_event": null
     },
     "realized_market": {
-      "daily_abs_return_pct": 0.55,
-      "return_abs_percentile": 30.3,
-      "volume_7d_vs_30d": 1.17
+      "daily_abs_return_pct": 1.25,
+      "return_abs_percentile": 58.4,
+      "volume_7d_vs_30d": 1.19
     },
     "rule": "max(scheduled_macro_risk, realized_market_shock)"
   }
