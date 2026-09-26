@@ -1,12 +1,12 @@
 {
   "schema_version": "btc-market-intelligence-v3",
-  "as_of": "2026-09-26T07:45:52.008944+00:00",
+  "as_of": "2026-09-26T13:08:49.512651+00:00",
   "modules": {
     "derivatives": {
       "status": "NEUTRAL",
-      "funding_7d_avg_pct": 0.0059,
+      "funding_7d_avg_pct": 0.0056,
       "funding_30d_avg_pct": 0.0054,
-      "funding_30d_percentile": 12.2,
+      "funding_30d_percentile": 14.4,
       "open_interest_7d_change_pct": 0.18,
       "open_interest_30d_percentile": 80.0,
       "source": "OKX Public API",
@@ -21,10 +21,10 @@
     },
     "stress": {
       "status": "LOW",
-      "btc_price_7d_change_pct": 3.46,
+      "btc_price_7d_change_pct": 3.53,
       "realized_vol_7d_pct": 49.5,
       "realized_vol_30d_pct": 42.4,
-      "volume_ratio": 1.13,
+      "volume_ratio": 1.14,
       "drawdown_30d_pct": -2.9,
       "source": "Coinbase Exchange public candles"
     },
