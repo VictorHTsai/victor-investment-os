@@ -1,10 +1,10 @@
 {
   "schema_version": "btc-market-intelligence-v3",
-  "as_of": "2026-09-26T22:54:13.817932+00:00",
+  "as_of": "2026-09-27T01:29:37.336689+00:00",
   "modules": {
     "derivatives": {
       "status": "NEUTRAL",
-      "funding_7d_avg_pct": 0.0051,
+      "funding_7d_avg_pct": 0.0045,
       "funding_30d_avg_pct": 0.0054,
       "funding_30d_percentile": 3.3,
       "open_interest_7d_change_pct": -3.07,
@@ -21,10 +21,10 @@
     },
     "stress": {
       "status": "LOW",
-      "btc_price_7d_change_pct": 3.8,
+      "btc_price_7d_change_pct": 3.92,
       "realized_vol_7d_pct": 49.5,
-      "realized_vol_30d_pct": 42.4,
-      "volume_ratio": 1.16,
+      "realized_vol_30d_pct": 41.1,
+      "volume_ratio": 1.15,
       "drawdown_30d_pct": -2.6,
       "source": "Coinbase Exchange public candles"
     },
@@ -38,22 +38,22 @@
     },
     "liquidity": {
       "status": "STABLE",
-      "stablecoin_supply_usd_b": 311.62,
+      "stablecoin_supply_usd_b": 311.6,
       "stablecoin_supply_7d_change_pct": 0.52,
-      "stablecoin_supply_30d_change_pct": 0.81,
-      "stablecoin_supply_90d_change_pct": 0.33,
-      "stablecoin_30d_acceleration_pp": 0.02,
+      "stablecoin_supply_30d_change_pct": 0.78,
+      "stablecoin_supply_90d_change_pct": 0.44,
+      "stablecoin_30d_acceleration_pp": -0.13,
       "source": "DefiLlama Stablecoins API"
     },
     "onchain": {
-      "status": "CONTRACTING",
-      "active_addresses_7d_avg": 637418,
-      "active_addresses_7d_vs_30d_pct": 0.93,
+      "status": "STABLE",
+      "active_addresses_7d_avg": 639116,
+      "active_addresses_7d_vs_30d_pct": 1.51,
       "transactions_7d_avg": 638911,
       "transactions_7d_vs_30d_pct": -7.91,
-      "hash_rate_30d_change_pct": -6.97,
-      "latest_observation": "2026-09-25",
-      "interpretation": "Network activity is weakening relative to its recent baseline.",
+      "hash_rate_30d_change_pct": 11.31,
+      "latest_observation": "2026-09-26",
+      "interpretation": "Network activity is mixed or near its recent baseline.",
       "source": "Coin Metrics Community API",
       "audit": {
         "observations": 90,
