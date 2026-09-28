@@ -1,28 +1,28 @@
 {
   "schema_version": "dge.v1",
   "symbol": "BTC-USD",
-  "as_of": "2026-09-28T15:32:06.362711+00:00",
+  "as_of": "2026-09-28T22:04:10.362775+00:00",
   "factors": {
-    "R": 63.31790880523991,
-    "L": 48.0,
+    "R": 63.79823610223569,
+    "L": 59.5,
     "F": 100.0,
     "C": 50.0,
-    "P": 67.3177261899031,
-    "V": 65.41848219782766,
-    "D": 48.504999999999995,
+    "P": 68.55542346266422,
+    "V": 65.85429921914944,
+    "D": 40.839999999999996,
     "E": 0.0,
-    "T": 69.16303560434469
+    "T": 68.29140156170112
   },
   "states": {
-    "accumulation": 0.13326198806675563,
-    "test": 0.14477661745168718,
-    "shakeout": 0.1615469923013973,
-    "markup": 0.24975697670019262,
-    "distribution": 0.14597915814261894,
-    "neutral": 0.1646782673373484
+    "accumulation": 0.14537066378319394,
+    "test": 0.13856383718164106,
+    "shakeout": 0.15614218761956858,
+    "markup": 0.2786727605768378,
+    "distribution": 0.12627610942670925,
+    "neutral": 0.1549744414120493
   },
   "dominant_state": "markup",
-  "confidence": 0.24975697670019262,
+  "confidence": 0.2786727605768378,
   "expected_next_observations": [
     "spot CVD confirms breakout",
     "external capital remains positive"
@@ -39,7 +39,7 @@
     "C": "UNAVAILABLE_NEUTRAL_50"
   },
   "methodology": "DGE_V1_RULE_BASED_BASELINE",
-  "price": 82996.37,
+  "price": 83132.65,
   "data_mode": "PARTIAL_LIVE",
   "live_factors": [
     "R",
@@ -56,7 +56,7 @@
   ],
   "factor_status": {
     "F": "POSITIVE",
-    "D": "NEUTRAL",
+    "D": "DELEVERAGING",
     "C": "DATA PENDING",
     "E": "LIVE"
   },
@@ -67,9 +67,9 @@
       "next_event": null
     },
     "realized_market": {
-      "daily_abs_return_pct": 1.74,
-      "return_abs_percentile": 77.5,
-      "volume_7d_vs_30d": 0.96
+      "daily_abs_return_pct": 1.57,
+      "return_abs_percentile": 70.8,
+      "volume_7d_vs_30d": 1.0
     },
     "rule": "max(scheduled_macro_risk, realized_market_shock)"
   }
