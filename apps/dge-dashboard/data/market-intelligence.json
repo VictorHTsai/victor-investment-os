@@ -1,19 +1,19 @@
 {
   "schema_version": "btc-market-intelligence-v3",
-  "as_of": "2026-09-29T15:55:24.138768+00:00",
+  "as_of": "2026-09-29T20:50:40.996606+00:00",
   "modules": {
     "derivatives": {
       "status": "DELEVERAGING",
-      "funding_7d_avg_pct": 0.0025,
+      "funding_7d_avg_pct": 0.0024,
       "funding_30d_avg_pct": 0.005,
-      "funding_30d_percentile": 22.2,
-      "open_interest_7d_change_pct": -7.14,
-      "open_interest_30d_percentile": 76.7,
+      "funding_30d_percentile": 31.1,
+      "open_interest_7d_change_pct": -9.17,
+      "open_interest_30d_percentile": 63.3,
       "source": "OKX Public API",
       "audit": {
         "oi_observations": 30,
-        "oi_current": 3151673369.9102,
-        "oi_7d_ago": 3393873876.7162,
+        "oi_current": 3091550722.1144,
+        "oi_7d_ago": 3403740240.726,
         "oi_30d_min": 2821360493.9481,
         "oi_30d_max": 3403740240.726,
         "current_equals_30d_max": false
@@ -21,11 +21,11 @@
     },
     "stress": {
       "status": "LOW",
-      "btc_price_7d_change_pct": -3.81,
-      "realized_vol_7d_pct": 18.7,
+      "btc_price_7d_change_pct": -3.0,
+      "realized_vol_7d_pct": 18.1,
       "realized_vol_30d_pct": 41.2,
-      "volume_ratio": 0.87,
-      "drawdown_30d_pct": -4.2,
+      "volume_ratio": 0.89,
+      "drawdown_30d_pct": -3.4,
       "source": "Coinbase Exchange public candles"
     },
     "capital_flow": {
@@ -38,11 +38,11 @@
     },
     "liquidity": {
       "status": "STABLE",
-      "stablecoin_supply_usd_b": 311.31,
-      "stablecoin_supply_7d_change_pct": 0.31,
-      "stablecoin_supply_30d_change_pct": 1.33,
-      "stablecoin_supply_90d_change_pct": 0.81,
-      "stablecoin_30d_acceleration_pp": 0.23,
+      "stablecoin_supply_usd_b": 311.28,
+      "stablecoin_supply_7d_change_pct": 0.3,
+      "stablecoin_supply_30d_change_pct": 1.32,
+      "stablecoin_supply_90d_change_pct": 0.8,
+      "stablecoin_30d_acceleration_pp": 0.22,
       "source": "DefiLlama Stablecoins API"
     },
     "onchain": {
