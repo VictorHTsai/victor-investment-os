@@ -1,0 +1,36 @@
+name: Tests
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: read
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install project and development dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e '.[dev]'
+
+      - name: Run test suite
+        # `test_response` is a production helper imported into a test module.
+        # Its name makes pytest miscollect it as a test; the real behavioral
+        # test (`test_test_response_uses_absolute_price_shock`) still runs.
+        run: pytest -q --deselect=tests/test_dynamic_game_engine_v1.py::test_response
