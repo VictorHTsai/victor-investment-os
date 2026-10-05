@@ -1,6 +1,6 @@
 {
   "schema_version": "btc-market-intelligence-v3",
-  "as_of": "2026-10-05T00:58:15.800095+00:00",
+  "as_of": "2026-10-05T07:06:37.060192+00:00",
   "modules": {
     "derivatives": {
       "status": "DELEVERAGING",
@@ -21,11 +21,11 @@
     },
     "stress": {
       "status": "LOW",
-      "btc_price_7d_change_pct": 3.74,
-      "realized_vol_7d_pct": 19.0,
+      "btc_price_7d_change_pct": 3.29,
+      "realized_vol_7d_pct": 19.1,
       "realized_vol_30d_pct": 37.2,
-      "volume_ratio": 0.81,
-      "drawdown_30d_pct": -0.0,
+      "volume_ratio": 0.83,
+      "drawdown_30d_pct": -0.5,
       "source": "Coinbase Exchange public candles"
     },
     "capital_flow": {
@@ -38,22 +38,22 @@
     },
     "liquidity": {
       "status": "STABLE",
-      "stablecoin_supply_usd_b": 311.97,
-      "stablecoin_supply_7d_change_pct": 0.61,
+      "stablecoin_supply_usd_b": 312.18,
+      "stablecoin_supply_7d_change_pct": 0.23,
       "stablecoin_supply_30d_change_pct": 1.07,
-      "stablecoin_supply_90d_change_pct": 0.8,
+      "stablecoin_supply_90d_change_pct": 1.02,
       "stablecoin_30d_acceleration_pp": -0.42,
       "source": "DefiLlama Stablecoins API"
     },
     "onchain": {
-      "status": "STABLE",
-      "active_addresses_7d_avg": 676856,
-      "active_addresses_7d_vs_30d_pct": 5.96,
-      "transactions_7d_avg": 660454,
-      "transactions_7d_vs_30d_pct": -4.26,
-      "hash_rate_30d_change_pct": -11.64,
-      "latest_observation": "2026-10-03",
-      "interpretation": "Network activity is mixed or near its recent baseline.",
+      "status": "EXPANDING",
+      "active_addresses_7d_avg": 675469,
+      "active_addresses_7d_vs_30d_pct": 6.63,
+      "transactions_7d_avg": 655869,
+      "transactions_7d_vs_30d_pct": -5.45,
+      "hash_rate_30d_change_pct": 5.49,
+      "latest_observation": "2026-10-04",
+      "interpretation": "Network activity is strengthening relative to its recent baseline.",
       "source": "Coin Metrics Community API",
       "audit": {
         "observations": 90,
