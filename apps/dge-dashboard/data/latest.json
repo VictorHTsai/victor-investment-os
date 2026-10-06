@@ -1,35 +1,33 @@
 {
   "schema_version": "dge.v1",
   "symbol": "BTC-USD",
-  "as_of": "2026-10-06T03:01:47.596889+00:00",
+  "as_of": "2026-10-06T10:23:16.553527+00:00",
   "factors": {
-    "R": 46.00861259789481,
+    "R": 49.518686329940735,
     "L": 35.5,
-    "F": 58.636,
+    "F": 61.432,
     "C": 50.0,
-    "P": 90.32447322031061,
-    "V": 48.06126704722436,
-    "D": 0.0,
+    "P": 95.650440432413,
+    "V": 49.76208858553065,
+    "D": 54.54,
     "E": 0.0,
-    "T": 96.12253409444872
+    "T": 99.5241771710613
   },
   "states": {
-    "accumulation": 0.25857647107324994,
-    "test": 0.10852010542932566,
-    "shakeout": 0.15690992540189327,
-    "markup": 0.15394223553006767,
-    "distribution": 0.06589752285302815,
-    "neutral": 0.2561537397124352
+    "accumulation": 0.194441617708206,
+    "test": 0.1149859154157972,
+    "shakeout": 0.17353465921291586,
+    "markup": 0.11486358879808174,
+    "distribution": 0.13219918809667527,
+    "neutral": 0.26997503076832385
   },
-  "dominant_state": "accumulation",
-  "confidence": 0.25857647107324994,
+  "dominant_state": "neutral",
+  "confidence": 0.26997503076832385,
   "expected_next_observations": [
-    "downside selling response weakens",
-    "reclaim after downside test"
+    "wait for discriminating observation"
   ],
   "invalidators": [
-    "spot selling accelerates",
-    "exchange inflow/supply pressure expands"
+    "none: low confidence is the state"
   ],
   "provenance": {
     "OHLCV": "Coinbase Exchange",
@@ -39,7 +37,7 @@
     "C": "UNAVAILABLE_NEUTRAL_50"
   },
   "methodology": "DGE_V1_RULE_BASED_BASELINE",
-  "price": 85529.59,
+  "price": 86116.02,
   "data_mode": "PARTIAL_LIVE",
   "live_factors": [
     "R",
@@ -55,8 +53,8 @@
     "C"
   ],
   "factor_status": {
-    "F": "NEUTRAL",
-    "D": "DELEVERAGING",
+    "F": "POSITIVE",
+    "D": "NEUTRAL",
     "C": "DATA PENDING",
     "E": "LIVE"
   },
@@ -67,9 +65,9 @@
       "next_event": null
     },
     "realized_market": {
-      "daily_abs_return_pct": 0.26,
-      "return_abs_percentile": 23.6,
-      "volume_7d_vs_30d": 0.8
+      "daily_abs_return_pct": 0.43,
+      "return_abs_percentile": 33.7,
+      "volume_7d_vs_30d": 0.82
     },
     "rule": "max(scheduled_macro_risk, realized_market_shock)"
   }
