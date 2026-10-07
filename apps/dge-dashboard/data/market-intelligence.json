@@ -1,6 +1,6 @@
 {
   "schema_version": "btc-market-intelligence-v3",
-  "as_of": "2026-10-07T16:33:10.191592+00:00",
+  "as_of": "2026-10-07T22:00:52.235797+00:00",
   "modules": {
     "derivatives": {
       "status": "ACTIVE",
@@ -21,11 +21,11 @@
     },
     "stress": {
       "status": "LOW",
-      "btc_price_7d_change_pct": -0.02,
-      "realized_vol_7d_pct": 26.3,
-      "realized_vol_30d_pct": 37.8,
-      "volume_ratio": 0.85,
-      "drawdown_30d_pct": -3.5,
+      "btc_price_7d_change_pct": -0.55,
+      "realized_vol_7d_pct": 29.0,
+      "realized_vol_30d_pct": 38.2,
+      "volume_ratio": 0.88,
+      "drawdown_30d_pct": -4.0,
       "source": "Coinbase Exchange public candles"
     },
     "capital_flow": {
