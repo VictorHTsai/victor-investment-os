@@ -1,19 +1,19 @@
 {
   "schema_version": "btc-market-intelligence-v3",
-  "as_of": "2026-10-08T09:01:52.776089+00:00",
+  "as_of": "2026-10-08T16:31:38.161727+00:00",
   "modules": {
     "derivatives": {
-      "status": "ACTIVE",
+      "status": "NEUTRAL",
       "funding_7d_avg_pct": 0.0034,
       "funding_30d_avg_pct": 0.0049,
-      "funding_30d_percentile": 8.9,
-      "open_interest_7d_change_pct": 9.44,
-      "open_interest_30d_percentile": 93.3,
+      "funding_30d_percentile": 65.6,
+      "open_interest_7d_change_pct": 4.54,
+      "open_interest_30d_percentile": 83.3,
       "source": "OKX Public API",
       "audit": {
         "oi_observations": 30,
-        "oi_current": 3344260212.9877,
-        "oi_7d_ago": 3055719864.2821,
+        "oi_current": 3300573828.4821,
+        "oi_7d_ago": 3157247189.9675,
         "oi_30d_min": 2821360493.9481,
         "oi_30d_max": 3403740240.726,
         "current_equals_30d_max": false
@@ -21,24 +21,24 @@
     },
     "stress": {
       "status": "LOW",
-      "btc_price_7d_change_pct": -2.41,
-      "realized_vol_7d_pct": 25.9,
-      "realized_vol_30d_pct": 38.0,
-      "volume_ratio": 0.79,
-      "drawdown_30d_pct": -4.4,
+      "btc_price_7d_change_pct": -4.2,
+      "realized_vol_7d_pct": 31.0,
+      "realized_vol_30d_pct": 38.8,
+      "volume_ratio": 0.86,
+      "drawdown_30d_pct": -6.1,
       "source": "Coinbase Exchange public candles"
     },
     "capital_flow": {
-      "status": "NEUTRAL",
-      "etf_flow_7d_usd_m": -245.8,
+      "status": "NEGATIVE",
+      "etf_flow_7d_usd_m": -312.0,
       "etf_flow_30d_usd_m": 2171.0,
-      "positive_days_7d": 4,
-      "observations": 13,
+      "positive_days_7d": 3,
+      "observations": 14,
       "source": "Farside Investors"
     },
     "liquidity": {
       "status": "STABLE",
-      "stablecoin_supply_usd_b": 312.3,
+      "stablecoin_supply_usd_b": 312.29,
       "stablecoin_supply_7d_change_pct": 0.51,
       "stablecoin_supply_30d_change_pct": 1.13,
       "stablecoin_supply_90d_change_pct": 1.48,
