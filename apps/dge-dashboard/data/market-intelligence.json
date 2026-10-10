@@ -1,6 +1,6 @@
 {
   "schema_version": "btc-market-intelligence-v3",
-  "as_of": "2026-10-10T00:54:40.035325+00:00",
+  "as_of": "2026-10-10T07:11:46.660556+00:00",
   "modules": {
     "derivatives": {
       "status": "NEUTRAL",
@@ -21,38 +21,38 @@
     },
     "stress": {
       "status": "LOW",
-      "btc_price_7d_change_pct": -2.65,
+      "btc_price_7d_change_pct": -2.47,
       "realized_vol_7d_pct": 29.8,
       "realized_vol_30d_pct": 37.9,
-      "volume_ratio": 0.8,
-      "drawdown_30d_pct": -4.7,
+      "volume_ratio": 0.81,
+      "drawdown_30d_pct": -4.6,
       "source": "Coinbase Exchange public candles"
     },
     "capital_flow": {
-      "status": "NEGATIVE",
-      "etf_flow_7d_usd_m": -411.0,
-      "etf_flow_30d_usd_m": 1923.3,
-      "positive_days_7d": 3,
+      "status": "NEUTRAL",
+      "etf_flow_7d_usd_m": -386.3,
+      "etf_flow_30d_usd_m": 1948.0,
+      "positive_days_7d": 4,
       "observations": 15,
       "source": "Farside Investors"
     },
     "liquidity": {
       "status": "STABLE",
-      "stablecoin_supply_usd_b": 311.61,
-      "stablecoin_supply_7d_change_pct": 0.03,
-      "stablecoin_supply_30d_change_pct": 0.83,
-      "stablecoin_supply_90d_change_pct": 1.14,
-      "stablecoin_30d_acceleration_pp": -0.64,
+      "stablecoin_supply_usd_b": 310.98,
+      "stablecoin_supply_7d_change_pct": -0.29,
+      "stablecoin_supply_30d_change_pct": 0.67,
+      "stablecoin_supply_90d_change_pct": 0.96,
+      "stablecoin_30d_acceleration_pp": -1.05,
       "source": "DefiLlama Stablecoins API"
     },
     "onchain": {
       "status": "STABLE",
-      "active_addresses_7d_avg": 643629,
-      "active_addresses_7d_vs_30d_pct": 0.27,
-      "transactions_7d_avg": 710080,
-      "transactions_7d_vs_30d_pct": 2.0,
-      "hash_rate_30d_change_pct": 8.83,
-      "latest_observation": "2026-10-08",
+      "active_addresses_7d_avg": 635402,
+      "active_addresses_7d_vs_30d_pct": -1.21,
+      "transactions_7d_avg": 718237,
+      "transactions_7d_vs_30d_pct": 3.7,
+      "hash_rate_30d_change_pct": -5.57,
+      "latest_observation": "2026-10-09",
       "interpretation": "Network activity is mixed or near its recent baseline.",
       "source": "Coin Metrics Community API",
       "audit": {
