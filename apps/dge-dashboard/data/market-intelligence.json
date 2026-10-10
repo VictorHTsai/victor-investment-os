@@ -1,6 +1,6 @@
 {
   "schema_version": "btc-market-intelligence-v3",
-  "as_of": "2026-10-10T18:39:03.379588+00:00",
+  "as_of": "2026-10-10T22:36:01.431710+00:00",
   "modules": {
     "derivatives": {
       "status": "NEUTRAL",
@@ -21,8 +21,8 @@
     },
     "stress": {
       "status": "LOW",
-      "btc_price_7d_change_pct": -2.14,
-      "realized_vol_7d_pct": 30.0,
+      "btc_price_7d_change_pct": -2.06,
+      "realized_vol_7d_pct": 30.1,
       "realized_vol_30d_pct": 37.9,
       "volume_ratio": 0.83,
       "drawdown_30d_pct": -4.2,
