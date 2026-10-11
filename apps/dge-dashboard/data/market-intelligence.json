@@ -1,19 +1,19 @@
 {
   "schema_version": "btc-market-intelligence-v3",
-  "as_of": "2026-10-11T15:44:41.208965+00:00",
+  "as_of": "2026-10-11T20:19:43.194093+00:00",
   "modules": {
     "derivatives": {
       "status": "NEUTRAL",
-      "funding_7d_avg_pct": 0.0028,
-      "funding_30d_avg_pct": 0.0044,
-      "funding_30d_percentile": 3.3,
-      "open_interest_7d_change_pct": 4.47,
-      "open_interest_30d_percentile": 83.3,
+      "funding_7d_avg_pct": 0.0026,
+      "funding_30d_avg_pct": 0.0043,
+      "funding_30d_percentile": 14.4,
+      "open_interest_7d_change_pct": 2.25,
+      "open_interest_30d_percentile": 70.0,
       "source": "OKX Public API",
       "audit": {
         "oi_observations": 30,
-        "oi_current": 3302909039.477,
-        "oi_7d_ago": 3161609596.4917,
+        "oi_current": 3251799958.1918,
+        "oi_7d_ago": 3180398495.2937,
         "oi_30d_min": 2821360493.9481,
         "oi_30d_max": 3403740240.726,
         "current_equals_30d_max": false
@@ -21,11 +21,11 @@
     },
     "stress": {
       "status": "LOW",
-      "btc_price_7d_change_pct": -3.68,
-      "realized_vol_7d_pct": 26.3,
-      "realized_vol_30d_pct": 37.8,
-      "volume_ratio": 0.82,
-      "drawdown_30d_pct": -3.8,
+      "btc_price_7d_change_pct": -3.33,
+      "realized_vol_7d_pct": 26.8,
+      "realized_vol_30d_pct": 37.9,
+      "volume_ratio": 0.84,
+      "drawdown_30d_pct": -3.4,
       "source": "Coinbase Exchange public candles"
     },
     "capital_flow": {
@@ -38,10 +38,10 @@
     },
     "liquidity": {
       "status": "STABLE",
-      "stablecoin_supply_usd_b": 311.05,
-      "stablecoin_supply_7d_change_pct": -0.3,
-      "stablecoin_supply_30d_change_pct": 0.81,
-      "stablecoin_supply_90d_change_pct": 1.06,
+      "stablecoin_supply_usd_b": 311.06,
+      "stablecoin_supply_7d_change_pct": -0.29,
+      "stablecoin_supply_30d_change_pct": 0.82,
+      "stablecoin_supply_90d_change_pct": 1.07,
       "stablecoin_30d_acceleration_pp": -0.48,
       "source": "DefiLlama Stablecoins API"
     },
