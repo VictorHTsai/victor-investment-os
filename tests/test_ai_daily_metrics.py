@@ -18,7 +18,7 @@ class DailyMetricsTests(unittest.TestCase):
         result = exploratory_analogs(prices)
         self.assertLessEqual(result["count"], 7)
         self.assertIn(result["status"], ("insufficient", "exploratory"))
-        self.assertEqual(result["method"].split(";")[1].strip(), "90-session non-overlap")
+        self.assertEqual(result["method"].split(";")[2].strip(), "90-session non-overlap")
 
     def test_drawdown(self):
         result = summarize([100.0] * 19 + [80.0], list(range(1, 21)))
