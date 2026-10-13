@@ -1,0 +1,85 @@
+#!/usr/bin/env python3
+"""Produce an optional, provenance-labelled AI daily price snapshot.
+Run from repo root: python scripts/build_ai_market_snapshot.py
+No credentials. Yahoo Chart is an undocumented best-effort fallback, not an exchange feed.
+"""
+from __future__ import annotations
+import json
+import math
+import time
+from datetime import datetime, timezone
+from pathlib import Path
+from urllib.parse import quote
+from urllib.request import Request, urlopen
+
+ROOT = Path(__file__).resolve().parents[1]
+UNIVERSE = ROOT / "apps/ai-dashboard/data/universe.json"
+OUTPUT = ROOT / "apps/ai-dashboard/data/market-snapshot.json"
+
+def rsi(closes: list[float], n: int = 14) -> float | None:
+    if len(closes) < n + 1: return None
+    changes = [closes[i] - closes[i - 1] for i in range(len(closes)-n, len(closes))]
+    gain = sum(max(x, 0) for x in changes) / n
+    loss = sum(max(-x, 0) for x in changes) / n
+    if gain == loss == 0: return 50.0
+    if loss == 0: return 100.0
+    return round(100 - 100 / (1 + gain / loss), 2)
+
+def summarize(closes: list[float], dates: list[int]) -> dict:
+    if len(closes) < 20: raise ValueError("fewer than 20 valid closes")
+    latest = closes[-1]
+    lookback = closes[-252:]
+    high = max(lookback)
+    drawdown = (latest / high - 1) * 100 if high else None
+    return {"close": round(latest, 4), "currency": None,
+            "last_bar_utc": datetime.fromtimestamp(dates[-1], timezone.utc).isoformat(),
+            "bars": len(closes), "rsi14": rsi(closes),
+            "drawdown_52w_pct": round(drawdown, 2) if drawdown is not None else None,
+            "oversold_score": None, "analogs": None,
+            "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores"}
+
+def fetch(symbol: str) -> dict:
+    url = "https://query2.finance.yahoo.com/v8/finance/chart/" + quote(symbol, safe="") + "?range=5y&interval=1d&events=div%2Csplits&includeAdjustedClose=true"
+    req = Request(url, headers={"User-Agent": "Mozilla/5.0 VictorInvestmentOS/1.0"})
+    with urlopen(req, timeout=18) as resp:
+        payload = json.load(resp)
+    chart = payload.get("chart") or {}
+    if chart.get("error"): raise ValueError(str(chart["error"]))
+    result = (chart.get("result") or [None])[0]
+    if not result: raise ValueError("no chart result")
+    indicator = result.get("indicators") or {}
+    quotes = (indicator.get("quote") or [{}])[0]
+    adjusted = (indicator.get("adjclose") or [{}])[0].get("adjclose") or []
+    raw = quotes.get("close") or []
+    timestamps = result.get("timestamp") or []
+    bars = [(t, float(adjusted[i] if i < len(adjusted) and adjusted[i] is not None else v))
+            for i, (t, v) in enumerate(zip(timestamps, raw))
+            if v is not None and math.isfinite(float(v)) and float(v) > 0]
+    if not bars: raise ValueError("no valid bars")
+    dates, closes = zip(*bars)
+    summary = summarize(list(closes), list(dates))
+    summary["currency"] = (result.get("meta") or {}).get("currency")
+    summary["price_type"] = "provider adjusted close where available; otherwise raw close"
+    return summary
+
+def main():
+    universe = json.loads(UNIVERSE.read_text(encoding="utf-8"))
+    output = {"schema_version": 1, "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+              "source": "Yahoo Finance Chart (undocumented, no-key, best effort)",
+              "frequency": "1d", "signals_validated": False, "assets": {}}
+    for item in universe["assets"]:
+        symbol = item["symbol"]
+        try:
+            output["assets"][symbol] = {"status": "ok", **fetch(symbol)}
+        except Exception as exc:
+            output["assets"][symbol] = {"status": "unavailable", "error": str(exc)[:180],
+                                        "oversold_score": None, "analogs": None}
+        time.sleep(0.2)
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    ok = sum(v["status"] == "ok" for v in output["assets"].values())
+    print(f"Snapshot: {ok}/{len(output['assets'])} tickers, saved to {OUTPUT}")
+    if ok == 0: raise SystemExit("No valid price data; do not publish this snapshot")
+
+if __name__ == "__main__":
+    main()
