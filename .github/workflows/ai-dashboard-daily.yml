@@ -1,0 +1,33 @@
+name: AI Dashboard Daily Market Snapshot
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "35 23 * * 1-5"
+permissions:
+  contents: write
+jobs:
+  snapshot:
+    if: github.ref == 'refs/heads/feature/asymmetric-opportunity-phase1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/asymmetric-opportunity-phase1
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run indicator tests
+        run: python -m unittest discover -s tests -p 'test_ai_daily_metrics.py'
+      - name: Generate daily snapshot
+        run: python scripts/build_ai_market_snapshot.py
+      - name: Commit generated snapshot only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add apps/ai-dashboard/data/market-snapshot.json
+          if ! git diff --cached --quiet; then
+            git commit -m "data: refresh AI daily market snapshot"
+            git push origin HEAD:feature/asymmetric-opportunity-phase1
+          fi
