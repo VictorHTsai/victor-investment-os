@@ -16,11 +16,13 @@ if __package__:
     from scripts.ai_walkforward import walk_forward_diagnostic
     from scripts.ai_rebound_study import rebound_study
     from scripts.ai_price_volume_experiment import compare_price_volume
+    from scripts.ai_edge_validation import edge_validation, adaptive_window_diagnostics
 else:
     from ai_analog_validation import selected_analog_indices, validate_analogs
     from ai_walkforward import walk_forward_diagnostic
     from ai_rebound_study import rebound_study
     from ai_price_volume_experiment import compare_price_volume
+    from ai_edge_validation import edge_validation, adaptive_window_diagnostics
 
 ROOT = Path(__file__).resolve().parents[1]
 UNIVERSE = ROOT / "apps/ai-dashboard/data/universe.json"
@@ -127,6 +129,8 @@ def fetch(symbol: str, benchmarks=None, return_history=False) -> dict:
     summary["chronological_holdout"] = walk_forward_diagnostic(list(closes))
     summary["short_rebound"] = rebound_study(list(closes), rsi)
     summary["price_volume_challenger"] = compare_price_volume(list(closes), list(volumes), rsi)
+    summary["edge_controls"] = edge_validation(list(closes), rsi)
+    summary["adaptive_windows"] = adaptive_window_diagnostics(list(closes), rsi)
     summary["historical_start_utc"] = datetime.fromtimestamp(dates[0], timezone.utc).isoformat()
     summary["price_type"] = "provider adjusted close where available; otherwise raw close"
     return summary
