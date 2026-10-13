@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-10-13T08:01:09.626965+00:00",
+  "generated_at_utc": "2026-10-13T08:09:54.720878+00:00",
   "source": "Yahoo Finance Chart (undocumented, no-key, best effort)",
   "frequency": "1d",
   "history_limit_years": 15,
@@ -248,6 +248,97 @@
         "volume_coverage_pct": 100.0,
         "train_price_events": 8
       },
+      "edge_controls": {
+        "status": "insufficient",
+        "signal_n": 2,
+        "holdout_bars": 504,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {},
+        "calendar_near_controls": {},
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "insufficient",
+            "events": 4,
+            "effective_start_bar": 2762,
+            "years_requested": 2,
+            "pre_holdout_only": true
+          },
+          "3": {
+            "status": "exploratory",
+            "events": 9,
+            "effective_start_bar": 2510,
+            "years_requested": 3,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 9,
+              "mean_net_return_pct": -2.26,
+              "median_net_return_pct": -10.57,
+              "profit_first_pct": 44.4,
+              "stop_first_pct": 55.6,
+              "median_mae_pct": -10.37,
+              "median_sessions_held": 6
+            }
+          },
+          "5": {
+            "status": "exploratory",
+            "events": 11,
+            "effective_start_bar": 2006,
+            "years_requested": 5,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 11,
+              "mean_net_return_pct": 0.03,
+              "median_net_return_pct": 9.86,
+              "profit_first_pct": 54.5,
+              "stop_first_pct": 45.5,
+              "median_mae_pct": -7.32,
+              "median_sessions_held": 7
+            }
+          },
+          "10": {
+            "status": "exploratory",
+            "events": 20,
+            "effective_start_bar": 746,
+            "years_requested": 10,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 20,
+              "mean_net_return_pct": 1.89,
+              "median_net_return_pct": 9.87,
+              "profit_first_pct": 55.0,
+              "stop_first_pct": 40.0,
+              "median_mae_pct": -6.97,
+              "median_sessions_held": 8.5
+            }
+          },
+          "15": {
+            "status": "exploratory",
+            "events": 21,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 21,
+              "mean_net_return_pct": 2.01,
+              "median_net_return_pct": 9.86,
+              "profit_first_pct": 52.4,
+              "stop_first_pct": 38.1,
+              "median_mae_pct": -6.97,
+              "median_sessions_held": 9
+            }
+          }
+        },
+        "holdout_start_bar": 3266,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
+      },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -490,6 +581,121 @@
         "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
         "volume_coverage_pct": 100.0,
         "train_price_events": 23
+      },
+      "edge_controls": {
+        "status": "exploratory_holdout",
+        "signal_n": 8,
+        "holdout_bars": 504,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {
+          "n": 8,
+          "mean_net_return_pct": -4.37,
+          "median_net_return_pct": -7.22,
+          "profit_first_pct": 12.5,
+          "stop_first_pct": 37.5,
+          "median_mae_pct": -8.29,
+          "median_sessions_held": 28.0
+        },
+        "calendar_near_controls": {
+          "mean_net_return_median_pct": -0.54,
+          "profit_first_median_pct": 37.5,
+          "signal_minus_control_median_pp": -3.83,
+          "control_mean_p10_pct": -6.33,
+          "control_mean_p90_pct": 5.32,
+          "draws": 100
+        },
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "exploratory",
+            "events": 6,
+            "effective_start_bar": 2762,
+            "years_requested": 2,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 6,
+              "mean_net_return_pct": 7.28,
+              "median_net_return_pct": 10.33,
+              "profit_first_pct": 83.3,
+              "stop_first_pct": 16.7,
+              "median_mae_pct": -7.8,
+              "median_sessions_held": 15.5
+            }
+          },
+          "3": {
+            "status": "exploratory",
+            "events": 10,
+            "effective_start_bar": 2510,
+            "years_requested": 3,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 10,
+              "mean_net_return_pct": -0.89,
+              "median_net_return_pct": -0.36,
+              "profit_first_pct": 50.0,
+              "stop_first_pct": 50.0,
+              "median_mae_pct": -9.27,
+              "median_sessions_held": 13.0
+            }
+          },
+          "5": {
+            "status": "exploratory",
+            "events": 15,
+            "effective_start_bar": 2006,
+            "years_requested": 5,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 15,
+              "mean_net_return_pct": 1.42,
+              "median_net_return_pct": 9.93,
+              "profit_first_pct": 53.3,
+              "stop_first_pct": 40.0,
+              "median_mae_pct": -7.9,
+              "median_sessions_held": 12
+            }
+          },
+          "10": {
+            "status": "exploratory",
+            "events": 33,
+            "effective_start_bar": 746,
+            "years_requested": 10,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 33,
+              "mean_net_return_pct": 2.1,
+              "median_net_return_pct": 5.46,
+              "profit_first_pct": 48.5,
+              "stop_first_pct": 36.4,
+              "median_mae_pct": -5.56,
+              "median_sessions_held": 12
+            }
+          },
+          "15": {
+            "status": "exploratory",
+            "events": 39,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 39,
+              "mean_net_return_pct": 0.93,
+              "median_net_return_pct": -0.2,
+              "profit_first_pct": 46.2,
+              "stop_first_pct": 41.0,
+              "median_mae_pct": -7.7,
+              "median_sessions_held": 11
+            }
+          }
+        },
+        "holdout_start_bar": 3266,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
       },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
@@ -751,6 +957,112 @@
         "volume_coverage_pct": 100.0,
         "train_price_events": 10
       },
+      "edge_controls": {
+        "status": "exploratory_holdout",
+        "signal_n": 6,
+        "holdout_bars": 504,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {
+          "n": 6,
+          "mean_net_return_pct": 4.56,
+          "median_net_return_pct": 7.71,
+          "profit_first_pct": 50.0,
+          "stop_first_pct": 16.7,
+          "median_mae_pct": -3.85,
+          "median_sessions_held": 17.5
+        },
+        "calendar_near_controls": {
+          "mean_net_return_median_pct": 1.1,
+          "profit_first_median_pct": 50.0,
+          "signal_minus_control_median_pp": 3.46,
+          "control_mean_p10_pct": -3.1,
+          "control_mean_p90_pct": 7.57,
+          "draws": 100
+        },
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "insufficient",
+            "events": 1,
+            "effective_start_bar": 2762,
+            "years_requested": 2,
+            "pre_holdout_only": true
+          },
+          "3": {
+            "status": "exploratory",
+            "events": 5,
+            "effective_start_bar": 2510,
+            "years_requested": 3,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 5,
+              "mean_net_return_pct": 3.44,
+              "median_net_return_pct": 8.33,
+              "profit_first_pct": 40.0,
+              "stop_first_pct": 20.0,
+              "median_mae_pct": -6.32,
+              "median_sessions_held": 19
+            }
+          },
+          "5": {
+            "status": "exploratory",
+            "events": 6,
+            "effective_start_bar": 2006,
+            "years_requested": 5,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 6,
+              "mean_net_return_pct": -0.46,
+              "median_net_return_pct": 3.77,
+              "profit_first_pct": 33.3,
+              "stop_first_pct": 33.3,
+              "median_mae_pct": -7.8,
+              "median_sessions_held": 16.0
+            }
+          },
+          "10": {
+            "status": "exploratory",
+            "events": 16,
+            "effective_start_bar": 746,
+            "years_requested": 10,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 16,
+              "mean_net_return_pct": 3.22,
+              "median_net_return_pct": 7.57,
+              "profit_first_pct": 43.8,
+              "stop_first_pct": 18.8,
+              "median_mae_pct": -5.16,
+              "median_sessions_held": 21.5
+            }
+          },
+          "15": {
+            "status": "exploratory",
+            "events": 18,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 18,
+              "mean_net_return_pct": 4.08,
+              "median_net_return_pct": 9.14,
+              "profit_first_pct": 50.0,
+              "stop_first_pct": 16.7,
+              "median_mae_pct": -4.06,
+              "median_sessions_held": 22.0
+            }
+          }
+        },
+        "holdout_start_bar": 3266,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
+      },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -993,6 +1305,106 @@
         "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
         "volume_coverage_pct": 100.0,
         "train_price_events": 8
+      },
+      "edge_controls": {
+        "status": "insufficient",
+        "signal_n": 2,
+        "holdout_bars": 504,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {},
+        "calendar_near_controls": {},
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "exploratory",
+            "events": 6,
+            "effective_start_bar": 2762,
+            "years_requested": 2,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 6,
+              "mean_net_return_pct": 6.48,
+              "median_net_return_pct": 5.8,
+              "profit_first_pct": 50.0,
+              "stop_first_pct": 0.0,
+              "median_mae_pct": -3.99,
+              "median_sessions_held": 22.5
+            }
+          },
+          "3": {
+            "status": "exploratory",
+            "events": 10,
+            "effective_start_bar": 2510,
+            "years_requested": 3,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 10,
+              "mean_net_return_pct": -0.39,
+              "median_net_return_pct": -0.5,
+              "profit_first_pct": 30.0,
+              "stop_first_pct": 30.0,
+              "median_mae_pct": -6.41,
+              "median_sessions_held": 16.0
+            }
+          },
+          "5": {
+            "status": "exploratory",
+            "events": 14,
+            "effective_start_bar": 2006,
+            "years_requested": 5,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 14,
+              "mean_net_return_pct": 0.67,
+              "median_net_return_pct": -0.08,
+              "profit_first_pct": 28.6,
+              "stop_first_pct": 21.4,
+              "median_mae_pct": -6.41,
+              "median_sessions_held": 23.5
+            }
+          },
+          "10": {
+            "status": "exploratory",
+            "events": 21,
+            "effective_start_bar": 746,
+            "years_requested": 10,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 21,
+              "mean_net_return_pct": 2.45,
+              "median_net_return_pct": 1.89,
+              "profit_first_pct": 33.3,
+              "stop_first_pct": 14.3,
+              "median_mae_pct": -4.55,
+              "median_sessions_held": 30
+            }
+          },
+          "15": {
+            "status": "exploratory",
+            "events": 23,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 23,
+              "mean_net_return_pct": 2.38,
+              "median_net_return_pct": 1.89,
+              "profit_first_pct": 30.4,
+              "stop_first_pct": 13.0,
+              "median_mae_pct": -4.55,
+              "median_sessions_held": 30
+            }
+          }
+        },
+        "holdout_start_bar": 3266,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
       },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
@@ -1254,6 +1666,97 @@
         "volume_coverage_pct": 100.0,
         "train_price_events": 6
       },
+      "edge_controls": {
+        "status": "insufficient",
+        "signal_n": 3,
+        "holdout_bars": 504,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {},
+        "calendar_near_controls": {},
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "insufficient",
+            "events": 4,
+            "effective_start_bar": 2762,
+            "years_requested": 2,
+            "pre_holdout_only": true
+          },
+          "3": {
+            "status": "exploratory",
+            "events": 8,
+            "effective_start_bar": 2510,
+            "years_requested": 3,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 8,
+              "mean_net_return_pct": 2.24,
+              "median_net_return_pct": 6.43,
+              "profit_first_pct": 50.0,
+              "stop_first_pct": 25.0,
+              "median_mae_pct": -7.26,
+              "median_sessions_held": 19.5
+            }
+          },
+          "5": {
+            "status": "exploratory",
+            "events": 9,
+            "effective_start_bar": 2006,
+            "years_requested": 5,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 9,
+              "mean_net_return_pct": -0.08,
+              "median_net_return_pct": 2.79,
+              "profit_first_pct": 44.4,
+              "stop_first_pct": 33.3,
+              "median_mae_pct": -7.34,
+              "median_sessions_held": 19
+            }
+          },
+          "10": {
+            "status": "exploratory",
+            "events": 15,
+            "effective_start_bar": 746,
+            "years_requested": 10,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 15,
+              "mean_net_return_pct": 2.46,
+              "median_net_return_pct": 7.07,
+              "profit_first_pct": 40.0,
+              "stop_first_pct": 20.0,
+              "median_mae_pct": -6.83,
+              "median_sessions_held": 20
+            }
+          },
+          "15": {
+            "status": "exploratory",
+            "events": 16,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 16,
+              "mean_net_return_pct": 2.43,
+              "median_net_return_pct": 4.93,
+              "profit_first_pct": 37.5,
+              "stop_first_pct": 18.8,
+              "median_mae_pct": -6.21,
+              "median_sessions_held": 20.5
+            }
+          }
+        },
+        "holdout_start_bar": 3266,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
+      },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -1354,8 +1857,8 @@
               "status": "exploratory",
               "n": 32,
               "benchmark_median_pct": 4.56,
-              "excess_median_pp": 0.0,
-              "outperform_pct": 50.0,
+              "excess_median_pp": -0.0,
+              "outperform_pct": 28.1,
               "excess_p10_pp": -0.0
             },
             "60": {
@@ -1363,7 +1866,7 @@
               "n": 32,
               "benchmark_median_pct": 7.06,
               "excess_median_pp": 0.0,
-              "outperform_pct": 40.6,
+              "outperform_pct": 34.4,
               "excess_p10_pp": -0.0
             },
             "90": {
@@ -1371,7 +1874,7 @@
               "n": 32,
               "benchmark_median_pct": 12.11,
               "excess_median_pp": 0.0,
-              "outperform_pct": 43.8,
+              "outperform_pct": 37.5,
               "excess_p10_pp": -0.0
             }
           }
@@ -1496,6 +1999,97 @@
         "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
         "volume_coverage_pct": 100.0,
         "train_price_events": 4
+      },
+      "edge_controls": {
+        "status": "insufficient",
+        "signal_n": 3,
+        "holdout_bars": 504,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {},
+        "calendar_near_controls": {},
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "insufficient",
+            "events": 2,
+            "effective_start_bar": 2762,
+            "years_requested": 2,
+            "pre_holdout_only": true
+          },
+          "3": {
+            "status": "exploratory",
+            "events": 6,
+            "effective_start_bar": 2510,
+            "years_requested": 3,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 6,
+              "mean_net_return_pct": 1.64,
+              "median_net_return_pct": 2.21,
+              "profit_first_pct": 33.3,
+              "stop_first_pct": 16.7,
+              "median_mae_pct": -7.82,
+              "median_sessions_held": 28.0
+            }
+          },
+          "5": {
+            "status": "exploratory",
+            "events": 7,
+            "effective_start_bar": 2006,
+            "years_requested": 5,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 7,
+              "mean_net_return_pct": -0.82,
+              "median_net_return_pct": 1.51,
+              "profit_first_pct": 28.6,
+              "stop_first_pct": 28.6,
+              "median_mae_pct": -7.84,
+              "median_sessions_held": 26
+            }
+          },
+          "10": {
+            "status": "exploratory",
+            "events": 12,
+            "effective_start_bar": 746,
+            "years_requested": 10,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 12,
+              "mean_net_return_pct": 1.49,
+              "median_net_return_pct": 2.21,
+              "profit_first_pct": 25.0,
+              "stop_first_pct": 16.7,
+              "median_mae_pct": -7.56,
+              "median_sessions_held": 30.0
+            }
+          },
+          "15": {
+            "status": "exploratory",
+            "events": 12,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 12,
+              "mean_net_return_pct": 1.49,
+              "median_net_return_pct": 2.21,
+              "profit_first_pct": 25.0,
+              "stop_first_pct": 16.7,
+              "median_mae_pct": -7.56,
+              "median_sessions_held": 30.0
+            }
+          }
+        },
+        "holdout_start_bar": 3266,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
       },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
@@ -1738,6 +2332,97 @@
         },
         "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
         "volume_coverage_pct": 0.0
+      },
+      "edge_controls": {
+        "status": "insufficient",
+        "signal_n": 3,
+        "holdout_bars": 504,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {},
+        "calendar_near_controls": {},
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "insufficient",
+            "events": 4,
+            "effective_start_bar": 2762,
+            "years_requested": 2,
+            "pre_holdout_only": true
+          },
+          "3": {
+            "status": "exploratory",
+            "events": 8,
+            "effective_start_bar": 2510,
+            "years_requested": 3,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 8,
+              "mean_net_return_pct": 1.84,
+              "median_net_return_pct": 6.24,
+              "profit_first_pct": 50.0,
+              "stop_first_pct": 25.0,
+              "median_mae_pct": -7.21,
+              "median_sessions_held": 19.5
+            }
+          },
+          "5": {
+            "status": "exploratory",
+            "events": 9,
+            "effective_start_bar": 2006,
+            "years_requested": 5,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 9,
+              "mean_net_return_pct": -0.43,
+              "median_net_return_pct": 2.68,
+              "profit_first_pct": 44.4,
+              "stop_first_pct": 33.3,
+              "median_mae_pct": -7.22,
+              "median_sessions_held": 19
+            }
+          },
+          "10": {
+            "status": "exploratory",
+            "events": 15,
+            "effective_start_bar": 746,
+            "years_requested": 10,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 15,
+              "mean_net_return_pct": 2.03,
+              "median_net_return_pct": 6.81,
+              "profit_first_pct": 40.0,
+              "stop_first_pct": 20.0,
+              "median_mae_pct": -7.14,
+              "median_sessions_held": 20
+            }
+          },
+          "15": {
+            "status": "exploratory",
+            "events": 16,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 16,
+              "mean_net_return_pct": 2.01,
+              "median_net_return_pct": 4.74,
+              "profit_first_pct": 37.5,
+              "stop_first_pct": 18.8,
+              "median_mae_pct": -7.01,
+              "median_sessions_held": 20.5
+            }
+          }
+        },
+        "holdout_start_bar": 3266,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
       },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
@@ -1999,6 +2684,112 @@
         "volume_coverage_pct": 100.0,
         "train_price_events": 11
       },
+      "edge_controls": {
+        "status": "exploratory_holdout",
+        "signal_n": 5,
+        "holdout_bars": 504,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {
+          "n": 5,
+          "mean_net_return_pct": 5.07,
+          "median_net_return_pct": 4.51,
+          "profit_first_pct": 40.0,
+          "stop_first_pct": 0.0,
+          "median_mae_pct": -2.0,
+          "median_sessions_held": 30
+        },
+        "calendar_near_controls": {
+          "mean_net_return_median_pct": 0.98,
+          "profit_first_median_pct": 40.0,
+          "signal_minus_control_median_pp": 4.1,
+          "control_mean_p10_pct": -5.85,
+          "control_mean_p90_pct": 5.72,
+          "draws": 100
+        },
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "insufficient",
+            "events": 3,
+            "effective_start_bar": 2762,
+            "years_requested": 2,
+            "pre_holdout_only": true
+          },
+          "3": {
+            "status": "exploratory",
+            "events": 7,
+            "effective_start_bar": 2510,
+            "years_requested": 3,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 7,
+              "mean_net_return_pct": -3.98,
+              "median_net_return_pct": -11.18,
+              "profit_first_pct": 28.6,
+              "stop_first_pct": 57.1,
+              "median_mae_pct": -10.98,
+              "median_sessions_held": 22
+            }
+          },
+          "5": {
+            "status": "exploratory",
+            "events": 10,
+            "effective_start_bar": 2006,
+            "years_requested": 5,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 10,
+              "mean_net_return_pct": -1.15,
+              "median_net_return_pct": -8.28,
+              "profit_first_pct": 40.0,
+              "stop_first_pct": 50.0,
+              "median_mae_pct": -10.07,
+              "median_sessions_held": 20.0
+            }
+          },
+          "10": {
+            "status": "exploratory",
+            "events": 17,
+            "effective_start_bar": 746,
+            "years_requested": 10,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 17,
+              "mean_net_return_pct": -0.97,
+              "median_net_return_pct": -4.71,
+              "profit_first_pct": 35.3,
+              "stop_first_pct": 41.2,
+              "median_mae_pct": -8.25,
+              "median_sessions_held": 24
+            }
+          },
+          "15": {
+            "status": "exploratory",
+            "events": 21,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 21,
+              "mean_net_return_pct": 0.88,
+              "median_net_return_pct": 2.32,
+              "profit_first_pct": 38.1,
+              "stop_first_pct": 33.3,
+              "median_mae_pct": -5.88,
+              "median_sessions_held": 24
+            }
+          }
+        },
+        "holdout_start_bar": 3266,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
+      },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -2258,6 +3049,112 @@
         "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
         "volume_coverage_pct": 100.0,
         "train_price_events": 13
+      },
+      "edge_controls": {
+        "status": "exploratory_holdout",
+        "signal_n": 5,
+        "holdout_bars": 504,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {
+          "n": 5,
+          "mean_net_return_pct": -7.15,
+          "median_net_return_pct": -10.33,
+          "profit_first_pct": 20.0,
+          "stop_first_pct": 60.0,
+          "median_mae_pct": -10.13,
+          "median_sessions_held": 15
+        },
+        "calendar_near_controls": {
+          "mean_net_return_median_pct": -0.16,
+          "profit_first_median_pct": 40.0,
+          "signal_minus_control_median_pp": -6.99,
+          "control_mean_p10_pct": -7.56,
+          "control_mean_p90_pct": 5.9,
+          "draws": 100
+        },
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "insufficient",
+            "events": 2,
+            "effective_start_bar": 2762,
+            "years_requested": 2,
+            "pre_holdout_only": true
+          },
+          "3": {
+            "status": "exploratory",
+            "events": 6,
+            "effective_start_bar": 2510,
+            "years_requested": 3,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 6,
+              "mean_net_return_pct": -0.89,
+              "median_net_return_pct": -2.47,
+              "profit_first_pct": 33.3,
+              "stop_first_pct": 50.0,
+              "median_mae_pct": -9.27,
+              "median_sessions_held": 19.0
+            }
+          },
+          "5": {
+            "status": "exploratory",
+            "events": 9,
+            "effective_start_bar": 2006,
+            "years_requested": 5,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 9,
+              "mean_net_return_pct": -0.3,
+              "median_net_return_pct": 5.46,
+              "profit_first_pct": 44.4,
+              "stop_first_pct": 44.4,
+              "median_mae_pct": -8.33,
+              "median_sessions_held": 19
+            }
+          },
+          "10": {
+            "status": "exploratory",
+            "events": 22,
+            "effective_start_bar": 746,
+            "years_requested": 10,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 22,
+              "mean_net_return_pct": 1.57,
+              "median_net_return_pct": 5.36,
+              "profit_first_pct": 45.5,
+              "stop_first_pct": 36.4,
+              "median_mae_pct": -5.94,
+              "median_sessions_held": 15.5
+            }
+          },
+          "15": {
+            "status": "exploratory",
+            "events": 24,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 24,
+              "mean_net_return_pct": 1.83,
+              "median_net_return_pct": 5.36,
+              "profit_first_pct": 45.8,
+              "stop_first_pct": 33.3,
+              "median_mae_pct": -5.94,
+              "median_sessions_held": 18.0
+            }
+          }
+        },
+        "holdout_start_bar": 3266,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
       },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
@@ -2519,6 +3416,97 @@
         "volume_coverage_pct": 100.0,
         "train_price_events": 11
       },
+      "edge_controls": {
+        "status": "insufficient",
+        "signal_n": 4,
+        "holdout_bars": 504,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {},
+        "calendar_near_controls": {},
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "insufficient",
+            "events": 4,
+            "effective_start_bar": 2762,
+            "years_requested": 2,
+            "pre_holdout_only": true
+          },
+          "3": {
+            "status": "exploratory",
+            "events": 10,
+            "effective_start_bar": 2510,
+            "years_requested": 3,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 10,
+              "mean_net_return_pct": 2.56,
+              "median_net_return_pct": 6.17,
+              "profit_first_pct": 50.0,
+              "stop_first_pct": 30.0,
+              "median_mae_pct": -6.55,
+              "median_sessions_held": 17.5
+            }
+          },
+          "5": {
+            "status": "exploratory",
+            "events": 13,
+            "effective_start_bar": 2006,
+            "years_requested": 5,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 13,
+              "mean_net_return_pct": 1.15,
+              "median_net_return_pct": 2.22,
+              "profit_first_pct": 46.2,
+              "stop_first_pct": 30.8,
+              "median_mae_pct": -5.78,
+              "median_sessions_held": 14
+            }
+          },
+          "10": {
+            "status": "exploratory",
+            "events": 25,
+            "effective_start_bar": 746,
+            "years_requested": 10,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 25,
+              "mean_net_return_pct": 4.26,
+              "median_net_return_pct": 10.15,
+              "profit_first_pct": 56.0,
+              "stop_first_pct": 20.0,
+              "median_mae_pct": -3.92,
+              "median_sessions_held": 15
+            }
+          },
+          "15": {
+            "status": "exploratory",
+            "events": 26,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 26,
+              "mean_net_return_pct": 4.42,
+              "median_net_return_pct": 10.14,
+              "profit_first_pct": 53.8,
+              "stop_first_pct": 19.2,
+              "median_mae_pct": -3.21,
+              "median_sessions_held": 15.0
+            }
+          }
+        },
+        "holdout_start_bar": 3266,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
+      },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -2761,6 +3749,88 @@
         "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
         "volume_coverage_pct": 100.0,
         "train_price_events": 10
+      },
+      "edge_controls": {
+        "status": "insufficient",
+        "signal_n": 3,
+        "holdout_bars": 504,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {},
+        "calendar_near_controls": {},
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "insufficient",
+            "events": 0,
+            "effective_start_bar": 2762,
+            "years_requested": 2,
+            "pre_holdout_only": true
+          },
+          "3": {
+            "status": "insufficient",
+            "events": 3,
+            "effective_start_bar": 2510,
+            "years_requested": 3,
+            "pre_holdout_only": true
+          },
+          "5": {
+            "status": "exploratory",
+            "events": 7,
+            "effective_start_bar": 2006,
+            "years_requested": 5,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 7,
+              "mean_net_return_pct": 0.82,
+              "median_net_return_pct": 6.7,
+              "profit_first_pct": 42.9,
+              "stop_first_pct": 42.9,
+              "median_mae_pct": -5.76,
+              "median_sessions_held": 13
+            }
+          },
+          "10": {
+            "status": "exploratory",
+            "events": 17,
+            "effective_start_bar": 746,
+            "years_requested": 10,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 17,
+              "mean_net_return_pct": 2.79,
+              "median_net_return_pct": 6.7,
+              "profit_first_pct": 47.1,
+              "stop_first_pct": 23.5,
+              "median_mae_pct": -5.44,
+              "median_sessions_held": 19
+            }
+          },
+          "15": {
+            "status": "exploratory",
+            "events": 18,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 18,
+              "mean_net_return_pct": 2.72,
+              "median_net_return_pct": 6.57,
+              "profit_first_pct": 44.4,
+              "stop_first_pct": 22.2,
+              "median_mae_pct": -5.16,
+              "median_sessions_held": 20.5
+            }
+          }
+        },
+        "holdout_start_bar": 3266,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
       },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
@@ -3005,6 +4075,121 @@
         "volume_coverage_pct": 100.0,
         "train_price_events": 18
       },
+      "edge_controls": {
+        "status": "exploratory_holdout",
+        "signal_n": 5,
+        "holdout_bars": 504,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {
+          "n": 5,
+          "mean_net_return_pct": 12.37,
+          "median_net_return_pct": 12.98,
+          "profit_first_pct": 100.0,
+          "stop_first_pct": 0.0,
+          "median_mae_pct": 1.94,
+          "median_sessions_held": 4
+        },
+        "calendar_near_controls": {
+          "mean_net_return_median_pct": 2.62,
+          "profit_first_median_pct": 60.0,
+          "signal_minus_control_median_pp": 9.74,
+          "control_mean_p10_pct": -4.1,
+          "control_mean_p90_pct": 8.84,
+          "draws": 100
+        },
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "exploratory",
+            "events": 5,
+            "effective_start_bar": 2762,
+            "years_requested": 2,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 5,
+              "mean_net_return_pct": 4.58,
+              "median_net_return_pct": 9.89,
+              "profit_first_pct": 60.0,
+              "stop_first_pct": 20.0,
+              "median_mae_pct": -5.26,
+              "median_sessions_held": 14
+            }
+          },
+          "3": {
+            "status": "exploratory",
+            "events": 11,
+            "effective_start_bar": 2510,
+            "years_requested": 3,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 11,
+              "mean_net_return_pct": 3.18,
+              "median_net_return_pct": 8.99,
+              "profit_first_pct": 45.5,
+              "stop_first_pct": 27.3,
+              "median_mae_pct": -5.26,
+              "median_sessions_held": 15
+            }
+          },
+          "5": {
+            "status": "exploratory",
+            "events": 14,
+            "effective_start_bar": 2006,
+            "years_requested": 5,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 14,
+              "mean_net_return_pct": 2.19,
+              "median_net_return_pct": 6.66,
+              "profit_first_pct": 42.9,
+              "stop_first_pct": 28.6,
+              "median_mae_pct": -5.78,
+              "median_sessions_held": 15.5
+            }
+          },
+          "10": {
+            "status": "exploratory",
+            "events": 35,
+            "effective_start_bar": 746,
+            "years_requested": 10,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 35,
+              "mean_net_return_pct": 1.02,
+              "median_net_return_pct": 1.86,
+              "profit_first_pct": 42.9,
+              "stop_first_pct": 37.1,
+              "median_mae_pct": -5.9,
+              "median_sessions_held": 14
+            }
+          },
+          "15": {
+            "status": "exploratory",
+            "events": 36,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 36,
+              "mean_net_return_pct": 1.04,
+              "median_net_return_pct": 1.71,
+              "profit_first_pct": 41.7,
+              "stop_first_pct": 36.1,
+              "median_mae_pct": -6.33,
+              "median_sessions_held": 14.0
+            }
+          }
+        },
+        "holdout_start_bar": 3266,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
+      },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -3169,6 +4354,97 @@
         "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
         "volume_coverage_pct": 99.5,
         "train_price_events": 15
+      },
+      "edge_controls": {
+        "status": "insufficient",
+        "signal_n": 4,
+        "holdout_bars": 504,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {},
+        "calendar_near_controls": {},
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "insufficient",
+            "events": 3,
+            "effective_start_bar": 2671,
+            "years_requested": 2,
+            "pre_holdout_only": true
+          },
+          "3": {
+            "status": "exploratory",
+            "events": 8,
+            "effective_start_bar": 2419,
+            "years_requested": 3,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 8,
+              "mean_net_return_pct": 1.79,
+              "median_net_return_pct": 4.29,
+              "profit_first_pct": 37.5,
+              "stop_first_pct": 25.0,
+              "median_mae_pct": -6.48,
+              "median_sessions_held": 21.5
+            }
+          },
+          "5": {
+            "status": "exploratory",
+            "events": 13,
+            "effective_start_bar": 1915,
+            "years_requested": 5,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 13,
+              "mean_net_return_pct": 0.92,
+              "median_net_return_pct": 4.97,
+              "profit_first_pct": 38.5,
+              "stop_first_pct": 30.8,
+              "median_mae_pct": -6.29,
+              "median_sessions_held": 16
+            }
+          },
+          "10": {
+            "status": "exploratory",
+            "events": 27,
+            "effective_start_bar": 655,
+            "years_requested": 10,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 27,
+              "mean_net_return_pct": 0.88,
+              "median_net_return_pct": 4.97,
+              "profit_first_pct": 44.4,
+              "stop_first_pct": 33.3,
+              "median_mae_pct": -5.79,
+              "median_sessions_held": 16
+            }
+          },
+          "15": {
+            "status": "exploratory",
+            "events": 30,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 30,
+              "mean_net_return_pct": 1.17,
+              "median_net_return_pct": 4.29,
+              "profit_first_pct": 43.3,
+              "stop_first_pct": 30.0,
+              "median_mae_pct": -5.2,
+              "median_sessions_held": 17.0
+            }
+          }
+        },
+        "holdout_start_bar": 3175,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
       },
       "historical_start_utc": "2011-10-14T00:00:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
@@ -3372,10 +4648,10 @@
         },
         "targets": {
           "10": {
-            "profit_before_stop_pct": 33.3,
+            "profit_before_stop_pct": 30.0,
             "stop_before_profit_pct": 10.0,
-            "neither_pct": 56.7,
-            "median_days_to_profit": 14.0,
+            "neither_pct": 60.0,
+            "median_days_to_profit": 15,
             "n": 30
           },
           "15": {
@@ -3429,6 +4705,97 @@
         "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
         "volume_coverage_pct": 99.5,
         "train_price_events": 13
+      },
+      "edge_controls": {
+        "status": "insufficient",
+        "signal_n": 4,
+        "holdout_bars": 504,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {},
+        "calendar_near_controls": {},
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "insufficient",
+            "events": 2,
+            "effective_start_bar": 2671,
+            "years_requested": 2,
+            "pre_holdout_only": true
+          },
+          "3": {
+            "status": "exploratory",
+            "events": 8,
+            "effective_start_bar": 2419,
+            "years_requested": 3,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 8,
+              "mean_net_return_pct": -0.0,
+              "median_net_return_pct": -1.23,
+              "profit_first_pct": 12.5,
+              "stop_first_pct": 12.5,
+              "median_mae_pct": -5.51,
+              "median_sessions_held": 30.0
+            }
+          },
+          "5": {
+            "status": "exploratory",
+            "events": 10,
+            "effective_start_bar": 1915,
+            "years_requested": 5,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 10,
+              "mean_net_return_pct": -0.06,
+              "median_net_return_pct": -1.23,
+              "profit_first_pct": 20.0,
+              "stop_first_pct": 20.0,
+              "median_mae_pct": -5.51,
+              "median_sessions_held": 30.0
+            }
+          },
+          "10": {
+            "status": "exploratory",
+            "events": 21,
+            "effective_start_bar": 655,
+            "years_requested": 10,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 21,
+              "mean_net_return_pct": 0.33,
+              "median_net_return_pct": -0.11,
+              "profit_first_pct": 14.3,
+              "stop_first_pct": 14.3,
+              "median_mae_pct": -3.96,
+              "median_sessions_held": 30
+            }
+          },
+          "15": {
+            "status": "exploratory",
+            "events": 25,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 25,
+              "mean_net_return_pct": 0.95,
+              "median_net_return_pct": -0.11,
+              "profit_first_pct": 20.0,
+              "stop_first_pct": 12.0,
+              "median_mae_pct": -3.96,
+              "median_sessions_held": 30
+            }
+          }
+        },
+        "holdout_start_bar": 3175,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
       },
       "historical_start_utc": "2011-10-14T00:00:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
@@ -3491,6 +4858,61 @@
           "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
         },
         "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny"
+      },
+      "edge_controls": {
+        "status": "insufficient",
+        "signal_n": 0,
+        "holdout_bars": 0,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {},
+        "calendar_near_controls": {},
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "insufficient",
+            "events": 0,
+            "effective_start_bar": 0,
+            "years_requested": 2,
+            "pre_holdout_only": true
+          },
+          "3": {
+            "status": "insufficient",
+            "events": 0,
+            "effective_start_bar": 0,
+            "years_requested": 3,
+            "pre_holdout_only": true
+          },
+          "5": {
+            "status": "insufficient",
+            "events": 0,
+            "effective_start_bar": 0,
+            "years_requested": 5,
+            "pre_holdout_only": true
+          },
+          "10": {
+            "status": "insufficient",
+            "events": 0,
+            "effective_start_bar": 0,
+            "years_requested": 10,
+            "pre_holdout_only": true
+          },
+          "15": {
+            "status": "insufficient",
+            "events": 0,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true
+          }
+        },
+        "holdout_start_bar": 0,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
       },
       "historical_start_utc": "2025-02-13T14:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
@@ -3734,6 +5156,97 @@
         "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
         "volume_coverage_pct": 100.0,
         "train_price_events": 6
+      },
+      "edge_controls": {
+        "status": "insufficient",
+        "signal_n": 3,
+        "holdout_bars": 504,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {},
+        "calendar_near_controls": {},
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "insufficient",
+            "events": 3,
+            "effective_start_bar": 2762,
+            "years_requested": 2,
+            "pre_holdout_only": true
+          },
+          "3": {
+            "status": "exploratory",
+            "events": 6,
+            "effective_start_bar": 2510,
+            "years_requested": 3,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 6,
+              "mean_net_return_pct": 2.75,
+              "median_net_return_pct": 4.95,
+              "profit_first_pct": 50.0,
+              "stop_first_pct": 33.3,
+              "median_mae_pct": -5.46,
+              "median_sessions_held": 16.0
+            }
+          },
+          "5": {
+            "status": "exploratory",
+            "events": 8,
+            "effective_start_bar": 2006,
+            "years_requested": 5,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 8,
+              "mean_net_return_pct": 1.68,
+              "median_net_return_pct": 4.95,
+              "profit_first_pct": 50.0,
+              "stop_first_pct": 37.5,
+              "median_mae_pct": -5.46,
+              "median_sessions_held": 16.0
+            }
+          },
+          "10": {
+            "status": "exploratory",
+            "events": 13,
+            "effective_start_bar": 746,
+            "years_requested": 10,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 13,
+              "mean_net_return_pct": 2.68,
+              "median_net_return_pct": 4.47,
+              "profit_first_pct": 46.2,
+              "stop_first_pct": 23.1,
+              "median_mae_pct": -3.43,
+              "median_sessions_held": 19
+            }
+          },
+          "15": {
+            "status": "exploratory",
+            "events": 15,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 15,
+              "mean_net_return_pct": 3.48,
+              "median_net_return_pct": 6.81,
+              "profit_first_pct": 46.7,
+              "stop_first_pct": 20.0,
+              "median_mae_pct": -2.44,
+              "median_sessions_held": 19
+            }
+          }
+        },
+        "holdout_start_bar": 3266,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
       },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
@@ -3995,6 +5508,97 @@
         "volume_coverage_pct": 100.0,
         "train_price_events": 7
       },
+      "edge_controls": {
+        "status": "insufficient",
+        "signal_n": 3,
+        "holdout_bars": 504,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {},
+        "calendar_near_controls": {},
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "insufficient",
+            "events": 4,
+            "effective_start_bar": 2762,
+            "years_requested": 2,
+            "pre_holdout_only": true
+          },
+          "3": {
+            "status": "exploratory",
+            "events": 8,
+            "effective_start_bar": 2510,
+            "years_requested": 3,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 8,
+              "mean_net_return_pct": 4.08,
+              "median_net_return_pct": 10.18,
+              "profit_first_pct": 62.5,
+              "stop_first_pct": 25.0,
+              "median_mae_pct": -4.62,
+              "median_sessions_held": 11.5
+            }
+          },
+          "5": {
+            "status": "exploratory",
+            "events": 11,
+            "effective_start_bar": 2006,
+            "years_requested": 5,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 11,
+              "mean_net_return_pct": 4.0,
+              "median_net_return_pct": 10.27,
+              "profit_first_pct": 63.6,
+              "stop_first_pct": 27.3,
+              "median_mae_pct": -3.54,
+              "median_sessions_held": 14
+            }
+          },
+          "10": {
+            "status": "exploratory",
+            "events": 16,
+            "effective_start_bar": 746,
+            "years_requested": 10,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 16,
+              "mean_net_return_pct": 2.13,
+              "median_net_return_pct": 5.88,
+              "profit_first_pct": 50.0,
+              "stop_first_pct": 31.2,
+              "median_mae_pct": -4.62,
+              "median_sessions_held": 13.5
+            }
+          },
+          "15": {
+            "status": "exploratory",
+            "events": 19,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 19,
+              "mean_net_return_pct": 1.23,
+              "median_net_return_pct": 1.67,
+              "profit_first_pct": 47.4,
+              "stop_first_pct": 36.8,
+              "median_mae_pct": -5.7,
+              "median_sessions_held": 15
+            }
+          }
+        },
+        "holdout_start_bar": 3266,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
+      },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -4254,6 +5858,112 @@
         "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
         "volume_coverage_pct": 100.0,
         "train_price_events": 9
+      },
+      "edge_controls": {
+        "status": "exploratory_holdout",
+        "signal_n": 6,
+        "holdout_bars": 504,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {
+          "n": 6,
+          "mean_net_return_pct": 0.67,
+          "median_net_return_pct": -1.5,
+          "profit_first_pct": 33.3,
+          "stop_first_pct": 33.3,
+          "median_mae_pct": -7.55,
+          "median_sessions_held": 13.5
+        },
+        "calendar_near_controls": {
+          "mean_net_return_median_pct": -1.21,
+          "profit_first_median_pct": 33.3,
+          "signal_minus_control_median_pp": 1.89,
+          "control_mean_p10_pct": -6.93,
+          "control_mean_p90_pct": 5.0,
+          "draws": 100
+        },
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "insufficient",
+            "events": 4,
+            "effective_start_bar": 2612,
+            "years_requested": 2,
+            "pre_holdout_only": true
+          },
+          "3": {
+            "status": "exploratory",
+            "events": 11,
+            "effective_start_bar": 2360,
+            "years_requested": 3,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 11,
+              "mean_net_return_pct": 2.25,
+              "median_net_return_pct": 10.28,
+              "profit_first_pct": 54.5,
+              "stop_first_pct": 27.3,
+              "median_mae_pct": -2.96,
+              "median_sessions_held": 10
+            }
+          },
+          "5": {
+            "status": "exploratory",
+            "events": 13,
+            "effective_start_bar": 1856,
+            "years_requested": 5,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 13,
+              "mean_net_return_pct": 1.54,
+              "median_net_return_pct": 10.18,
+              "profit_first_pct": 53.8,
+              "stop_first_pct": 30.8,
+              "median_mae_pct": -2.96,
+              "median_sessions_held": 10
+            }
+          },
+          "10": {
+            "status": "exploratory",
+            "events": 19,
+            "effective_start_bar": 596,
+            "years_requested": 10,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 19,
+              "mean_net_return_pct": 2.29,
+              "median_net_return_pct": 9.8,
+              "profit_first_pct": 52.6,
+              "stop_first_pct": 21.1,
+              "median_mae_pct": -6.89,
+              "median_sessions_held": 12
+            }
+          },
+          "15": {
+            "status": "exploratory",
+            "events": 22,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 22,
+              "mean_net_return_pct": 2.2,
+              "median_net_return_pct": 7.66,
+              "profit_first_pct": 50.0,
+              "stop_first_pct": 18.2,
+              "median_mae_pct": -6.94,
+              "median_sessions_held": 17.5
+            }
+          }
+        },
+        "holdout_start_bar": 3116,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
       },
       "historical_start_utc": "2012-05-18T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
@@ -4515,6 +6225,97 @@
         "volume_coverage_pct": 100.0,
         "train_price_events": 5
       },
+      "edge_controls": {
+        "status": "insufficient",
+        "signal_n": 4,
+        "holdout_bars": 504,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {},
+        "calendar_near_controls": {},
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "insufficient",
+            "events": 3,
+            "effective_start_bar": 2762,
+            "years_requested": 2,
+            "pre_holdout_only": true
+          },
+          "3": {
+            "status": "exploratory",
+            "events": 7,
+            "effective_start_bar": 2510,
+            "years_requested": 3,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 7,
+              "mean_net_return_pct": 2.16,
+              "median_net_return_pct": 7.8,
+              "profit_first_pct": 42.9,
+              "stop_first_pct": 28.6,
+              "median_mae_pct": -1.0,
+              "median_sessions_held": 21
+            }
+          },
+          "5": {
+            "status": "exploratory",
+            "events": 8,
+            "effective_start_bar": 2006,
+            "years_requested": 5,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 8,
+              "mean_net_return_pct": 0.09,
+              "median_net_return_pct": 2.03,
+              "profit_first_pct": 37.5,
+              "stop_first_pct": 37.5,
+              "median_mae_pct": -3.92,
+              "median_sessions_held": 19.0
+            }
+          },
+          "10": {
+            "status": "exploratory",
+            "events": 12,
+            "effective_start_bar": 746,
+            "years_requested": 10,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 12,
+              "mean_net_return_pct": 2.58,
+              "median_net_return_pct": 6.34,
+              "profit_first_pct": 41.7,
+              "stop_first_pct": 25.0,
+              "median_mae_pct": -2.89,
+              "median_sessions_held": 28.0
+            }
+          },
+          "15": {
+            "status": "exploratory",
+            "events": 13,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 13,
+              "mean_net_return_pct": 2.05,
+              "median_net_return_pct": 4.88,
+              "profit_first_pct": 38.5,
+              "stop_first_pct": 23.1,
+              "median_mae_pct": -3.14,
+              "median_sessions_held": 29
+            }
+          }
+        },
+        "holdout_start_bar": 3266,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
+      },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -4663,6 +6464,112 @@
         "volume_coverage_pct": 100.0,
         "train_price_events": 6
       },
+      "edge_controls": {
+        "status": "exploratory_holdout",
+        "signal_n": 5,
+        "holdout_bars": 504,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {
+          "n": 5,
+          "mean_net_return_pct": -7.68,
+          "median_net_return_pct": -11.23,
+          "profit_first_pct": 20.0,
+          "stop_first_pct": 80.0,
+          "median_mae_pct": -11.03,
+          "median_sessions_held": 4
+        },
+        "calendar_near_controls": {
+          "mean_net_return_median_pct": 0.65,
+          "profit_first_median_pct": 40.0,
+          "signal_minus_control_median_pp": -8.33,
+          "control_mean_p10_pct": -7.35,
+          "control_mean_p90_pct": 7.87,
+          "draws": 100
+        },
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "insufficient",
+            "events": 2,
+            "effective_start_bar": 2762,
+            "years_requested": 2,
+            "pre_holdout_only": true
+          },
+          "3": {
+            "status": "exploratory",
+            "events": 6,
+            "effective_start_bar": 2510,
+            "years_requested": 3,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 6,
+              "mean_net_return_pct": -0.07,
+              "median_net_return_pct": -0.77,
+              "profit_first_pct": 33.3,
+              "stop_first_pct": 33.3,
+              "median_mae_pct": -6.77,
+              "median_sessions_held": 20.5
+            }
+          },
+          "5": {
+            "status": "exploratory",
+            "events": 7,
+            "effective_start_bar": 2006,
+            "years_requested": 5,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 7,
+              "mean_net_return_pct": -1.82,
+              "median_net_return_pct": -9.11,
+              "profit_first_pct": 28.6,
+              "stop_first_pct": 42.9,
+              "median_mae_pct": -9.85,
+              "median_sessions_held": 14
+            }
+          },
+          "10": {
+            "status": "exploratory",
+            "events": 12,
+            "effective_start_bar": 746,
+            "years_requested": 10,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 12,
+              "mean_net_return_pct": 0.59,
+              "median_net_return_pct": 2.17,
+              "profit_first_pct": 33.3,
+              "stop_first_pct": 25.0,
+              "median_mae_pct": -3.62,
+              "median_sessions_held": 20.5
+            }
+          },
+          "15": {
+            "status": "exploratory",
+            "events": 13,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 13,
+              "mean_net_return_pct": 1.28,
+              "median_net_return_pct": 5.28,
+              "profit_first_pct": 30.8,
+              "stop_first_pct": 23.1,
+              "median_mae_pct": -3.55,
+              "median_sessions_held": 27
+            }
+          }
+        },
+        "holdout_start_bar": 3266,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
+      },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -4724,6 +6631,61 @@
           "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
         },
         "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny"
+      },
+      "edge_controls": {
+        "status": "insufficient",
+        "signal_n": 0,
+        "holdout_bars": 0,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {},
+        "calendar_near_controls": {},
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "insufficient",
+            "events": 0,
+            "effective_start_bar": 0,
+            "years_requested": 2,
+            "pre_holdout_only": true
+          },
+          "3": {
+            "status": "insufficient",
+            "events": 0,
+            "effective_start_bar": 0,
+            "years_requested": 3,
+            "pre_holdout_only": true
+          },
+          "5": {
+            "status": "insufficient",
+            "events": 0,
+            "effective_start_bar": 0,
+            "years_requested": 5,
+            "pre_holdout_only": true
+          },
+          "10": {
+            "status": "insufficient",
+            "events": 0,
+            "effective_start_bar": 0,
+            "years_requested": 10,
+            "pre_holdout_only": true
+          },
+          "15": {
+            "status": "insufficient",
+            "events": 0,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true
+          }
+        },
+        "holdout_start_bar": 0,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
       },
       "historical_start_utc": "2025-03-28T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
@@ -4848,6 +6810,121 @@
         "volume_coverage_pct": 100.0,
         "train_price_events": 7
       },
+      "edge_controls": {
+        "status": "exploratory_holdout",
+        "signal_n": 7,
+        "holdout_bars": 504,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {
+          "n": 7,
+          "mean_net_return_pct": -3.2,
+          "median_net_return_pct": -11.43,
+          "profit_first_pct": 42.9,
+          "stop_first_pct": 57.1,
+          "median_mae_pct": -11.23,
+          "median_sessions_held": 5
+        },
+        "calendar_near_controls": {
+          "mean_net_return_median_pct": -0.64,
+          "profit_first_median_pct": 50.0,
+          "signal_minus_control_median_pp": -2.56,
+          "control_mean_p10_pct": -6.4,
+          "control_mean_p90_pct": 6.55,
+          "draws": 100
+        },
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "exploratory",
+            "events": 9,
+            "effective_start_bar": 221,
+            "years_requested": 2,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 9,
+              "mean_net_return_pct": -8.93,
+              "median_net_return_pct": -12.36,
+              "profit_first_pct": 22.2,
+              "stop_first_pct": 77.8,
+              "median_mae_pct": -12.16,
+              "median_sessions_held": 5
+            }
+          },
+          "3": {
+            "status": "exploratory",
+            "events": 9,
+            "effective_start_bar": 0,
+            "years_requested": 3,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 9,
+              "mean_net_return_pct": -8.93,
+              "median_net_return_pct": -12.36,
+              "profit_first_pct": 22.2,
+              "stop_first_pct": 77.8,
+              "median_mae_pct": -12.16,
+              "median_sessions_held": 5
+            }
+          },
+          "5": {
+            "status": "exploratory",
+            "events": 9,
+            "effective_start_bar": 0,
+            "years_requested": 5,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 9,
+              "mean_net_return_pct": -8.93,
+              "median_net_return_pct": -12.36,
+              "profit_first_pct": 22.2,
+              "stop_first_pct": 77.8,
+              "median_mae_pct": -12.16,
+              "median_sessions_held": 5
+            }
+          },
+          "10": {
+            "status": "exploratory",
+            "events": 9,
+            "effective_start_bar": 0,
+            "years_requested": 10,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 9,
+              "mean_net_return_pct": -8.93,
+              "median_net_return_pct": -12.36,
+              "profit_first_pct": 22.2,
+              "stop_first_pct": 77.8,
+              "median_mae_pct": -12.16,
+              "median_sessions_held": 5
+            }
+          },
+          "15": {
+            "status": "exploratory",
+            "events": 9,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 9,
+              "mean_net_return_pct": -8.93,
+              "median_net_return_pct": -12.36,
+              "profit_first_pct": 22.2,
+              "stop_first_pct": 77.8,
+              "median_mae_pct": -12.16,
+              "median_sessions_held": 5
+            }
+          }
+        },
+        "holdout_start_bar": 725,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
+      },
       "historical_start_utc": "2021-11-17T14:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -4909,6 +6986,61 @@
           "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
         },
         "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny"
+      },
+      "edge_controls": {
+        "status": "insufficient",
+        "signal_n": 0,
+        "holdout_bars": 0,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {},
+        "calendar_near_controls": {},
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "insufficient",
+            "events": 0,
+            "effective_start_bar": 0,
+            "years_requested": 2,
+            "pre_holdout_only": true
+          },
+          "3": {
+            "status": "insufficient",
+            "events": 0,
+            "effective_start_bar": 0,
+            "years_requested": 3,
+            "pre_holdout_only": true
+          },
+          "5": {
+            "status": "insufficient",
+            "events": 0,
+            "effective_start_bar": 0,
+            "years_requested": 5,
+            "pre_holdout_only": true
+          },
+          "10": {
+            "status": "insufficient",
+            "events": 0,
+            "effective_start_bar": 0,
+            "years_requested": 10,
+            "pre_holdout_only": true
+          },
+          "15": {
+            "status": "insufficient",
+            "events": 0,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true
+          }
+        },
+        "holdout_start_bar": 0,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
       },
       "historical_start_utc": "2024-10-21T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
@@ -5170,6 +7302,112 @@
         "volume_coverage_pct": 100.0,
         "train_price_events": 6
       },
+      "edge_controls": {
+        "status": "exploratory_holdout",
+        "signal_n": 8,
+        "holdout_bars": 504,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {
+          "n": 8,
+          "mean_net_return_pct": -0.69,
+          "median_net_return_pct": -0.38,
+          "profit_first_pct": 50.0,
+          "stop_first_pct": 50.0,
+          "median_mae_pct": -7.18,
+          "median_sessions_held": 11.5
+        },
+        "calendar_near_controls": {
+          "mean_net_return_median_pct": -3.73,
+          "profit_first_median_pct": 25.0,
+          "signal_minus_control_median_pp": 3.04,
+          "control_mean_p10_pct": -8.43,
+          "control_mean_p90_pct": 1.47,
+          "draws": 100
+        },
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "insufficient",
+            "events": 4,
+            "effective_start_bar": 2583,
+            "years_requested": 2,
+            "pre_holdout_only": true
+          },
+          "3": {
+            "status": "exploratory",
+            "events": 8,
+            "effective_start_bar": 2331,
+            "years_requested": 3,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 8,
+              "mean_net_return_pct": 3.07,
+              "median_net_return_pct": 11.37,
+              "profit_first_pct": 62.5,
+              "stop_first_pct": 37.5,
+              "median_mae_pct": -5.0,
+              "median_sessions_held": 11.5
+            }
+          },
+          "5": {
+            "status": "exploratory",
+            "events": 12,
+            "effective_start_bar": 1827,
+            "years_requested": 5,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 12,
+              "mean_net_return_pct": 2.95,
+              "median_net_return_pct": 10.58,
+              "profit_first_pct": 58.3,
+              "stop_first_pct": 33.3,
+              "median_mae_pct": -5.34,
+              "median_sessions_held": 13.0
+            }
+          },
+          "10": {
+            "status": "exploratory",
+            "events": 18,
+            "effective_start_bar": 567,
+            "years_requested": 10,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 18,
+              "mean_net_return_pct": 3.46,
+              "median_net_return_pct": 9.87,
+              "profit_first_pct": 55.6,
+              "stop_first_pct": 27.8,
+              "median_mae_pct": -3.33,
+              "median_sessions_held": 14.0
+            }
+          },
+          "15": {
+            "status": "exploratory",
+            "events": 19,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 19,
+              "mean_net_return_pct": 2.67,
+              "median_net_return_pct": 9.82,
+              "profit_first_pct": 52.6,
+              "stop_first_pct": 31.6,
+              "median_mae_pct": -3.73,
+              "median_sessions_held": 14
+            }
+          }
+        },
+        "holdout_start_bar": 3087,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
+      },
       "historical_start_utc": "2012-06-29T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -5430,6 +7668,112 @@
         "volume_coverage_pct": 100.0,
         "train_price_events": 8
       },
+      "edge_controls": {
+        "status": "exploratory_holdout",
+        "signal_n": 8,
+        "holdout_bars": 504,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {
+          "n": 8,
+          "mean_net_return_pct": -0.34,
+          "median_net_return_pct": 1.01,
+          "profit_first_pct": 25.0,
+          "stop_first_pct": 37.5,
+          "median_mae_pct": -5.75,
+          "median_sessions_held": 13.0
+        },
+        "calendar_near_controls": {
+          "mean_net_return_median_pct": -1.52,
+          "profit_first_median_pct": 25.0,
+          "signal_minus_control_median_pp": 1.18,
+          "control_mean_p10_pct": -6.81,
+          "control_mean_p90_pct": 1.93,
+          "draws": 100
+        },
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "insufficient",
+            "events": 3,
+            "effective_start_bar": 2762,
+            "years_requested": 2,
+            "pre_holdout_only": true
+          },
+          "3": {
+            "status": "exploratory",
+            "events": 7,
+            "effective_start_bar": 2510,
+            "years_requested": 3,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 7,
+              "mean_net_return_pct": -5.81,
+              "median_net_return_pct": -10.42,
+              "profit_first_pct": 28.6,
+              "stop_first_pct": 71.4,
+              "median_mae_pct": -10.22,
+              "median_sessions_held": 20
+            }
+          },
+          "5": {
+            "status": "exploratory",
+            "events": 12,
+            "effective_start_bar": 2006,
+            "years_requested": 5,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 12,
+              "mean_net_return_pct": -2.22,
+              "median_net_return_pct": -6.2,
+              "profit_first_pct": 41.7,
+              "stop_first_pct": 50.0,
+              "median_mae_pct": -6.82,
+              "median_sessions_held": 20.5
+            }
+          },
+          "10": {
+            "status": "exploratory",
+            "events": 18,
+            "effective_start_bar": 746,
+            "years_requested": 10,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 18,
+              "mean_net_return_pct": 0.09,
+              "median_net_return_pct": 7.79,
+              "profit_first_pct": 38.9,
+              "stop_first_pct": 38.9,
+              "median_mae_pct": -3.15,
+              "median_sessions_held": 22.0
+            }
+          },
+          "15": {
+            "status": "exploratory",
+            "events": 21,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 21,
+              "mean_net_return_pct": 0.52,
+              "median_net_return_pct": 7.86,
+              "profit_first_pct": 42.9,
+              "stop_first_pct": 38.1,
+              "median_mae_pct": -3.16,
+              "median_sessions_held": 23
+            }
+          }
+        },
+        "holdout_start_bar": 3266,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
+      },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -5648,6 +7992,121 @@
         "volume_coverage_pct": 100.0,
         "train_price_events": 10
       },
+      "edge_controls": {
+        "status": "exploratory_holdout",
+        "signal_n": 7,
+        "holdout_bars": 504,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {
+          "n": 7,
+          "mean_net_return_pct": 2.06,
+          "median_net_return_pct": 10.03,
+          "profit_first_pct": 57.1,
+          "stop_first_pct": 42.9,
+          "median_mae_pct": -3.17,
+          "median_sessions_held": 6
+        },
+        "calendar_near_controls": {
+          "mean_net_return_median_pct": 3.34,
+          "profit_first_median_pct": 57.1,
+          "signal_minus_control_median_pp": -1.28,
+          "control_mean_p10_pct": -1.91,
+          "control_mean_p90_pct": 9.01,
+          "draws": 100
+        },
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "exploratory",
+            "events": 9,
+            "effective_start_bar": 507,
+            "years_requested": 2,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 9,
+              "mean_net_return_pct": 7.52,
+              "median_net_return_pct": 11.76,
+              "profit_first_pct": 66.7,
+              "stop_first_pct": 22.2,
+              "median_mae_pct": -2.77,
+              "median_sessions_held": 7
+            }
+          },
+          "3": {
+            "status": "exploratory",
+            "events": 15,
+            "effective_start_bar": 255,
+            "years_requested": 3,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 15,
+              "mean_net_return_pct": 3.94,
+              "median_net_return_pct": 9.92,
+              "profit_first_pct": 53.3,
+              "stop_first_pct": 33.3,
+              "median_mae_pct": -4.42,
+              "median_sessions_held": 8
+            }
+          },
+          "5": {
+            "status": "exploratory",
+            "events": 15,
+            "effective_start_bar": 0,
+            "years_requested": 5,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 15,
+              "mean_net_return_pct": 3.94,
+              "median_net_return_pct": 9.92,
+              "profit_first_pct": 53.3,
+              "stop_first_pct": 33.3,
+              "median_mae_pct": -4.42,
+              "median_sessions_held": 8
+            }
+          },
+          "10": {
+            "status": "exploratory",
+            "events": 15,
+            "effective_start_bar": 0,
+            "years_requested": 10,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 15,
+              "mean_net_return_pct": 3.94,
+              "median_net_return_pct": 9.92,
+              "profit_first_pct": 53.3,
+              "stop_first_pct": 33.3,
+              "median_mae_pct": -4.42,
+              "median_sessions_held": 8
+            }
+          },
+          "15": {
+            "status": "exploratory",
+            "events": 15,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 15,
+              "mean_net_return_pct": 3.94,
+              "median_net_return_pct": 9.92,
+              "profit_first_pct": 53.3,
+              "stop_first_pct": 33.3,
+              "median_mae_pct": -4.42,
+              "median_sessions_held": 8
+            }
+          }
+        },
+        "holdout_start_bar": 1011,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
+      },
       "historical_start_utc": "2020-09-30T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -5722,8 +8181,8 @@
               "status": "exploratory",
               "n": 34,
               "benchmark_median_pct": 3.22,
-              "excess_median_pp": -0.0,
-              "outperform_pct": 44.1,
+              "excess_median_pp": 0.0,
+              "outperform_pct": 47.1,
               "excess_p10_pp": -0.0
             },
             "60": {
@@ -5731,15 +8190,15 @@
               "n": 34,
               "benchmark_median_pct": 8.23,
               "excess_median_pp": 0.0,
-              "outperform_pct": 52.9,
+              "outperform_pct": 50.0,
               "excess_p10_pp": -0.0
             },
             "90": {
               "status": "exploratory",
               "n": 34,
               "benchmark_median_pct": 7.13,
-              "excess_median_pp": -0.0,
-              "outperform_pct": 35.3,
+              "excess_median_pp": 0.0,
+              "outperform_pct": 50.0,
               "excess_p10_pp": -0.0
             }
           },
@@ -5890,6 +8349,97 @@
         "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
         "volume_coverage_pct": 100.0,
         "train_price_events": 2
+      },
+      "edge_controls": {
+        "status": "insufficient",
+        "signal_n": 1,
+        "holdout_bars": 504,
+        "decision": "undetermined",
+        "random_draws": 100,
+        "transaction_cost_pct": 0.2,
+        "signal": {},
+        "calendar_near_controls": {},
+        "limitations": "Fixed predeclared rules; last 2y holdout; ±63-session calendar controls; noncausal, correlated and resampled; no IV/slippage/gaps; rule was proposed after inspecting market patterns"
+      },
+      "adaptive_windows": {
+        "status": "descriptive_only",
+        "windows": {
+          "2": {
+            "status": "insufficient",
+            "events": 1,
+            "effective_start_bar": 2762,
+            "years_requested": 2,
+            "pre_holdout_only": true
+          },
+          "3": {
+            "status": "exploratory",
+            "events": 5,
+            "effective_start_bar": 2510,
+            "years_requested": 3,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 5,
+              "mean_net_return_pct": -2.46,
+              "median_net_return_pct": -9.76,
+              "profit_first_pct": 40.0,
+              "stop_first_pct": 40.0,
+              "median_mae_pct": -9.56,
+              "median_sessions_held": 26
+            }
+          },
+          "5": {
+            "status": "exploratory",
+            "events": 6,
+            "effective_start_bar": 2006,
+            "years_requested": 5,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 6,
+              "mean_net_return_pct": -4.27,
+              "median_net_return_pct": -10.25,
+              "profit_first_pct": 33.3,
+              "stop_first_pct": 50.0,
+              "median_mae_pct": -10.05,
+              "median_sessions_held": 23.5
+            }
+          },
+          "10": {
+            "status": "exploratory",
+            "events": 8,
+            "effective_start_bar": 746,
+            "years_requested": 10,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 8,
+              "mean_net_return_pct": -0.62,
+              "median_net_return_pct": 0.04,
+              "profit_first_pct": 50.0,
+              "stop_first_pct": 37.5,
+              "median_mae_pct": -7.53,
+              "median_sessions_held": 25.5
+            }
+          },
+          "15": {
+            "status": "exploratory",
+            "events": 8,
+            "effective_start_bar": 0,
+            "years_requested": 15,
+            "pre_holdout_only": true,
+            "trade_summary": {
+              "n": 8,
+              "mean_net_return_pct": -0.62,
+              "median_net_return_pct": 0.04,
+              "profit_first_pct": 50.0,
+              "stop_first_pct": 37.5,
+              "median_mae_pct": -7.53,
+              "median_sessions_held": 25.5
+            }
+          }
+        },
+        "holdout_start_bar": 3266,
+        "window_selection": "none",
+        "decision": "undetermined",
+        "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."
       },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
