@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Produce an optional, provenance-labelled AI daily price snapshot.
-Run from repo root: python scripts/build_ai_market_snapshot.py
+Run from repo root: python -m scripts.build_ai_market_snapshot
 No credentials. Yahoo Chart is an undocumented best-effort fallback, not an exchange feed.
 """
 from __future__ import annotations
@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import quote
 from urllib.request import Request, urlopen
-from scripts.ai_analog_validation import selected_analog_indices, validate_analogs
+if __package__:\n    from scripts.ai_analog_validation import selected_analog_indices, validate_analogs\nelse:\n    from ai_analog_validation import selected_analog_indices, validate_analogs
 
 ROOT = Path(__file__).resolve().parents[1]
 UNIVERSE = ROOT / "apps/ai-dashboard/data/universe.json"
