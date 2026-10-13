@@ -1,6 +1,7 @@
 import unittest
 from scripts.build_ai_market_snapshot import rsi, summarize, exploratory_analogs
 from scripts.ai_analog_validation import selected_analog_indices, validate_analogs
+from scripts.ai_walkforward import walk_forward_diagnostic
 
 class DailyMetricsTests(unittest.TestCase):
     def test_rsi_uptrend(self):
@@ -37,6 +38,19 @@ class DailyMetricsTests(unittest.TestCase):
         result = validate_analogs(prices, dates, {"SMH": ([], [])}, rsi)
         self.assertEqual(result["status"], "exploratory")
         self.assertEqual(result["benchmarks"]["SMH"]["90"]["status"], "insufficient")
+    def test_walkforward_short_history(self):
+        result = walk_forward_diagnostic([100.0] * 400)
+        self.assertEqual(result["status"], "insufficient")
+
+    def test_walkforward_frozen_train_and_no_future_entries(self):
+        prices = [100 + 5 * __import__("math").sin(i / 20) + i * 0.01 for i in range(1300)]
+        result = walk_forward_diagnostic(prices)
+        self.assertGreater(result["train_bars"], 0)
+        self.assertGreater(result["test_bars"], 0)
+        self.assertIn(result["status"], ("insufficient", "exploratory_holdout"))
+        self.assertLessEqual(result["signal_events"], result["unconditional_events"] + 1)
+        self.assertIn("frozen_thresholds", result)
+
     def test_no_future_tail_selection(self):
         prices = [100.0 + (i % 130) * 0.12 for i in range(1100)]
         inds = selected_analog_indices(prices, rsi)
