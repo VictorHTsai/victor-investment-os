@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "as_of": null,
+  "source": "Admin-curated research universe; no live feed",
+  "assets": [
+    {
+      "symbol": "NVDA",
+      "name": "NVIDIA",
+      "cluster": "Compute",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "AMD",
+      "name": "AMD",
+      "cluster": "Compute",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "AVGO",
+      "name": "Broadcom",
+      "cluster": "Compute",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "TSM",
+      "name": "TSMC ADR",
+      "cluster": "Compute",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "SOXX",
+      "name": "iShares Semiconductor ETF",
+      "cluster": "Compute",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "SMH",
+      "name": "VanEck Semiconductor ETF",
+      "cluster": "Compute",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "^SOX",
+      "name": "Philadelphia Semiconductor Index",
+      "cluster": "Compute",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "ASML",
+      "name": "ASML",
+      "cluster": "Equipment",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "AMAT",
+      "name": "Applied Materials",
+      "cluster": "Equipment",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "LRCX",
+      "name": "Lam Research",
+      "cluster": "Equipment",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "KLAC",
+      "name": "KLA",
+      "cluster": "Equipment",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "MU",
+      "name": "Micron",
+      "cluster": "Memory",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "000660.KS",
+      "name": "SK Hynix",
+      "cluster": "Memory",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "005930.KS",
+      "name": "Samsung",
+      "cluster": "Memory",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "SNDK",
+      "name": "Sandisk",
+      "cluster": "Memory",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "GOOG",
+      "name": "Alphabet",
+      "cluster": "Platforms",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "AMZN",
+      "name": "Amazon",
+      "cluster": "Platforms",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "META",
+      "name": "Meta",
+      "cluster": "Platforms",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "MSFT",
+      "name": "Microsoft",
+      "cluster": "Platforms",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "ORCL",
+      "name": "Oracle",
+      "cluster": "Infrastructure",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "CRWV",
+      "name": "CoreWeave",
+      "cluster": "Infrastructure",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "IREN",
+      "name": "IREN",
+      "cluster": "Infrastructure",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "NBIS",
+      "name": "Nebius",
+      "cluster": "Infrastructure",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "NOW",
+      "name": "ServiceNow",
+      "cluster": "Software",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "CRM",
+      "name": "Salesforce",
+      "cluster": "Software",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "PLTR",
+      "name": "Palantir",
+      "cluster": "Software",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "QQQ",
+      "name": "Invesco QQQ ETF",
+      "cluster": "Benchmark",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    }
+  ]
+}
