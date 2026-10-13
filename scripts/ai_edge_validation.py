@@ -62,7 +62,7 @@ def matched_controls(closes, signals, seed=SEED, draws=CONTROL_DRAWS, radius=63)
 
 
 def edge_validation(closes, rsi_fn, min_events=MIN_EVENTS):
-    """Fixed final 2-year holdout, with one-year embargoed historical background."""
+    """Fixed final two-year holdout; price rule is fixed, not fitted on test outcomes."""
     n = len(closes)
     out = {"status": "insufficient", "signal_n": 0, "holdout_bars": 0,
            "decision": "undetermined", "random_draws": CONTROL_DRAWS,
