@@ -77,6 +77,15 @@ def exploratory_analogs(closes: list[float], horizons=(30, 60, 90)) -> dict:
             "method": empty["method"],
             "limitations": "Five-year sample, current constituents, overlapping market regimes, selection bias; not out-of-sample validated"}
 
+def validate_daily_cadence(dates: list[int]) -> None:
+    if len(dates) < 20:
+        raise ValueError(f"insufficient daily bars: {len(dates)}")
+    gaps = sorted((dates[i] - dates[i-1]) / 86400 for i in range(1, len(dates)))
+    median_gap = gaps[len(gaps)//2]
+    if median_gap > 5:
+        raise ValueError(f"daily frequency integrity failure: {len(dates)} bars; median gap {median_gap:.1f} days")
+
+
 def fetch(symbol: str, benchmarks=None, return_history=False) -> dict:
     end_time = datetime.now(timezone.utc) + timedelta(days=1)
     start_time = end_time - timedelta(days=365 * 15 + 5)
@@ -103,16 +112,8 @@ def fetch(symbol: str, benchmarks=None, return_history=False) -> dict:
     cutoff = max(t for t, _ in bars) - int(15 * 365.25 * 86400)
     bars = [(t, c) for t, c in bars if t >= cutoff]
     dates, closes = zip(*bars)
-    # Some providers silently downsample long-range responses despite interval=1d.
-    # Refuse to label such data as daily or produce misleading backtests.
-    gaps = [(dates[i] - dates[i-1]) / 86400 for i in range(1, len(dates))]
-    if len(dates) >= 20:
-        ordered = sorted(gaps)
-        median_gap = ordered[len(ordered)//2]
-        if median_gap > 5:
-            raise ValueError(f"daily frequency integrity failure: {len(dates)} bars; median gap {median_gap:.1f} days")
-    if len(dates) < 20:
-        raise ValueError(f"insufficient daily bars: {len(dates)}")
+    # Reject silent monthly/weekly downsampling before computing daily indicators.
+    validate_daily_cadence(list(dates))
     if return_history:
         return (list(dates), list(closes))
     summary = summarize(list(closes), list(dates))
