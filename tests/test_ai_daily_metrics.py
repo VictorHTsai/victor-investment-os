@@ -2,6 +2,7 @@ import unittest
 from scripts.build_ai_market_snapshot import rsi, summarize, exploratory_analogs
 from scripts.ai_analog_validation import selected_analog_indices, validate_analogs
 from scripts.ai_walkforward import walk_forward_diagnostic
+from scripts.ai_rebound_study import rebound_study, first_passage, scan_dislocations
 
 class DailyMetricsTests(unittest.TestCase):
     def test_rsi_uptrend(self):
@@ -50,6 +51,23 @@ class DailyMetricsTests(unittest.TestCase):
         self.assertIn(result["status"], ("insufficient", "exploratory_holdout"))
         self.assertLessEqual(result["signal_events"], result["unconditional_events"] + 1)
         self.assertIn("frozen_thresholds", result)
+
+    def test_first_passage_target_before_stop(self):
+        self.assertEqual(first_passage([100, 96, 111, 80], 0, 3, 10, -10), ("profit", 2))
+        self.assertEqual(first_passage([100, 89, 120, 120], 0, 3, 10, -10), ("stop", 1))
+        self.assertEqual(first_passage([100, 101, 102, 103], 0, 3, 10, -10), ("neither", None))
+
+    def test_rebound_insufficient_history(self):
+        self.assertEqual(rebound_study([100.] * 100, rsi)["status"], "insufficient")
+
+    def test_rebound_dislocation_spacing_and_forward_window(self):
+        prices = [100.0] * 260 + [max(15., 99. - (i % 85) * 1.0) for i in range(450)]
+        events = scan_dislocations(prices, rsi)
+        self.assertTrue(all(j - i >= 30 for i, j in zip(events, events[1:])))
+        self.assertTrue(all(i + 30 < len(prices) for i in events))
+        result = rebound_study(prices, rsi)
+        self.assertEqual(result["count"], len(events))
+        self.assertIn(result["status"], ("exploratory", "insufficient"))
 
     def test_no_future_tail_selection(self):
         prices = [100.0 + (i % 130) * 0.12 for i in range(1100)]
