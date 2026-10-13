@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-10-13T06:41:43.402500+00:00",
+  "generated_at_utc": "2026-10-13T06:55:39.526537+00:00",
   "source": "Yahoo Finance Chart (undocumented, no-key, best effort)",
   "frequency": "1d",
   "signals_validated": false,
@@ -126,6 +126,20 @@
         },
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 537,
+        "test_bars": 537,
+        "signal_events": 2,
+        "unconditional_events": 5,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
+        "frozen_thresholds": {
+          "rsi14_max": 50.66,
+          "drawdown_52w_max_pct": -23.16
+        }
+      },
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "AMD": {
@@ -249,6 +263,20 @@
         },
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 537,
+        "test_bars": 537,
+        "signal_events": 2,
+        "unconditional_events": 5,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
+        "frozen_thresholds": {
+          "rsi14_max": 41.29,
+          "drawdown_52w_max_pct": -36.25
+        }
+      },
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "AVGO": {
@@ -276,6 +304,20 @@
         "horizons": {},
         "benchmarks": {},
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
+      },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 537,
+        "test_bars": 537,
+        "signal_events": 4,
+        "unconditional_events": 5,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
+        "frozen_thresholds": {
+          "rsi14_max": 48.89,
+          "drawdown_52w_max_pct": -8.11
+        }
       },
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -400,6 +442,20 @@
         },
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 537,
+        "test_bars": 537,
+        "signal_events": 1,
+        "unconditional_events": 5,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
+        "frozen_thresholds": {
+          "rsi14_max": 38.6,
+          "drawdown_52w_max_pct": -22.42
+        }
+      },
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "SOXX": {
@@ -523,6 +579,20 @@
         },
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 537,
+        "test_bars": 537,
+        "signal_events": 2,
+        "unconditional_events": 5,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
+        "frozen_thresholds": {
+          "rsi14_max": 43.52,
+          "drawdown_52w_max_pct": -17.26
+        }
+      },
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "SMH": {
@@ -624,14 +694,14 @@
               "benchmark_median_pct": 9.61,
               "excess_median_pp": 0.0,
               "outperform_pct": 12.5,
-              "excess_p10_pp": 0.0
+              "excess_p10_pp": -0.0
             },
             "60": {
               "status": "exploratory",
               "n": 8,
               "benchmark_median_pct": 13.69,
               "excess_median_pp": 0.0,
-              "outperform_pct": 0.0,
+              "outperform_pct": 12.5,
               "excess_p10_pp": -0.0
             },
             "90": {
@@ -639,12 +709,26 @@
               "n": 8,
               "benchmark_median_pct": 21.35,
               "excess_median_pp": 0.0,
-              "outperform_pct": 12.5,
-              "excess_p10_pp": 0.0
+              "outperform_pct": 25.0,
+              "excess_p10_pp": -0.0
             }
           }
         },
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
+      },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 537,
+        "test_bars": 537,
+        "signal_events": 3,
+        "unconditional_events": 5,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
+        "frozen_thresholds": {
+          "rsi14_max": 44.73,
+          "drawdown_52w_max_pct": -14.39
+        }
       },
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -769,6 +853,20 @@
         },
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 537,
+        "test_bars": 537,
+        "signal_events": 2,
+        "unconditional_events": 5,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
+        "frozen_thresholds": {
+          "rsi14_max": 43.92,
+          "drawdown_52w_max_pct": -17.88
+        }
+      },
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "ASML": {
@@ -892,6 +990,20 @@
         },
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 537,
+        "test_bars": 537,
+        "signal_events": 3,
+        "unconditional_events": 5,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
+        "frozen_thresholds": {
+          "rsi14_max": 42.68,
+          "drawdown_52w_max_pct": -20.72
+        }
+      },
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "AMAT": {
@@ -919,6 +1031,20 @@
         "horizons": {},
         "benchmarks": {},
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
+      },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 537,
+        "test_bars": 537,
+        "signal_events": 4,
+        "unconditional_events": 5,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
+        "frozen_thresholds": {
+          "rsi14_max": 46.61,
+          "drawdown_52w_max_pct": -17.81
+        }
       },
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -1043,6 +1169,20 @@
         },
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 537,
+        "test_bars": 537,
+        "signal_events": 3,
+        "unconditional_events": 5,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
+        "frozen_thresholds": {
+          "rsi14_max": 45.24,
+          "drawdown_52w_max_pct": -15.73
+        }
+      },
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "KLAC": {
@@ -1070,6 +1210,20 @@
         "horizons": {},
         "benchmarks": {},
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
+      },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 537,
+        "test_bars": 537,
+        "signal_events": 4,
+        "unconditional_events": 5,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
+        "frozen_thresholds": {
+          "rsi14_max": 45.26,
+          "drawdown_52w_max_pct": -11.44
+        }
       },
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -1194,6 +1348,20 @@
         },
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 537,
+        "test_bars": 537,
+        "signal_events": 2,
+        "unconditional_events": 5,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
+        "frozen_thresholds": {
+          "rsi14_max": 43.74,
+          "drawdown_52w_max_pct": -35.44
+        }
+      },
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "000660.KS": {
@@ -1222,16 +1390,30 @@
         "benchmarks": {},
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 519,
+        "test_bars": 520,
+        "signal_events": 2,
+        "unconditional_events": 5,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
+        "frozen_thresholds": {
+          "rsi14_max": 45.74,
+          "drawdown_52w_max_pct": -30.51
+        }
+      },
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "005930.KS": {
       "status": "ok",
-      "close": 232500.0,
+      "close": 232000.0,
       "currency": "KRW",
       "last_bar_utc": "2026-10-13T00:00:00+00:00",
       "bars": 1219,
-      "rsi14": 40.19,
-      "drawdown_52w_pct": -35.79,
+      "rsi14": 40.0,
+      "drawdown_52w_pct": -35.93,
       "oversold_score": null,
       "analogs": null,
       "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
@@ -1249,6 +1431,20 @@
         "horizons": {},
         "benchmarks": {},
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
+      },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 519,
+        "test_bars": 520,
+        "signal_events": 3,
+        "unconditional_events": 5,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
+        "frozen_thresholds": {
+          "rsi14_max": 44.34,
+          "drawdown_52w_max_pct": -15.25
+        }
       },
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -1277,6 +1473,16 @@
         "horizons": {},
         "benchmarks": {},
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
+      },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 0,
+        "test_bars": 0,
+        "signal_events": 0,
+        "unconditional_events": 0,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
       },
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -1401,6 +1607,20 @@
         },
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 537,
+        "test_bars": 537,
+        "signal_events": 0,
+        "unconditional_events": 5,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
+        "frozen_thresholds": {
+          "rsi14_max": 44.7,
+          "drawdown_52w_max_pct": -32.98
+        }
+      },
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "AMZN": {
@@ -1524,6 +1744,20 @@
         },
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 537,
+        "test_bars": 537,
+        "signal_events": 0,
+        "unconditional_events": 5,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
+        "frozen_thresholds": {
+          "rsi14_max": 45.6,
+          "drawdown_52w_max_pct": -41.98
+        }
+      },
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "META": {
@@ -1545,7 +1779,7 @@
             "median_pct": 5.26,
             "positive_pct": 57.1,
             "p10_pct": -11.62,
-            "p90_pct": 16.73
+            "p90_pct": 16.72
           },
           "60": {
             "median_pct": 12.72,
@@ -1574,7 +1808,7 @@
             "median_pct": 5.26,
             "positive_pct": 57.1,
             "p10_pct": -11.62,
-            "p90_pct": 16.73
+            "p90_pct": 16.72
           },
           "60": {
             "n": 7,
@@ -1646,6 +1880,20 @@
           }
         },
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
+      },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 537,
+        "test_bars": 537,
+        "signal_events": 2,
+        "unconditional_events": 5,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
+        "frozen_thresholds": {
+          "rsi14_max": 54.07,
+          "drawdown_52w_max_pct": -25.85
+        }
       },
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -1770,6 +2018,20 @@
         },
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 537,
+        "test_bars": 537,
+        "signal_events": 2,
+        "unconditional_events": 5,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
+        "frozen_thresholds": {
+          "rsi14_max": 49.28,
+          "drawdown_52w_max_pct": -19.11
+        }
+      },
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "ORCL": {
@@ -1797,6 +2059,20 @@
         "horizons": {},
         "benchmarks": {},
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
+      },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 537,
+        "test_bars": 537,
+        "signal_events": 4,
+        "unconditional_events": 5,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
+        "frozen_thresholds": {
+          "rsi14_max": 48.38,
+          "drawdown_52w_max_pct": -11.02
+        }
       },
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -1826,6 +2102,16 @@
         "benchmarks": {},
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 0,
+        "test_bars": 0,
+        "signal_events": 0,
+        "unconditional_events": 0,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
+      },
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "IREN": {
@@ -1853,6 +2139,20 @@
         "horizons": {},
         "benchmarks": {},
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
+      },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 524,
+        "test_bars": 525,
+        "signal_events": 0,
+        "unconditional_events": 5,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
+        "frozen_thresholds": {
+          "rsi14_max": 40.0,
+          "drawdown_52w_max_pct": -81.51
+        }
       },
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -1882,6 +2182,16 @@
         "benchmarks": {},
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 0,
+        "test_bars": 0,
+        "signal_events": 0,
+        "unconditional_events": 0,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
+      },
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "NOW": {
@@ -1909,6 +2219,20 @@
         "horizons": {},
         "benchmarks": {},
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
+      },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 537,
+        "test_bars": 537,
+        "signal_events": 3,
+        "unconditional_events": 5,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
+        "frozen_thresholds": {
+          "rsi14_max": 44.11,
+          "drawdown_52w_max_pct": -27.48
+        }
       },
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -2033,6 +2357,20 @@
         },
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 537,
+        "test_bars": 537,
+        "signal_events": 4,
+        "unconditional_events": 5,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
+        "frozen_thresholds": {
+          "rsi14_max": 46.7,
+          "drawdown_52w_max_pct": -24.38
+        }
+      },
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "PLTR": {
@@ -2156,6 +2494,20 @@
         },
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 537,
+        "test_bars": 537,
+        "signal_events": 0,
+        "unconditional_events": 5,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
+        "frozen_thresholds": {
+          "rsi14_max": 45.83,
+          "drawdown_52w_max_pct": -46.0
+        }
+      },
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "QQQ": {
@@ -2229,24 +2581,24 @@
               "status": "exploratory",
               "n": 8,
               "benchmark_median_pct": -0.24,
-              "excess_median_pp": 0.0,
-              "outperform_pct": 75.0,
+              "excess_median_pp": -0.0,
+              "outperform_pct": 25.0,
               "excess_p10_pp": -0.0
             },
             "60": {
               "status": "exploratory",
               "n": 8,
               "benchmark_median_pct": 8.92,
-              "excess_median_pp": 0.0,
-              "outperform_pct": 62.5,
+              "excess_median_pp": -0.0,
+              "outperform_pct": 25.0,
               "excess_p10_pp": -0.0
             },
             "90": {
               "status": "exploratory",
               "n": 8,
               "benchmark_median_pct": 10.44,
-              "excess_median_pp": 0.0,
-              "outperform_pct": 50.0,
+              "excess_median_pp": -0.0,
+              "outperform_pct": 12.5,
               "excess_p10_pp": -0.0
             }
           },
@@ -2278,6 +2630,20 @@
           }
         },
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
+      },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 537,
+        "test_bars": 537,
+        "signal_events": 1,
+        "unconditional_events": 5,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
+        "frozen_thresholds": {
+          "rsi14_max": 46.67,
+          "drawdown_52w_max_pct": -19.7
+        }
       },
       "price_type": "provider adjusted close where available; otherwise raw close"
     }
