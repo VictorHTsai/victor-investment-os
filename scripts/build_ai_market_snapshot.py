@@ -38,6 +38,47 @@ def summarize(closes: list[float], dates: list[int]) -> dict:
             "oversold_score": None, "analogs": None,
             "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores"}
 
+
+def exploratory_analogs(closes: list[float], horizons=(30, 60, 90)) -> dict:
+    """Historical matched-state descriptive study; not a predictive backtest.
+    Select non-overlapping 90-session windows and exclude unresolved forward returns.
+    Similarity uses RSI14 and trailing 252-close drawdown, both point-in-time.
+    """
+    from statistics import median
+    n = len(closes)
+    empty = {"status": "insufficient", "count": 0, "horizons": {},
+             "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap"}
+    if n < 252 + max(horizons) + 1:
+        return empty
+    target_rsi = rsi(closes)
+    target_dd = 100 * (closes[-1] / max(closes[-252:]) - 1)
+    eligible = []
+    for i in range(251, n - max(horizons)):
+        rr = rsi(closes[:i+1])
+        dd = 100 * (closes[i] / max(closes[i-251:i+1]) - 1)
+        if rr is not None and abs(rr-target_rsi) <= 10 and abs(dd-target_dd) <= 10:
+            eligible.append(i)
+    # Pick the earliest eligible date, then enforce independent 90-session windows.
+    selected = []
+    for i in eligible:
+        if not selected or i-selected[-1] >= max(horizons):
+            selected.append(i)
+    if len(selected) < 5:
+        return {**empty, "count": len(selected)}
+    results = {}
+    for h in horizons:
+        values = sorted(100 * (closes[i+h] / closes[i] - 1) for i in selected)
+        k = len(values)
+        results[str(h)] = {
+            "median_pct": round(median(values), 2),
+            "positive_pct": round(100 * sum(v > 0 for v in values) / k, 1),
+            "p10_pct": round(values[int((k-1)*0.10)], 2),
+            "p90_pct": round(values[int((k-1)*0.90)], 2),
+        }
+    return {"status": "exploratory", "count": len(selected), "horizons": results,
+            "method": empty["method"],
+            "limitations": "Five-year sample, current constituents, overlapping market regimes, selection bias; not out-of-sample validated"}
+
 def fetch(symbol: str) -> dict:
     url = "https://query2.finance.yahoo.com/v8/finance/chart/" + quote(symbol, safe="") + "?range=5y&interval=1d&events=div%2Csplits&includeAdjustedClose=true"
     req = Request(url, headers={"User-Agent": "Mozilla/5.0 VictorInvestmentOS/1.0"})
@@ -59,6 +100,7 @@ def fetch(symbol: str) -> dict:
     dates, closes = zip(*bars)
     summary = summarize(list(closes), list(dates))
     summary["currency"] = (result.get("meta") or {}).get("currency")
+    summary["exploratory_analogs"] = exploratory_analogs(list(closes))
     summary["price_type"] = "provider adjusted close where available; otherwise raw close"
     return summary
 
