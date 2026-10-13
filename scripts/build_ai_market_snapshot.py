@@ -15,10 +15,12 @@ if __package__:
     from scripts.ai_analog_validation import selected_analog_indices, validate_analogs
     from scripts.ai_walkforward import walk_forward_diagnostic
     from scripts.ai_rebound_study import rebound_study
+    from scripts.ai_price_volume_experiment import compare_price_volume
 else:
     from ai_analog_validation import selected_analog_indices, validate_analogs
     from ai_walkforward import walk_forward_diagnostic
     from ai_rebound_study import rebound_study
+    from ai_price_volume_experiment import compare_price_volume
 
 ROOT = Path(__file__).resolve().parents[1]
 UNIVERSE = ROOT / "apps/ai-dashboard/data/universe.json"
@@ -103,15 +105,17 @@ def fetch(symbol: str, benchmarks=None, return_history=False) -> dict:
     quotes = (indicator.get("quote") or [{}])[0]
     adjusted = (indicator.get("adjclose") or [{}])[0].get("adjclose") or []
     raw = quotes.get("close") or []
+    volume = quotes.get("volume") or []
     timestamps = result.get("timestamp") or []
-    bars = [(t, float(adjusted[i] if i < len(adjusted) and adjusted[i] is not None else v))
+    bars = [(t, float(adjusted[i] if i < len(adjusted) and adjusted[i] is not None else v),
+             float(volume[i]) if i < len(volume) and volume[i] is not None and math.isfinite(float(volume[i])) and float(volume[i]) > 0 else None)
             for i, (t, v) in enumerate(zip(timestamps, raw))
             if v is not None and math.isfinite(float(v)) and float(v) > 0]
     if not bars: raise ValueError("no valid bars")
     # Keep up to 15 years; recent IPOs naturally have shorter trading histories.
-    cutoff = max(t for t, _ in bars) - int(15 * 365.25 * 86400)
-    bars = [(t, c) for t, c in bars if t >= cutoff]
-    dates, closes = zip(*bars)
+    cutoff = max(t for t, _, _ in bars) - int(15 * 365.25 * 86400)
+    bars = [(t, c, vol) for t, c, vol in bars if t >= cutoff]
+    dates, closes, volumes = zip(*bars)
     # Reject silent monthly/weekly downsampling before computing daily indicators.
     validate_daily_cadence(list(dates))
     if return_history:
@@ -122,6 +126,7 @@ def fetch(symbol: str, benchmarks=None, return_history=False) -> dict:
     summary["analog_validation"] = validate_analogs(list(closes), list(dates), benchmarks or {}, rsi)
     summary["chronological_holdout"] = walk_forward_diagnostic(list(closes))
     summary["short_rebound"] = rebound_study(list(closes), rsi)
+    summary["price_volume_challenger"] = compare_price_volume(list(closes), list(volumes), rsi)
     summary["historical_start_utc"] = datetime.fromtimestamp(dates[0], timezone.utc).isoformat()
     summary["price_type"] = "provider adjusted close where available; otherwise raw close"
     return summary
@@ -131,7 +136,7 @@ def main():
     output = {"schema_version": 1, "generated_at_utc": datetime.now(timezone.utc).isoformat(),
               "source": "Yahoo Finance Chart (undocumented, no-key, best effort)",
               "frequency": "1d", "history_limit_years": 15, "history_storage": "summary-only",
-              "signals_validated": False, "assets": {}}
+              "signals_validated": False, "volume_experiment": "price-only champion; high-RVOL challenger (research only)", "assets": {}}
     benchmark_histories = {}
     for name in ("QQQ", "SMH"):
         try:
