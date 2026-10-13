@@ -1,10 +1,21 @@
 import unittest
-from scripts.build_ai_market_snapshot import rsi, summarize, exploratory_analogs
+from scripts.build_ai_market_snapshot import rsi, summarize, exploratory_analogs, validate_daily_cadence
 from scripts.ai_analog_validation import selected_analog_indices, validate_analogs
 from scripts.ai_walkforward import walk_forward_diagnostic
 from scripts.ai_rebound_study import rebound_study, first_passage, scan_dislocations
 
 class DailyMetricsTests(unittest.TestCase):
+    def test_daily_cadence_rejects_monthly_downsampling(self):
+        with self.assertRaisesRegex(ValueError, "daily frequency integrity"):
+            validate_daily_cadence([i * 30 * 86400 for i in range(181)])
+
+    def test_daily_cadence_accepts_weekend_gaps(self):
+        validate_daily_cadence([i * 86400 for i in range(30)])
+
+    def test_daily_cadence_rejects_too_few_bars(self):
+        with self.assertRaisesRegex(ValueError, "insufficient daily bars"):
+            validate_daily_cadence([0, 86400])
+
     def test_rsi_uptrend(self):
         self.assertEqual(rsi([float(x) for x in range(20)]), 100.0)
     def test_rsi_flat(self):
