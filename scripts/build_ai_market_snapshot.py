@@ -148,11 +148,14 @@ def main():
             output["assets"][symbol] = {"status": "unavailable", "error": str(exc)[:180],
                                         "oversold_score": None, "analogs": None}
         time.sleep(0.2)
+    ok = sum(v["status"] == "ok" for v in output["assets"].values())
+    total = len(output["assets"])
+    print(f"Snapshot: {ok}/{total} tickers, candidate for {OUTPUT}")
+    # Fail closed: never replace a usable snapshot with broadly missing data.
+    if ok < max(1, math.ceil(total * 0.8)) or not all(k in benchmark_histories for k in ("QQQ", "SMH")):
+        raise SystemExit("Daily snapshot quality gate failed; previously published data preserved")
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    ok = sum(v["status"] == "ok" for v in output["assets"].values())
-    print(f"Snapshot: {ok}/{len(output['assets'])} tickers, saved to {OUTPUT}")
-    if ok == 0: raise SystemExit("No valid price data; do not publish this snapshot")
 
 if __name__ == "__main__":
     main()
