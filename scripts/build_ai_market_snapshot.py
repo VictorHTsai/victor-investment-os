@@ -11,7 +11,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import quote
 from urllib.request import Request, urlopen
-if __package__:\n    from scripts.ai_analog_validation import selected_analog_indices, validate_analogs\nelse:\n    from ai_analog_validation import selected_analog_indices, validate_analogs
+if __package__:
+    from scripts.ai_analog_validation import selected_analog_indices, validate_analogs
+else:
+    from ai_analog_validation import selected_analog_indices, validate_analogs
 
 ROOT = Path(__file__).resolve().parents[1]
 UNIVERSE = ROOT / "apps/ai-dashboard/data/universe.json"
