@@ -1,6 +1,6 @@
 """Frozen-threshold chronological holdout diagnostics. Research only.
 
-Train on the first 70% of bars; reserve a 90-bar embargo before the holdout.
+Train on the first 50% of bars; reserve a 90-bar embargo before the holdout.
 Quantiles are fixed before observing holdout results. No strategy optimization.
 """
 from __future__ import annotations
@@ -29,11 +29,11 @@ def walk_forward_diagnostic(closes, min_events=5):
     n = len(closes)
     result = {"status": "insufficient", "train_bars": 0, "test_bars": 0,
               "signal_events": 0, "unconditional_events": 0, "horizons": {},
-              "method": "Fixed train-70% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+              "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
               "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"}
     if n < 252 + 90 + 252:
         return result
-    cutoff = int(n * .70)
+    cutoff = int(n * .50)
     holdout = cutoff + 90
     last_entry = n - max(HORIZONS) - 1
     if holdout > last_entry:
