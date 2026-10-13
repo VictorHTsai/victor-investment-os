@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "as_of": null,
-  "source": "Research universe; no price feed",
+  "source": "Research universe; no live data",
   "assets": [
     {
       "symbol": "NVDA",
@@ -119,6 +119,38 @@
       "symbol": "ORCL",
       "name": "Oracle",
       "sector": "Infrastructure",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "SOXX",
+      "name": "iShares Semiconductor ETF",
+      "sector": "ETF / Benchmark",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "SMH",
+      "name": "VanEck Semiconductor ETF",
+      "sector": "ETF / Benchmark",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "QQQ",
+      "name": "Invesco QQQ ETF",
+      "sector": "ETF / Benchmark",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "^SOX",
+      "name": "Philadelphia Semiconductor Index (provider-dependent ticker)",
+      "sector": "ETF / Benchmark",
       "oversold_score": null,
       "drawdown_pct": null,
       "analogs": null
