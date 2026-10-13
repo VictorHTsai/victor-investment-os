@@ -11,6 +11,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import quote
 from urllib.request import Request, urlopen
+from scripts.ai_analog_validation import selected_analog_indices, validate_analogs
 
 ROOT = Path(__file__).resolve().parents[1]
 UNIVERSE = ROOT / "apps/ai-dashboard/data/universe.json"
@@ -52,17 +53,7 @@ def exploratory_analogs(closes: list[float], horizons=(30, 60, 90)) -> dict:
         return empty
     target_rsi = rsi(closes)
     target_dd = 100 * (closes[-1] / max(closes[-252:]) - 1)
-    eligible = []
-    for i in range(251, n - max(horizons)):
-        rr = rsi(closes[:i+1])
-        dd = 100 * (closes[i] / max(closes[i-251:i+1]) - 1)
-        if rr is not None and abs(rr-target_rsi) <= 10 and abs(dd-target_dd) <= 10:
-            eligible.append(i)
-    # Pick the earliest eligible date, then enforce independent 90-session windows.
-    selected = []
-    for i in eligible:
-        if not selected or i-selected[-1] >= max(horizons):
-            selected.append(i)
+    selected = selected_analog_indices(closes, rsi, horizons)
     if len(selected) < 5:
         return {**empty, "count": len(selected)}
     results = {}
@@ -79,7 +70,7 @@ def exploratory_analogs(closes: list[float], horizons=(30, 60, 90)) -> dict:
             "method": empty["method"],
             "limitations": "Five-year sample, current constituents, overlapping market regimes, selection bias; not out-of-sample validated"}
 
-def fetch(symbol: str) -> dict:
+def fetch(symbol: str, benchmarks=None, return_history=False) -> dict:
     url = "https://query2.finance.yahoo.com/v8/finance/chart/" + quote(symbol, safe="") + "?range=5y&interval=1d&events=div%2Csplits&includeAdjustedClose=true"
     req = Request(url, headers={"User-Agent": "Mozilla/5.0 VictorInvestmentOS/1.0"})
     with urlopen(req, timeout=18) as resp:
@@ -98,9 +89,12 @@ def fetch(symbol: str) -> dict:
             if v is not None and math.isfinite(float(v)) and float(v) > 0]
     if not bars: raise ValueError("no valid bars")
     dates, closes = zip(*bars)
+    if return_history:
+        return (list(dates), list(closes))
     summary = summarize(list(closes), list(dates))
     summary["currency"] = (result.get("meta") or {}).get("currency")
     summary["exploratory_analogs"] = exploratory_analogs(list(closes))
+    summary["analog_validation"] = validate_analogs(list(closes), list(dates), benchmarks or {}, rsi)
     summary["price_type"] = "provider adjusted close where available; otherwise raw close"
     return summary
 
@@ -109,10 +103,18 @@ def main():
     output = {"schema_version": 1, "generated_at_utc": datetime.now(timezone.utc).isoformat(),
               "source": "Yahoo Finance Chart (undocumented, no-key, best effort)",
               "frequency": "1d", "signals_validated": False, "assets": {}}
+    benchmark_histories = {}
+    for name in ("QQQ", "SMH"):
+        try:
+            benchmark_histories[name] = fetch(name, return_history=True)
+        except Exception as exc:
+            print(f"Benchmark {name} unavailable: {str(exc)[:140]}")
+    output["benchmark_alignment"] = "Exact UTC calendar-day entry and exit observations; no forward fill"
+    output["benchmark_sources"] = list(benchmark_histories)
     for item in universe["assets"]:
         symbol = item["symbol"]
         try:
-            output["assets"][symbol] = {"status": "ok", **fetch(symbol)}
+            output["assets"][symbol] = {"status": "ok", **fetch(symbol, benchmarks=benchmark_histories)}
         except Exception as exc:
             output["assets"][symbol] = {"status": "unavailable", "error": str(exc)[:180],
                                         "oversold_score": None, "analogs": None}
