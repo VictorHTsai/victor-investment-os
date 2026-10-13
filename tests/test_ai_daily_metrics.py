@@ -3,8 +3,29 @@ from scripts.build_ai_market_snapshot import rsi, summarize, exploratory_analogs
 from scripts.ai_analog_validation import selected_analog_indices, validate_analogs
 from scripts.ai_walkforward import walk_forward_diagnostic
 from scripts.ai_rebound_study import rebound_study, first_passage, scan_dislocations
+from scripts.ai_price_volume_experiment import compare_price_volume, relative_volume
 
 class DailyMetricsTests(unittest.TestCase):
+    def test_rvol_does_not_use_future_or_current_in_denominator(self):
+        vols = [100.0] * 20 + [200.0] + [300.0] * 10
+        self.assertEqual(relative_volume(vols, 20), 2.0)
+        self.assertIsNone(relative_volume(vols, 19))
+
+    def test_missing_volume_keeps_price_model_untouched(self):
+        prices = [100.0 + (i % 45) for i in range(1000)]
+        result = compare_price_volume(prices, [None] * 1000, rsi)
+        self.assertEqual(result["status"], "insufficient")
+        self.assertEqual(result["decision"], "undetermined")
+        self.assertFalse(result["volume_available"])
+
+    def test_price_volume_challenger_cannot_auto_promote(self):
+        prices = [100.0 + (i % 120) * 0.1 for i in range(1100)]
+        volumes = [100.0] * 1100
+        result = compare_price_volume(prices, volumes, rsi)
+        self.assertEqual(result["decision"], "undetermined")
+        self.assertTrue(result["volume_available"])
+        self.assertLessEqual(result["price_volume_n"], result["price_only_n"])
+
     def test_daily_cadence_rejects_monthly_downsampling(self):
         with self.assertRaisesRegex(ValueError, "daily frequency integrity"):
             validate_daily_cadence([i * 30 * 86400 for i in range(181)])
