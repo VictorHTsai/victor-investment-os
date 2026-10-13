@@ -7,7 +7,7 @@ from __future__ import annotations
 import json
 import math
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from urllib.parse import quote
 from urllib.request import Request, urlopen
@@ -78,7 +78,11 @@ def exploratory_analogs(closes: list[float], horizons=(30, 60, 90)) -> dict:
             "limitations": "Five-year sample, current constituents, overlapping market regimes, selection bias; not out-of-sample validated"}
 
 def fetch(symbol: str, benchmarks=None, return_history=False) -> dict:
-    url = "https://query2.finance.yahoo.com/v8/finance/chart/" + quote(symbol, safe="") + "?range=max&interval=1d&events=div%2Csplits&includeAdjustedClose=true"
+    end_time = datetime.now(timezone.utc) + timedelta(days=1)
+    start_time = end_time - timedelta(days=365 * 15 + 5)
+    url = ("https://query2.finance.yahoo.com/v8/finance/chart/" + quote(symbol, safe="")
+           + f"?period1={int(start_time.timestamp())}&period2={int(end_time.timestamp())}"
+           + "&interval=1d&events=div%2Csplits&includeAdjustedClose=true")
     req = Request(url, headers={"User-Agent": "Mozilla/5.0 VictorInvestmentOS/1.0"})
     with urlopen(req, timeout=18) as resp:
         payload = json.load(resp)
@@ -99,6 +103,16 @@ def fetch(symbol: str, benchmarks=None, return_history=False) -> dict:
     cutoff = max(t for t, _ in bars) - int(15 * 365.25 * 86400)
     bars = [(t, c) for t, c in bars if t >= cutoff]
     dates, closes = zip(*bars)
+    # Some providers silently downsample long-range responses despite interval=1d.
+    # Refuse to label such data as daily or produce misleading backtests.
+    gaps = [(dates[i] - dates[i-1]) / 86400 for i in range(1, len(dates))]
+    if len(dates) >= 20:
+        ordered = sorted(gaps)
+        median_gap = ordered[len(ordered)//2]
+        if median_gap > 5:
+            raise ValueError(f"daily frequency integrity failure: {len(dates)} bars; median gap {median_gap:.1f} days")
+    if len(dates) < 20:
+        raise ValueError(f"insufficient daily bars: {len(dates)}")
     if return_history:
         return (list(dates), list(closes))
     summary = summarize(list(closes), list(dates))
