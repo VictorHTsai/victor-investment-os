@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "as_of": null,
+  "source": "Research universe; no price feed",
+  "assets": [
+    {
+      "symbol": "NVDA",
+      "name": "NVIDIA",
+      "sector": "AI Compute",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "AVGO",
+      "name": "Broadcom",
+      "sector": "AI Compute",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "TSM",
+      "name": "TSMC ADR",
+      "sector": "Foundry",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "ASML",
+      "name": "ASML",
+      "sector": "Equipment",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "AMAT",
+      "name": "Applied Materials",
+      "sector": "Equipment",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "LRCX",
+      "name": "Lam Research",
+      "sector": "Equipment",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "KLAC",
+      "name": "KLA",
+      "sector": "Equipment",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "MU",
+      "name": "Micron",
+      "sector": "Memory",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "000660.KS",
+      "name": "SK Hynix",
+      "sector": "Memory",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "005930.KS",
+      "name": "Samsung Electronics",
+      "sector": "Memory",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "GOOG",
+      "name": "Alphabet",
+      "sector": "Platforms",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "AMZN",
+      "name": "Amazon",
+      "sector": "Platforms",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "META",
+      "name": "Meta",
+      "sector": "Platforms",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "MSFT",
+      "name": "Microsoft",
+      "sector": "Platforms",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    },
+    {
+      "symbol": "ORCL",
+      "name": "Oracle",
+      "sector": "Infrastructure",
+      "oversold_score": null,
+      "drawdown_pct": null,
+      "analogs": null
+    }
+  ]
+}
