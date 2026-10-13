@@ -1,11 +1,12 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-10-13T07:14:28.928637+00:00",
+  "generated_at_utc": "2026-10-13T08:01:09.626965+00:00",
   "source": "Yahoo Finance Chart (undocumented, no-key, best effort)",
   "frequency": "1d",
   "history_limit_years": 15,
   "history_storage": "summary-only",
   "signals_validated": false,
+  "volume_experiment": "price-only champion; high-RVOL challenger (research only)",
   "assets": {
     "NVDA": {
       "status": "ok",
@@ -230,6 +231,22 @@
         "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "price_volume_challenger": {
+        "status": "insufficient",
+        "price_only_n": 14,
+        "price_volume_n": 4,
+        "volume_available": true,
+        "holdout": {},
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
+        "volume_coverage_pct": 100.0,
+        "train_price_events": 8
       },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
@@ -458,6 +475,22 @@
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
       },
+      "price_volume_challenger": {
+        "status": "insufficient",
+        "price_only_n": 24,
+        "price_volume_n": 1,
+        "volume_available": true,
+        "holdout": {},
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
+        "volume_coverage_pct": 100.0,
+        "train_price_events": 23
+      },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -684,6 +717,39 @@
         "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "price_volume_challenger": {
+        "status": "exploratory_holdout",
+        "price_only_n": 14,
+        "price_volume_n": 6,
+        "volume_available": true,
+        "holdout": {
+          "price_only": {
+            "n": 14,
+            "profit_first_pct": 42.9,
+            "stop_first_pct": 21.4,
+            "median_20d_return_pct": 2.16,
+            "median_30d_mae_pct": -5.18
+          },
+          "price_volume": {
+            "n": 6,
+            "profit_first_pct": 16.7,
+            "stop_first_pct": 33.3,
+            "median_20d_return_pct": -1.99,
+            "median_30d_mae_pct": -5.88
+          },
+          "profit_first_difference_pp": -26.2,
+          "median_20d_difference_pp": -4.15
+        },
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
+        "volume_coverage_pct": 100.0,
+        "train_price_events": 10
       },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
@@ -912,6 +978,22 @@
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
       },
+      "price_volume_challenger": {
+        "status": "insufficient",
+        "price_only_n": 16,
+        "price_volume_n": 4,
+        "volume_available": true,
+        "holdout": {},
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
+        "volume_coverage_pct": 100.0,
+        "train_price_events": 8
+      },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -1139,6 +1221,39 @@
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
       },
+      "price_volume_challenger": {
+        "status": "exploratory_holdout",
+        "price_only_n": 12,
+        "price_volume_n": 8,
+        "volume_available": true,
+        "holdout": {
+          "price_only": {
+            "n": 12,
+            "profit_first_pct": 41.7,
+            "stop_first_pct": 33.3,
+            "median_20d_return_pct": 0.32,
+            "median_30d_mae_pct": -7.26
+          },
+          "price_volume": {
+            "n": 8,
+            "profit_first_pct": 37.5,
+            "stop_first_pct": 50.0,
+            "median_20d_return_pct": -1.8,
+            "median_30d_mae_pct": -11.99
+          },
+          "profit_first_difference_pp": -4.2,
+          "median_20d_difference_pp": -2.12
+        },
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
+        "volume_coverage_pct": 100.0,
+        "train_price_events": 6
+      },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -1240,7 +1355,7 @@
               "n": 32,
               "benchmark_median_pct": 4.56,
               "excess_median_pp": 0.0,
-              "outperform_pct": 37.5,
+              "outperform_pct": 50.0,
               "excess_p10_pp": -0.0
             },
             "60": {
@@ -1248,7 +1363,7 @@
               "n": 32,
               "benchmark_median_pct": 7.06,
               "excess_median_pp": 0.0,
-              "outperform_pct": 37.5,
+              "outperform_pct": 40.6,
               "excess_p10_pp": -0.0
             },
             "90": {
@@ -1256,7 +1371,7 @@
               "n": 32,
               "benchmark_median_pct": 12.11,
               "excess_median_pp": 0.0,
-              "outperform_pct": 34.4,
+              "outperform_pct": 43.8,
               "excess_p10_pp": -0.0
             }
           }
@@ -1365,6 +1480,22 @@
         "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "price_volume_challenger": {
+        "status": "insufficient",
+        "price_only_n": 10,
+        "price_volume_n": 3,
+        "volume_available": true,
+        "holdout": {},
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
+        "volume_coverage_pct": 100.0,
+        "train_price_events": 4
       },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
@@ -1593,6 +1724,21 @@
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
       },
+      "price_volume_challenger": {
+        "status": "insufficient",
+        "price_only_n": 0,
+        "price_volume_n": 0,
+        "volume_available": false,
+        "holdout": {},
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
+        "volume_coverage_pct": 0.0
+      },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -1819,6 +1965,39 @@
         "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "price_volume_challenger": {
+        "status": "exploratory_holdout",
+        "price_only_n": 16,
+        "price_volume_n": 7,
+        "volume_available": true,
+        "holdout": {
+          "price_only": {
+            "n": 16,
+            "profit_first_pct": 43.8,
+            "stop_first_pct": 31.2,
+            "median_20d_return_pct": 5.35,
+            "median_30d_mae_pct": -8.5
+          },
+          "price_volume": {
+            "n": 7,
+            "profit_first_pct": 42.9,
+            "stop_first_pct": 28.6,
+            "median_20d_return_pct": 6.67,
+            "median_30d_mae_pct": -4.32
+          },
+          "profit_first_difference_pp": -0.9,
+          "median_20d_difference_pp": 1.32
+        },
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
+        "volume_coverage_pct": 100.0,
+        "train_price_events": 11
       },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
@@ -2047,6 +2226,39 @@
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
       },
+      "price_volume_challenger": {
+        "status": "exploratory_holdout",
+        "price_only_n": 15,
+        "price_volume_n": 6,
+        "volume_available": true,
+        "holdout": {
+          "price_only": {
+            "n": 15,
+            "profit_first_pct": 40.0,
+            "stop_first_pct": 46.7,
+            "median_20d_return_pct": -1.32,
+            "median_30d_mae_pct": -8.33
+          },
+          "price_volume": {
+            "n": 6,
+            "profit_first_pct": 66.7,
+            "stop_first_pct": 33.3,
+            "median_20d_return_pct": 10.04,
+            "median_30d_mae_pct": -3.57
+          },
+          "profit_first_difference_pp": 26.7,
+          "median_20d_difference_pp": 11.36
+        },
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
+        "volume_coverage_pct": 100.0,
+        "train_price_events": 13
+      },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -2273,6 +2485,39 @@
         "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "price_volume_challenger": {
+        "status": "exploratory_holdout",
+        "price_only_n": 19,
+        "price_volume_n": 5,
+        "volume_available": true,
+        "holdout": {
+          "price_only": {
+            "n": 19,
+            "profit_first_pct": 47.4,
+            "stop_first_pct": 31.6,
+            "median_20d_return_pct": 0.56,
+            "median_30d_mae_pct": -5.62
+          },
+          "price_volume": {
+            "n": 5,
+            "profit_first_pct": 80.0,
+            "stop_first_pct": 20.0,
+            "median_20d_return_pct": 0.56,
+            "median_30d_mae_pct": -7.32
+          },
+          "profit_first_difference_pp": 32.6,
+          "median_20d_difference_pp": 0.0
+        },
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
+        "volume_coverage_pct": 100.0,
+        "train_price_events": 11
       },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
@@ -2501,6 +2746,22 @@
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
       },
+      "price_volume_challenger": {
+        "status": "insufficient",
+        "price_only_n": 11,
+        "price_volume_n": 2,
+        "volume_available": true,
+        "holdout": {},
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
+        "volume_coverage_pct": 100.0,
+        "train_price_events": 10
+      },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -2728,6 +2989,22 @@
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
       },
+      "price_volume_challenger": {
+        "status": "insufficient",
+        "price_only_n": 22,
+        "price_volume_n": 1,
+        "volume_available": true,
+        "holdout": {},
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
+        "volume_coverage_pct": 100.0,
+        "train_price_events": 18
+      },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -2860,6 +3137,39 @@
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
       },
+      "price_volume_challenger": {
+        "status": "exploratory_holdout",
+        "price_only_n": 18,
+        "price_volume_n": 6,
+        "volume_available": true,
+        "holdout": {
+          "price_only": {
+            "n": 18,
+            "profit_first_pct": 44.4,
+            "stop_first_pct": 33.3,
+            "median_20d_return_pct": 2.94,
+            "median_30d_mae_pct": -5.45
+          },
+          "price_volume": {
+            "n": 6,
+            "profit_first_pct": 50.0,
+            "stop_first_pct": 16.7,
+            "median_20d_return_pct": 5.45,
+            "median_30d_mae_pct": -3.64
+          },
+          "profit_first_difference_pp": 5.6,
+          "median_20d_difference_pp": 2.51
+        },
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
+        "volume_coverage_pct": 99.5,
+        "train_price_events": 15
+      },
       "historical_start_utc": "2011-10-14T00:00:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -2970,7 +3280,7 @@
               "benchmark_median_pct": 14.93,
               "excess_median_pp": -3.52,
               "outperform_pct": 25.0,
-              "excess_p10_pp": -21.2
+              "excess_p10_pp": -21.19
             },
             "90": {
               "status": "exploratory",
@@ -3062,10 +3372,10 @@
         },
         "targets": {
           "10": {
-            "profit_before_stop_pct": 30.0,
+            "profit_before_stop_pct": 33.3,
             "stop_before_profit_pct": 10.0,
-            "neither_pct": 60.0,
-            "median_days_to_profit": 15,
+            "neither_pct": 56.7,
+            "median_days_to_profit": 14.0,
             "n": 30
           },
           "15": {
@@ -3086,6 +3396,39 @@
         "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "price_volume_challenger": {
+        "status": "exploratory_holdout",
+        "price_only_n": 15,
+        "price_volume_n": 5,
+        "volume_available": true,
+        "holdout": {
+          "price_only": {
+            "n": 15,
+            "profit_first_pct": 33.3,
+            "stop_first_pct": 20.0,
+            "median_20d_return_pct": -0.55,
+            "median_30d_mae_pct": -5.18
+          },
+          "price_volume": {
+            "n": 5,
+            "profit_first_pct": 80.0,
+            "stop_first_pct": 20.0,
+            "median_20d_return_pct": 2.47,
+            "median_30d_mae_pct": -1.38
+          },
+          "profit_first_difference_pp": 46.7,
+          "median_20d_difference_pp": 3.02
+        },
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
+        "volume_coverage_pct": 99.5,
+        "train_price_events": 13
       },
       "historical_start_utc": "2011-10-14T00:00:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
@@ -3134,6 +3477,20 @@
         "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "price_volume_challenger": {
+        "status": "insufficient",
+        "price_only_n": 0,
+        "price_volume_n": 0,
+        "volume_available": false,
+        "holdout": {},
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny"
       },
       "historical_start_utc": "2025-02-13T14:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
@@ -3362,6 +3719,22 @@
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
       },
+      "price_volume_challenger": {
+        "status": "insufficient",
+        "price_only_n": 12,
+        "price_volume_n": 2,
+        "volume_available": true,
+        "holdout": {},
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
+        "volume_coverage_pct": 100.0,
+        "train_price_events": 6
+      },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -3588,6 +3961,39 @@
         "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "price_volume_challenger": {
+        "status": "exploratory_holdout",
+        "price_only_n": 15,
+        "price_volume_n": 7,
+        "volume_available": true,
+        "holdout": {
+          "price_only": {
+            "n": 15,
+            "profit_first_pct": 53.3,
+            "stop_first_pct": 26.7,
+            "median_20d_return_pct": 4.95,
+            "median_30d_mae_pct": -3.54
+          },
+          "price_volume": {
+            "n": 7,
+            "profit_first_pct": 71.4,
+            "stop_first_pct": 14.3,
+            "median_20d_return_pct": 6.33,
+            "median_30d_mae_pct": -2.6
+          },
+          "profit_first_difference_pp": 18.1,
+          "median_20d_difference_pp": 1.38
+        },
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
+        "volume_coverage_pct": 100.0,
+        "train_price_events": 7
       },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
@@ -3816,6 +4222,39 @@
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
       },
+      "price_volume_challenger": {
+        "status": "exploratory_holdout",
+        "price_only_n": 19,
+        "price_volume_n": 7,
+        "volume_available": true,
+        "holdout": {
+          "price_only": {
+            "n": 19,
+            "profit_first_pct": 47.4,
+            "stop_first_pct": 31.6,
+            "median_20d_return_pct": 5.31,
+            "median_30d_mae_pct": -6.89
+          },
+          "price_volume": {
+            "n": 7,
+            "profit_first_pct": 42.9,
+            "stop_first_pct": 42.9,
+            "median_20d_return_pct": 7.88,
+            "median_30d_mae_pct": -7.61
+          },
+          "profit_first_difference_pp": -4.5,
+          "median_20d_difference_pp": 2.57
+        },
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
+        "volume_coverage_pct": 100.0,
+        "train_price_events": 9
+      },
       "historical_start_utc": "2012-05-18T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -3835,7 +4274,7 @@
         "count": 30,
         "horizons": {
           "30": {
-            "median_pct": 4.23,
+            "median_pct": 4.24,
             "positive_pct": 76.7,
             "p10_pct": -6.26,
             "p90_pct": 11.41
@@ -3864,7 +4303,7 @@
         "horizons": {
           "30": {
             "n": 30,
-            "median_pct": 4.23,
+            "median_pct": 4.24,
             "positive_pct": 76.7,
             "p10_pct": -6.26,
             "p90_pct": 11.41
@@ -4043,6 +4482,39 @@
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
       },
+      "price_volume_challenger": {
+        "status": "exploratory_holdout",
+        "price_only_n": 12,
+        "price_volume_n": 5,
+        "volume_available": true,
+        "holdout": {
+          "price_only": {
+            "n": 12,
+            "profit_first_pct": 41.7,
+            "stop_first_pct": 41.7,
+            "median_20d_return_pct": 1.0,
+            "median_30d_mae_pct": -5.56
+          },
+          "price_volume": {
+            "n": 5,
+            "profit_first_pct": 40.0,
+            "stop_first_pct": 20.0,
+            "median_20d_return_pct": 2.51,
+            "median_30d_mae_pct": -3.95
+          },
+          "profit_first_difference_pp": -1.7,
+          "median_20d_difference_pp": 1.51
+        },
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
+        "volume_coverage_pct": 100.0,
+        "train_price_events": 5
+      },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -4175,6 +4647,22 @@
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
       },
+      "price_volume_challenger": {
+        "status": "insufficient",
+        "price_only_n": 12,
+        "price_volume_n": 4,
+        "volume_available": true,
+        "holdout": {},
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
+        "volume_coverage_pct": 100.0,
+        "train_price_events": 6
+      },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -4222,6 +4710,20 @@
         "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "price_volume_challenger": {
+        "status": "insufficient",
+        "price_only_n": 0,
+        "price_volume_n": 0,
+        "volume_available": false,
+        "holdout": {},
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny"
       },
       "historical_start_utc": "2025-03-28T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
@@ -4330,6 +4832,22 @@
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
       },
+      "price_volume_challenger": {
+        "status": "insufficient",
+        "price_only_n": 8,
+        "price_volume_n": 0,
+        "volume_available": true,
+        "holdout": {},
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
+        "volume_coverage_pct": 100.0,
+        "train_price_events": 7
+      },
       "historical_start_utc": "2021-11-17T14:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -4377,6 +4895,20 @@
         "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "price_volume_challenger": {
+        "status": "insufficient",
+        "price_only_n": 0,
+        "price_volume_n": 0,
+        "volume_available": false,
+        "holdout": {},
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny"
       },
       "historical_start_utc": "2024-10-21T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
@@ -4605,6 +5137,39 @@
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
       },
+      "price_volume_challenger": {
+        "status": "exploratory_holdout",
+        "price_only_n": 20,
+        "price_volume_n": 6,
+        "volume_available": true,
+        "holdout": {
+          "price_only": {
+            "n": 20,
+            "profit_first_pct": 55.0,
+            "stop_first_pct": 40.0,
+            "median_20d_return_pct": 0.45,
+            "median_30d_mae_pct": -6.52
+          },
+          "price_volume": {
+            "n": 6,
+            "profit_first_pct": 50.0,
+            "stop_first_pct": 33.3,
+            "median_20d_return_pct": 1.76,
+            "median_30d_mae_pct": -5.34
+          },
+          "profit_first_difference_pp": -5.0,
+          "median_20d_difference_pp": 1.31
+        },
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
+        "volume_coverage_pct": 100.0,
+        "train_price_events": 6
+      },
       "historical_start_utc": "2012-06-29T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -4832,6 +5397,39 @@
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
       },
+      "price_volume_challenger": {
+        "status": "exploratory_holdout",
+        "price_only_n": 22,
+        "price_volume_n": 8,
+        "volume_available": true,
+        "holdout": {
+          "price_only": {
+            "n": 22,
+            "profit_first_pct": 36.4,
+            "stop_first_pct": 40.9,
+            "median_20d_return_pct": 3.42,
+            "median_30d_mae_pct": -3.61
+          },
+          "price_volume": {
+            "n": 8,
+            "profit_first_pct": 37.5,
+            "stop_first_pct": 37.5,
+            "median_20d_return_pct": 2.3,
+            "median_30d_mae_pct": -3.61
+          },
+          "profit_first_difference_pp": 1.1,
+          "median_20d_difference_pp": -1.12
+        },
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
+        "volume_coverage_pct": 100.0,
+        "train_price_events": 8
+      },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -5034,6 +5632,22 @@
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
       },
+      "price_volume_challenger": {
+        "status": "insufficient",
+        "price_only_n": 11,
+        "price_volume_n": 1,
+        "volume_available": true,
+        "holdout": {},
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
+        "volume_coverage_pct": 100.0,
+        "train_price_events": 10
+      },
       "historical_start_utc": "2020-09-30T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
@@ -5108,8 +5722,8 @@
               "status": "exploratory",
               "n": 34,
               "benchmark_median_pct": 3.22,
-              "excess_median_pp": 0.0,
-              "outperform_pct": 47.1,
+              "excess_median_pp": -0.0,
+              "outperform_pct": 44.1,
               "excess_p10_pp": -0.0
             },
             "60": {
@@ -5117,7 +5731,7 @@
               "n": 34,
               "benchmark_median_pct": 8.23,
               "excess_median_pp": 0.0,
-              "outperform_pct": 41.2,
+              "outperform_pct": 52.9,
               "excess_p10_pp": -0.0
             },
             "90": {
@@ -5125,7 +5739,7 @@
               "n": 34,
               "benchmark_median_pct": 7.13,
               "excess_median_pp": -0.0,
-              "outperform_pct": 32.4,
+              "outperform_pct": 35.3,
               "excess_p10_pp": -0.0
             }
           },
@@ -5260,6 +5874,22 @@
         "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
         "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
         "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "price_volume_challenger": {
+        "status": "insufficient",
+        "price_only_n": 7,
+        "price_volume_n": 2,
+        "volume_available": true,
+        "holdout": {},
+        "decision": "undetermined",
+        "rules": {
+          "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
+          "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
+          "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
+        },
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny",
+        "volume_coverage_pct": 100.0,
+        "train_price_events": 2
       },
       "historical_start_utc": "2011-10-13T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
