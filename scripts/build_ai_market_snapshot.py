@@ -14,9 +14,11 @@ from urllib.request import Request, urlopen
 if __package__:
     from scripts.ai_analog_validation import selected_analog_indices, validate_analogs
     from scripts.ai_walkforward import walk_forward_diagnostic
+    from scripts.ai_rebound_study import rebound_study
 else:
     from ai_analog_validation import selected_analog_indices, validate_analogs
     from ai_walkforward import walk_forward_diagnostic
+    from ai_rebound_study import rebound_study
 
 ROOT = Path(__file__).resolve().parents[1]
 UNIVERSE = ROOT / "apps/ai-dashboard/data/universe.json"
@@ -76,7 +78,7 @@ def exploratory_analogs(closes: list[float], horizons=(30, 60, 90)) -> dict:
             "limitations": "Five-year sample, current constituents, overlapping market regimes, selection bias; not out-of-sample validated"}
 
 def fetch(symbol: str, benchmarks=None, return_history=False) -> dict:
-    url = "https://query2.finance.yahoo.com/v8/finance/chart/" + quote(symbol, safe="") + "?range=5y&interval=1d&events=div%2Csplits&includeAdjustedClose=true"
+    url = "https://query2.finance.yahoo.com/v8/finance/chart/" + quote(symbol, safe="") + "?range=max&interval=1d&events=div%2Csplits&includeAdjustedClose=true"
     req = Request(url, headers={"User-Agent": "Mozilla/5.0 VictorInvestmentOS/1.0"})
     with urlopen(req, timeout=18) as resp:
         payload = json.load(resp)
@@ -93,6 +95,9 @@ def fetch(symbol: str, benchmarks=None, return_history=False) -> dict:
             for i, (t, v) in enumerate(zip(timestamps, raw))
             if v is not None and math.isfinite(float(v)) and float(v) > 0]
     if not bars: raise ValueError("no valid bars")
+    # Keep up to 15 years; recent IPOs naturally have shorter trading histories.
+    cutoff = max(t for t, _ in bars) - int(15 * 365.25 * 86400)
+    bars = [(t, c) for t, c in bars if t >= cutoff]
     dates, closes = zip(*bars)
     if return_history:
         return (list(dates), list(closes))
@@ -101,6 +106,8 @@ def fetch(symbol: str, benchmarks=None, return_history=False) -> dict:
     summary["exploratory_analogs"] = exploratory_analogs(list(closes))
     summary["analog_validation"] = validate_analogs(list(closes), list(dates), benchmarks or {}, rsi)
     summary["chronological_holdout"] = walk_forward_diagnostic(list(closes))
+    summary["short_rebound"] = rebound_study(list(closes), rsi)
+    summary["historical_start_utc"] = datetime.fromtimestamp(dates[0], timezone.utc).isoformat()
     summary["price_type"] = "provider adjusted close where available; otherwise raw close"
     return summary
 
@@ -108,7 +115,8 @@ def main():
     universe = json.loads(UNIVERSE.read_text(encoding="utf-8"))
     output = {"schema_version": 1, "generated_at_utc": datetime.now(timezone.utc).isoformat(),
               "source": "Yahoo Finance Chart (undocumented, no-key, best effort)",
-              "frequency": "1d", "signals_validated": False, "assets": {}}
+              "frequency": "1d", "history_limit_years": 15, "history_storage": "summary-only",
+              "signals_validated": False, "assets": {}}
     benchmark_histories = {}
     for name in ("QQQ", "SMH"):
         try:
