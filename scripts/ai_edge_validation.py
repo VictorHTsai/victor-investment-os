@@ -53,7 +53,8 @@ def matched_controls(closes, signals, seed=SEED, draws=CONTROL_DRAWS, radius=63)
     """
     last = len(closes) - HORIZON - 2
     rng = random.Random(seed)
-    pools = [list(range(max(251, i-radius), min(last, i+radius)+1))
+    holdout_floor = max(251, len(closes) - 2 * TRADING_DAYS)
+    pools = [list(range(max(holdout_floor, i-radius), min(last, i+radius)+1))
              for i in signals]
     if not pools or any(not p for p in pools):
         return []
@@ -103,7 +104,7 @@ def adaptive_window_diagnostics(closes, rsi_fn, min_events=MIN_EVENTS):
     final_holdout_start = max(0, n - 2 * TRADING_DAYS)
     rows = {}
     for years in WINDOW_YEARS:
-        start = max(0, n - years * TRADING_DAYS)
+        start = max(0, final_holdout_start - years * TRADING_DAYS)
         training = [i for i in all_events if start <= i
                     and i + HORIZON + 1 < final_holdout_start]
         row = {"status": "insufficient", "events": len(training),
@@ -117,4 +118,4 @@ def adaptive_window_diagnostics(closes, rsi_fn, min_events=MIN_EVENTS):
     return {"status": "descriptive_only", "windows": rows,
             "holdout_start_bar": final_holdout_start,
             "window_selection": "none", "decision": "undetermined",
-            "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. 2y pre-holdout window is necessarily insufficient; regime stability not established."}
+            "limitations": "Historical windows are compared descriptively before a fixed final 2y holdout. Do not rank them by hindsight or claim an optimal window. A 2y pre-holdout window may be sparse; regime stability not established."}
