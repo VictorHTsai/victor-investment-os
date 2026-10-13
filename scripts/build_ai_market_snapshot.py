@@ -13,8 +13,10 @@ from urllib.parse import quote
 from urllib.request import Request, urlopen
 if __package__:
     from scripts.ai_analog_validation import selected_analog_indices, validate_analogs
+    from scripts.ai_walkforward import walk_forward_diagnostic
 else:
     from ai_analog_validation import selected_analog_indices, validate_analogs
+    from ai_walkforward import walk_forward_diagnostic
 
 ROOT = Path(__file__).resolve().parents[1]
 UNIVERSE = ROOT / "apps/ai-dashboard/data/universe.json"
@@ -98,6 +100,7 @@ def fetch(symbol: str, benchmarks=None, return_history=False) -> dict:
     summary["currency"] = (result.get("meta") or {}).get("currency")
     summary["exploratory_analogs"] = exploratory_analogs(list(closes))
     summary["analog_validation"] = validate_analogs(list(closes), list(dates), benchmarks or {}, rsi)
+    summary["chronological_holdout"] = walk_forward_diagnostic(list(closes))
     summary["price_type"] = "provider adjusted close where available; otherwise raw close"
     return summary
 
