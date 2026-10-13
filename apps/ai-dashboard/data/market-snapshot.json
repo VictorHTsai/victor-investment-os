@@ -1,304 +1,128 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-10-13T06:55:39.526537+00:00",
+  "generated_at_utc": "2026-10-13T07:08:36.697343+00:00",
   "source": "Yahoo Finance Chart (undocumented, no-key, best effort)",
   "frequency": "1d",
+  "history_limit_years": 15,
+  "history_storage": "summary-only",
   "signals_validated": false,
   "assets": {
     "NVDA": {
       "status": "ok",
       "close": 226.32,
       "currency": "USD",
-      "last_bar_utc": "2026-10-12T13:30:00+00:00",
-      "bars": 1254,
-      "rsi14": 46.37,
-      "drawdown_52w_pct": -5.4,
+      "last_bar_utc": "2026-10-12T20:00:00+00:00",
+      "bars": 181,
+      "rsi14": 63.23,
+      "drawdown_52w_pct": -1.29,
       "oversold_score": null,
       "analogs": null,
       "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
       "exploratory_analogs": {
-        "status": "exploratory",
-        "count": 9,
-        "horizons": {
-          "30": {
-            "median_pct": 6.61,
-            "positive_pct": 77.8,
-            "p10_pct": -24.99,
-            "p90_pct": 29.17
-          },
-          "60": {
-            "median_pct": 10.35,
-            "positive_pct": 55.6,
-            "p10_pct": -30.66,
-            "p90_pct": 60.04
-          },
-          "90": {
-            "median_pct": 14.34,
-            "positive_pct": 77.8,
-            "p10_pct": -0.48,
-            "p90_pct": 60.41
-          }
-        },
-        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap",
-        "limitations": "Five-year sample, current constituents, overlapping market regimes, selection bias; not out-of-sample validated"
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap"
       },
       "analog_validation": {
-        "status": "exploratory",
-        "count": 9,
+        "status": "insufficient",
+        "count": 0,
         "independence": "90-session entry spacing (not statistical independence)",
         "baseline": "same-date unconditional benchmark not yet computed",
-        "horizons": {
-          "30": {
-            "n": 9,
-            "median_pct": 6.61,
-            "positive_pct": 77.8,
-            "p10_pct": -24.99,
-            "p90_pct": 29.17
-          },
-          "60": {
-            "n": 9,
-            "median_pct": 10.35,
-            "positive_pct": 55.6,
-            "p10_pct": -30.66,
-            "p90_pct": 60.04
-          },
-          "90": {
-            "n": 9,
-            "median_pct": 14.34,
-            "positive_pct": 77.8,
-            "p10_pct": -0.48,
-            "p90_pct": 60.41
-          }
-        },
-        "benchmarks": {
-          "QQQ": {
-            "30": {
-              "status": "exploratory",
-              "n": 9,
-              "benchmark_median_pct": 4.36,
-              "excess_median_pp": 2.22,
-              "outperform_pct": 77.8,
-              "excess_p10_pp": -15.08
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 9,
-              "benchmark_median_pct": 9.23,
-              "excess_median_pp": 1.12,
-              "outperform_pct": 55.6,
-              "excess_p10_pp": -14.7
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 9,
-              "benchmark_median_pct": 9.86,
-              "excess_median_pp": 2.43,
-              "outperform_pct": 55.6,
-              "excess_p10_pp": -4.86
-            }
-          },
-          "SMH": {
-            "30": {
-              "status": "exploratory",
-              "n": 9,
-              "benchmark_median_pct": 13.88,
-              "excess_median_pp": 5.07,
-              "outperform_pct": 55.6,
-              "excess_p10_pp": -28.99
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 9,
-              "benchmark_median_pct": 6.38,
-              "excess_median_pp": 2.21,
-              "outperform_pct": 55.6,
-              "excess_p10_pp": -13.58
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 9,
-              "benchmark_median_pct": 17.16,
-              "excess_median_pp": 3.26,
-              "outperform_pct": 66.7,
-              "excess_p10_pp": -41.21
-            }
-          }
-        },
+        "horizons": {},
+        "benchmarks": {},
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
       "chronological_holdout": {
         "status": "insufficient",
-        "train_bars": 537,
-        "test_bars": 537,
-        "signal_events": 2,
-        "unconditional_events": 5,
+        "train_bars": 0,
+        "test_bars": 0,
+        "signal_events": 0,
+        "unconditional_events": 0,
         "horizons": {},
         "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
-        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
-        "frozen_thresholds": {
-          "rsi14_max": 50.66,
-          "drawdown_52w_max_pct": -23.16
-        }
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
       },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2011-11-01T04:00:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "AMD": {
       "status": "ok",
       "close": 594.24,
       "currency": "USD",
-      "last_bar_utc": "2026-10-12T13:30:00+00:00",
-      "bars": 1254,
-      "rsi14": 40.13,
-      "drawdown_52w_pct": -8.5,
+      "last_bar_utc": "2026-10-12T20:00:01+00:00",
+      "bars": 61,
+      "rsi14": 79.54,
+      "drawdown_52w_pct": -2.28,
       "oversold_score": null,
       "analogs": null,
       "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
       "exploratory_analogs": {
-        "status": "exploratory",
-        "count": 5,
-        "horizons": {
-          "30": {
-            "median_pct": -0.94,
-            "positive_pct": 40.0,
-            "p10_pct": -8.15,
-            "p90_pct": 16.61
-          },
-          "60": {
-            "median_pct": 25.13,
-            "positive_pct": 80.0,
-            "p10_pct": -5.49,
-            "p90_pct": 34.85
-          },
-          "90": {
-            "median_pct": 22.08,
-            "positive_pct": 100.0,
-            "p10_pct": 11.26,
-            "p90_pct": 30.24
-          }
-        },
-        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap",
-        "limitations": "Five-year sample, current constituents, overlapping market regimes, selection bias; not out-of-sample validated"
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap"
       },
       "analog_validation": {
-        "status": "exploratory",
-        "count": 5,
+        "status": "insufficient",
+        "count": 0,
         "independence": "90-session entry spacing (not statistical independence)",
         "baseline": "same-date unconditional benchmark not yet computed",
-        "horizons": {
-          "30": {
-            "n": 5,
-            "median_pct": -0.94,
-            "positive_pct": 40.0,
-            "p10_pct": -8.15,
-            "p90_pct": 16.61
-          },
-          "60": {
-            "n": 5,
-            "median_pct": 25.13,
-            "positive_pct": 80.0,
-            "p10_pct": -5.49,
-            "p90_pct": 34.85
-          },
-          "90": {
-            "n": 5,
-            "median_pct": 22.08,
-            "positive_pct": 100.0,
-            "p10_pct": 11.26,
-            "p90_pct": 30.24
-          }
-        },
-        "benchmarks": {
-          "QQQ": {
-            "30": {
-              "status": "exploratory",
-              "n": 5,
-              "benchmark_median_pct": 4.15,
-              "excess_median_pp": 0.31,
-              "outperform_pct": 60.0,
-              "excess_p10_pp": -12.3
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 5,
-              "benchmark_median_pct": 7.83,
-              "excess_median_pp": 7.76,
-              "outperform_pct": 100.0,
-              "excess_p10_pp": 1.97
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 5,
-              "benchmark_median_pct": 13.03,
-              "excess_median_pp": 13.71,
-              "outperform_pct": 80.0,
-              "excess_p10_pp": -0.12
-            }
-          },
-          "SMH": {
-            "30": {
-              "status": "exploratory",
-              "n": 5,
-              "benchmark_median_pct": 9.94,
-              "excess_median_pp": -2.62,
-              "outperform_pct": 40.0,
-              "excess_p10_pp": -18.08
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 5,
-              "benchmark_median_pct": 18.25,
-              "excess_median_pp": 2.7,
-              "outperform_pct": 60.0,
-              "excess_p10_pp": -10.06
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 5,
-              "benchmark_median_pct": 23.06,
-              "excess_median_pp": 2.71,
-              "outperform_pct": 60.0,
-              "excess_p10_pp": -23.26
-            }
-          }
-        },
+        "horizons": {},
+        "benchmarks": {},
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
       "chronological_holdout": {
         "status": "insufficient",
-        "train_bars": 537,
-        "test_bars": 537,
-        "signal_events": 2,
-        "unconditional_events": 5,
+        "train_bars": 0,
+        "test_bars": 0,
+        "signal_events": 0,
+        "unconditional_events": 0,
         "horizons": {},
         "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
-        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
-        "frozen_thresholds": {
-          "rsi14_max": 41.29,
-          "drawdown_52w_max_pct": -36.25
-        }
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
       },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2011-12-01T05:00:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "AVGO": {
       "status": "ok",
       "close": 354.73,
       "currency": "USD",
-      "last_bar_utc": "2026-10-12T13:30:00+00:00",
-      "bars": 1254,
-      "rsi14": 44.8,
-      "drawdown_52w_pct": -26.09,
+      "last_bar_utc": "2026-10-12T20:00:01+00:00",
+      "bars": 181,
+      "rsi14": 53.13,
+      "drawdown_52w_pct": -20.33,
       "oversold_score": null,
       "analogs": null,
       "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
       "exploratory_analogs": {
         "status": "insufficient",
-        "count": 4,
+        "count": 0,
         "horizons": {},
         "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap"
       },
       "analog_validation": {
         "status": "insufficient",
-        "count": 4,
+        "count": 0,
         "independence": "90-session entry spacing (not statistical independence)",
         "baseline": "same-date unconditional benchmark not yet computed",
         "horizons": {},
@@ -307,725 +131,286 @@
       },
       "chronological_holdout": {
         "status": "insufficient",
-        "train_bars": 537,
-        "test_bars": 537,
-        "signal_events": 4,
-        "unconditional_events": 5,
+        "train_bars": 0,
+        "test_bars": 0,
+        "signal_events": 0,
+        "unconditional_events": 0,
         "horizons": {},
         "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
-        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
-        "frozen_thresholds": {
-          "rsi14_max": 48.89,
-          "drawdown_52w_max_pct": -8.11
-        }
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
       },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2011-11-01T04:00:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "TSM": {
       "status": "ok",
       "close": 444.35,
       "currency": "USD",
-      "last_bar_utc": "2026-10-12T13:30:00+00:00",
-      "bars": 1254,
-      "rsi14": 45.69,
-      "drawdown_52w_pct": -8.53,
+      "last_bar_utc": "2026-10-12T20:00:02+00:00",
+      "bars": 181,
+      "rsi14": 69.7,
+      "drawdown_52w_pct": -6.71,
       "oversold_score": null,
       "analogs": null,
       "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
       "exploratory_analogs": {
-        "status": "exploratory",
-        "count": 9,
-        "horizons": {
-          "30": {
-            "median_pct": 9.75,
-            "positive_pct": 66.7,
-            "p10_pct": -8.91,
-            "p90_pct": 13.22
-          },
-          "60": {
-            "median_pct": 14.77,
-            "positive_pct": 77.8,
-            "p10_pct": -29.15,
-            "p90_pct": 31.18
-          },
-          "90": {
-            "median_pct": 20.67,
-            "positive_pct": 77.8,
-            "p10_pct": -6.24,
-            "p90_pct": 41.14
-          }
-        },
-        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap",
-        "limitations": "Five-year sample, current constituents, overlapping market regimes, selection bias; not out-of-sample validated"
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap"
       },
       "analog_validation": {
-        "status": "exploratory",
-        "count": 9,
+        "status": "insufficient",
+        "count": 0,
         "independence": "90-session entry spacing (not statistical independence)",
         "baseline": "same-date unconditional benchmark not yet computed",
-        "horizons": {
-          "30": {
-            "n": 9,
-            "median_pct": 9.75,
-            "positive_pct": 66.7,
-            "p10_pct": -8.91,
-            "p90_pct": 13.22
-          },
-          "60": {
-            "n": 9,
-            "median_pct": 14.77,
-            "positive_pct": 77.8,
-            "p10_pct": -29.15,
-            "p90_pct": 31.18
-          },
-          "90": {
-            "n": 9,
-            "median_pct": 20.67,
-            "positive_pct": 77.8,
-            "p10_pct": -6.24,
-            "p90_pct": 41.14
-          }
-        },
-        "benchmarks": {
-          "QQQ": {
-            "30": {
-              "status": "exploratory",
-              "n": 9,
-              "benchmark_median_pct": 4.49,
-              "excess_median_pp": 5.19,
-              "outperform_pct": 66.7,
-              "excess_p10_pp": -10.81
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 9,
-              "benchmark_median_pct": 7.62,
-              "excess_median_pp": 5.17,
-              "outperform_pct": 66.7,
-              "excess_p10_pp": -11.82
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 9,
-              "benchmark_median_pct": 9.81,
-              "excess_median_pp": 10.4,
-              "outperform_pct": 66.7,
-              "excess_p10_pp": -11.2
-            }
-          },
-          "SMH": {
-            "30": {
-              "status": "exploratory",
-              "n": 9,
-              "benchmark_median_pct": 7.89,
-              "excess_median_pp": -3.73,
-              "outperform_pct": 33.3,
-              "excess_p10_pp": -7.72
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 9,
-              "benchmark_median_pct": 10.1,
-              "excess_median_pp": 1.43,
-              "outperform_pct": 55.6,
-              "excess_p10_pp": -9.93
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 9,
-              "benchmark_median_pct": 13.57,
-              "excess_median_pp": 1.26,
-              "outperform_pct": 55.6,
-              "excess_p10_pp": -10.73
-            }
-          }
-        },
+        "horizons": {},
+        "benchmarks": {},
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
       "chronological_holdout": {
         "status": "insufficient",
-        "train_bars": 537,
-        "test_bars": 537,
-        "signal_events": 1,
-        "unconditional_events": 5,
+        "train_bars": 0,
+        "test_bars": 0,
+        "signal_events": 0,
+        "unconditional_events": 0,
         "horizons": {},
         "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
-        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
-        "frozen_thresholds": {
-          "rsi14_max": 38.6,
-          "drawdown_52w_max_pct": -22.42
-        }
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
       },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2011-11-01T04:00:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "SOXX": {
       "status": "ok",
       "close": 544.85,
       "currency": "USD",
-      "last_bar_utc": "2026-10-12T13:30:00+00:00",
-      "bars": 1254,
-      "rsi14": 35.94,
-      "drawdown_52w_pct": -16.76,
+      "last_bar_utc": "2026-10-12T20:00:00+00:00",
+      "bars": 181,
+      "rsi14": 70.8,
+      "drawdown_52w_pct": -14.91,
       "oversold_score": null,
       "analogs": null,
       "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
       "exploratory_analogs": {
-        "status": "exploratory",
-        "count": 7,
-        "horizons": {
-          "30": {
-            "median_pct": 5.84,
-            "positive_pct": 71.4,
-            "p10_pct": -6.56,
-            "p90_pct": 16.01
-          },
-          "60": {
-            "median_pct": 11.39,
-            "positive_pct": 71.4,
-            "p10_pct": -4.38,
-            "p90_pct": 25.27
-          },
-          "90": {
-            "median_pct": 14.23,
-            "positive_pct": 71.4,
-            "p10_pct": -28.85,
-            "p90_pct": 28.27
-          }
-        },
-        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap",
-        "limitations": "Five-year sample, current constituents, overlapping market regimes, selection bias; not out-of-sample validated"
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap"
       },
       "analog_validation": {
-        "status": "exploratory",
-        "count": 7,
+        "status": "insufficient",
+        "count": 0,
         "independence": "90-session entry spacing (not statistical independence)",
         "baseline": "same-date unconditional benchmark not yet computed",
-        "horizons": {
-          "30": {
-            "n": 7,
-            "median_pct": 5.84,
-            "positive_pct": 71.4,
-            "p10_pct": -6.56,
-            "p90_pct": 16.01
-          },
-          "60": {
-            "n": 7,
-            "median_pct": 11.39,
-            "positive_pct": 71.4,
-            "p10_pct": -4.38,
-            "p90_pct": 25.27
-          },
-          "90": {
-            "n": 7,
-            "median_pct": 14.23,
-            "positive_pct": 71.4,
-            "p10_pct": -28.85,
-            "p90_pct": 28.27
-          }
-        },
-        "benchmarks": {
-          "QQQ": {
-            "30": {
-              "status": "exploratory",
-              "n": 7,
-              "benchmark_median_pct": 1.87,
-              "excess_median_pp": -0.16,
-              "outperform_pct": 42.9,
-              "excess_p10_pp": -3.8
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 7,
-              "benchmark_median_pct": 4.83,
-              "excess_median_pp": -3.16,
-              "outperform_pct": 42.9,
-              "excess_p10_pp": -4.28
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 7,
-              "benchmark_median_pct": 10.82,
-              "excess_median_pp": 3.41,
-              "outperform_pct": 71.4,
-              "excess_p10_pp": -14.2
-            }
-          },
-          "SMH": {
-            "30": {
-              "status": "exploratory",
-              "n": 7,
-              "benchmark_median_pct": 5.64,
-              "excess_median_pp": -1.22,
-              "outperform_pct": 28.6,
-              "excess_p10_pp": -6.27
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 7,
-              "benchmark_median_pct": 14.45,
-              "excess_median_pp": -3.05,
-              "outperform_pct": 42.9,
-              "excess_p10_pp": -11.11
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 7,
-              "benchmark_median_pct": 16.28,
-              "excess_median_pp": -2.88,
-              "outperform_pct": 28.6,
-              "excess_p10_pp": -12.59
-            }
-          }
-        },
+        "horizons": {},
+        "benchmarks": {},
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
       "chronological_holdout": {
         "status": "insufficient",
-        "train_bars": 537,
-        "test_bars": 537,
-        "signal_events": 2,
-        "unconditional_events": 5,
+        "train_bars": 0,
+        "test_bars": 0,
+        "signal_events": 0,
+        "unconditional_events": 0,
         "horizons": {},
         "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
-        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
-        "frozen_thresholds": {
-          "rsi14_max": 43.52,
-          "drawdown_52w_max_pct": -17.26
-        }
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
       },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2011-11-01T04:00:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "SMH": {
       "status": "ok",
       "close": 590.99,
       "currency": "USD",
-      "last_bar_utc": "2026-10-12T13:30:00+00:00",
-      "bars": 1254,
-      "rsi14": 41.45,
-      "drawdown_52w_pct": -11.65,
+      "last_bar_utc": "2026-10-12T20:00:00+00:00",
+      "bars": 181,
+      "rsi14": 72.15,
+      "drawdown_52w_pct": -9.89,
       "oversold_score": null,
       "analogs": null,
       "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
       "exploratory_analogs": {
-        "status": "exploratory",
-        "count": 8,
-        "horizons": {
-          "30": {
-            "median_pct": 9.61,
-            "positive_pct": 75.0,
-            "p10_pct": -11.61,
-            "p90_pct": 18.6
-          },
-          "60": {
-            "median_pct": 13.69,
-            "positive_pct": 75.0,
-            "p10_pct": -20.09,
-            "p90_pct": 26.76
-          },
-          "90": {
-            "median_pct": 21.35,
-            "positive_pct": 87.5,
-            "p10_pct": -3.94,
-            "p90_pct": 38.86
-          }
-        },
-        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap",
-        "limitations": "Five-year sample, current constituents, overlapping market regimes, selection bias; not out-of-sample validated"
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap"
       },
       "analog_validation": {
-        "status": "exploratory",
-        "count": 8,
+        "status": "insufficient",
+        "count": 0,
         "independence": "90-session entry spacing (not statistical independence)",
         "baseline": "same-date unconditional benchmark not yet computed",
-        "horizons": {
-          "30": {
-            "n": 8,
-            "median_pct": 9.61,
-            "positive_pct": 75.0,
-            "p10_pct": -11.61,
-            "p90_pct": 18.6
-          },
-          "60": {
-            "n": 8,
-            "median_pct": 13.69,
-            "positive_pct": 75.0,
-            "p10_pct": -20.09,
-            "p90_pct": 26.76
-          },
-          "90": {
-            "n": 8,
-            "median_pct": 21.35,
-            "positive_pct": 87.5,
-            "p10_pct": -3.94,
-            "p90_pct": 38.86
-          }
-        },
-        "benchmarks": {
-          "QQQ": {
-            "30": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 6.16,
-              "excess_median_pp": 2.34,
-              "outperform_pct": 75.0,
-              "excess_p10_pp": -8.48
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 11.61,
-              "excess_median_pp": 4.59,
-              "outperform_pct": 50.0,
-              "excess_p10_pp": -9.38
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 10.99,
-              "excess_median_pp": 2.58,
-              "outperform_pct": 75.0,
-              "excess_p10_pp": -5.22
-            }
-          },
-          "SMH": {
-            "30": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 9.61,
-              "excess_median_pp": 0.0,
-              "outperform_pct": 12.5,
-              "excess_p10_pp": -0.0
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 13.69,
-              "excess_median_pp": 0.0,
-              "outperform_pct": 12.5,
-              "excess_p10_pp": -0.0
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 21.35,
-              "excess_median_pp": 0.0,
-              "outperform_pct": 25.0,
-              "excess_p10_pp": -0.0
-            }
-          }
-        },
+        "horizons": {},
+        "benchmarks": {},
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
       "chronological_holdout": {
         "status": "insufficient",
-        "train_bars": 537,
-        "test_bars": 537,
-        "signal_events": 3,
-        "unconditional_events": 5,
+        "train_bars": 0,
+        "test_bars": 0,
+        "signal_events": 0,
+        "unconditional_events": 0,
         "horizons": {},
         "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
-        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
-        "frozen_thresholds": {
-          "rsi14_max": 44.73,
-          "drawdown_52w_max_pct": -14.39
-        }
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
       },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2011-11-01T04:00:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "^SOX": {
       "status": "ok",
-      "close": 12236.79,
+      "close": 12236.7881,
       "currency": "USD",
-      "last_bar_utc": "2026-10-12T13:30:00+00:00",
-      "bars": 1254,
-      "rsi14": 40.2,
-      "drawdown_52w_pct": -16.39,
+      "last_bar_utc": "2026-10-12T21:15:59+00:00",
+      "bars": 181,
+      "rsi14": 71.03,
+      "drawdown_52w_pct": -14.11,
       "oversold_score": null,
       "analogs": null,
       "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
       "exploratory_analogs": {
-        "status": "exploratory",
-        "count": 7,
-        "horizons": {
-          "30": {
-            "median_pct": 5.27,
-            "positive_pct": 71.4,
-            "p10_pct": -7.52,
-            "p90_pct": 15.83
-          },
-          "60": {
-            "median_pct": 7.52,
-            "positive_pct": 71.4,
-            "p10_pct": -6.7,
-            "p90_pct": 25.02
-          },
-          "90": {
-            "median_pct": 14.03,
-            "positive_pct": 71.4,
-            "p10_pct": -27.51,
-            "p90_pct": 26.38
-          }
-        },
-        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap",
-        "limitations": "Five-year sample, current constituents, overlapping market regimes, selection bias; not out-of-sample validated"
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap"
       },
       "analog_validation": {
-        "status": "exploratory",
-        "count": 7,
+        "status": "insufficient",
+        "count": 0,
         "independence": "90-session entry spacing (not statistical independence)",
         "baseline": "same-date unconditional benchmark not yet computed",
-        "horizons": {
-          "30": {
-            "n": 7,
-            "median_pct": 5.27,
-            "positive_pct": 71.4,
-            "p10_pct": -7.52,
-            "p90_pct": 15.83
-          },
-          "60": {
-            "n": 7,
-            "median_pct": 7.52,
-            "positive_pct": 71.4,
-            "p10_pct": -6.7,
-            "p90_pct": 25.02
-          },
-          "90": {
-            "n": 7,
-            "median_pct": 14.03,
-            "positive_pct": 71.4,
-            "p10_pct": -27.51,
-            "p90_pct": 26.38
-          }
-        },
-        "benchmarks": {
-          "QQQ": {
-            "30": {
-              "status": "exploratory",
-              "n": 7,
-              "benchmark_median_pct": 2.18,
-              "excess_median_pp": 2.84,
-              "outperform_pct": 57.1,
-              "excess_p10_pp": -4.93
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 7,
-              "benchmark_median_pct": 4.35,
-              "excess_median_pp": -0.85,
-              "outperform_pct": 42.9,
-              "excess_p10_pp": -5.63
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 7,
-              "benchmark_median_pct": 10.33,
-              "excess_median_pp": 3.7,
-              "outperform_pct": 71.4,
-              "excess_p10_pp": -13.2
-            }
-          },
-          "SMH": {
-            "30": {
-              "status": "exploratory",
-              "n": 7,
-              "benchmark_median_pct": 5.95,
-              "excess_median_pp": -1.18,
-              "outperform_pct": 28.6,
-              "excess_p10_pp": -6.45
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 7,
-              "benchmark_median_pct": 10.03,
-              "excess_median_pp": -2.29,
-              "outperform_pct": 42.9,
-              "excess_p10_pp": -11.36
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 7,
-              "benchmark_median_pct": 15.82,
-              "excess_median_pp": -1.79,
-              "outperform_pct": 28.6,
-              "excess_p10_pp": -12.18
-            }
-          }
-        },
+        "horizons": {},
+        "benchmarks": {},
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
       "chronological_holdout": {
         "status": "insufficient",
-        "train_bars": 537,
-        "test_bars": 537,
-        "signal_events": 2,
-        "unconditional_events": 5,
+        "train_bars": 0,
+        "test_bars": 0,
+        "signal_events": 0,
+        "unconditional_events": 0,
         "horizons": {},
         "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
-        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
-        "frozen_thresholds": {
-          "rsi14_max": 43.92,
-          "drawdown_52w_max_pct": -17.88
-        }
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
       },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2011-11-01T04:00:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "ASML": {
       "status": "ok",
       "close": 1750.24,
       "currency": "USD",
-      "last_bar_utc": "2026-10-12T13:30:00+00:00",
-      "bars": 1254,
-      "rsi14": 50.32,
+      "last_bar_utc": "2026-10-12T20:00:02+00:00",
+      "bars": 181,
+      "rsi14": 70.91,
       "drawdown_52w_pct": -11.91,
       "oversold_score": null,
       "analogs": null,
       "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
       "exploratory_analogs": {
-        "status": "exploratory",
-        "count": 8,
-        "horizons": {
-          "30": {
-            "median_pct": 10.71,
-            "positive_pct": 62.5,
-            "p10_pct": -12.3,
-            "p90_pct": 29.5
-          },
-          "60": {
-            "median_pct": 11.31,
-            "positive_pct": 62.5,
-            "p10_pct": -22.85,
-            "p90_pct": 30.94
-          },
-          "90": {
-            "median_pct": 16.72,
-            "positive_pct": 62.5,
-            "p10_pct": -17.41,
-            "p90_pct": 39.95
-          }
-        },
-        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap",
-        "limitations": "Five-year sample, current constituents, overlapping market regimes, selection bias; not out-of-sample validated"
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap"
       },
       "analog_validation": {
-        "status": "exploratory",
-        "count": 8,
+        "status": "insufficient",
+        "count": 0,
         "independence": "90-session entry spacing (not statistical independence)",
         "baseline": "same-date unconditional benchmark not yet computed",
-        "horizons": {
-          "30": {
-            "n": 8,
-            "median_pct": 10.71,
-            "positive_pct": 62.5,
-            "p10_pct": -12.3,
-            "p90_pct": 29.5
-          },
-          "60": {
-            "n": 8,
-            "median_pct": 11.31,
-            "positive_pct": 62.5,
-            "p10_pct": -22.85,
-            "p90_pct": 30.94
-          },
-          "90": {
-            "n": 8,
-            "median_pct": 16.72,
-            "positive_pct": 62.5,
-            "p10_pct": -17.41,
-            "p90_pct": 39.95
-          }
-        },
-        "benchmarks": {
-          "QQQ": {
-            "30": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 6.95,
-              "excess_median_pp": 2.41,
-              "outperform_pct": 50.0,
-              "excess_p10_pp": -16.95
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 7.39,
-              "excess_median_pp": 1.23,
-              "outperform_pct": 50.0,
-              "excess_p10_pp": -31.79
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 9.72,
-              "excess_median_pp": 1.34,
-              "outperform_pct": 50.0,
-              "excess_p10_pp": -37.68
-            }
-          },
-          "SMH": {
-            "30": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 8.09,
-              "excess_median_pp": 1.9,
-              "outperform_pct": 50.0,
-              "excess_p10_pp": -15.06
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 11.27,
-              "excess_median_pp": -6.22,
-              "outperform_pct": 37.5,
-              "excess_p10_pp": -31.68
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 14.64,
-              "excess_median_pp": -8.15,
-              "outperform_pct": 37.5,
-              "excess_p10_pp": -30.01
-            }
-          }
-        },
+        "horizons": {},
+        "benchmarks": {},
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
       "chronological_holdout": {
         "status": "insufficient",
-        "train_bars": 537,
-        "test_bars": 537,
-        "signal_events": 3,
-        "unconditional_events": 5,
+        "train_bars": 0,
+        "test_bars": 0,
+        "signal_events": 0,
+        "unconditional_events": 0,
         "horizons": {},
         "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
-        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
-        "frozen_thresholds": {
-          "rsi14_max": 42.68,
-          "drawdown_52w_max_pct": -20.72
-        }
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
       },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2011-11-01T04:00:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "AMAT": {
       "status": "ok",
       "close": 497.53,
       "currency": "USD",
-      "last_bar_utc": "2026-10-12T13:30:00+00:00",
-      "bars": 1254,
-      "rsi14": 60.8,
-      "drawdown_52w_pct": -31.11,
+      "last_bar_utc": "2026-10-12T20:00:02+00:00",
+      "bars": 61,
+      "rsi14": 85.97,
+      "drawdown_52w_pct": -1.87,
       "oversold_score": null,
       "analogs": null,
       "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
       "exploratory_analogs": {
         "status": "insufficient",
-        "count": 4,
+        "count": 0,
         "horizons": {},
         "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap"
       },
       "analog_validation": {
         "status": "insufficient",
-        "count": 4,
+        "count": 0,
         "independence": "90-session entry spacing (not statistical independence)",
         "baseline": "same-date unconditional benchmark not yet computed",
         "horizons": {},
@@ -1034,177 +419,94 @@
       },
       "chronological_holdout": {
         "status": "insufficient",
-        "train_bars": 537,
-        "test_bars": 537,
-        "signal_events": 4,
-        "unconditional_events": 5,
+        "train_bars": 0,
+        "test_bars": 0,
+        "signal_events": 0,
+        "unconditional_events": 0,
         "horizons": {},
         "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
-        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
-        "frozen_thresholds": {
-          "rsi14_max": 46.61,
-          "drawdown_52w_max_pct": -17.81
-        }
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
       },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2011-12-01T05:00:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "LRCX": {
       "status": "ok",
       "close": 309.56,
       "currency": "USD",
-      "last_bar_utc": "2026-10-12T13:30:00+00:00",
-      "bars": 1254,
-      "rsi14": 49.36,
-      "drawdown_52w_pct": -28.49,
+      "last_bar_utc": "2026-10-12T20:00:02+00:00",
+      "bars": 61,
+      "rsi14": 85.69,
+      "drawdown_52w_pct": -2.91,
       "oversold_score": null,
       "analogs": null,
       "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
       "exploratory_analogs": {
-        "status": "exploratory",
-        "count": 5,
-        "horizons": {
-          "30": {
-            "median_pct": 15.07,
-            "positive_pct": 60.0,
-            "p10_pct": -7.01,
-            "p90_pct": 21.99
-          },
-          "60": {
-            "median_pct": 10.52,
-            "positive_pct": 80.0,
-            "p10_pct": -8.4,
-            "p90_pct": 26.0
-          },
-          "90": {
-            "median_pct": 16.71,
-            "positive_pct": 80.0,
-            "p10_pct": -14.78,
-            "p90_pct": 55.84
-          }
-        },
-        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap",
-        "limitations": "Five-year sample, current constituents, overlapping market regimes, selection bias; not out-of-sample validated"
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap"
       },
       "analog_validation": {
-        "status": "exploratory",
-        "count": 5,
+        "status": "insufficient",
+        "count": 0,
         "independence": "90-session entry spacing (not statistical independence)",
         "baseline": "same-date unconditional benchmark not yet computed",
-        "horizons": {
-          "30": {
-            "n": 5,
-            "median_pct": 15.07,
-            "positive_pct": 60.0,
-            "p10_pct": -7.01,
-            "p90_pct": 21.99
-          },
-          "60": {
-            "n": 5,
-            "median_pct": 10.52,
-            "positive_pct": 80.0,
-            "p10_pct": -8.4,
-            "p90_pct": 26.0
-          },
-          "90": {
-            "n": 5,
-            "median_pct": 16.71,
-            "positive_pct": 80.0,
-            "p10_pct": -14.78,
-            "p90_pct": 55.84
-          }
-        },
-        "benchmarks": {
-          "QQQ": {
-            "30": {
-              "status": "exploratory",
-              "n": 5,
-              "benchmark_median_pct": 5.17,
-              "excess_median_pp": 12.44,
-              "outperform_pct": 60.0,
-              "excess_p10_pp": -9.28
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 5,
-              "benchmark_median_pct": 9.45,
-              "excess_median_pp": 15.87,
-              "outperform_pct": 80.0,
-              "excess_p10_pp": -17.85
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 5,
-              "benchmark_median_pct": 14.02,
-              "excess_median_pp": 9.6,
-              "outperform_pct": 80.0,
-              "excess_p10_pp": -26.09
-            }
-          },
-          "SMH": {
-            "30": {
-              "status": "exploratory",
-              "n": 5,
-              "benchmark_median_pct": 3.96,
-              "excess_median_pp": -2.1,
-              "outperform_pct": 40.0,
-              "excess_p10_pp": -10.14
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 5,
-              "benchmark_median_pct": 13.84,
-              "excess_median_pp": 3.66,
-              "outperform_pct": 60.0,
-              "excess_p10_pp": -16.28
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 5,
-              "benchmark_median_pct": 22.71,
-              "excess_median_pp": -4.89,
-              "outperform_pct": 40.0,
-              "excess_p10_pp": -15.92
-            }
-          }
-        },
+        "horizons": {},
+        "benchmarks": {},
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
       "chronological_holdout": {
         "status": "insufficient",
-        "train_bars": 537,
-        "test_bars": 537,
-        "signal_events": 3,
-        "unconditional_events": 5,
+        "train_bars": 0,
+        "test_bars": 0,
+        "signal_events": 0,
+        "unconditional_events": 0,
         "horizons": {},
         "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
-        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
-        "frozen_thresholds": {
-          "rsi14_max": 45.24,
-          "drawdown_52w_max_pct": -15.73
-        }
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
       },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2011-11-01T04:00:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "KLAC": {
       "status": "ok",
       "close": 190.12,
       "currency": "USD",
-      "last_bar_utc": "2026-10-12T13:30:00+00:00",
-      "bars": 1254,
-      "rsi14": 52.2,
+      "last_bar_utc": "2026-10-12T20:00:01+00:00",
+      "bars": 61,
+      "rsi14": 67.86,
       "drawdown_52w_pct": -36.91,
       "oversold_score": null,
       "analogs": null,
       "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
       "exploratory_analogs": {
         "status": "insufficient",
-        "count": 3,
+        "count": 0,
         "horizons": {},
         "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap"
       },
       "analog_validation": {
         "status": "insufficient",
-        "count": 3,
+        "count": 0,
         "independence": "90-session entry spacing (not statistical independence)",
         "baseline": "same-date unconditional benchmark not yet computed",
         "horizons": {},
@@ -1213,177 +515,94 @@
       },
       "chronological_holdout": {
         "status": "insufficient",
-        "train_bars": 537,
-        "test_bars": 537,
-        "signal_events": 4,
-        "unconditional_events": 5,
+        "train_bars": 0,
+        "test_bars": 0,
+        "signal_events": 0,
+        "unconditional_events": 0,
         "horizons": {},
         "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
-        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
-        "frozen_thresholds": {
-          "rsi14_max": 45.26,
-          "drawdown_52w_max_pct": -11.44
-        }
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
       },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2012-01-01T05:00:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "MU": {
       "status": "ok",
       "close": 989.04,
       "currency": "USD",
-      "last_bar_utc": "2026-10-12T13:30:00+00:00",
-      "bars": 1254,
-      "rsi14": 32.12,
-      "drawdown_52w_pct": -18.49,
+      "last_bar_utc": "2026-10-12T20:00:02+00:00",
+      "bars": 61,
+      "rsi14": 92.22,
+      "drawdown_52w_pct": -3.88,
       "oversold_score": null,
       "analogs": null,
       "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
       "exploratory_analogs": {
-        "status": "exploratory",
-        "count": 6,
-        "horizons": {
-          "30": {
-            "median_pct": 18.1,
-            "positive_pct": 83.3,
-            "p10_pct": -3.01,
-            "p90_pct": 63.81
-          },
-          "60": {
-            "median_pct": 50.21,
-            "positive_pct": 100.0,
-            "p10_pct": 7.51,
-            "p90_pct": 106.56
-          },
-          "90": {
-            "median_pct": 67.95,
-            "positive_pct": 66.7,
-            "p10_pct": -11.08,
-            "p90_pct": 88.21
-          }
-        },
-        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap",
-        "limitations": "Five-year sample, current constituents, overlapping market regimes, selection bias; not out-of-sample validated"
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap"
       },
       "analog_validation": {
-        "status": "exploratory",
-        "count": 6,
+        "status": "insufficient",
+        "count": 0,
         "independence": "90-session entry spacing (not statistical independence)",
         "baseline": "same-date unconditional benchmark not yet computed",
-        "horizons": {
-          "30": {
-            "n": 6,
-            "median_pct": 18.1,
-            "positive_pct": 83.3,
-            "p10_pct": -3.01,
-            "p90_pct": 63.81
-          },
-          "60": {
-            "n": 6,
-            "median_pct": 50.21,
-            "positive_pct": 100.0,
-            "p10_pct": 7.51,
-            "p90_pct": 106.56
-          },
-          "90": {
-            "n": 6,
-            "median_pct": 67.95,
-            "positive_pct": 66.7,
-            "p10_pct": -11.08,
-            "p90_pct": 88.21
-          }
-        },
-        "benchmarks": {
-          "QQQ": {
-            "30": {
-              "status": "exploratory",
-              "n": 6,
-              "benchmark_median_pct": 7.58,
-              "excess_median_pp": 6.41,
-              "outperform_pct": 83.3,
-              "excess_p10_pp": -5.86
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 6,
-              "benchmark_median_pct": 13.16,
-              "excess_median_pp": 33.12,
-              "outperform_pct": 83.3,
-              "excess_p10_pp": -4.35
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 6,
-              "benchmark_median_pct": 10.87,
-              "excess_median_pp": 51.99,
-              "outperform_pct": 83.3,
-              "excess_p10_pp": -24.93
-            }
-          },
-          "SMH": {
-            "30": {
-              "status": "exploratory",
-              "n": 6,
-              "benchmark_median_pct": 18.31,
-              "excess_median_pp": -0.56,
-              "outperform_pct": 50.0,
-              "excess_p10_pp": -5.05
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 6,
-              "benchmark_median_pct": 27.63,
-              "excess_median_pp": 26.59,
-              "outperform_pct": 66.7,
-              "excess_p10_pp": -15.59
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 6,
-              "benchmark_median_pct": 21.36,
-              "excess_median_pp": 33.69,
-              "outperform_pct": 66.7,
-              "excess_p10_pp": -32.0
-            }
-          }
-        },
+        "horizons": {},
+        "benchmarks": {},
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
       "chronological_holdout": {
         "status": "insufficient",
-        "train_bars": 537,
-        "test_bars": 537,
-        "signal_events": 2,
-        "unconditional_events": 5,
+        "train_bars": 0,
+        "test_bars": 0,
+        "signal_events": 0,
+        "unconditional_events": 0,
         "horizons": {},
         "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
-        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
-        "frozen_thresholds": {
-          "rsi14_max": 43.74,
-          "drawdown_52w_max_pct": -35.44
-        }
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
       },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2011-12-01T05:00:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "000660.KS": {
       "status": "ok",
       "close": 1443000.0,
       "currency": "KRW",
-      "last_bar_utc": "2026-10-13T00:00:00+00:00",
-      "bars": 1219,
-      "rsi14": 29.16,
-      "drawdown_52w_pct": -50.55,
+      "last_bar_utc": "2026-10-13T06:30:01+00:00",
+      "bars": 181,
+      "rsi14": 62.82,
+      "drawdown_52w_pct": -45.54,
       "oversold_score": null,
       "analogs": null,
       "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
       "exploratory_analogs": {
         "status": "insufficient",
-        "count": 1,
+        "count": 0,
         "horizons": {},
         "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap"
       },
       "analog_validation": {
         "status": "insufficient",
-        "count": 1,
+        "count": 0,
         "independence": "90-session entry spacing (not statistical independence)",
         "baseline": "same-date unconditional benchmark not yet computed",
         "horizons": {},
@@ -1392,40 +611,46 @@
       },
       "chronological_holdout": {
         "status": "insufficient",
-        "train_bars": 519,
-        "test_bars": 520,
-        "signal_events": 2,
-        "unconditional_events": 5,
+        "train_bars": 0,
+        "test_bars": 0,
+        "signal_events": 0,
+        "unconditional_events": 0,
         "horizons": {},
         "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
-        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
-        "frozen_thresholds": {
-          "rsi14_max": 45.74,
-          "drawdown_52w_max_pct": -30.51
-        }
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
       },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2011-10-31T15:00:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "005930.KS": {
       "status": "ok",
       "close": 232000.0,
       "currency": "KRW",
-      "last_bar_utc": "2026-10-13T00:00:00+00:00",
-      "bars": 1219,
-      "rsi14": 40.0,
-      "drawdown_52w_pct": -35.93,
+      "last_bar_utc": "2026-10-13T06:30:12+00:00",
+      "bars": 181,
+      "rsi14": 65.46,
+      "drawdown_52w_pct": -30.54,
       "oversold_score": null,
       "analogs": null,
       "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
       "exploratory_analogs": {
         "status": "insufficient",
-        "count": 3,
+        "count": 0,
         "horizons": {},
         "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap"
       },
       "analog_validation": {
         "status": "insufficient",
-        "count": 3,
+        "count": 0,
         "independence": "90-session entry spacing (not statistical independence)",
         "baseline": "same-date unconditional benchmark not yet computed",
         "horizons": {},
@@ -1434,18 +659,24 @@
       },
       "chronological_holdout": {
         "status": "insufficient",
-        "train_bars": 519,
-        "test_bars": 520,
-        "signal_events": 3,
-        "unconditional_events": 5,
+        "train_bars": 0,
+        "test_bars": 0,
+        "signal_events": 0,
+        "unconditional_events": 0,
         "horizons": {},
         "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
-        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
-        "frozen_thresholds": {
-          "rsi14_max": 44.34,
-          "drawdown_52w_max_pct": -15.25
-        }
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
       },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2011-10-31T15:00:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "SNDK": {
@@ -1484,576 +715,38 @@
         "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
         "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
       },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 1,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2025-02-13T14:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "GOOG": {
       "status": "ok",
       "close": 348.97,
       "currency": "USD",
-      "last_bar_utc": "2026-10-12T13:30:00+00:00",
-      "bars": 1254,
-      "rsi14": 51.54,
-      "drawdown_52w_pct": -12.44,
-      "oversold_score": null,
-      "analogs": null,
-      "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
-      "exploratory_analogs": {
-        "status": "exploratory",
-        "count": 8,
-        "horizons": {
-          "30": {
-            "median_pct": 5.08,
-            "positive_pct": 75.0,
-            "p10_pct": -10.36,
-            "p90_pct": 17.69
-          },
-          "60": {
-            "median_pct": 10.98,
-            "positive_pct": 87.5,
-            "p10_pct": -11.87,
-            "p90_pct": 22.49
-          },
-          "90": {
-            "median_pct": 17.1,
-            "positive_pct": 75.0,
-            "p10_pct": -9.93,
-            "p90_pct": 25.87
-          }
-        },
-        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap",
-        "limitations": "Five-year sample, current constituents, overlapping market regimes, selection bias; not out-of-sample validated"
-      },
-      "analog_validation": {
-        "status": "exploratory",
-        "count": 8,
-        "independence": "90-session entry spacing (not statistical independence)",
-        "baseline": "same-date unconditional benchmark not yet computed",
-        "horizons": {
-          "30": {
-            "n": 8,
-            "median_pct": 5.08,
-            "positive_pct": 75.0,
-            "p10_pct": -10.36,
-            "p90_pct": 17.69
-          },
-          "60": {
-            "n": 8,
-            "median_pct": 10.98,
-            "positive_pct": 87.5,
-            "p10_pct": -11.87,
-            "p90_pct": 22.49
-          },
-          "90": {
-            "n": 8,
-            "median_pct": 17.1,
-            "positive_pct": 75.0,
-            "p10_pct": -9.93,
-            "p90_pct": 25.87
-          }
-        },
-        "benchmarks": {
-          "QQQ": {
-            "30": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 3.15,
-              "excess_median_pp": 1.1,
-              "outperform_pct": 50.0,
-              "excess_p10_pp": -7.36
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 7.04,
-              "excess_median_pp": -1.84,
-              "outperform_pct": 37.5,
-              "excess_p10_pp": -9.78
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 12.29,
-              "excess_median_pp": -0.16,
-              "outperform_pct": 50.0,
-              "excess_p10_pp": -6.44
-            }
-          },
-          "SMH": {
-            "30": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 2.88,
-              "excess_median_pp": 2.64,
-              "outperform_pct": 50.0,
-              "excess_p10_pp": -16.28
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 14.57,
-              "excess_median_pp": -1.96,
-              "outperform_pct": 25.0,
-              "excess_p10_pp": -25.57
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 20.99,
-              "excess_median_pp": -2.91,
-              "outperform_pct": 50.0,
-              "excess_p10_pp": -43.13
-            }
-          }
-        },
-        "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
-      },
-      "chronological_holdout": {
-        "status": "insufficient",
-        "train_bars": 537,
-        "test_bars": 537,
-        "signal_events": 0,
-        "unconditional_events": 5,
-        "horizons": {},
-        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
-        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
-        "frozen_thresholds": {
-          "rsi14_max": 44.7,
-          "drawdown_52w_max_pct": -32.98
-        }
-      },
-      "price_type": "provider adjusted close where available; otherwise raw close"
-    },
-    "AMZN": {
-      "status": "ok",
-      "close": 259.53,
-      "currency": "USD",
-      "last_bar_utc": "2026-10-12T13:30:00+00:00",
-      "bars": 1254,
-      "rsi14": 55.34,
-      "drawdown_52w_pct": -8.62,
-      "oversold_score": null,
-      "analogs": null,
-      "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
-      "exploratory_analogs": {
-        "status": "exploratory",
-        "count": 8,
-        "horizons": {
-          "30": {
-            "median_pct": 7.76,
-            "positive_pct": 87.5,
-            "p10_pct": -9.7,
-            "p90_pct": 11.11
-          },
-          "60": {
-            "median_pct": 13.4,
-            "positive_pct": 87.5,
-            "p10_pct": -4.38,
-            "p90_pct": 17.07
-          },
-          "90": {
-            "median_pct": 9.26,
-            "positive_pct": 75.0,
-            "p10_pct": -6.73,
-            "p90_pct": 17.64
-          }
-        },
-        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap",
-        "limitations": "Five-year sample, current constituents, overlapping market regimes, selection bias; not out-of-sample validated"
-      },
-      "analog_validation": {
-        "status": "exploratory",
-        "count": 8,
-        "independence": "90-session entry spacing (not statistical independence)",
-        "baseline": "same-date unconditional benchmark not yet computed",
-        "horizons": {
-          "30": {
-            "n": 8,
-            "median_pct": 7.76,
-            "positive_pct": 87.5,
-            "p10_pct": -9.7,
-            "p90_pct": 11.11
-          },
-          "60": {
-            "n": 8,
-            "median_pct": 13.4,
-            "positive_pct": 87.5,
-            "p10_pct": -4.38,
-            "p90_pct": 17.07
-          },
-          "90": {
-            "n": 8,
-            "median_pct": 9.26,
-            "positive_pct": 75.0,
-            "p10_pct": -6.73,
-            "p90_pct": 17.64
-          }
-        },
-        "benchmarks": {
-          "QQQ": {
-            "30": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 2.45,
-              "excess_median_pp": 4.11,
-              "outperform_pct": 75.0,
-              "excess_p10_pp": -6.23
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 8.47,
-              "excess_median_pp": 4.93,
-              "outperform_pct": 87.5,
-              "excess_p10_pp": -3.58
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 10.09,
-              "excess_median_pp": -0.17,
-              "outperform_pct": 50.0,
-              "excess_p10_pp": -8.12
-            }
-          },
-          "SMH": {
-            "30": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 6.48,
-              "excess_median_pp": 1.93,
-              "outperform_pct": 75.0,
-              "excess_p10_pp": -4.74
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 11.73,
-              "excess_median_pp": 0.38,
-              "outperform_pct": 62.5,
-              "excess_p10_pp": -21.85
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 25.06,
-              "excess_median_pp": -11.47,
-              "outperform_pct": 37.5,
-              "excess_p10_pp": -31.91
-            }
-          }
-        },
-        "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
-      },
-      "chronological_holdout": {
-        "status": "insufficient",
-        "train_bars": 537,
-        "test_bars": 537,
-        "signal_events": 0,
-        "unconditional_events": 5,
-        "horizons": {},
-        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
-        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
-        "frozen_thresholds": {
-          "rsi14_max": 45.6,
-          "drawdown_52w_max_pct": -41.98
-        }
-      },
-      "price_type": "provider adjusted close where available; otherwise raw close"
-    },
-    "META": {
-      "status": "ok",
-      "close": 742.96,
-      "currency": "USD",
-      "last_bar_utc": "2026-10-12T13:30:00+00:00",
-      "bars": 1254,
-      "rsi14": 51.56,
-      "drawdown_52w_pct": -4.45,
-      "oversold_score": null,
-      "analogs": null,
-      "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
-      "exploratory_analogs": {
-        "status": "exploratory",
-        "count": 7,
-        "horizons": {
-          "30": {
-            "median_pct": 5.26,
-            "positive_pct": 57.1,
-            "p10_pct": -11.62,
-            "p90_pct": 16.72
-          },
-          "60": {
-            "median_pct": 12.72,
-            "positive_pct": 85.7,
-            "p10_pct": -15.14,
-            "p90_pct": 35.25
-          },
-          "90": {
-            "median_pct": 17.27,
-            "positive_pct": 85.7,
-            "p10_pct": -10.66,
-            "p90_pct": 36.01
-          }
-        },
-        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap",
-        "limitations": "Five-year sample, current constituents, overlapping market regimes, selection bias; not out-of-sample validated"
-      },
-      "analog_validation": {
-        "status": "exploratory",
-        "count": 7,
-        "independence": "90-session entry spacing (not statistical independence)",
-        "baseline": "same-date unconditional benchmark not yet computed",
-        "horizons": {
-          "30": {
-            "n": 7,
-            "median_pct": 5.26,
-            "positive_pct": 57.1,
-            "p10_pct": -11.62,
-            "p90_pct": 16.72
-          },
-          "60": {
-            "n": 7,
-            "median_pct": 12.72,
-            "positive_pct": 85.7,
-            "p10_pct": -15.14,
-            "p90_pct": 35.25
-          },
-          "90": {
-            "n": 7,
-            "median_pct": 17.27,
-            "positive_pct": 85.7,
-            "p10_pct": -10.66,
-            "p90_pct": 36.01
-          }
-        },
-        "benchmarks": {
-          "QQQ": {
-            "30": {
-              "status": "exploratory",
-              "n": 7,
-              "benchmark_median_pct": 6.66,
-              "excess_median_pp": 1.57,
-              "outperform_pct": 57.1,
-              "excess_p10_pp": -13.33
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 7,
-              "benchmark_median_pct": 6.03,
-              "excess_median_pp": 3.98,
-              "outperform_pct": 85.7,
-              "excess_p10_pp": -16.95
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 7,
-              "benchmark_median_pct": 11.38,
-              "excess_median_pp": 12.14,
-              "outperform_pct": 71.4,
-              "excess_p10_pp": -10.23
-            }
-          },
-          "SMH": {
-            "30": {
-              "status": "exploratory",
-              "n": 7,
-              "benchmark_median_pct": 5.89,
-              "excess_median_pp": 2.35,
-              "outperform_pct": 57.1,
-              "excess_p10_pp": -15.14
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 7,
-              "benchmark_median_pct": 14.52,
-              "excess_median_pp": 4.17,
-              "outperform_pct": 71.4,
-              "excess_p10_pp": -29.66
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 7,
-              "benchmark_median_pct": 17.41,
-              "excess_median_pp": 1.49,
-              "outperform_pct": 71.4,
-              "excess_p10_pp": -28.07
-            }
-          }
-        },
-        "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
-      },
-      "chronological_holdout": {
-        "status": "insufficient",
-        "train_bars": 537,
-        "test_bars": 537,
-        "signal_events": 2,
-        "unconditional_events": 5,
-        "horizons": {},
-        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
-        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
-        "frozen_thresholds": {
-          "rsi14_max": 54.07,
-          "drawdown_52w_max_pct": -25.85
-        }
-      },
-      "price_type": "provider adjusted close where available; otherwise raw close"
-    },
-    "MSFT": {
-      "status": "ok",
-      "close": 541.15,
-      "currency": "USD",
-      "last_bar_utc": "2026-10-12T13:30:00+00:00",
-      "bars": 1254,
-      "rsi14": 77.88,
-      "drawdown_52w_pct": 0.0,
-      "oversold_score": null,
-      "analogs": null,
-      "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
-      "exploratory_analogs": {
-        "status": "exploratory",
-        "count": 7,
-        "horizons": {
-          "30": {
-            "median_pct": 5.67,
-            "positive_pct": 71.4,
-            "p10_pct": -3.99,
-            "p90_pct": 8.77
-          },
-          "60": {
-            "median_pct": 5.21,
-            "positive_pct": 71.4,
-            "p10_pct": -8.33,
-            "p90_pct": 18.04
-          },
-          "90": {
-            "median_pct": 9.65,
-            "positive_pct": 57.1,
-            "p10_pct": -23.93,
-            "p90_pct": 18.03
-          }
-        },
-        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap",
-        "limitations": "Five-year sample, current constituents, overlapping market regimes, selection bias; not out-of-sample validated"
-      },
-      "analog_validation": {
-        "status": "exploratory",
-        "count": 7,
-        "independence": "90-session entry spacing (not statistical independence)",
-        "baseline": "same-date unconditional benchmark not yet computed",
-        "horizons": {
-          "30": {
-            "n": 7,
-            "median_pct": 5.67,
-            "positive_pct": 71.4,
-            "p10_pct": -3.99,
-            "p90_pct": 8.77
-          },
-          "60": {
-            "n": 7,
-            "median_pct": 5.21,
-            "positive_pct": 71.4,
-            "p10_pct": -8.33,
-            "p90_pct": 18.04
-          },
-          "90": {
-            "n": 7,
-            "median_pct": 9.65,
-            "positive_pct": 57.1,
-            "p10_pct": -23.93,
-            "p90_pct": 18.03
-          }
-        },
-        "benchmarks": {
-          "QQQ": {
-            "30": {
-              "status": "exploratory",
-              "n": 7,
-              "benchmark_median_pct": 5.46,
-              "excess_median_pp": -1.08,
-              "outperform_pct": 42.9,
-              "excess_p10_pp": -3.32
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 7,
-              "benchmark_median_pct": 4.51,
-              "excess_median_pp": 0.7,
-              "outperform_pct": 57.1,
-              "excess_p10_pp": -9.55
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 7,
-              "benchmark_median_pct": 11.29,
-              "excess_median_pp": -3.02,
-              "outperform_pct": 14.3,
-              "excess_p10_pp": -23.11
-            }
-          },
-          "SMH": {
-            "30": {
-              "status": "exploratory",
-              "n": 7,
-              "benchmark_median_pct": -0.9,
-              "excess_median_pp": -2.82,
-              "outperform_pct": 42.9,
-              "excess_p10_pp": -16.62
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 7,
-              "benchmark_median_pct": 5.59,
-              "excess_median_pp": -0.29,
-              "outperform_pct": 42.9,
-              "excess_p10_pp": -17.25
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 7,
-              "benchmark_median_pct": 19.11,
-              "excess_median_pp": -2.56,
-              "outperform_pct": 14.3,
-              "excess_p10_pp": -43.04
-            }
-          }
-        },
-        "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
-      },
-      "chronological_holdout": {
-        "status": "insufficient",
-        "train_bars": 537,
-        "test_bars": 537,
-        "signal_events": 2,
-        "unconditional_events": 5,
-        "horizons": {},
-        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
-        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
-        "frozen_thresholds": {
-          "rsi14_max": 49.28,
-          "drawdown_52w_max_pct": -19.11
-        }
-      },
-      "price_type": "provider adjusted close where available; otherwise raw close"
-    },
-    "ORCL": {
-      "status": "ok",
-      "close": 137.39,
-      "currency": "USD",
-      "last_bar_utc": "2026-10-12T13:30:00+00:00",
-      "bars": 1254,
-      "rsi14": 38.49,
-      "drawdown_52w_pct": -55.52,
+      "last_bar_utc": "2026-10-12T20:00:02+00:00",
+      "bars": 181,
+      "rsi14": 66.56,
+      "drawdown_52w_pct": -8.52,
       "oversold_score": null,
       "analogs": null,
       "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
       "exploratory_analogs": {
         "status": "insufficient",
-        "count": 1,
+        "count": 0,
         "horizons": {},
         "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap"
       },
       "analog_validation": {
         "status": "insufficient",
-        "count": 1,
+        "count": 0,
         "independence": "90-session entry spacing (not statistical independence)",
         "baseline": "same-date unconditional benchmark not yet computed",
         "horizons": {},
@@ -2062,18 +755,216 @@
       },
       "chronological_holdout": {
         "status": "insufficient",
-        "train_bars": 537,
-        "test_bars": 537,
-        "signal_events": 4,
-        "unconditional_events": 5,
+        "train_bars": 0,
+        "test_bars": 0,
+        "signal_events": 0,
+        "unconditional_events": 0,
         "horizons": {},
         "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
-        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
-        "frozen_thresholds": {
-          "rsi14_max": 48.38,
-          "drawdown_52w_max_pct": -11.02
-        }
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
       },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2011-11-01T04:00:00+00:00",
+      "price_type": "provider adjusted close where available; otherwise raw close"
+    },
+    "AMZN": {
+      "status": "ok",
+      "close": 259.53,
+      "currency": "USD",
+      "last_bar_utc": "2026-10-12T20:00:01+00:00",
+      "bars": 181,
+      "rsi14": 58.19,
+      "drawdown_52w_pct": -4.44,
+      "oversold_score": null,
+      "analogs": null,
+      "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
+      "exploratory_analogs": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap"
+      },
+      "analog_validation": {
+        "status": "insufficient",
+        "count": 0,
+        "independence": "90-session entry spacing (not statistical independence)",
+        "baseline": "same-date unconditional benchmark not yet computed",
+        "horizons": {},
+        "benchmarks": {},
+        "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
+      },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 0,
+        "test_bars": 0,
+        "signal_events": 0,
+        "unconditional_events": 0,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
+      },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2011-11-01T04:00:00+00:00",
+      "price_type": "provider adjusted close where available; otherwise raw close"
+    },
+    "META": {
+      "status": "ok",
+      "close": 742.96,
+      "currency": "USD",
+      "last_bar_utc": "2026-10-12T20:00:02+00:00",
+      "bars": 174,
+      "rsi14": 50.87,
+      "drawdown_52w_pct": -3.55,
+      "oversold_score": null,
+      "analogs": null,
+      "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
+      "exploratory_analogs": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap"
+      },
+      "analog_validation": {
+        "status": "insufficient",
+        "count": 0,
+        "independence": "90-session entry spacing (not statistical independence)",
+        "baseline": "same-date unconditional benchmark not yet computed",
+        "horizons": {},
+        "benchmarks": {},
+        "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
+      },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 0,
+        "test_bars": 0,
+        "signal_events": 0,
+        "unconditional_events": 0,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
+      },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2012-06-01T04:00:00+00:00",
+      "price_type": "provider adjusted close where available; otherwise raw close"
+    },
+    "MSFT": {
+      "status": "ok",
+      "close": 541.15,
+      "currency": "USD",
+      "last_bar_utc": "2026-10-12T20:00:01+00:00",
+      "bars": 61,
+      "rsi14": 72.34,
+      "drawdown_52w_pct": 0.0,
+      "oversold_score": null,
+      "analogs": null,
+      "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
+      "exploratory_analogs": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap"
+      },
+      "analog_validation": {
+        "status": "insufficient",
+        "count": 0,
+        "independence": "90-session entry spacing (not statistical independence)",
+        "baseline": "same-date unconditional benchmark not yet computed",
+        "horizons": {},
+        "benchmarks": {},
+        "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
+      },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 0,
+        "test_bars": 0,
+        "signal_events": 0,
+        "unconditional_events": 0,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
+      },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2011-12-01T05:00:00+00:00",
+      "price_type": "provider adjusted close where available; otherwise raw close"
+    },
+    "ORCL": {
+      "status": "ok",
+      "close": 137.39,
+      "currency": "USD",
+      "last_bar_utc": "2026-10-12T20:03:47+00:00",
+      "bars": 61,
+      "rsi14": 52.67,
+      "drawdown_52w_pct": -38.71,
+      "oversold_score": null,
+      "analogs": null,
+      "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
+      "exploratory_analogs": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap"
+      },
+      "analog_validation": {
+        "status": "insufficient",
+        "count": 0,
+        "independence": "90-session entry spacing (not statistical independence)",
+        "baseline": "same-date unconditional benchmark not yet computed",
+        "horizons": {},
+        "benchmarks": {},
+        "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
+      },
+      "chronological_holdout": {
+        "status": "insufficient",
+        "train_bars": 0,
+        "test_bars": 0,
+        "signal_events": 0,
+        "unconditional_events": 0,
+        "horizons": {},
+        "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
+      },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2011-12-01T05:00:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "CRWV": {
@@ -2112,28 +1003,38 @@
         "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
         "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
       },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 2,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2025-03-28T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "IREN": {
       "status": "ok",
       "close": 34.8,
       "currency": "USD",
-      "last_bar_utc": "2026-10-12T13:30:00+00:00",
-      "bars": 1229,
-      "rsi14": 10.87,
-      "drawdown_52w_pct": -54.46,
+      "last_bar_utc": "2026-10-12T04:00:00+00:00",
+      "bars": 257,
+      "rsi14": 43.89,
+      "drawdown_52w_pct": -45.23,
       "oversold_score": null,
       "analogs": null,
       "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
       "exploratory_analogs": {
         "status": "insufficient",
-        "count": 3,
+        "count": 0,
         "horizons": {},
         "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap"
       },
       "analog_validation": {
         "status": "insufficient",
-        "count": 3,
+        "count": 0,
         "independence": "90-session entry spacing (not statistical independence)",
         "baseline": "same-date unconditional benchmark not yet computed",
         "horizons": {},
@@ -2142,18 +1043,24 @@
       },
       "chronological_holdout": {
         "status": "insufficient",
-        "train_bars": 524,
-        "test_bars": 525,
+        "train_bars": 0,
+        "test_bars": 0,
         "signal_events": 0,
-        "unconditional_events": 5,
+        "unconditional_events": 0,
         "horizons": {},
         "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
-        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
-        "frozen_thresholds": {
-          "rsi14_max": 40.0,
-          "drawdown_52w_max_pct": -81.51
-        }
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
       },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2021-11-15T05:00:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "NBIS": {
@@ -2192,28 +1099,38 @@
         "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
         "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
       },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 3,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2024-10-21T13:30:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "NOW": {
       "status": "ok",
       "close": 140.32,
       "currency": "USD",
-      "last_bar_utc": "2026-10-12T13:30:00+00:00",
-      "bars": 1254,
-      "rsi14": 55.02,
-      "drawdown_52w_pct": -25.86,
+      "last_bar_utc": "2026-10-12T20:00:03+00:00",
+      "bars": 173,
+      "rsi14": 40.37,
+      "drawdown_52w_pct": -33.82,
       "oversold_score": null,
       "analogs": null,
       "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
       "exploratory_analogs": {
         "status": "insufficient",
-        "count": 3,
+        "count": 0,
         "horizons": {},
         "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap"
       },
       "analog_validation": {
         "status": "insufficient",
-        "count": 3,
+        "count": 0,
         "independence": "90-session entry spacing (not statistical independence)",
         "baseline": "same-date unconditional benchmark not yet computed",
         "horizons": {},
@@ -2222,429 +1139,168 @@
       },
       "chronological_holdout": {
         "status": "insufficient",
-        "train_bars": 537,
-        "test_bars": 537,
-        "signal_events": 3,
-        "unconditional_events": 5,
+        "train_bars": 0,
+        "test_bars": 0,
+        "signal_events": 0,
+        "unconditional_events": 0,
         "horizons": {},
         "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
-        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
-        "frozen_thresholds": {
-          "rsi14_max": 44.11,
-          "drawdown_52w_max_pct": -27.48
-        }
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
       },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2012-07-01T04:00:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "CRM": {
       "status": "ok",
       "close": 233.92,
       "currency": "USD",
-      "last_bar_utc": "2026-10-12T13:30:00+00:00",
-      "bars": 1254,
-      "rsi14": 50.63,
-      "drawdown_52w_pct": -11.53,
+      "last_bar_utc": "2026-10-12T20:00:03+00:00",
+      "bars": 181,
+      "rsi14": 49.85,
+      "drawdown_52w_pct": -30.62,
       "oversold_score": null,
       "analogs": null,
       "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
       "exploratory_analogs": {
-        "status": "exploratory",
-        "count": 6,
-        "horizons": {
-          "30": {
-            "median_pct": 0.35,
-            "positive_pct": 50.0,
-            "p10_pct": -15.78,
-            "p90_pct": 10.71
-          },
-          "60": {
-            "median_pct": 4.13,
-            "positive_pct": 50.0,
-            "p10_pct": -29.29,
-            "p90_pct": 15.98
-          },
-          "90": {
-            "median_pct": 7.17,
-            "positive_pct": 66.7,
-            "p10_pct": -20.85,
-            "p90_pct": 20.25
-          }
-        },
-        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap",
-        "limitations": "Five-year sample, current constituents, overlapping market regimes, selection bias; not out-of-sample validated"
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap"
       },
       "analog_validation": {
-        "status": "exploratory",
-        "count": 6,
+        "status": "insufficient",
+        "count": 0,
         "independence": "90-session entry spacing (not statistical independence)",
         "baseline": "same-date unconditional benchmark not yet computed",
-        "horizons": {
-          "30": {
-            "n": 6,
-            "median_pct": 0.35,
-            "positive_pct": 50.0,
-            "p10_pct": -15.78,
-            "p90_pct": 10.71
-          },
-          "60": {
-            "n": 6,
-            "median_pct": 4.13,
-            "positive_pct": 50.0,
-            "p10_pct": -29.29,
-            "p90_pct": 15.98
-          },
-          "90": {
-            "n": 6,
-            "median_pct": 7.17,
-            "positive_pct": 66.7,
-            "p10_pct": -20.85,
-            "p90_pct": 20.25
-          }
-        },
-        "benchmarks": {
-          "QQQ": {
-            "30": {
-              "status": "exploratory",
-              "n": 6,
-              "benchmark_median_pct": 3.73,
-              "excess_median_pp": -0.17,
-              "outperform_pct": 33.3,
-              "excess_p10_pp": -27.16
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 6,
-              "benchmark_median_pct": 8.68,
-              "excess_median_pp": -5.22,
-              "outperform_pct": 33.3,
-              "excess_p10_pp": -13.63
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 6,
-              "benchmark_median_pct": 6.8,
-              "excess_median_pp": -3.18,
-              "outperform_pct": 33.3,
-              "excess_p10_pp": -19.99
-            }
-          },
-          "SMH": {
-            "30": {
-              "status": "exploratory",
-              "n": 6,
-              "benchmark_median_pct": 1.79,
-              "excess_median_pp": 1.97,
-              "outperform_pct": 66.7,
-              "excess_p10_pp": -40.92
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 6,
-              "benchmark_median_pct": 9.86,
-              "excess_median_pp": -3.93,
-              "outperform_pct": 50.0,
-              "excess_p10_pp": -18.72
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 6,
-              "benchmark_median_pct": 11.01,
-              "excess_median_pp": -10.62,
-              "outperform_pct": 33.3,
-              "excess_p10_pp": -19.55
-            }
-          }
-        },
+        "horizons": {},
+        "benchmarks": {},
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
       "chronological_holdout": {
         "status": "insufficient",
-        "train_bars": 537,
-        "test_bars": 537,
-        "signal_events": 4,
-        "unconditional_events": 5,
+        "train_bars": 0,
+        "test_bars": 0,
+        "signal_events": 0,
+        "unconditional_events": 0,
         "horizons": {},
         "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
-        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
-        "frozen_thresholds": {
-          "rsi14_max": 46.7,
-          "drawdown_52w_max_pct": -24.38
-        }
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
       },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2011-11-01T04:00:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "PLTR": {
       "status": "ok",
       "close": 209.0,
       "currency": "USD",
-      "last_bar_utc": "2026-10-12T13:30:00+00:00",
-      "bars": 1254,
-      "rsi14": 81.65,
+      "last_bar_utc": "2026-10-12T04:00:00+00:00",
+      "bars": 316,
+      "rsi14": 79.11,
       "drawdown_52w_pct": -0.02,
       "oversold_score": null,
       "analogs": null,
       "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
       "exploratory_analogs": {
-        "status": "exploratory",
-        "count": 6,
-        "horizons": {
-          "30": {
-            "median_pct": 14.38,
-            "positive_pct": 83.3,
-            "p10_pct": -11.94,
-            "p90_pct": 32.2
-          },
-          "60": {
-            "median_pct": 29.04,
-            "positive_pct": 100.0,
-            "p10_pct": 3.73,
-            "p90_pct": 37.11
-          },
-          "90": {
-            "median_pct": 32.47,
-            "positive_pct": 83.3,
-            "p10_pct": -11.09,
-            "p90_pct": 80.17
-          }
-        },
-        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap",
-        "limitations": "Five-year sample, current constituents, overlapping market regimes, selection bias; not out-of-sample validated"
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap"
       },
       "analog_validation": {
-        "status": "exploratory",
-        "count": 6,
+        "status": "insufficient",
+        "count": 0,
         "independence": "90-session entry spacing (not statistical independence)",
         "baseline": "same-date unconditional benchmark not yet computed",
-        "horizons": {
-          "30": {
-            "n": 6,
-            "median_pct": 14.38,
-            "positive_pct": 83.3,
-            "p10_pct": -11.94,
-            "p90_pct": 32.2
-          },
-          "60": {
-            "n": 6,
-            "median_pct": 29.04,
-            "positive_pct": 100.0,
-            "p10_pct": 3.73,
-            "p90_pct": 37.11
-          },
-          "90": {
-            "n": 6,
-            "median_pct": 32.47,
-            "positive_pct": 83.3,
-            "p10_pct": -11.09,
-            "p90_pct": 80.17
-          }
-        },
-        "benchmarks": {
-          "QQQ": {
-            "30": {
-              "status": "exploratory",
-              "n": 6,
-              "benchmark_median_pct": 6.15,
-              "excess_median_pp": 9.19,
-              "outperform_pct": 83.3,
-              "excess_p10_pp": -18.94
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 6,
-              "benchmark_median_pct": 6.36,
-              "excess_median_pp": 19.9,
-              "outperform_pct": 100.0,
-              "excess_p10_pp": 0.54
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 6,
-              "benchmark_median_pct": 6.3,
-              "excess_median_pp": 18.75,
-              "outperform_pct": 83.3,
-              "excess_p10_pp": -17.71
-            }
-          },
-          "SMH": {
-            "30": {
-              "status": "exploratory",
-              "n": 6,
-              "benchmark_median_pct": 12.2,
-              "excess_median_pp": 6.74,
-              "outperform_pct": 50.0,
-              "excess_p10_pp": -21.74
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 6,
-              "benchmark_median_pct": 11.38,
-              "excess_median_pp": 10.88,
-              "outperform_pct": 66.7,
-              "excess_p10_pp": -7.99
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 6,
-              "benchmark_median_pct": 18.89,
-              "excess_median_pp": 11.13,
-              "outperform_pct": 66.7,
-              "excess_p10_pp": -42.94
-            }
-          }
-        },
+        "horizons": {},
+        "benchmarks": {},
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
       "chronological_holdout": {
         "status": "insufficient",
-        "train_bars": 537,
-        "test_bars": 537,
+        "train_bars": 0,
+        "test_bars": 0,
         "signal_events": 0,
-        "unconditional_events": 5,
+        "unconditional_events": 0,
         "horizons": {},
         "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
-        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
-        "frozen_thresholds": {
-          "rsi14_max": 45.83,
-          "drawdown_52w_max_pct": -46.0
-        }
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
       },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 1,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2020-09-28T04:00:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     },
     "QQQ": {
       "status": "ok",
       "close": 746.04,
       "currency": "USD",
-      "last_bar_utc": "2026-10-12T13:30:00+00:00",
-      "bars": 1254,
-      "rsi14": 48.85,
-      "drawdown_52w_pct": -1.79,
+      "last_bar_utc": "2026-10-12T20:00:00+00:00",
+      "bars": 181,
+      "rsi14": 69.89,
+      "drawdown_52w_pct": -0.7,
       "oversold_score": null,
       "analogs": null,
       "note": "RSI and 52-week drawdown are descriptive, not validated opportunity scores",
       "exploratory_analogs": {
-        "status": "exploratory",
-        "count": 8,
-        "horizons": {
-          "30": {
-            "median_pct": -0.24,
-            "positive_pct": 50.0,
-            "p10_pct": -3.21,
-            "p90_pct": 9.08
-          },
-          "60": {
-            "median_pct": 8.92,
-            "positive_pct": 100.0,
-            "p10_pct": 1.19,
-            "p90_pct": 16.12
-          },
-          "90": {
-            "median_pct": 10.44,
-            "positive_pct": 87.5,
-            "p10_pct": -8.22,
-            "p90_pct": 19.39
-          }
-        },
-        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap",
-        "limitations": "Five-year sample, current constituents, overlapping market regimes, selection bias; not out-of-sample validated"
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "method": "RSI14 ±10; 252-close drawdown ±10 percentage points; 90-session non-overlap"
       },
       "analog_validation": {
-        "status": "exploratory",
-        "count": 8,
+        "status": "insufficient",
+        "count": 0,
         "independence": "90-session entry spacing (not statistical independence)",
         "baseline": "same-date unconditional benchmark not yet computed",
-        "horizons": {
-          "30": {
-            "n": 8,
-            "median_pct": -0.24,
-            "positive_pct": 50.0,
-            "p10_pct": -3.21,
-            "p90_pct": 9.08
-          },
-          "60": {
-            "n": 8,
-            "median_pct": 8.92,
-            "positive_pct": 100.0,
-            "p10_pct": 1.19,
-            "p90_pct": 16.12
-          },
-          "90": {
-            "n": 8,
-            "median_pct": 10.44,
-            "positive_pct": 87.5,
-            "p10_pct": -8.22,
-            "p90_pct": 19.39
-          }
-        },
-        "benchmarks": {
-          "QQQ": {
-            "30": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": -0.24,
-              "excess_median_pp": -0.0,
-              "outperform_pct": 25.0,
-              "excess_p10_pp": -0.0
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 8.92,
-              "excess_median_pp": -0.0,
-              "outperform_pct": 25.0,
-              "excess_p10_pp": -0.0
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 10.44,
-              "excess_median_pp": -0.0,
-              "outperform_pct": 12.5,
-              "excess_p10_pp": -0.0
-            }
-          },
-          "SMH": {
-            "30": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 1.01,
-              "excess_median_pp": 0.61,
-              "outperform_pct": 50.0,
-              "excess_p10_pp": -13.0
-            },
-            "60": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 17.84,
-              "excess_median_pp": -6.96,
-              "outperform_pct": 12.5,
-              "excess_p10_pp": -25.49
-            },
-            "90": {
-              "status": "exploratory",
-              "n": 8,
-              "benchmark_median_pct": 21.32,
-              "excess_median_pp": -10.25,
-              "outperform_pct": 25.0,
-              "excess_p10_pp": -30.1
-            }
-          }
-        },
+        "horizons": {},
+        "benchmarks": {},
         "limitations": "In-sample matches to today's regime; survivorship, secular trend, regime clustering, non-random entry choice; not causal alpha or out-of-sample validated"
       },
       "chronological_holdout": {
         "status": "insufficient",
-        "train_bars": 537,
-        "test_bars": 537,
-        "signal_events": 1,
-        "unconditional_events": 5,
+        "train_bars": 0,
+        "test_bars": 0,
+        "signal_events": 0,
+        "unconditional_events": 0,
         "horizons": {},
         "method": "Fixed train-50% thresholds; 90-bar embargo; chronological holdout; 90-bar entry spacing",
-        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated",
-        "frozen_thresholds": {
-          "rsi14_max": 46.67,
-          "drawdown_52w_max_pct": -19.7
-        }
+        "limitations": "Single holdout, only five years, sparse tail events, fixed current survivors; event selection may favor regimes; not independently validated"
       },
+      "short_rebound": {
+        "status": "insufficient",
+        "count": 0,
+        "horizons": {},
+        "targets": {},
+        "rule": "RSI14 <= 30 AND 252-close drawdown <= -15%; 30-session spacing",
+        "data_assumption": "adjusted daily closes only; target/stop evaluated at close; entry at signal close",
+        "limitations": "in-sample, price-only, no trading costs, no options IV/theta, no fundamentals, no regime or survivorship control"
+      },
+      "historical_start_utc": "2011-11-01T04:00:00+00:00",
       "price_type": "provider adjusted close where available; otherwise raw close"
     }
   },
