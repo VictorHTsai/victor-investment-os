@@ -23,9 +23,9 @@ def compare_price_volume(closes, volumes, rsi_fn, min_holdout=5):
         "rules": {
             "price": "RSI14 <=30, 252-close drawdown <=-15%; 30-session spacing",
             "challenger": "same price events AND current-day volume / prior 20-day mean >=1.5",
-            "split": "50% chronological split; 30-session embargo; 30-session outcome"
+            "split": "50% chronological split; 30-session embargo; enter following close; 30-session outcome"
         },
-        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny"
+        "caveats": "Single holdout; small correlated sample; in-sample hypothesis formation; entry at next daily close after RVOL observation, no costs, slippage, intraday fills or option Greeks; adjusted close vs share volume requires corporate-action scrutiny"
     }
     if len(closes) != len(volumes) or len(closes) < 650:
         return out
@@ -36,7 +36,7 @@ def compare_price_volume(closes, volumes, rsi_fn, min_holdout=5):
     out["volume_available"] = True
     cutoff = len(closes) // 2
     events = scan_dislocations(closes, rsi_fn)
-    price = [i for i in events if i >= cutoff + 30 and i + 30 < len(closes)]
+    price = [i for i in events if i >= cutoff + 30 and i + 31 < len(closes)]
     challenger = [i for i in price if (relative_volume(volumes, i) or 0) >= 1.5]
     out["price_only_n"] = len(price)
     out["price_volume_n"] = len(challenger)
@@ -45,9 +45,9 @@ def compare_price_volume(closes, volumes, rsi_fn, min_holdout=5):
         return out
 
     def score(indices):
-        outcomes = [first_passage(closes, i, horizon=30, profit_pct=10, stop_pct=-10) for i in indices]
-        returns = [100 * (closes[i+20] / closes[i] - 1) for i in indices]
-        adverse = [100 * (min(closes[i+1:i+31]) / closes[i] - 1) for i in indices]
+        outcomes = [first_passage(closes, i+1, horizon=30, profit_pct=10, stop_pct=-10) for i in indices]
+        returns = [100 * (closes[i+21] / closes[i+1] - 1) for i in indices]
+        adverse = [100 * (min(closes[i+2:i+32]) / closes[i+1] - 1) for i in indices]
         n = len(indices)
         return {
             "n": n,
