@@ -2,7 +2,10 @@
 from __future__ import annotations
 import math
 from statistics import median
-from scripts.ai_rebound_study import scan_dislocations, first_passage
+if __package__:
+    from scripts.ai_rebound_study import scan_dislocations, first_passage
+else:
+    from ai_rebound_study import scan_dislocations, first_passage
 
 def relative_volume(volumes, index, length=20):
     """Current session volume vs prior 20 sessions; no current-bar denominator."""
