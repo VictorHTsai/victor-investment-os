@@ -4,8 +4,34 @@ from scripts.ai_analog_validation import selected_analog_indices, validate_analo
 from scripts.ai_walkforward import walk_forward_diagnostic
 from scripts.ai_rebound_study import rebound_study, first_passage, scan_dislocations
 from scripts.ai_price_volume_experiment import compare_price_volume, relative_volume
+from scripts.ai_edge_validation import trade_outcome, matched_controls, edge_validation, adaptive_window_diagnostics
 
 class DailyMetricsTests(unittest.TestCase):
+    def test_trade_outcome_next_close_and_cost(self):
+        prices = [100.0, 100.0] + [111.0] * 32
+        x = trade_outcome(prices, 0)
+        self.assertEqual(x["outcome"], "profit")
+        self.assertEqual(x["sessions"], 1)
+        self.assertAlmostEqual(x["net_return_pct"], 10.8)
+
+    def test_controls_are_reproducible_and_in_holdout(self):
+        prices = [100.0] * 1500
+        signal = [1200, 1250, 1300]
+        a = matched_controls(prices, signal, seed=19, draws=6)
+        b = matched_controls(prices, signal, seed=19, draws=6)
+        self.assertEqual(a, b)
+        self.assertTrue(all(1500-504 <= i < 1500-32 for sample in a for i in sample))
+        self.assertTrue(all(abs(i-j) <= 63 for sample in a for i,j in zip(sample,signal)))
+
+    def test_edge_insufficient_and_no_promoted_decisions(self):
+        flat = [100.0] * 1300
+        e = edge_validation(flat, rsi)
+        w = adaptive_window_diagnostics(flat, rsi)
+        self.assertEqual(e["status"], "insufficient")
+        self.assertEqual(e["decision"], "undetermined")
+        self.assertEqual(w["window_selection"], "none")
+        self.assertEqual(set(w["windows"]), {"2","3","5","10","15"})
+
     def test_rvol_does_not_use_future_or_current_in_denominator(self):
         vols = [100.0] * 20 + [200.0] + [300.0] * 10
         self.assertEqual(relative_volume(vols, 20), 2.0)
