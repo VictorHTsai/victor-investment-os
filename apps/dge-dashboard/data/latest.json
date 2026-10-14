@@ -1,28 +1,28 @@
 {
   "schema_version": "dge.v1",
   "symbol": "BTC-USD",
-  "as_of": "2026-10-14T06:13:10.565914+00:00",
+  "as_of": "2026-10-14T11:59:40.099422+00:00",
   "factors": {
-    "R": 49.64962499618503,
-    "L": 35.5,
+    "R": 49.42570691411661,
+    "L": 37.0,
     "F": 27.256,
     "C": 50.0,
-    "P": 71.50489929405485,
-    "V": 49.70459980559178,
-    "D": 46.78,
+    "P": 70.93836307542523,
+    "V": 49.517958823851835,
+    "D": 46.879999999999995,
     "E": 0.0,
-    "T": 99.40919961118357
+    "T": 99.03591764770367
   },
   "states": {
-    "accumulation": 0.17664205894522886,
-    "test": 0.1385613828597698,
-    "shakeout": 0.16829926251451524,
-    "markup": 0.09068356396274971,
-    "distribution": 0.11439631067375726,
-    "neutral": 0.3114174210439791
+    "accumulation": 0.17703921005721804,
+    "test": 0.13827870998901137,
+    "shakeout": 0.1671953145513697,
+    "markup": 0.09180480597995834,
+    "distribution": 0.11474888713591487,
+    "neutral": 0.3109330722865277
   },
   "dominant_state": "neutral",
-  "confidence": 0.3114174210439791,
+  "confidence": 0.3109330722865277,
   "expected_next_observations": [
     "wait for discriminating observation"
   ],
@@ -37,7 +37,7 @@
     "C": "UNAVAILABLE_NEUTRAL_50"
   },
   "methodology": "DGE_V1_RULE_BASED_BASELINE",
-  "price": 83457.41,
+  "price": 83395.03,
   "data_mode": "PARTIAL_LIVE",
   "live_factors": [
     "R",
@@ -65,9 +65,9 @@
       "next_event": null
     },
     "realized_market": {
-      "daily_abs_return_pct": 0.43,
-      "return_abs_percentile": 32.6,
-      "volume_7d_vs_30d": 0.67
+      "daily_abs_return_pct": 0.35,
+      "return_abs_percentile": 30.3,
+      "volume_7d_vs_30d": 0.69
     },
     "rule": "max(scheduled_macro_risk, realized_market_shock)"
   }
