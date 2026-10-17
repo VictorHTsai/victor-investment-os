@@ -1,10 +1,10 @@
 {
   "schema_version": "btc-cycle-strategic-v1",
-  "as_of": "2026-10-17T17:14:15.705847+00:00",
+  "as_of": "2026-10-17T19:27:44.411772+00:00",
   "methodology": "BLOCK_HEIGHT_TARGET_CADENCE_500D",
   "source": "mempool.space public API",
   "target_halving_height": 1050000,
-  "current_block_height": 971889,
+  "current_block_height": 971899,
   "projection_minutes_per_block": 10.0,
   "estimated_halving": "2028-04-12",
   "exact_buy_date": "2026-11-29",

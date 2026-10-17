@@ -1,6 +1,6 @@
 {
   "schema_version": "btc-market-intelligence-v3",
-  "as_of": "2026-10-17T17:14:13.127889+00:00",
+  "as_of": "2026-10-17T19:27:42.395056+00:00",
   "modules": {
     "derivatives": {
       "status": "NEUTRAL",
@@ -21,11 +21,11 @@
     },
     "stress": {
       "status": "LOW",
-      "btc_price_7d_change_pct": -2.1,
-      "realized_vol_7d_pct": 26.8,
+      "btc_price_7d_change_pct": -1.79,
+      "realized_vol_7d_pct": 26.6,
       "realized_vol_30d_pct": 37.5,
       "volume_ratio": 0.79,
-      "drawdown_30d_pct": -6.3,
+      "drawdown_30d_pct": -6.0,
       "source": "Coinbase Exchange public candles"
     },
     "capital_flow": {
@@ -38,10 +38,10 @@
     },
     "liquidity": {
       "status": "STABLE",
-      "stablecoin_supply_usd_b": 304.83,
+      "stablecoin_supply_usd_b": 304.84,
       "stablecoin_supply_7d_change_pct": -0.37,
-      "stablecoin_supply_30d_change_pct": 0.61,
-      "stablecoin_supply_90d_change_pct": 1.16,
+      "stablecoin_supply_30d_change_pct": 0.62,
+      "stablecoin_supply_90d_change_pct": 1.17,
       "stablecoin_30d_acceleration_pp": -0.56,
       "source": "DefiLlama Stablecoins API"
     },
