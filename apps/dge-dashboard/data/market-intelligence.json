@@ -1,12 +1,12 @@
 {
   "schema_version": "btc-market-intelligence-v3",
-  "as_of": "2026-10-17T22:22:01.110605+00:00",
+  "as_of": "2026-10-18T01:06:17.872272+00:00",
   "modules": {
     "derivatives": {
       "status": "NEUTRAL",
-      "funding_7d_avg_pct": 0.0038,
+      "funding_7d_avg_pct": 0.0041,
       "funding_30d_avg_pct": 0.0041,
-      "funding_30d_percentile": 87.8,
+      "funding_30d_percentile": 70.0,
       "open_interest_7d_change_pct": 0.85,
       "open_interest_30d_percentile": 83.3,
       "source": "OKX Public API",
@@ -21,38 +21,38 @@
     },
     "stress": {
       "status": "LOW",
-      "btc_price_7d_change_pct": -2.1,
-      "realized_vol_7d_pct": 26.8,
-      "realized_vol_30d_pct": 37.5,
-      "volume_ratio": 0.8,
-      "drawdown_30d_pct": -6.3,
+      "btc_price_7d_change_pct": -2.65,
+      "realized_vol_7d_pct": 25.8,
+      "realized_vol_30d_pct": 31.6,
+      "volume_ratio": 0.82,
+      "drawdown_30d_pct": -5.9,
       "source": "Coinbase Exchange public candles"
     },
     "capital_flow": {
       "status": "NEGATIVE",
       "etf_flow_7d_usd_m": -451.4,
-      "etf_flow_30d_usd_m": -666.2,
+      "etf_flow_30d_usd_m": -697.2,
       "positive_days_7d": 3,
-      "observations": 15,
+      "observations": 14,
       "source": "Farside Investors"
     },
     "liquidity": {
       "status": "STABLE",
-      "stablecoin_supply_usd_b": 304.85,
-      "stablecoin_supply_7d_change_pct": -0.37,
+      "stablecoin_supply_usd_b": 304.87,
+      "stablecoin_supply_7d_change_pct": -0.36,
       "stablecoin_supply_30d_change_pct": 0.62,
       "stablecoin_supply_90d_change_pct": 1.17,
-      "stablecoin_30d_acceleration_pp": -0.56,
+      "stablecoin_30d_acceleration_pp": -0.55,
       "source": "DefiLlama Stablecoins API"
     },
     "onchain": {
       "status": "EXPANDING",
-      "active_addresses_7d_avg": 634187,
-      "active_addresses_7d_vs_30d_pct": -1.86,
+      "active_addresses_7d_avg": 627434,
+      "active_addresses_7d_vs_30d_pct": -2.38,
       "transactions_7d_avg": 766134,
       "transactions_7d_vs_30d_pct": 9.5,
-      "hash_rate_30d_change_pct": 16.0,
-      "latest_observation": "2026-10-16",
+      "hash_rate_30d_change_pct": 5.67,
+      "latest_observation": "2026-10-17",
       "interpretation": "Network activity is strengthening relative to its recent baseline.",
       "source": "Coin Metrics Community API",
       "audit": {
