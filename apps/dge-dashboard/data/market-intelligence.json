@@ -1,6 +1,6 @@
 {
   "schema_version": "btc-market-intelligence-v3",
-  "as_of": "2026-10-24T01:37:40.058247+00:00",
+  "as_of": "2026-10-24T07:20:33.717407+00:00",
   "modules": {
     "derivatives": {
       "status": "NEUTRAL",
@@ -21,17 +21,17 @@
     },
     "stress": {
       "status": "LOW",
-      "btc_price_7d_change_pct": -0.81,
-      "realized_vol_7d_pct": 28.2,
-      "realized_vol_30d_pct": 24.8,
-      "volume_ratio": 0.95,
-      "drawdown_30d_pct": -6.7,
+      "btc_price_7d_change_pct": -0.71,
+      "realized_vol_7d_pct": 28.1,
+      "realized_vol_30d_pct": 24.7,
+      "volume_ratio": 0.97,
+      "drawdown_30d_pct": -6.6,
       "source": "Coinbase Exchange public candles"
     },
     "capital_flow": {
-      "status": "POSITIVE",
-      "etf_flow_7d_usd_m": 334.2,
-      "etf_flow_30d_usd_m": -495.8,
+      "status": "NEUTRAL",
+      "etf_flow_7d_usd_m": 223.9,
+      "etf_flow_30d_usd_m": -606.1,
       "positive_days_7d": 4,
       "observations": 15,
       "source": "Farside Investors"
@@ -49,8 +49,8 @@
       "status": "STABLE",
       "active_addresses_7d_avg": 621636,
       "active_addresses_7d_vs_30d_pct": -3.13,
-      "transactions_7d_avg": 679680,
-      "transactions_7d_vs_30d_pct": -3.05,
+      "transactions_7d_avg": 710532,
+      "transactions_7d_vs_30d_pct": -0.22,
       "hash_rate_30d_change_pct": 42.83,
       "latest_observation": "2026-10-23",
       "interpretation": "Network activity is mixed or near its recent baseline.",
