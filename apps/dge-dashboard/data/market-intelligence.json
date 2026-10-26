@@ -1,19 +1,19 @@
 {
   "schema_version": "btc-market-intelligence-v3",
-  "as_of": "2026-10-26T14:19:00.607482+00:00",
+  "as_of": "2026-10-26T20:31:13.904538+00:00",
   "modules": {
     "derivatives": {
-      "status": "NEUTRAL",
+      "status": "ACTIVE",
       "funding_7d_avg_pct": 0.0063,
-      "funding_30d_avg_pct": 0.0041,
-      "funding_30d_percentile": 93.3,
-      "open_interest_7d_change_pct": 0.2,
-      "open_interest_30d_percentile": 83.3,
+      "funding_30d_avg_pct": 0.0043,
+      "funding_30d_percentile": 100.0,
+      "open_interest_7d_change_pct": 5.54,
+      "open_interest_30d_percentile": 96.7,
       "source": "OKX Public API",
       "audit": {
         "oi_observations": 30,
-        "oi_current": 3338199115.4535,
-        "oi_7d_ago": 3331604926.8558,
+        "oi_current": 3481622596.7178,
+        "oi_7d_ago": 3298941704.4658,
         "oi_30d_min": 3055719864.2821,
         "oi_30d_max": 3533971225.8776,
         "current_equals_30d_max": false
@@ -21,11 +21,11 @@
     },
     "stress": {
       "status": "LOW",
-      "btc_price_7d_change_pct": -2.43,
-      "realized_vol_7d_pct": 28.3,
+      "btc_price_7d_change_pct": -2.57,
+      "realized_vol_7d_pct": 28.4,
       "realized_vol_30d_pct": 24.9,
-      "volume_ratio": 1.0,
-      "drawdown_30d_pct": -7.7,
+      "volume_ratio": 1.05,
+      "drawdown_30d_pct": -7.8,
       "source": "Coinbase Exchange public candles"
     },
     "capital_flow": {
@@ -38,11 +38,11 @@
     },
     "liquidity": {
       "status": "STABLE",
-      "stablecoin_supply_usd_b": 302.43,
-      "stablecoin_supply_7d_change_pct": -0.72,
-      "stablecoin_supply_30d_change_pct": -0.88,
-      "stablecoin_supply_90d_change_pct": 0.85,
-      "stablecoin_30d_acceleration_pp": -1.8,
+      "stablecoin_supply_usd_b": 302.34,
+      "stablecoin_supply_7d_change_pct": -0.75,
+      "stablecoin_supply_30d_change_pct": -0.91,
+      "stablecoin_supply_90d_change_pct": 0.82,
+      "stablecoin_30d_acceleration_pp": -1.82,
       "source": "DefiLlama Stablecoins API"
     },
     "onchain": {
