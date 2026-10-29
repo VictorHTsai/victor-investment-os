@@ -1,31 +1,31 @@
 {
   "schema_version": "btc-market-intelligence-v3",
-  "as_of": "2026-10-29T16:10:55.206325+00:00",
+  "as_of": "2026-10-29T21:10:01.377612+00:00",
   "modules": {
     "derivatives": {
-      "status": "NEUTRAL",
+      "status": "ACTIVE",
       "funding_7d_avg_pct": 0.0078,
       "funding_30d_avg_pct": 0.0049,
       "funding_30d_percentile": 84.4,
-      "open_interest_7d_change_pct": -1.76,
-      "open_interest_30d_percentile": 90.0,
+      "open_interest_7d_change_pct": 5.11,
+      "open_interest_30d_percentile": 100.0,
       "source": "OKX Public API",
       "audit": {
         "oi_observations": 30,
-        "oi_current": 3471703016.5545,
-        "oi_7d_ago": 3533971225.8776,
+        "oi_current": 3537500693.722,
+        "oi_7d_ago": 3365594549.8082,
         "oi_30d_min": 3055719864.2821,
-        "oi_30d_max": 3533971225.8776,
-        "current_equals_30d_max": false
+        "oi_30d_max": 3537500693.722,
+        "current_equals_30d_max": true
       }
     },
     "stress": {
       "status": "LOW",
-      "btc_price_7d_change_pct": 0.7,
-      "realized_vol_7d_pct": 12.3,
-      "realized_vol_30d_pct": 25.0,
-      "volume_ratio": 0.87,
-      "drawdown_30d_pct": -5.4,
+      "btc_price_7d_change_pct": -2.97,
+      "realized_vol_7d_pct": 23.9,
+      "realized_vol_30d_pct": 26.9,
+      "volume_ratio": 0.94,
+      "drawdown_30d_pct": -8.8,
       "source": "Coinbase Exchange public candles"
     },
     "capital_flow": {
@@ -38,11 +38,11 @@
     },
     "liquidity": {
       "status": "STABLE",
-      "stablecoin_supply_usd_b": 300.33,
+      "stablecoin_supply_usd_b": 300.3,
       "stablecoin_supply_7d_change_pct": -1.11,
-      "stablecoin_supply_30d_change_pct": -1.97,
-      "stablecoin_supply_90d_change_pct": 0.6,
-      "stablecoin_30d_acceleration_pp": -3.41,
+      "stablecoin_supply_30d_change_pct": -1.98,
+      "stablecoin_supply_90d_change_pct": 0.59,
+      "stablecoin_30d_acceleration_pp": -3.42,
       "source": "DefiLlama Stablecoins API"
     },
     "onchain": {
