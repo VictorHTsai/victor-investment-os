@@ -1,31 +1,31 @@
 {
   "schema_version": "btc-market-intelligence-v3",
-  "as_of": "2026-10-30T14:13:45.075908+00:00",
+  "as_of": "2026-10-30T19:26:42.819451+00:00",
   "modules": {
     "derivatives": {
       "status": "ACTIVE",
-      "funding_7d_avg_pct": 0.0079,
+      "funding_7d_avg_pct": 0.008,
       "funding_30d_avg_pct": 0.005,
-      "funding_30d_percentile": 56.7,
-      "open_interest_7d_change_pct": 5.11,
+      "funding_30d_percentile": 100.0,
+      "open_interest_7d_change_pct": 7.53,
       "open_interest_30d_percentile": 100.0,
       "source": "OKX Public API",
       "audit": {
         "oi_observations": 30,
-        "oi_current": 3537500693.722,
-        "oi_7d_ago": 3365594549.8082,
-        "oi_30d_min": 3055719864.2821,
-        "oi_30d_max": 3537500693.722,
+        "oi_current": 3678833805.7831,
+        "oi_7d_ago": 3421280245.0902,
+        "oi_30d_min": 3157247189.9675,
+        "oi_30d_max": 3678833805.7831,
         "current_equals_30d_max": true
       }
     },
     "stress": {
       "status": "NORMAL",
-      "btc_price_7d_change_pct": -5.53,
-      "realized_vol_7d_pct": 35.1,
-      "realized_vol_30d_pct": 29.6,
-      "volume_ratio": 1.1,
-      "drawdown_30d_pct": -11.5,
+      "btc_price_7d_change_pct": -5.9,
+      "realized_vol_7d_pct": 36.1,
+      "realized_vol_30d_pct": 29.9,
+      "volume_ratio": 1.17,
+      "drawdown_30d_pct": -11.8,
       "source": "Coinbase Exchange public candles"
     },
     "capital_flow": {
@@ -38,11 +38,11 @@
     },
     "liquidity": {
       "status": "CONTRACTING",
-      "stablecoin_supply_usd_b": 299.68,
-      "stablecoin_supply_7d_change_pct": -1.18,
-      "stablecoin_supply_30d_change_pct": -2.17,
-      "stablecoin_supply_90d_change_pct": 0.38,
-      "stablecoin_30d_acceleration_pp": -3.55,
+      "stablecoin_supply_usd_b": 299.71,
+      "stablecoin_supply_7d_change_pct": -1.17,
+      "stablecoin_supply_30d_change_pct": -2.16,
+      "stablecoin_supply_90d_change_pct": 0.39,
+      "stablecoin_30d_acceleration_pp": -3.54,
       "source": "DefiLlama Stablecoins API"
     },
     "onchain": {
