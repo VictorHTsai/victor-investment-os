@@ -1,31 +1,31 @@
 {
   "schema_version": "btc-market-intelligence-v3",
-  "as_of": "2026-11-01T15:13:44.726473+00:00",
+  "as_of": "2026-11-01T19:44:14.500617+00:00",
   "modules": {
     "derivatives": {
       "status": "ACTIVE",
-      "funding_7d_avg_pct": 0.0088,
-      "funding_30d_avg_pct": 0.0053,
-      "funding_30d_percentile": 65.6,
-      "open_interest_7d_change_pct": 11.22,
+      "funding_7d_avg_pct": 0.009,
+      "funding_30d_avg_pct": 0.0054,
+      "funding_30d_percentile": 77.8,
+      "open_interest_7d_change_pct": 12.21,
       "open_interest_30d_percentile": 100.0,
       "source": "OKX Public API",
       "audit": {
         "oi_observations": 30,
-        "oi_current": 3705776501.4741,
-        "oi_7d_ago": 3332034483.6344,
+        "oi_current": 3745709028.0529,
+        "oi_7d_ago": 3338199115.4535,
         "oi_30d_min": 3161609596.4917,
-        "oi_30d_max": 3705776501.4741,
+        "oi_30d_max": 3745709028.0529,
         "current_equals_30d_max": true
       }
     },
     "stress": {
-      "status": "LOW",
-      "btc_price_7d_change_pct": -2.62,
-      "realized_vol_7d_pct": 33.5,
+      "status": "NORMAL",
+      "btc_price_7d_change_pct": -3.05,
+      "realized_vol_7d_pct": 33.2,
       "realized_vol_30d_pct": 28.8,
-      "volume_ratio": 1.24,
-      "drawdown_30d_pct": -9.9,
+      "volume_ratio": 1.25,
+      "drawdown_30d_pct": -10.3,
       "source": "Coinbase Exchange public candles"
     },
     "capital_flow": {
@@ -38,11 +38,11 @@
     },
     "liquidity": {
       "status": "CONTRACTING",
-      "stablecoin_supply_usd_b": 298.47,
-      "stablecoin_supply_7d_change_pct": -1.37,
-      "stablecoin_supply_30d_change_pct": -2.66,
-      "stablecoin_supply_90d_change_pct": 0.04,
-      "stablecoin_30d_acceleration_pp": -4.14,
+      "stablecoin_supply_usd_b": 298.35,
+      "stablecoin_supply_7d_change_pct": -1.4,
+      "stablecoin_supply_30d_change_pct": -2.7,
+      "stablecoin_supply_90d_change_pct": -0.0,
+      "stablecoin_30d_acceleration_pp": -4.18,
       "source": "DefiLlama Stablecoins API"
     },
     "onchain": {
