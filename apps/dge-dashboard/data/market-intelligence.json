@@ -1,31 +1,31 @@
 {
   "schema_version": "btc-market-intelligence-v3",
-  "as_of": "2026-11-02T16:03:28.899778+00:00",
+  "as_of": "2026-11-02T23:34:31.011485+00:00",
   "modules": {
     "derivatives": {
-      "status": "ACTIVE",
+      "status": "NEUTRAL",
       "funding_7d_avg_pct": 0.009,
       "funding_30d_avg_pct": 0.0056,
       "funding_30d_percentile": 100.0,
-      "open_interest_7d_change_pct": 12.21,
-      "open_interest_30d_percentile": 100.0,
+      "open_interest_7d_change_pct": 4.24,
+      "open_interest_30d_percentile": 90.0,
       "source": "OKX Public API",
       "audit": {
         "oi_observations": 30,
-        "oi_current": 3745709028.0529,
-        "oi_7d_ago": 3338199115.4535,
-        "oi_30d_min": 3161609596.4917,
+        "oi_current": 3629149101.9713,
+        "oi_7d_ago": 3481622596.7178,
+        "oi_30d_min": 3180398495.2937,
         "oi_30d_max": 3745709028.0529,
-        "current_equals_30d_max": true
+        "current_equals_30d_max": false
       }
     },
     "stress": {
       "status": "NORMAL",
-      "btc_price_7d_change_pct": -3.18,
-      "realized_vol_7d_pct": 34.7,
-      "realized_vol_30d_pct": 29.2,
-      "volume_ratio": 1.18,
-      "drawdown_30d_pct": -10.5,
+      "btc_price_7d_change_pct": -4.23,
+      "realized_vol_7d_pct": 37.1,
+      "realized_vol_30d_pct": 29.8,
+      "volume_ratio": 1.25,
+      "drawdown_30d_pct": -11.4,
       "source": "Coinbase Exchange public candles"
     },
     "capital_flow": {
@@ -38,11 +38,11 @@
     },
     "liquidity": {
       "status": "CONTRACTING",
-      "stablecoin_supply_usd_b": 297.67,
-      "stablecoin_supply_7d_change_pct": -1.52,
+      "stablecoin_supply_usd_b": 297.65,
+      "stablecoin_supply_7d_change_pct": -1.53,
       "stablecoin_supply_30d_change_pct": -3.04,
-      "stablecoin_supply_90d_change_pct": -0.32,
-      "stablecoin_30d_acceleration_pp": -4.52,
+      "stablecoin_supply_90d_change_pct": -0.33,
+      "stablecoin_30d_acceleration_pp": -4.53,
       "source": "DefiLlama Stablecoins API"
     },
     "onchain": {
