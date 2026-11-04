@@ -1,28 +1,28 @@
 {
   "schema_version": "dge.v1",
   "symbol": "BTC-USD",
-  "as_of": "2026-11-04T09:19:25.467012+00:00",
+  "as_of": "2026-11-04T18:00:07.490454+00:00",
   "factors": {
-    "R": 28.609319776702105,
-    "L": 53.0,
-    "F": 21.336,
+    "R": 38.22802960844353,
+    "L": 76.5,
+    "F": 16.924,
     "C": 50.0,
-    "P": 17.74254312153427,
-    "V": 32.809959265534744,
-    "D": 61.1,
-    "E": 0.0,
-    "T": 65.61991853106949
+    "P": 41.46198131212181,
+    "V": 39.06669315095197,
+    "D": 70.255,
+    "E": 40.0,
+    "T": 78.13338630190394
   },
   "states": {
-    "accumulation": 0.1229044056883923,
-    "test": 0.14283932605780186,
-    "shakeout": 0.1125022717586435,
-    "markup": 0.1043376435717909,
-    "distribution": 0.19157191243375848,
-    "neutral": 0.3258444404896131
+    "accumulation": 0.15111052067620537,
+    "test": 0.15304458924328004,
+    "shakeout": 0.12731789437876093,
+    "markup": 0.1014357323749906,
+    "distribution": 0.16933123307392686,
+    "neutral": 0.2977600302528361
   },
   "dominant_state": "neutral",
-  "confidence": 0.3258444404896131,
+  "confidence": 0.2977600302528361,
   "expected_next_observations": [
     "wait for discriminating observation"
   ],
@@ -37,7 +37,7 @@
     "C": "UNAVAILABLE_NEUTRAL_50"
   },
   "methodology": "DGE_V1_RULE_BASED_BASELINE",
-  "price": 78247.12,
+  "price": 80350.0,
   "data_mode": "PARTIAL_LIVE",
   "live_factors": [
     "R",
@@ -53,21 +53,21 @@
     "C"
   ],
   "factor_status": {
-    "F": "NEUTRAL",
-    "D": "NEUTRAL",
+    "F": "NEGATIVE",
+    "D": "ACTIVE",
     "C": "DATA PENDING",
     "E": "LIVE"
   },
   "event_shock": {
-    "score": 0.0,
+    "score": 40,
     "scheduled_macro": {
       "source": "Federal Reserve FOMC calendar",
       "next_event": null
     },
     "realized_market": {
-      "daily_abs_return_pct": 1.18,
-      "return_abs_percentile": 64.0,
-      "volume_7d_vs_30d": 1.27
+      "daily_abs_return_pct": 3.9,
+      "return_abs_percentile": 92.1,
+      "volume_7d_vs_30d": 1.38
     },
     "rule": "max(scheduled_macro_risk, realized_market_shock)"
   }
