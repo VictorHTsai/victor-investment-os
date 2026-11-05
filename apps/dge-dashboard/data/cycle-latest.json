@@ -1,10 +1,10 @@
 {
   "schema_version": "btc-cycle-strategic-v1",
-  "as_of": "2026-11-04T23:43:08.448188+00:00",
+  "as_of": "2026-11-05T06:52:44.675218+00:00",
   "methodology": "BLOCK_HEIGHT_TARGET_CADENCE_500D",
   "source": "mempool.space public API",
   "target_halving_height": 1050000,
-  "current_block_height": 974600,
+  "current_block_height": 974633,
   "projection_minutes_per_block": 10.0,
   "estimated_halving": "2028-04-11",
   "exact_buy_date": "2026-11-28",
@@ -13,7 +13,7 @@
   "exact_sell_date": "2029-08-24",
   "sell_window_start": "2029-07-25",
   "sell_window_end": "2029-09-23",
-  "days_to_buy_window": -6,
+  "days_to_buy_window": -7,
   "signal": "ACCUMULATION WINDOW",
   "window_days": 30,
   "note": "Calendar halving date is an estimate; it updates as block height advances."
