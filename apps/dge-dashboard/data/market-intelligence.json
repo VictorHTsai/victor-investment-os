@@ -1,6 +1,6 @@
 {
   "schema_version": "btc-market-intelligence-v3",
-  "as_of": "2026-11-07T16:31:50.260527+00:00",
+  "as_of": "2026-11-07T20:55:05.288512+00:00",
   "modules": {
     "derivatives": {
       "status": "NEUTRAL",
@@ -20,12 +20,12 @@
       }
     },
     "stress": {
-      "status": "ELEVATED",
-      "btc_price_7d_change_pct": -2.27,
+      "status": "EXTREME",
+      "btc_price_7d_change_pct": -2.48,
       "realized_vol_7d_pct": 53.0,
       "realized_vol_30d_pct": 35.9,
-      "volume_ratio": 1.36,
-      "drawdown_30d_pct": -9.9,
+      "volume_ratio": 1.37,
+      "drawdown_30d_pct": -10.1,
       "source": "Coinbase Exchange public candles"
     },
     "capital_flow": {
@@ -37,9 +37,13 @@
       "source": "Farside Investors"
     },
     "liquidity": {
-      "status": "DATA PENDING",
-      "error": "The read operation timed out",
-      "source_attempted": "DefiLlama Stablecoins API"
+      "status": "CONTRACTING",
+      "stablecoin_supply_usd_b": 292.26,
+      "stablecoin_supply_7d_change_pct": -2.24,
+      "stablecoin_supply_30d_change_pct": -4.9,
+      "stablecoin_supply_90d_change_pct": -2.31,
+      "stablecoin_30d_acceleration_pp": -6.08,
+      "source": "DefiLlama Stablecoins API"
     },
     "onchain": {
       "status": "STABLE",
