@@ -1,19 +1,19 @@
 {
   "schema_version": "btc-market-intelligence-v3",
-  "as_of": "2026-11-11T15:16:13.155322+00:00",
+  "as_of": "2026-11-11T22:02:29.932612+00:00",
   "modules": {
     "derivatives": {
-      "status": "ACTIVE",
-      "funding_7d_avg_pct": 0.0062,
+      "status": "NEUTRAL",
+      "funding_7d_avg_pct": 0.0059,
       "funding_30d_avg_pct": 0.0069,
-      "funding_30d_percentile": 61.1,
-      "open_interest_7d_change_pct": 5.21,
-      "open_interest_30d_percentile": 96.7,
+      "funding_30d_percentile": 21.1,
+      "open_interest_7d_change_pct": 0.31,
+      "open_interest_30d_percentile": 90.0,
       "source": "OKX Public API",
       "audit": {
         "oi_observations": 30,
-        "oi_current": 3858702456.2845,
-        "oi_7d_ago": 3667767174.7752,
+        "oi_current": 3846958623.5756,
+        "oi_7d_ago": 3835179453.2754,
         "oi_30d_min": 3189769410.5172,
         "oi_30d_max": 3870001818.5646,
         "current_equals_30d_max": false
@@ -21,11 +21,11 @@
     },
     "stress": {
       "status": "ELEVATED",
-      "btc_price_7d_change_pct": -8.42,
-      "realized_vol_7d_pct": 45.2,
-      "realized_vol_30d_pct": 35.7,
-      "volume_ratio": 1.22,
-      "drawdown_30d_pct": -12.3,
+      "btc_price_7d_change_pct": -7.58,
+      "realized_vol_7d_pct": 45.7,
+      "realized_vol_30d_pct": 35.8,
+      "volume_ratio": 1.28,
+      "drawdown_30d_pct": -11.5,
       "source": "Coinbase Exchange public candles"
     },
     "capital_flow": {
@@ -38,11 +38,11 @@
     },
     "liquidity": {
       "status": "CONTRACTING",
-      "stablecoin_supply_usd_b": 291.11,
-      "stablecoin_supply_7d_change_pct": -1.58,
-      "stablecoin_supply_30d_change_pct": -4.92,
-      "stablecoin_supply_90d_change_pct": -2.76,
-      "stablecoin_30d_acceleration_pp": -5.74,
+      "stablecoin_supply_usd_b": 289.47,
+      "stablecoin_supply_7d_change_pct": -1.48,
+      "stablecoin_supply_30d_change_pct": -4.77,
+      "stablecoin_supply_90d_change_pct": -2.41,
+      "stablecoin_30d_acceleration_pp": -5.77,
       "source": "DefiLlama Stablecoins API"
     },
     "onchain": {
