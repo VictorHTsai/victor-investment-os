@@ -1,19 +1,19 @@
 {
   "schema_version": "btc-market-intelligence-v3",
-  "as_of": "2026-11-12T11:19:35.850560+00:00",
+  "as_of": "2026-11-12T19:57:43.817312+00:00",
   "modules": {
     "derivatives": {
-      "status": "NEUTRAL",
-      "funding_7d_avg_pct": 0.0058,
+      "status": "ACTIVE",
+      "funding_7d_avg_pct": 0.0057,
       "funding_30d_avg_pct": 0.007,
-      "funding_30d_percentile": 60.0,
-      "open_interest_7d_change_pct": 0.31,
-      "open_interest_30d_percentile": 90.0,
+      "funding_30d_percentile": 51.1,
+      "open_interest_7d_change_pct": 7.16,
+      "open_interest_30d_percentile": 96.7,
       "source": "OKX Public API",
       "audit": {
         "oi_observations": 30,
-        "oi_current": 3846958623.5756,
-        "oi_7d_ago": 3835179453.2754,
+        "oi_current": 3866452373.4788,
+        "oi_7d_ago": 3608004801.9181,
         "oi_30d_min": 3189769410.5172,
         "oi_30d_max": 3870001818.5646,
         "current_equals_30d_max": false
@@ -21,19 +21,19 @@
     },
     "stress": {
       "status": "NORMAL",
-      "btc_price_7d_change_pct": -3.57,
-      "realized_vol_7d_pct": 20.0,
-      "realized_vol_30d_pct": 35.4,
-      "volume_ratio": 1.0,
-      "drawdown_30d_pct": -12.8,
+      "btc_price_7d_change_pct": -5.71,
+      "realized_vol_7d_pct": 29.6,
+      "realized_vol_30d_pct": 36.9,
+      "volume_ratio": 1.12,
+      "drawdown_30d_pct": -14.8,
       "source": "Coinbase Exchange public candles"
     },
     "capital_flow": {
       "status": "NEGATIVE",
-      "etf_flow_7d_usd_m": -1478.9,
+      "etf_flow_7d_usd_m": -1363.3,
       "etf_flow_30d_usd_m": -2079.9,
       "positive_days_7d": 1,
-      "observations": 13,
+      "observations": 14,
       "source": "Farside Investors"
     },
     "liquidity": {
