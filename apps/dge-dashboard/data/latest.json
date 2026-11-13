@@ -1,28 +1,28 @@
 {
   "schema_version": "dge.v1",
   "symbol": "BTC-USD",
-  "as_of": "2026-11-13T08:02:09.129502+00:00",
+  "as_of": "2026-11-13T16:28:53.727313+00:00",
   "factors": {
-    "R": 28.13816876456315,
-    "L": 62.5,
+    "R": 28.346225957875586,
+    "L": 76.5,
     "F": 0.0,
     "C": 50.0,
     "P": 0.0,
-    "V": 22.003780233380464,
-    "D": 63.54,
+    "V": 22.47375046676346,
+    "D": 36.87,
     "E": 0.0,
-    "T": 44.00756046676093
+    "T": 44.94750093352692
   },
   "states": {
-    "accumulation": 0.12379367995342959,
-    "test": 0.1412421358942129,
-    "shakeout": 0.09795070605560079,
-    "markup": 0.09413211040475863,
-    "distribution": 0.21079293659467627,
-    "neutral": 0.3320884310973218
+    "accumulation": 0.15906676895700267,
+    "test": 0.13982096802467361,
+    "shakeout": 0.09682851748590894,
+    "markup": 0.12672241075951346,
+    "distribution": 0.15003281616789704,
+    "neutral": 0.32752851860500426
   },
   "dominant_state": "neutral",
-  "confidence": 0.3320884310973218,
+  "confidence": 0.32752851860500426,
   "expected_next_observations": [
     "wait for discriminating observation"
   ],
@@ -37,7 +37,7 @@
     "C": "UNAVAILABLE_NEUTRAL_50"
   },
   "methodology": "DGE_V1_RULE_BASED_BASELINE",
-  "price": 68537.38,
+  "price": 68682.47,
   "data_mode": "PARTIAL_LIVE",
   "live_factors": [
     "R",
@@ -54,7 +54,7 @@
   ],
   "factor_status": {
     "F": "NEGATIVE",
-    "D": "ACTIVE",
+    "D": "DELEVERAGING",
     "C": "DATA PENDING",
     "E": "LIVE"
   },
@@ -65,9 +65,9 @@
       "next_event": null
     },
     "realized_market": {
-      "daily_abs_return_pct": 3.97,
+      "daily_abs_return_pct": 3.77,
       "return_abs_percentile": 89.9,
-      "volume_7d_vs_30d": 1.12
+      "volume_7d_vs_30d": 1.21
     },
     "rule": "max(scheduled_macro_risk, realized_market_shock)"
   }
