@@ -1,28 +1,28 @@
 {
   "schema_version": "dge.v1",
   "symbol": "BTC-USD",
-  "as_of": "2026-11-14T18:08:44.269056+00:00",
+  "as_of": "2026-11-14T22:28:27.777905+00:00",
   "factors": {
-    "R": 23.950046786669944,
-    "L": 72.5,
+    "R": 22.222069023147036,
+    "L": 77.5,
     "F": 0.0,
     "C": 50.0,
     "P": 0.0,
-    "V": 12.64103188702002,
+    "V": 7.065175414645445,
     "D": 30.994999999999997,
-    "E": 40.0,
-    "T": 25.282063774040044
+    "E": 45.0,
+    "T": 14.130350829290894
   },
   "states": {
-    "accumulation": 0.17643569684336785,
-    "test": 0.14264844200312518,
-    "shakeout": 0.08845200248805735,
-    "markup": 0.12613905738011824,
-    "distribution": 0.15245378274661625,
-    "neutral": 0.31387101853871513
+    "accumulation": 0.18899182011785468,
+    "test": 0.13422767401980518,
+    "shakeout": 0.08316627289534566,
+    "markup": 0.13027054635660182,
+    "distribution": 0.15847688303540042,
+    "neutral": 0.3048668035749923
   },
   "dominant_state": "neutral",
-  "confidence": 0.31387101853871513,
+  "confidence": 0.3048668035749923,
   "expected_next_observations": [
     "wait for discriminating observation"
   ],
@@ -37,7 +37,7 @@
     "C": "UNAVAILABLE_NEUTRAL_50"
   },
   "methodology": "DGE_V1_RULE_BASED_BASELINE",
-  "price": 65854.06,
+  "price": 64127.24,
   "data_mode": "PARTIAL_LIVE",
   "live_factors": [
     "R",
@@ -59,15 +59,15 @@
     "E": "LIVE"
   },
   "event_shock": {
-    "score": 40,
+    "score": 45,
     "scheduled_macro": {
       "source": "Federal Reserve FOMC calendar",
       "next_event": null
     },
     "realized_market": {
-      "daily_abs_return_pct": 3.49,
-      "return_abs_percentile": 88.8,
-      "volume_7d_vs_30d": 1.4
+      "daily_abs_return_pct": 6.02,
+      "return_abs_percentile": 96.6,
+      "volume_7d_vs_30d": 1.46
     },
     "rule": "max(scheduled_macro_risk, realized_market_shock)"
   }
