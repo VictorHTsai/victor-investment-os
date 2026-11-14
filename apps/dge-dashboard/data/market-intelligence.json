@@ -1,31 +1,31 @@
 {
   "schema_version": "btc-market-intelligence-v3",
-  "as_of": "2026-11-14T11:31:36.921589+00:00",
+  "as_of": "2026-11-14T18:08:41.892853+00:00",
   "modules": {
     "derivatives": {
       "status": "DELEVERAGING",
       "funding_7d_avg_pct": 0.0054,
       "funding_30d_avg_pct": 0.0069,
-      "funding_30d_percentile": 3.3,
-      "open_interest_7d_change_pct": -10.62,
-      "open_interest_30d_percentile": 36.7,
+      "funding_30d_percentile": 22.2,
+      "open_interest_7d_change_pct": -14.47,
+      "open_interest_30d_percentile": 6.7,
       "source": "OKX Public API",
       "audit": {
         "oi_observations": 30,
-        "oi_current": 3458826730.1744,
-        "oi_7d_ago": 3870001818.5646,
+        "oi_current": 3243896818.3761,
+        "oi_7d_ago": 3792863457.1217,
         "oi_30d_min": 3189769410.5172,
         "oi_30d_max": 3870001818.5646,
         "current_equals_30d_max": false
       }
     },
     "stress": {
-      "status": "ELEVATED",
-      "btc_price_7d_change_pct": -11.3,
-      "realized_vol_7d_pct": 46.6,
-      "realized_vol_30d_pct": 40.2,
-      "volume_ratio": 1.33,
-      "drawdown_30d_pct": -20.0,
+      "status": "EXTREME",
+      "btc_price_7d_change_pct": -13.15,
+      "realized_vol_7d_pct": 52.4,
+      "realized_vol_30d_pct": 41.9,
+      "volume_ratio": 1.4,
+      "drawdown_30d_pct": -21.7,
       "source": "Coinbase Exchange public candles"
     },
     "capital_flow": {
@@ -38,11 +38,11 @@
     },
     "liquidity": {
       "status": "CONTRACTING",
-      "stablecoin_supply_usd_b": 287.0,
-      "stablecoin_supply_7d_change_pct": -1.52,
-      "stablecoin_supply_30d_change_pct": -5.4,
-      "stablecoin_supply_90d_change_pct": -3.23,
-      "stablecoin_30d_acceleration_pp": -6.19,
+      "stablecoin_supply_usd_b": 287.02,
+      "stablecoin_supply_7d_change_pct": -1.51,
+      "stablecoin_supply_30d_change_pct": -5.39,
+      "stablecoin_supply_90d_change_pct": -3.22,
+      "stablecoin_30d_acceleration_pp": -6.18,
       "source": "DefiLlama Stablecoins API"
     },
     "onchain": {
