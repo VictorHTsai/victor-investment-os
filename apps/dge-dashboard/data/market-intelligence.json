@@ -1,48 +1,48 @@
 {
   "schema_version": "btc-market-intelligence-v3",
-  "as_of": "2026-11-16T11:28:14.259997+00:00",
+  "as_of": "2026-11-16T22:08:50.934851+00:00",
   "modules": {
     "derivatives": {
       "status": "DELEVERAGING",
       "funding_7d_avg_pct": 0.0039,
       "funding_30d_avg_pct": 0.0065,
-      "funding_30d_percentile": 6.7,
-      "open_interest_7d_change_pct": -20.83,
+      "funding_30d_percentile": 41.1,
+      "open_interest_7d_change_pct": -22.52,
       "open_interest_30d_percentile": 3.3,
       "source": "OKX Public API",
       "audit": {
         "oi_observations": 30,
-        "oi_current": 3031688118.843,
-        "oi_7d_ago": 3829216654.6541,
-        "oi_30d_min": 3031688118.843,
+        "oi_current": 2986377872.9212,
+        "oi_7d_ago": 3854277428.2997,
+        "oi_30d_min": 2986377872.9212,
         "oi_30d_max": 3870001818.5646,
         "current_equals_30d_max": false
       }
     },
     "stress": {
       "status": "EXTREME",
-      "btc_price_7d_change_pct": -14.13,
-      "realized_vol_7d_pct": 64.7,
-      "realized_vol_30d_pct": 45.9,
-      "volume_ratio": 1.5,
-      "drawdown_30d_pct": -23.1,
+      "btc_price_7d_change_pct": -13.07,
+      "realized_vol_7d_pct": 64.3,
+      "realized_vol_30d_pct": 45.8,
+      "volume_ratio": 1.6,
+      "drawdown_30d_pct": -22.1,
       "source": "Coinbase Exchange public candles"
     },
     "capital_flow": {
       "status": "NEGATIVE",
-      "etf_flow_7d_usd_m": -1907.4,
+      "etf_flow_7d_usd_m": -1477.2,
       "etf_flow_30d_usd_m": -2835.7,
       "positive_days_7d": 0,
-      "observations": 13,
+      "observations": 14,
       "source": "Farside Investors"
     },
     "liquidity": {
       "status": "CONTRACTING",
-      "stablecoin_supply_usd_b": 287.06,
-      "stablecoin_supply_7d_change_pct": -1.43,
+      "stablecoin_supply_usd_b": 287.09,
+      "stablecoin_supply_7d_change_pct": -1.42,
       "stablecoin_supply_30d_change_pct": -5.17,
       "stablecoin_supply_90d_change_pct": -3.25,
-      "stablecoin_30d_acceleration_pp": -5.96,
+      "stablecoin_30d_acceleration_pp": -5.95,
       "source": "DefiLlama Stablecoins API"
     },
     "onchain": {
