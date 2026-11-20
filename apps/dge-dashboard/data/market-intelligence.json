@@ -1,12 +1,12 @@
 {
   "schema_version": "btc-market-intelligence-v3",
-  "as_of": "2026-11-20T03:21:25.610997+00:00",
+  "as_of": "2026-11-20T12:57:48.191838+00:00",
   "modules": {
     "derivatives": {
       "status": "DELEVERAGING",
-      "funding_7d_avg_pct": 0.0007,
-      "funding_30d_avg_pct": 0.0059,
-      "funding_30d_percentile": 5.6,
+      "funding_7d_avg_pct": 0.0008,
+      "funding_30d_avg_pct": 0.0058,
+      "funding_30d_percentile": 4.4,
       "open_interest_7d_change_pct": -21.13,
       "open_interest_30d_percentile": 13.3,
       "source": "OKX Public API",
@@ -21,28 +21,28 @@
     },
     "stress": {
       "status": "ELEVATED",
-      "btc_price_7d_change_pct": -8.9,
+      "btc_price_7d_change_pct": -9.69,
       "realized_vol_7d_pct": 53.4,
       "realized_vol_30d_pct": 46.9,
-      "volume_ratio": 1.39,
-      "drawdown_30d_pct": -23.5,
+      "volume_ratio": 1.42,
+      "drawdown_30d_pct": -24.2,
       "source": "Coinbase Exchange public candles"
     },
     "capital_flow": {
       "status": "NEGATIVE",
-      "etf_flow_7d_usd_m": -1349.0,
-      "etf_flow_30d_usd_m": -2926.7,
+      "etf_flow_7d_usd_m": -1590.3,
+      "etf_flow_30d_usd_m": -3467.8,
       "positive_days_7d": 1,
-      "observations": 14,
+      "observations": 15,
       "source": "Farside Investors"
     },
     "liquidity": {
       "status": "CONTRACTING",
-      "stablecoin_supply_usd_b": 283.63,
-      "stablecoin_supply_7d_change_pct": -1.44,
-      "stablecoin_supply_30d_change_pct": -5.89,
-      "stablecoin_supply_90d_change_pct": -5.09,
-      "stablecoin_30d_acceleration_pp": -5.86,
+      "stablecoin_supply_usd_b": 283.66,
+      "stablecoin_supply_7d_change_pct": -1.43,
+      "stablecoin_supply_30d_change_pct": -5.88,
+      "stablecoin_supply_90d_change_pct": -5.08,
+      "stablecoin_30d_acceleration_pp": -5.85,
       "source": "DefiLlama Stablecoins API"
     },
     "onchain": {
