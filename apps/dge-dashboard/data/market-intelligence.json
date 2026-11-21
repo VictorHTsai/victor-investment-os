@@ -1,31 +1,31 @@
 {
   "schema_version": "btc-market-intelligence-v3",
-  "as_of": "2026-11-21T11:09:54.247977+00:00",
+  "as_of": "2026-11-21T17:59:47.541649+00:00",
   "modules": {
     "derivatives": {
       "status": "DELEVERAGING",
-      "funding_7d_avg_pct": 0.0002,
-      "funding_30d_avg_pct": 0.0056,
-      "funding_30d_percentile": 3.3,
-      "open_interest_7d_change_pct": -15.48,
+      "funding_7d_avg_pct": -0.0,
+      "funding_30d_avg_pct": 0.0055,
+      "funding_30d_percentile": 18.9,
+      "open_interest_7d_change_pct": -12.92,
       "open_interest_30d_percentile": 3.3,
       "source": "OKX Public API",
       "audit": {
         "oi_observations": 30,
-        "oi_current": 2923530284.6432,
-        "oi_7d_ago": 3458826730.1744,
-        "oi_30d_min": 2923530284.6432,
+        "oi_current": 2824717923.0351,
+        "oi_7d_ago": 3243896818.3761,
+        "oi_30d_min": 2824717923.0351,
         "oi_30d_max": 3870001818.5646,
         "current_equals_30d_max": false
       }
     },
     "stress": {
       "status": "ELEVATED",
-      "btc_price_7d_change_pct": -9.77,
-      "realized_vol_7d_pct": 48.3,
-      "realized_vol_30d_pct": 49.2,
-      "volume_ratio": 1.5,
-      "drawdown_30d_pct": -28.8,
+      "btc_price_7d_change_pct": -6.53,
+      "realized_vol_7d_pct": 48.7,
+      "realized_vol_30d_pct": 49.3,
+      "volume_ratio": 1.56,
+      "drawdown_30d_pct": -26.2,
       "source": "Coinbase Exchange public candles"
     },
     "capital_flow": {
@@ -38,11 +38,11 @@
     },
     "liquidity": {
       "status": "CONTRACTING",
-      "stablecoin_supply_usd_b": 282.53,
+      "stablecoin_supply_usd_b": 282.51,
       "stablecoin_supply_7d_change_pct": -1.58,
       "stablecoin_supply_30d_change_pct": -6.31,
       "stablecoin_supply_90d_change_pct": -5.49,
-      "stablecoin_30d_acceleration_pp": -6.09,
+      "stablecoin_30d_acceleration_pp": -6.1,
       "source": "DefiLlama Stablecoins API"
     },
     "onchain": {
