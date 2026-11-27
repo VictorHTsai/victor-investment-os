@@ -1,12 +1,12 @@
 {
   "schema_version": "btc-market-intelligence-v3",
-  "as_of": "2026-11-26T19:39:05.758264+00:00",
+  "as_of": "2026-11-27T02:52:36.699097+00:00",
   "modules": {
     "derivatives": {
       "status": "DELEVERAGING",
-      "funding_7d_avg_pct": 0.002,
-      "funding_30d_avg_pct": 0.0048,
-      "funding_30d_percentile": 44.4,
+      "funding_7d_avg_pct": 0.0021,
+      "funding_30d_avg_pct": 0.0047,
+      "funding_30d_percentile": 22.2,
       "open_interest_7d_change_pct": -6.52,
       "open_interest_30d_percentile": 20.0,
       "source": "OKX Public API",
@@ -20,12 +20,12 @@
       }
     },
     "stress": {
-      "status": "ELEVATED",
-      "btc_price_7d_change_pct": -2.15,
-      "realized_vol_7d_pct": 46.3,
-      "realized_vol_30d_pct": 50.4,
-      "volume_ratio": 1.31,
-      "drawdown_30d_pct": -25.4,
+      "status": "NORMAL",
+      "btc_price_7d_change_pct": 4.32,
+      "realized_vol_7d_pct": 29.5,
+      "realized_vol_30d_pct": 56.9,
+      "volume_ratio": 1.04,
+      "drawdown_30d_pct": -23.7,
       "source": "Coinbase Exchange public candles"
     },
     "capital_flow": {
@@ -38,21 +38,21 @@
     },
     "liquidity": {
       "status": "CONTRACTING",
-      "stablecoin_supply_usd_b": 282.23,
-      "stablecoin_supply_7d_change_pct": -1.05,
-      "stablecoin_supply_30d_change_pct": -5.75,
-      "stablecoin_supply_90d_change_pct": -5.81,
-      "stablecoin_30d_acceleration_pp": -4.55,
+      "stablecoin_supply_usd_b": 281.88,
+      "stablecoin_supply_7d_change_pct": -0.55,
+      "stablecoin_supply_30d_change_pct": -5.87,
+      "stablecoin_supply_90d_change_pct": -5.84,
+      "stablecoin_30d_acceleration_pp": -4.2,
       "source": "DefiLlama Stablecoins API"
     },
     "onchain": {
       "status": "STABLE",
-      "active_addresses_7d_avg": 686183,
-      "active_addresses_7d_vs_30d_pct": 3.01,
-      "transactions_7d_avg": 609597,
-      "transactions_7d_vs_30d_pct": 3.63,
-      "hash_rate_30d_change_pct": -5.28,
-      "latest_observation": "2026-11-25",
+      "active_addresses_7d_avg": 679014,
+      "active_addresses_7d_vs_30d_pct": 1.68,
+      "transactions_7d_avg": 598862,
+      "transactions_7d_vs_30d_pct": 2.87,
+      "hash_rate_30d_change_pct": -18.05,
+      "latest_observation": "2026-11-26",
       "interpretation": "Network activity is mixed or near its recent baseline.",
       "source": "Coin Metrics Community API",
       "audit": {
